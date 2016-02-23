@@ -1,11 +1,11 @@
 import { Service } from 'feathers-memory';
-import debounce from 'lodash/debounce';
+import debounce from 'debounce';
 
 class LocalStorage extends Service {
   constructor(options = {}) {
     super(options);
     this.storageKey = options.name || 'feathers';
-    this.storage = options.storage || window.LocalStorage;
+    this.storage = options.storage || window.localStorage;
     this.store = JSON.parse(this.storage.getItem(this.storageKey) || '{}');
     this.write = debounce(() => 
       this.storage.setItem(this.storageKey, JSON.stringify(this.store)),
@@ -19,19 +19,27 @@ class LocalStorage extends Service {
   }
   
   create(... args) {
-    return super.create(... args).then(this.flush);
+    return super.create(... args).then(data => {
+      return this.flush.call(this, data);
+    });
   }
   
   patch(... args) {
-    return super.patch(... args).then(this.flush);
+    return super.patch(... args).then(data => {
+      return this.flush.call(this, data);
+    });
   }
   
   update(... args) {
-    return super.update(... args).then(this.flush);
+    return super.update(... args).then(data => {
+      return this.flush.call(this, data);
+    });
   }
   
   remove(... args) {
-    return super.remove(... args).then(this.flush);
+    return super.remove(... args).then(data => {
+      return this.flush.call(this, data);
+    });
   }
 }
 
