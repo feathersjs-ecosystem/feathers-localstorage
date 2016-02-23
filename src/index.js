@@ -19,27 +19,19 @@ class LocalStorage extends Service {
   }
   
   create(... args) {
-    return super.create(... args).then(data => {
-      return this.flush.call(this, data);
-    });
+    return super.create(... args).then(data => this.flush(data));
   }
   
   patch(... args) {
-    return super.patch(... args).then(data => {
-      return this.flush.call(this, data);
-    });
+    return super.patch(... args).then(data => this.flush(data));
   }
   
   update(... args) {
-    return super.update(... args).then(data => {
-      return this.flush.call(this, data);
-    });
+    return super.update(... args).then(data => this.flush(data));
   }
   
   remove(... args) {
-    return super.remove(... args).then(data => {
-      return this.flush.call(this, data);
-    });
+    return super.remove(... args).then(data => this.flush(data));
   }
 }
 
