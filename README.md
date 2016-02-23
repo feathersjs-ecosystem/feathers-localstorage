@@ -42,8 +42,7 @@ const app = feathers()
   // Turn on URL-encoded parser for REST services
   .use(bodyParser.urlencoded({ extended: true }));
 
-// Create an in-memory localstorage Feathers service with a default page size of 2 items
-// and a maximum size of 4
+// Create an in-memory localstorage Feathers service with a default page size of 2 items and a maximum size of 4
 app.use('/messages', localstorage({
   storage: storage,
   paginate: {
