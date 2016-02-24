@@ -6,14 +6,24 @@ class LocalStorage extends Service {
     super(options);
     this.storageKey = options.name || 'feathers';
     this.storage = options.storage || window.localStorage;
-    this.store = JSON.parse(this.storage.getItem(this.storageKey) || '{}');
-    this.write = debounce(() => 
-      this.storage.setItem(this.storageKey, JSON.stringify(this.store)),
-      options.throttle || 100
-    );
+    
+    try {
+      const data = JSON.parse(this.storage.getItem(this.storageKey) || '{}');
+      this.store = data;
+    }
+    catch (e) {
+      console.warn(e);
+      this.store = {};
+    }
+    
+    this.write = debounce(() => {
+      console.log('Writing data', this.store);
+      this.storage.setItem(this.storageKey, JSON.stringify(this.store));
+    }, options.throttle || 100);
   }
   
   flush(data) {
+    console.log('DATA', data, this.store);
     this.write();
     return data;
   }

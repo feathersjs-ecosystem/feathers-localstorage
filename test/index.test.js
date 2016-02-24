@@ -42,6 +42,38 @@ describe('Feathers Localstorage Service', () => {
     assert.equal(typeof require('../lib'), 'function');
   });
 
+  it('stores our data in memory', () => {
+    const person = people.store[_ids.Doug];
+    assert.equal(person.name, 'Doug');
+  });
+
+  it('persists data to localstorage', done => {
+    // we debounce writing data to localstorage so we need to 
+    // wait for it to actually be written.
+    setTimeout(function() {
+      const data = JSON.parse(people.storage.getItem(people.storageKey));
+      console.log(data);
+      const person = data[_ids.Doug];
+      assert.equal(person.name, 'Doug');
+      done();
+    }, 1000);
+  });
+
+  it('can be pre-seaded with data in localstorage', () => {
+    const data = { feathers: 'awesome' };
+
+    localstorage.setItem('test', JSON.stringify(data));
+
+    let s = service({
+      name: 'test',
+      storage: localstorage
+    });
+
+    assert.deepEqual(s.store, data);
+
+    localstorage.removeItem('test');
+  });
+
   base(people, _ids, errors);
 });
 
