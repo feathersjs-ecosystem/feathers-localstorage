@@ -17,6 +17,7 @@ const people = app.service('people');
 function clean() {
   people._uId = 0;
   people.store = {};
+  localstorage.removeItem('feathers');
 }
 
 describe('Feathers Localstorage Service', () => {
@@ -41,37 +42,63 @@ describe('Feathers Localstorage Service', () => {
   it('is CommonJS compatible', () => {
     assert.equal(typeof require('../lib'), 'function');
   });
-
-  it('stores our data in memory', () => {
-    const person = people.store[_ids.Doug];
-    assert.equal(person.name, 'Doug');
-  });
-
-  it('persists data to localstorage', done => {
-    // we debounce writing data to localstorage so we need to 
-    // wait for it to actually be written.
-    setTimeout(function() {
-      const data = JSON.parse(people.storage.getItem(people.storageKey));
-      console.log(data);
-      const person = data[_ids.Doug];
-      assert.equal(person.name, 'Doug');
-      done();
-    }, 1000);
-  });
-
-  it('can be pre-seaded with data in localstorage', () => {
-    const data = { feathers: 'awesome' };
-
-    localstorage.setItem('test', JSON.stringify(data));
-
-    let s = service({
-      name: 'test',
-      storage: localstorage
-    });
-
-    assert.deepEqual(s.store, data);
-
-    localstorage.removeItem('test');
+  
+  it('loads and sets data in storage', done => {
+    const name = 'test-storage';
+    
+    localstorage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
+    
+    const app = feathers()
+      .use('/messages', service({
+        name,
+        storage: localstorage
+      }));
+    const messageService = app.service('messages');
+      
+    messageService.create({
+      text: 'testing 1'
+    }).then(() => messageService.create({
+      text: 'testing 2'
+    })).then(() => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          
+          const data = JSON.parse(localstorage.getItem(name));
+          assert.deepEqual(data, {
+            0: {
+              id: 0,
+              text: 'test 0'
+            },
+            1: {
+              id: 1,
+              text: 'testing 1'
+            },
+            2: {
+              id: 2,
+              text: 'testing 2'
+            }
+          });
+          resolve();
+        }, 250);
+      });
+    }).then(() => {
+      return messageService.remove(0)
+        .then(() => messageService.remove(1));
+    }).then(() => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          
+          const data = JSON.parse(localstorage.getItem(name));
+          assert.deepEqual(data, {
+            2: {
+              id: 2,
+              text: 'testing 2'
+            }
+          });
+          resolve();
+        }, 250);
+      });
+    }).then(done, done);
   });
 
   base(people, _ids, errors);
