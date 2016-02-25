@@ -26,32 +26,45 @@
     "node": ">= 0.12.0"
   },
   "scripts": {
+    "clean": "rm -rf dist/ && mkdir -p dist",
     "prepublish": "npm run compile",
+    "browserify": "browserify src/index.js --full-paths -t babelify --standalone feathers.localstorage --outfile dist/localstorage.js",
+    "add-dist": "npm run clean && npm run browserify && git add dist/ --force && git commit -am \"Updating dist\"",
     "publish": "git push origin && git push origin --tags",
-    "release:patch": "npm version patch && npm publish",
-    "release:minor": "npm version minor && npm publish",
-    "release:major": "npm version major && npm publish",
+    "release:patch": "npm run add-dist && npm version patch && npm publish",
+    "release:minor": "npm run add-dist && npm version minor && npm publish",
+    "release:major": "npm run add-dist && npm version major && npm publish",
     "compile": "rm -rf lib/ && babel -d lib/ src/",
     "watch": "babel --watch -d lib/ src/",
     "jshint": "jshint src/. test/. --config",
     "mocha": "mocha test/ --compilers js:babel-core/register",
-    "test": "npm run compile && npm run jshint && npm run mocha"
+    "test": "npm run compile && npm run jshint && npm run mocha",
+    "start": "node example/app"
   },
   "directories": {
     "lib": "lib"
   },
   "dependencies": {
+    "debounce": "^1.0.0",
     "debug": "^2.2.0",
-    "feathers-memory": "^0.6.1",
-    "lodash": "^4.5.1"
+    "feathers-memory": "^0.6.3"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",
     "babel-core": "^6.5.2",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-preset-es2015": "^6.5.0",
+    "babelify": "^7.2.0",
+    "body-parser": "^1.15.0",
+    "browserify": "^13.0.0",
     "feathers": "^2.0.0",
+    "feathers-errors": "^2.0.1",
+    "feathers-rest": "^1.2.2",
+    "feathers-service-tests": "^0.5.4",
+    "feathers-socketio": "^1.3.3",
     "jshint": "^2.9.1",
-    "mocha": "^2.4.5"
+    "localstorage-memory": "^1.0.2",
+    "mocha": "^2.4.5",
+    "nsp": "^2.2.0"
   }
 }
