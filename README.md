@@ -74,6 +74,8 @@ You can run this example with `npm start` from the cloned repository and going t
 __0.1.0__
 
 - Initial release
+- Supports passing [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage.html) in React Native as `storage`
+- Supports passing [localstorage-memory](https://www.npmjs.com/package/localstorage-memory) in NodeJS as `storage`
 
 ## License
 
