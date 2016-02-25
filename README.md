@@ -28,7 +28,7 @@ var feathers = require('feathers');
 var bodyParser = require('body-parser');
 var rest = require('feathers-rest');
 var socketio = require('feathers-socketio');
-var localstorage from 'feathers-localstorage';
+var localstorage = require('feathers-localstorage');
 var storage = require('localstorage-memory');
 
 // Create a feathers instance.
