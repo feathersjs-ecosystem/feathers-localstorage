@@ -10027,45 +10027,93 @@ var LocalStorage = function (_Service) {
         var _get2;
 
         return (_get2 = _get(Object.getPrototypeOf(LocalStorage.prototype), method, _this4)).call.apply(_get2, [_this4].concat(args));
-      }).then(function (data) {
-        return _this4.flush(data);
       });
     }
   }, {
-    key: 'create',
-    value: function create() {
+    key: 'get',
+    value: function get() {
       for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
         args[_key2] = arguments[_key2];
       }
 
-      return this.execute.apply(this, ['create'].concat(args));
+      return this.execute.apply(this, ['get'].concat(args));
     }
   }, {
-    key: 'patch',
-    value: function patch() {
+    key: 'find',
+    value: function find() {
       for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
         args[_key3] = arguments[_key3];
       }
 
-      return this.execute.apply(this, ['patch'].concat(args));
+      return this.execute.apply(this, ['find'].concat(args));
+    }
+
+    // Create without hooks and mixins that can be used internally
+
+  }, {
+    key: '_create',
+    value: function _create(data) {
+      var id = data[this._id] || this._uId + 1;
+
+      // If the item already exists then just update it.
+      if (this.store[id]) {
+        return this.update(id, data);
+      }
+
+      // otherwise call our original _create method
+      return _get(Object.getPrototypeOf(LocalStorage.prototype), '_create', this).call(this, data);
     }
   }, {
-    key: 'update',
-    value: function update() {
+    key: 'create',
+    value: function create() {
+      var _this5 = this;
+
       for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
         args[_key4] = arguments[_key4];
       }
 
-      return this.execute.apply(this, ['update'].concat(args));
+      return this.execute.apply(this, ['create'].concat(args)).then(function (data) {
+        return _this5.flush(data);
+      });
     }
   }, {
-    key: 'remove',
-    value: function remove() {
+    key: 'patch',
+    value: function patch() {
+      var _this6 = this;
+
       for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
         args[_key5] = arguments[_key5];
       }
 
-      return this.execute.apply(this, ['remove'].concat(args));
+      return this.execute.apply(this, ['patch'].concat(args)).then(function (data) {
+        return _this6.flush(data);
+      });
+    }
+  }, {
+    key: 'update',
+    value: function update() {
+      var _this7 = this;
+
+      for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+        args[_key6] = arguments[_key6];
+      }
+
+      return this.execute.apply(this, ['update'].concat(args)).then(function (data) {
+        return _this7.flush(data);
+      });
+    }
+  }, {
+    key: 'remove',
+    value: function remove() {
+      var _this8 = this;
+
+      for (var _len7 = arguments.length, args = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+        args[_key7] = arguments[_key7];
+      }
+
+      return this.execute.apply(this, ['remove'].concat(args)).then(function (data) {
+        return _this8.flush(data);
+      });
     }
   }]);
 
