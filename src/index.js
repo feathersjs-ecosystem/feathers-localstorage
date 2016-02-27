@@ -53,10 +53,10 @@ class LocalStorage extends Service {
 
   // Create without hooks and mixins that can be used internally
   _create(data) {
-    let id = data[this._id] || this._uId++;
+    let id = data[this._id] || (this._uId + 1);
 
     // If the item already exists then just update it.
-    if (this.store[id]){
+    if (this.store[id]) {
       return this.update(id, data);
     }
 
