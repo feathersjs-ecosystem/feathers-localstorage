@@ -19,7 +19,7 @@ class LocalStorage extends Service {
           
           // Current id is the id of the last item
           this._uId = keys.length ? last[this._id] + 1 : 0;
-          
+
           return (this.store = store);
         });
     }
@@ -40,24 +40,48 @@ class LocalStorage extends Service {
   
   execute(method, ... args) {
     return this.ready()
-      .then(() => super[method](... args))
-      .then(data => this.flush(data));
+      .then(() => super[method](... args));
+  }
+
+  get(... args) {
+    return this.execute('get', ... args);
+  }
+
+  find(... args) {
+    return this.execute('find', ... args);
+  }
+
+  // Create without hooks and mixins that can be used internally
+  _create(data) {
+    let id = data[this._id] || this._uId++;
+
+    // If the item already exists then just update it.
+    if (this.store[id]){
+      return this.update(id, data);
+    }
+
+    // otherwise call our original _create method
+    return super._create(data);
   }
   
   create(... args) {
-    return this.execute('create', ... args);
+    return this.execute('create', ... args)
+      .then(data => this.flush(data));
   }
   
   patch(... args) {
-    return this.execute('patch', ... args);
+    return this.execute('patch', ... args)
+      .then(data => this.flush(data));
   }
   
   update(... args) {
-    return this.execute('update', ... args);
+    return this.execute('update', ... args)
+      .then(data => this.flush(data));
   }
   
   remove(... args) {
-    return this.execute('remove', ... args);
+    return this.execute('remove', ... args)
+      .then(data => this.flush(data));
   }
 }
 
