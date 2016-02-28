@@ -4,9 +4,13 @@ class LocalStorage extends Service {
   constructor(options = {}) {
     super(options);
     this._storageKey = options.name || 'feathers';
-    this._storage = options.storage || window.localStorage;
+    this._storage = options.storage || (typeof window !== 'undefined' && window.localStorage);
     this._throttle = options.throttle || 200;
     this.store = null;
+
+    if (!this._storage) {
+      throw new Error('The `storage` option needs to be provided');
+    }
   }
   
   ready() {
