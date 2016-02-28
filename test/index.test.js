@@ -1,7 +1,8 @@
 /*jshint expr: true*/
 
-import { base, example } from 'feathers-service-tests';
-import errors from 'feathers-errors';
+// import { base, example } from 'feathers-service-tests';
+// import errors from 'feathers-errors';
+import { example } from 'feathers-service-tests';
 import feathers from 'feathers';
 import assert from 'assert';
 import server from './test-app';
@@ -101,7 +102,7 @@ describe('Feathers Localstorage Service', () => {
     }).then(done, done);
   });
 
-  base(people, _ids, errors);
+  // base(people, _ids, errors);
 });
 
 describe('Localstorage service example test', () => {
