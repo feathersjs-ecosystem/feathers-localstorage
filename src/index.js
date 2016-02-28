@@ -47,8 +47,11 @@ class LocalStorage extends Service {
       .then(() => super[method](... args));
   }
 
-  get(... args) {
-    return this.execute('get', ... args);
+  get(id) {
+    return this.ready()
+      .then(() => {
+        return Promise.resolve(this.store[id]);
+      });
   }
 
   find(... args) {
