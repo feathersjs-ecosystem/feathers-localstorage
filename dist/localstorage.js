@@ -9973,9 +9973,13 @@ var LocalStorage = function (_Service) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LocalStorage).call(this, options));
 
     _this._storageKey = options.name || 'feathers';
-    _this._storage = options.storage || window.localStorage;
+    _this._storage = options.storage || typeof window !== 'undefined' && window.localStorage;
     _this._throttle = options.throttle || 200;
     _this.store = null;
+
+    if (!_this._storage) {
+      throw new Error('The `storage` option needs to be provided');
+    }
     return _this;
   }
 
@@ -10031,18 +10035,18 @@ var LocalStorage = function (_Service) {
     }
   }, {
     key: 'get',
-    value: function get() {
-      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-        args[_key2] = arguments[_key2];
-      }
+    value: function get(id) {
+      var _this5 = this;
 
-      return this.execute.apply(this, ['get'].concat(args));
+      return this.ready().then(function () {
+        return Promise.resolve(_this5.store[id]);
+      });
     }
   }, {
     key: 'find',
     value: function find() {
-      for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-        args[_key3] = arguments[_key3];
+      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
       }
 
       return this.execute.apply(this, ['find'].concat(args));
@@ -10066,53 +10070,53 @@ var LocalStorage = function (_Service) {
   }, {
     key: 'create',
     value: function create() {
-      var _this5 = this;
+      var _this6 = this;
 
-      for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-        args[_key4] = arguments[_key4];
+      for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+        args[_key3] = arguments[_key3];
       }
 
       return this.execute.apply(this, ['create'].concat(args)).then(function (data) {
-        return _this5.flush(data);
+        return _this6.flush(data);
       });
     }
   }, {
     key: 'patch',
     value: function patch() {
-      var _this6 = this;
+      var _this7 = this;
 
-      for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-        args[_key5] = arguments[_key5];
+      for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        args[_key4] = arguments[_key4];
       }
 
       return this.execute.apply(this, ['patch'].concat(args)).then(function (data) {
-        return _this6.flush(data);
+        return _this7.flush(data);
       });
     }
   }, {
     key: 'update',
     value: function update() {
-      var _this7 = this;
+      var _this8 = this;
 
-      for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-        args[_key6] = arguments[_key6];
+      for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+        args[_key5] = arguments[_key5];
       }
 
       return this.execute.apply(this, ['update'].concat(args)).then(function (data) {
-        return _this7.flush(data);
+        return _this8.flush(data);
       });
     }
   }, {
     key: 'remove',
     value: function remove() {
-      var _this8 = this;
+      var _this9 = this;
 
-      for (var _len7 = arguments.length, args = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
-        args[_key7] = arguments[_key7];
+      for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+        args[_key6] = arguments[_key6];
       }
 
       return this.execute.apply(this, ['remove'].concat(args)).then(function (data) {
-        return _this8.flush(data);
+        return _this9.flush(data);
       });
     }
   }]);
