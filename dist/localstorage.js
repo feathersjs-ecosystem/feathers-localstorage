@@ -1,17 +1,40 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}(g.feathers || (g.feathers = {})).localstorage = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-polyfill/lib/index.js":[function(require,module,exports){
 (function (global){
+/* eslint max-len: 0 */
+
 "use strict";
+
+var _Object$defineProperty = require("babel-runtime/core-js/object/define-property")["default"];
 
 require("core-js/shim");
 
 require("babel-regenerator-runtime");
 
+// Should be removed in the next major release:
+
+require("core-js/fn/regexp/escape");
+
 if (global._babelPolyfill) {
   throw new Error("only one instance of babel-polyfill is allowed");
 }
 global._babelPolyfill = true;
+
+function define(O, key, value) {
+  O[key] || _Object$defineProperty(O, key, {
+    writable: true,
+    configurable: true,
+    value: value
+  });
+}
+
+define(String.prototype, "padLeft", "".padStart);
+define(String.prototype, "padRight", "".padEnd);
+
+"pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill".split(",").forEach(function (key) {
+  [][key] && define(Array, key, Function.call.bind([][key]));
+});
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"babel-regenerator-runtime":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-regenerator-runtime/runtime.js","core-js/shim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/shim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-regenerator-runtime/runtime.js":[function(require,module,exports){
+},{"babel-regenerator-runtime":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-regenerator-runtime/runtime.js","babel-runtime/core-js/object/define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/core-js/object/define-property.js","core-js/fn/regexp/escape":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/fn/regexp/escape.js","core-js/shim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/shim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-regenerator-runtime/runtime.js":[function(require,module,exports){
 (function (process,global){
 /**
  * Copyright (c) 2014, Facebook, Inc.
@@ -672,39 +695,74 @@ global._babelPolyfill = true;
 );
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/process/browser.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.a-function.js":[function(require,module,exports){
+},{"_process":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/process/browser.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/core-js/object/define-property.js":[function(require,module,exports){
+module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
+},{"core-js/library/fn/object/define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/node_modules/core-js/library/fn/object/define-property.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/node_modules/core-js/library/fn/object/define-property.js":[function(require,module,exports){
+var $ = require('../../modules/$');
+module.exports = function defineProperty(it, key, desc){
+  return $.setDesc(it, key, desc);
+};
+},{"../../modules/$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/node_modules/core-js/library/modules/$.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/node_modules/core-js/library/modules/$.js":[function(require,module,exports){
+var $Object = Object;
+module.exports = {
+  create:     $Object.create,
+  getProto:   $Object.getPrototypeOf,
+  isEnum:     {}.propertyIsEnumerable,
+  getDesc:    $Object.getOwnPropertyDescriptor,
+  setDesc:    $Object.defineProperty,
+  setDescs:   $Object.defineProperties,
+  getKeys:    $Object.keys,
+  getNames:   $Object.getOwnPropertyNames,
+  getSymbols: $Object.getOwnPropertySymbols,
+  each:       [].forEach
+};
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/fn/regexp/escape.js":[function(require,module,exports){
+require('../../modules/core.regexp.escape');
+module.exports = require('../../modules/_core').RegExp.escape;
+},{"../../modules/_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","../../modules/core.regexp.escape":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.regexp.escape.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js":[function(require,module,exports){
 module.exports = function(it){
   if(typeof it != 'function')throw TypeError(it + ' is not a function!');
   return it;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.add-to-unscopables.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js":[function(require,module,exports){
+var cof = require('./_cof');
+module.exports = function(it, msg){
+  if(typeof it != 'number' && cof(it) != 'Number')throw TypeError(msg);
+  return +it;
+};
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js":[function(require,module,exports){
 // 22.1.3.31 Array.prototype[@@unscopables]
-var UNSCOPABLES = require('./$.wks')('unscopables')
+var UNSCOPABLES = require('./_wks')('unscopables')
   , ArrayProto  = Array.prototype;
-if(ArrayProto[UNSCOPABLES] == undefined)require('./$.hide')(ArrayProto, UNSCOPABLES, {});
+if(ArrayProto[UNSCOPABLES] == undefined)require('./_hide')(ArrayProto, UNSCOPABLES, {});
 module.exports = function(key){
   ArrayProto[UNSCOPABLES][key] = true;
 };
-},{"./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js":[function(require,module,exports){
-var isObject = require('./$.is-object');
+},{"./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js":[function(require,module,exports){
+module.exports = function(it, Constructor, name, forbiddenField){
+  if(!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)){
+    throw TypeError(name + ': incorrect invocation!');
+  } return it;
+};
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js":[function(require,module,exports){
+var isObject = require('./_is-object');
 module.exports = function(it){
   if(!isObject(it))throw TypeError(it + ' is not an object!');
   return it;
 };
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-copy-within.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js":[function(require,module,exports){
 // 22.1.3.3 Array.prototype.copyWithin(target, start, end = this.length)
 'use strict';
-var toObject = require('./$.to-object')
-  , toIndex  = require('./$.to-index')
-  , toLength = require('./$.to-length');
+var toObject = require('./_to-object')
+  , toIndex  = require('./_to-index')
+  , toLength = require('./_to-length');
 
 module.exports = [].copyWithin || function copyWithin(target/*= 0*/, start/*= 0, end = @length*/){
   var O     = toObject(this)
     , len   = toLength(O.length)
     , to    = toIndex(target, len)
     , from  = toIndex(start, len)
-    , $$    = arguments
-    , end   = $$.length > 2 ? $$[2] : undefined
+    , end   = arguments.length > 2 ? arguments[2] : undefined
     , count = Math.min((end === undefined ? len : toIndex(end, len)) - from, len - to)
     , inc   = 1;
   if(from < to && to < from + count){
@@ -719,29 +777,37 @@ module.exports = [].copyWithin || function copyWithin(target/*= 0*/, start/*= 0,
     from += inc;
   } return O;
 };
-},{"./$.to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-index.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js","./$.to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-fill.js":[function(require,module,exports){
+},{"./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js":[function(require,module,exports){
 // 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
 'use strict';
-var toObject = require('./$.to-object')
-  , toIndex  = require('./$.to-index')
-  , toLength = require('./$.to-length');
-module.exports = [].fill || function fill(value /*, start = 0, end = @length */){
+var toObject = require('./_to-object')
+  , toIndex  = require('./_to-index')
+  , toLength = require('./_to-length');
+module.exports = function fill(value /*, start = 0, end = @length */){
   var O      = toObject(this)
     , length = toLength(O.length)
-    , $$     = arguments
-    , $$len  = $$.length
-    , index  = toIndex($$len > 1 ? $$[1] : undefined, length)
-    , end    = $$len > 2 ? $$[2] : undefined
+    , aLen   = arguments.length
+    , index  = toIndex(aLen > 1 ? arguments[1] : undefined, length)
+    , end    = aLen > 2 ? arguments[2] : undefined
     , endPos = end === undefined ? length : toIndex(end, length);
   while(endPos > index)O[index++] = value;
   return O;
 };
-},{"./$.to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-index.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js","./$.to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-includes.js":[function(require,module,exports){
+},{"./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js":[function(require,module,exports){
+var forOf = require('./_for-of');
+
+module.exports = function(iter, ITERATOR){
+  var result = [];
+  forOf(iter, false, result.push, result, ITERATOR);
+  return result;
+};
+
+},{"./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js":[function(require,module,exports){
 // false -> Array#indexOf
 // true  -> Array#includes
-var toIObject = require('./$.to-iobject')
-  , toLength  = require('./$.to-length')
-  , toIndex   = require('./$.to-index');
+var toIObject = require('./_to-iobject')
+  , toLength  = require('./_to-length')
+  , toIndex   = require('./_to-index');
 module.exports = function(IS_INCLUDES){
   return function($this, el, fromIndex){
     var O      = toIObject($this)
@@ -758,7 +824,7 @@ module.exports = function(IS_INCLUDES){
     } return !IS_INCLUDES && -1;
   };
 };
-},{"./$.to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-index.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-methods.js":[function(require,module,exports){
+},{"./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js":[function(require,module,exports){
 // 0 -> Array#forEach
 // 1 -> Array#map
 // 2 -> Array#filter
@@ -766,25 +832,26 @@ module.exports = function(IS_INCLUDES){
 // 4 -> Array#every
 // 5 -> Array#find
 // 6 -> Array#findIndex
-var ctx      = require('./$.ctx')
-  , IObject  = require('./$.iobject')
-  , toObject = require('./$.to-object')
-  , toLength = require('./$.to-length')
-  , asc      = require('./$.array-species-create');
-module.exports = function(TYPE){
+var ctx      = require('./_ctx')
+  , IObject  = require('./_iobject')
+  , toObject = require('./_to-object')
+  , toLength = require('./_to-length')
+  , asc      = require('./_array-species-create');
+module.exports = function(TYPE, $create){
   var IS_MAP        = TYPE == 1
     , IS_FILTER     = TYPE == 2
     , IS_SOME       = TYPE == 3
     , IS_EVERY      = TYPE == 4
     , IS_FIND_INDEX = TYPE == 6
-    , NO_HOLES      = TYPE == 5 || IS_FIND_INDEX;
+    , NO_HOLES      = TYPE == 5 || IS_FIND_INDEX
+    , create        = $create || asc;
   return function($this, callbackfn, that){
     var O      = toObject($this)
       , self   = IObject(O)
       , f      = ctx(callbackfn, that, 3)
       , length = toLength(self.length)
       , index  = 0
-      , result = IS_MAP ? asc($this, length) : IS_FILTER ? asc($this, 0) : undefined
+      , result = IS_MAP ? create($this, length) : IS_FILTER ? create($this, 0) : undefined
       , val, res;
     for(;length > index; index++)if(NO_HOLES || index in self){
       val = self[index];
@@ -802,11 +869,40 @@ module.exports = function(TYPE){
     return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
   };
 };
-},{"./$.array-species-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-species-create.js","./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iobject.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js","./$.to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-species-create.js":[function(require,module,exports){
+},{"./_array-species-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-species-create.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js":[function(require,module,exports){
+var aFunction = require('./_a-function')
+  , toObject  = require('./_to-object')
+  , IObject   = require('./_iobject')
+  , toLength  = require('./_to-length');
+
+module.exports = function(that, callbackfn, aLen, memo, isRight){
+  aFunction(callbackfn);
+  var O      = toObject(that)
+    , self   = IObject(O)
+    , length = toLength(O.length)
+    , index  = isRight ? length - 1 : 0
+    , i      = isRight ? -1 : 1;
+  if(aLen < 2)for(;;){
+    if(index in self){
+      memo = self[index];
+      index += i;
+      break;
+    }
+    index += i;
+    if(isRight ? index < 0 : length <= index){
+      throw TypeError('Reduce of empty array with no initial value');
+    }
+  }
+  for(;isRight ? index >= 0 : length > index; index += i)if(index in self){
+    memo = callbackfn(memo, self[index], index, O);
+  }
+  return memo;
+};
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-species-create.js":[function(require,module,exports){
 // 9.4.2.3 ArraySpeciesCreate(originalArray, length)
-var isObject = require('./$.is-object')
-  , isArray  = require('./$.is-array')
-  , SPECIES  = require('./$.wks')('species');
+var isObject = require('./_is-object')
+  , isArray  = require('./_is-array')
+  , SPECIES  = require('./_wks')('species');
 module.exports = function(original, length){
   var C;
   if(isArray(original)){
@@ -819,10 +915,35 @@ module.exports = function(original, length){
     }
   } return new (C === undefined ? Array : C)(length);
 };
-},{"./$.is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-array.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.classof.js":[function(require,module,exports){
+},{"./_is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js":[function(require,module,exports){
+'use strict';
+var aFunction  = require('./_a-function')
+  , isObject   = require('./_is-object')
+  , invoke     = require('./_invoke')
+  , arraySlice = [].slice
+  , factories  = {};
+
+var construct = function(F, len, args){
+  if(!(len in factories)){
+    for(var n = [], i = 0; i < len; i++)n[i] = 'a[' + i + ']';
+    factories[len] = Function('F,a', 'return new F(' + n.join(',') + ')');
+  } return factories[len](F, args);
+};
+
+module.exports = Function.bind || function bind(that /*, args... */){
+  var fn       = aFunction(this)
+    , partArgs = arraySlice.call(arguments, 1);
+  var bound = function(/* args... */){
+    var args = partArgs.concat(arraySlice.call(arguments));
+    return this instanceof bound ? construct(fn, args.length, args) : invoke(fn, args, that);
+  };
+  if(isObject(fn.prototype))bound.prototype = fn.prototype;
+  return bound;
+};
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js":[function(require,module,exports){
 // getting tag from 19.1.3.6 Object.prototype.toString()
-var cof = require('./$.cof')
-  , TAG = require('./$.wks')('toStringTag')
+var cof = require('./_cof')
+  , TAG = require('./_wks')('toStringTag')
   // ES3 wrong here
   , ARG = cof(function(){ return arguments; }()) == 'Arguments';
 
@@ -836,45 +957,28 @@ module.exports = function(it){
     // ES3 arguments fallback
     : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
 };
-},{"./$.cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js":[function(require,module,exports){
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js":[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = function(it){
   return toString.call(it).slice(8, -1);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-strong.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js":[function(require,module,exports){
 'use strict';
-var $            = require('./$')
-  , hide         = require('./$.hide')
-  , redefineAll  = require('./$.redefine-all')
-  , ctx          = require('./$.ctx')
-  , strictNew    = require('./$.strict-new')
-  , defined      = require('./$.defined')
-  , forOf        = require('./$.for-of')
-  , $iterDefine  = require('./$.iter-define')
-  , step         = require('./$.iter-step')
-  , ID           = require('./$.uid')('id')
-  , $has         = require('./$.has')
-  , isObject     = require('./$.is-object')
-  , setSpecies   = require('./$.set-species')
-  , DESCRIPTORS  = require('./$.descriptors')
-  , isExtensible = Object.isExtensible || isObject
-  , SIZE         = DESCRIPTORS ? '_s' : 'size'
-  , id           = 0;
-
-var fastKey = function(it, create){
-  // return primitive with prefix
-  if(!isObject(it))return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
-  if(!$has(it, ID)){
-    // can't set id to frozen object
-    if(!isExtensible(it))return 'F';
-    // not necessary to add id
-    if(!create)return 'E';
-    // add missing object id
-    hide(it, ID, ++id);
-  // return object id with prefix
-  } return 'O' + it[ID];
-};
+var dP          = require('./_object-dp').f
+  , create      = require('./_object-create')
+  , hide        = require('./_hide')
+  , redefineAll = require('./_redefine-all')
+  , ctx         = require('./_ctx')
+  , anInstance  = require('./_an-instance')
+  , defined     = require('./_defined')
+  , forOf       = require('./_for-of')
+  , $iterDefine = require('./_iter-define')
+  , step        = require('./_iter-step')
+  , setSpecies  = require('./_set-species')
+  , DESCRIPTORS = require('./_descriptors')
+  , fastKey     = require('./_meta').fastKey
+  , SIZE        = DESCRIPTORS ? '_s' : 'size';
 
 var getEntry = function(that, key){
   // fast case
@@ -889,11 +993,11 @@ var getEntry = function(that, key){
 module.exports = {
   getConstructor: function(wrapper, NAME, IS_MAP, ADDER){
     var C = wrapper(function(that, iterable){
-      strictNew(that, C, NAME);
-      that._i = $.create(null); // index
-      that._f = undefined;      // first entry
-      that._l = undefined;      // last entry
-      that[SIZE] = 0;           // size
+      anInstance(that, C, NAME, '_i');
+      that._i = create(null); // index
+      that._f = undefined;    // first entry
+      that._l = undefined;    // last entry
+      that[SIZE] = 0;         // size
       if(iterable != undefined)forOf(iterable, IS_MAP, that[ADDER], that);
     });
     redefineAll(C.prototype, {
@@ -928,6 +1032,7 @@ module.exports = {
       // 23.2.3.6 Set.prototype.forEach(callbackfn, thisArg = undefined)
       // 23.1.3.5 Map.prototype.forEach(callbackfn, thisArg = undefined)
       forEach: function forEach(callbackfn /*, that = undefined */){
+        anInstance(this, C, 'forEach');
         var f = ctx(callbackfn, arguments.length > 1 ? arguments[1] : undefined, 3)
           , entry;
         while(entry = entry ? entry.n : this._f){
@@ -942,7 +1047,7 @@ module.exports = {
         return !!getEntry(this, key);
       }
     });
-    if(DESCRIPTORS)$.setDesc(C.prototype, 'size', {
+    if(DESCRIPTORS)dP(C.prototype, 'size', {
       get: function(){
         return defined(this[SIZE]);
       }
@@ -1002,56 +1107,52 @@ module.exports = {
     setSpecies(NAME);
   }
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.for-of.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-define.js","./$.iter-step":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-step.js","./$.redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine-all.js","./$.set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-species.js","./$.strict-new":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.strict-new.js","./$.uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-to-json.js":[function(require,module,exports){
+},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_iter-step":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js":[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
-var forOf   = require('./$.for-of')
-  , classof = require('./$.classof');
+var classof = require('./_classof')
+  , from    = require('./_array-from-iterable');
 module.exports = function(NAME){
   return function toJSON(){
     if(classof(this) != NAME)throw TypeError(NAME + "#toJSON isn't generic");
-    var arr = [];
-    forOf(this, false, arr.push, arr);
-    return arr;
+    return from(this);
   };
 };
-},{"./$.classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.classof.js","./$.for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.for-of.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-weak.js":[function(require,module,exports){
+},{"./_array-from-iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js","./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js":[function(require,module,exports){
 'use strict';
-var hide              = require('./$.hide')
-  , redefineAll       = require('./$.redefine-all')
-  , anObject          = require('./$.an-object')
-  , isObject          = require('./$.is-object')
-  , strictNew         = require('./$.strict-new')
-  , forOf             = require('./$.for-of')
-  , createArrayMethod = require('./$.array-methods')
-  , $has              = require('./$.has')
-  , WEAK              = require('./$.uid')('weak')
-  , isExtensible      = Object.isExtensible || isObject
+var redefineAll       = require('./_redefine-all')
+  , getWeak           = require('./_meta').getWeak
+  , anObject          = require('./_an-object')
+  , isObject          = require('./_is-object')
+  , anInstance        = require('./_an-instance')
+  , forOf             = require('./_for-of')
+  , createArrayMethod = require('./_array-methods')
+  , $has              = require('./_has')
   , arrayFind         = createArrayMethod(5)
   , arrayFindIndex    = createArrayMethod(6)
   , id                = 0;
 
-// fallback for frozen keys
-var frozenStore = function(that){
-  return that._l || (that._l = new FrozenStore);
+// fallback for uncaught frozen keys
+var uncaughtFrozenStore = function(that){
+  return that._l || (that._l = new UncaughtFrozenStore);
 };
-var FrozenStore = function(){
+var UncaughtFrozenStore = function(){
   this.a = [];
 };
-var findFrozen = function(store, key){
+var findUncaughtFrozen = function(store, key){
   return arrayFind(store.a, function(it){
     return it[0] === key;
   });
 };
-FrozenStore.prototype = {
+UncaughtFrozenStore.prototype = {
   get: function(key){
-    var entry = findFrozen(this, key);
+    var entry = findUncaughtFrozen(this, key);
     if(entry)return entry[1];
   },
   has: function(key){
-    return !!findFrozen(this, key);
+    return !!findUncaughtFrozen(this, key);
   },
   set: function(key, value){
-    var entry = findFrozen(this, key);
+    var entry = findUncaughtFrozen(this, key);
     if(entry)entry[1] = value;
     else this.a.push([key, value]);
   },
@@ -1067,9 +1168,9 @@ FrozenStore.prototype = {
 module.exports = {
   getConstructor: function(wrapper, NAME, IS_MAP, ADDER){
     var C = wrapper(function(that, iterable){
-      strictNew(that, C, NAME);
+      anInstance(that, C, NAME, '_i');
       that._i = id++;      // collection id
-      that._l = undefined; // leak store for frozen objects
+      that._l = undefined; // leak store for uncaught frozen objects
       if(iterable != undefined)forOf(iterable, IS_MAP, that[ADDER], that);
     });
     redefineAll(C.prototype, {
@@ -1077,42 +1178,43 @@ module.exports = {
       // 23.4.3.3 WeakSet.prototype.delete(value)
       'delete': function(key){
         if(!isObject(key))return false;
-        if(!isExtensible(key))return frozenStore(this)['delete'](key);
-        return $has(key, WEAK) && $has(key[WEAK], this._i) && delete key[WEAK][this._i];
+        var data = getWeak(key);
+        if(data === true)return uncaughtFrozenStore(this)['delete'](key);
+        return data && $has(data, this._i) && delete data[this._i];
       },
       // 23.3.3.4 WeakMap.prototype.has(key)
       // 23.4.3.4 WeakSet.prototype.has(value)
       has: function has(key){
         if(!isObject(key))return false;
-        if(!isExtensible(key))return frozenStore(this).has(key);
-        return $has(key, WEAK) && $has(key[WEAK], this._i);
+        var data = getWeak(key);
+        if(data === true)return uncaughtFrozenStore(this).has(key);
+        return data && $has(data, this._i);
       }
     });
     return C;
   },
   def: function(that, key, value){
-    if(!isExtensible(anObject(key))){
-      frozenStore(that).set(key, value);
-    } else {
-      $has(key, WEAK) || hide(key, WEAK, {});
-      key[WEAK][that._i] = value;
-    } return that;
+    var data = getWeak(anObject(key), true);
+    if(data === true)uncaughtFrozenStore(that).set(key, value);
+    else data[that._i] = value;
+    return that;
   },
-  frozenStore: frozenStore,
-  WEAK: WEAK
+  ufstore: uncaughtFrozenStore
 };
-},{"./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-methods.js","./$.for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.for-of.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine-all.js","./$.strict-new":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.strict-new.js","./$.uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection.js":[function(require,module,exports){
+},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js":[function(require,module,exports){
 'use strict';
-var global         = require('./$.global')
-  , $export        = require('./$.export')
-  , redefine       = require('./$.redefine')
-  , redefineAll    = require('./$.redefine-all')
-  , forOf          = require('./$.for-of')
-  , strictNew      = require('./$.strict-new')
-  , isObject       = require('./$.is-object')
-  , fails          = require('./$.fails')
-  , $iterDetect    = require('./$.iter-detect')
-  , setToStringTag = require('./$.set-to-string-tag');
+var global            = require('./_global')
+  , $export           = require('./_export')
+  , redefine          = require('./_redefine')
+  , redefineAll       = require('./_redefine-all')
+  , meta              = require('./_meta')
+  , forOf             = require('./_for-of')
+  , anInstance        = require('./_an-instance')
+  , isObject          = require('./_is-object')
+  , fails             = require('./_fails')
+  , $iterDetect       = require('./_iter-detect')
+  , setToStringTag    = require('./_set-to-string-tag')
+  , inheritIfRequired = require('./_inherit-if-required');
 
 module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
   var Base  = global[NAME]
@@ -1139,6 +1241,7 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
     // create collection constructor
     C = common.getConstructor(wrapper, NAME, IS_MAP, ADDER);
     redefineAll(C.prototype, methods);
+    meta.NEED = true;
   } else {
     var instance             = new C
       // early implementations not supports chaining
@@ -1148,20 +1251,23 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
       // most early implementations doesn't supports iterables, most modern - not close it correctly
       , ACCEPT_ITERABLES     = $iterDetect(function(iter){ new C(iter); }) // eslint-disable-line no-new
       // for early implementations -0 and +0 not the same
-      , BUGGY_ZERO;
+      , BUGGY_ZERO = !IS_WEAK && fails(function(){
+        // V8 ~ Chromium 42- fails only with 5+ elements
+        var $instance = new C()
+          , index     = 5;
+        while(index--)$instance[ADDER](index, index);
+        return !$instance.has(-0);
+      });
     if(!ACCEPT_ITERABLES){ 
       C = wrapper(function(target, iterable){
-        strictNew(target, C, NAME);
-        var that = new Base;
+        anInstance(target, C, NAME);
+        var that = inheritIfRequired(new Base, target, C);
         if(iterable != undefined)forOf(iterable, IS_MAP, that[ADDER], that);
         return that;
       });
       C.prototype = proto;
       proto.constructor = C;
     }
-    IS_WEAK || instance.forEach(function(val, key){
-      BUGGY_ZERO = 1 / key === -Infinity;
-    });
     if(THROWS_ON_PRIMITIVES || BUGGY_ZERO){
       fixMethod('delete');
       fixMethod('has');
@@ -1181,12 +1287,12 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
 
   return C;
 };
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.for-of.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-detect.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js","./$.redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine-all.js","./$.set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-to-string-tag.js","./$.strict-new":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.strict-new.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js":[function(require,module,exports){
-var core = module.exports = {version: '1.2.6'};
+},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_inherit-if-required":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js":[function(require,module,exports){
+var core = module.exports = {version: '2.1.3'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js":[function(require,module,exports){
 // optional / simple context binding
-var aFunction = require('./$.a-function');
+var aFunction = require('./_a-function');
 module.exports = function(fn, that, length){
   aFunction(fn);
   if(that === undefined)return fn;
@@ -1205,46 +1311,52 @@ module.exports = function(fn, that, length){
     return fn.apply(that, arguments);
   };
 };
-},{"./$.a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.a-function.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js":[function(require,module,exports){
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js":[function(require,module,exports){
 // 7.2.1 RequireObjectCoercible(argument)
 module.exports = function(it){
   if(it == undefined)throw TypeError("Can't call method on  " + it);
   return it;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js":[function(require,module,exports){
 // Thank's IE8 for his funny defineProperty
-module.exports = !require('./$.fails')(function(){
+module.exports = !require('./_fails')(function(){
   return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 });
-},{"./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.dom-create.js":[function(require,module,exports){
-var isObject = require('./$.is-object')
-  , document = require('./$.global').document
+},{"./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js":[function(require,module,exports){
+var isObject = require('./_is-object')
+  , document = require('./_global').document
   // in old IE typeof document.createElement is 'object'
   , is = isObject(document) && isObject(document.createElement);
 module.exports = function(it){
   return is ? document.createElement(it) : {};
 };
-},{"./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.enum-keys.js":[function(require,module,exports){
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js":[function(require,module,exports){
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-keys.js":[function(require,module,exports){
 // all enumerable object keys, includes symbols
-var $ = require('./$');
+var getKeys = require('./_object-keys')
+  , gOPS    = require('./_object-gops')
+  , pIE     = require('./_object-pie');
 module.exports = function(it){
-  var keys       = $.getKeys(it)
-    , getSymbols = $.getSymbols;
+  var result     = getKeys(it)
+    , getSymbols = gOPS.f;
   if(getSymbols){
     var symbols = getSymbols(it)
-      , isEnum  = $.isEnum
+      , isEnum  = pIE.f
       , i       = 0
       , key;
-    while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))keys.push(key);
-  }
-  return keys;
+    while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))result.push(key);
+  } return result;
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js":[function(require,module,exports){
-var global    = require('./$.global')
-  , core      = require('./$.core')
-  , hide      = require('./$.hide')
-  , redefine  = require('./$.redefine')
-  , ctx       = require('./$.ctx')
+},{"./_object-gops":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js":[function(require,module,exports){
+var global    = require('./_global')
+  , core      = require('./_core')
+  , hide      = require('./_hide')
+  , redefine  = require('./_redefine')
+  , ctx       = require('./_ctx')
   , PROTOTYPE = 'prototype';
 
 var $export = function(type, name, source){
@@ -1260,13 +1372,13 @@ var $export = function(type, name, source){
   if(IS_GLOBAL)source = name;
   for(key in source){
     // contains in native
-    own = !IS_FORCED && target && key in target;
+    own = !IS_FORCED && target && target[key] !== undefined;
     // export native or passed
     out = (own ? target : source)[key];
     // bind timers to global for call from export context
     exp = IS_BIND && own ? ctx(out, global) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
     // extend global
-    if(target && !own)redefine(target, key, out);
+    if(target)redefine(target, key, out, type & $export.U);
     // export
     if(exports[key] != out)hide(exports, key, exp);
     if(IS_PROTO && expProto[key] != out)expProto[key] = out;
@@ -1274,15 +1386,17 @@ var $export = function(type, name, source){
 };
 global.core = core;
 // type bitmap
-$export.F = 1;  // forced
-$export.G = 2;  // global
-$export.S = 4;  // static
-$export.P = 8;  // proto
-$export.B = 16; // bind
-$export.W = 32; // wrap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library` 
 module.exports = $export;
-},{"./$.core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js","./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails-is-regexp.js":[function(require,module,exports){
-var MATCH = require('./$.wks')('match');
+},{"./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js":[function(require,module,exports){
+var MATCH = require('./_wks')('match');
 module.exports = function(KEY){
   var re = /./;
   try {
@@ -1294,7 +1408,7 @@ module.exports = function(KEY){
     } catch(f){ /* empty */ }
   } return true;
 };
-},{"./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js":[function(require,module,exports){
+},{"./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js":[function(require,module,exports){
 module.exports = function(exec){
   try {
     return !!exec();
@@ -1302,37 +1416,39 @@ module.exports = function(exec){
     return true;
   }
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fix-re-wks.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js":[function(require,module,exports){
 'use strict';
-var hide     = require('./$.hide')
-  , redefine = require('./$.redefine')
-  , fails    = require('./$.fails')
-  , defined  = require('./$.defined')
-  , wks      = require('./$.wks');
+var hide     = require('./_hide')
+  , redefine = require('./_redefine')
+  , fails    = require('./_fails')
+  , defined  = require('./_defined')
+  , wks      = require('./_wks');
 
 module.exports = function(KEY, length, exec){
   var SYMBOL   = wks(KEY)
-    , original = ''[KEY];
+    , fns      = exec(defined, SYMBOL, ''[KEY])
+    , strfn    = fns[0]
+    , rxfn     = fns[1];
   if(fails(function(){
     var O = {};
     O[SYMBOL] = function(){ return 7; };
     return ''[KEY](O) != 7;
   })){
-    redefine(String.prototype, KEY, exec(defined, SYMBOL, original));
+    redefine(String.prototype, KEY, strfn);
     hide(RegExp.prototype, SYMBOL, length == 2
       // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
       // 21.2.5.11 RegExp.prototype[@@split](string, limit)
-      ? function(string, arg){ return original.call(string, this, arg); }
+      ? function(string, arg){ return rxfn.call(string, this, arg); }
       // 21.2.5.6 RegExp.prototype[@@match](string)
       // 21.2.5.9 RegExp.prototype[@@search](string)
-      : function(string){ return original.call(string, this); }
+      : function(string){ return rxfn.call(string, this); }
     );
   }
 };
-},{"./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.flags.js":[function(require,module,exports){
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js":[function(require,module,exports){
 'use strict';
 // 21.2.5.3 get RegExp.prototype.flags
-var anObject = require('./$.an-object');
+var anObject = require('./_an-object');
 module.exports = function(){
   var that   = anObject(this)
     , result = '';
@@ -1343,15 +1459,15 @@ module.exports = function(){
   if(that.sticky)     result += 'y';
   return result;
 };
-},{"./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.for-of.js":[function(require,module,exports){
-var ctx         = require('./$.ctx')
-  , call        = require('./$.iter-call')
-  , isArrayIter = require('./$.is-array-iter')
-  , anObject    = require('./$.an-object')
-  , toLength    = require('./$.to-length')
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js":[function(require,module,exports){
+var ctx         = require('./_ctx')
+  , call        = require('./_iter-call')
+  , isArrayIter = require('./_is-array-iter')
+  , anObject    = require('./_an-object')
+  , toLength    = require('./_to-length')
   , getIterFn   = require('./core.get-iterator-method');
-module.exports = function(iterable, entries, fn, that){
-  var iterFn = getIterFn(iterable)
+module.exports = function(iterable, entries, fn, that, ITERATOR){
+  var iterFn = ITERATOR ? function(){ return iterable; } : getIterFn(iterable)
     , f      = ctx(fn, that, entries ? 2 : 1)
     , index  = 0
     , length, step, iterator;
@@ -1363,49 +1479,41 @@ module.exports = function(iterable, entries, fn, that){
     call(iterator, f, step.value, entries);
   }
 };
-},{"./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.is-array-iter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-array-iter.js","./$.iter-call":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-call.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js","./core.get-iterator-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.get-names.js":[function(require,module,exports){
-// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-var toIObject = require('./$.to-iobject')
-  , getNames  = require('./$').getNames
-  , toString  = {}.toString;
-
-var windowNames = typeof window == 'object' && Object.getOwnPropertyNames
-  ? Object.getOwnPropertyNames(window) : [];
-
-var getWindowNames = function(it){
-  try {
-    return getNames(it);
-  } catch(e){
-    return windowNames.slice();
-  }
-};
-
-module.exports.get = function getOwnPropertyNames(it){
-  if(windowNames && toString.call(it) == '[object Window]')return getWindowNames(it);
-  return getNames(toIObject(it));
-};
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_is-array-iter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_iter-call":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./core.get-iterator-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js":[function(require,module,exports){
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
   ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
 if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js":[function(require,module,exports){
 var hasOwnProperty = {}.hasOwnProperty;
 module.exports = function(it, key){
   return hasOwnProperty.call(it, key);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js":[function(require,module,exports){
-var $          = require('./$')
-  , createDesc = require('./$.property-desc');
-module.exports = require('./$.descriptors') ? function(object, key, value){
-  return $.setDesc(object, key, createDesc(1, value));
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js":[function(require,module,exports){
+var dP         = require('./_object-dp')
+  , createDesc = require('./_property-desc');
+module.exports = require('./_descriptors') ? function(object, key, value){
+  return dP.f(object, key, createDesc(1, value));
 } : function(object, key, value){
   object[key] = value;
   return object;
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.html.js":[function(require,module,exports){
-module.exports = require('./$.global').document && document.documentElement;
-},{"./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.invoke.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js":[function(require,module,exports){
+module.exports = require('./_global').document && document.documentElement;
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js":[function(require,module,exports){
+module.exports = !require('./_descriptors') && !require('./_fails')(function(){
+  return Object.defineProperty(require('./_dom-create')('div'), 'a', {get: function(){ return 7; }}).a != 7;
+});
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_dom-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js":[function(require,module,exports){
+var isObject       = require('./_is-object')
+  , setPrototypeOf = require('./_set-proto').set;
+module.exports = function(that, target, C){
+  var P, S = target.constructor;
+  if(S !== C && typeof S == 'function' && (P = S.prototype) !== C.prototype && isObject(P) && setPrototypeOf){
+    setPrototypeOf(that, P);
+  } return that;
+};
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js":[function(require,module,exports){
 // fast apply, http://jsperf.lnkit.com/fast-apply/5
 module.exports = function(fn, args, that){
   var un = that === undefined;
@@ -1422,50 +1530,50 @@ module.exports = function(fn, args, that){
                       : fn.call(that, args[0], args[1], args[2], args[3]);
   } return              fn.apply(that, args);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iobject.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js":[function(require,module,exports){
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = require('./$.cof');
+var cof = require('./_cof');
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
-},{"./$.cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-array-iter.js":[function(require,module,exports){
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js":[function(require,module,exports){
 // check on default Array iterator
-var Iterators  = require('./$.iterators')
-  , ITERATOR   = require('./$.wks')('iterator')
+var Iterators  = require('./_iterators')
+  , ITERATOR   = require('./_wks')('iterator')
   , ArrayProto = Array.prototype;
 
 module.exports = function(it){
   return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
 };
-},{"./$.iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iterators.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-array.js":[function(require,module,exports){
+},{"./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js":[function(require,module,exports){
 // 7.2.2 IsArray(argument)
-var cof = require('./$.cof');
-module.exports = Array.isArray || function(arg){
+var cof = require('./_cof');
+module.exports = Array.isArray || function isArray(arg){
   return cof(arg) == 'Array';
 };
-},{"./$.cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-integer.js":[function(require,module,exports){
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js":[function(require,module,exports){
 // 20.1.2.3 Number.isInteger(number)
-var isObject = require('./$.is-object')
+var isObject = require('./_is-object')
   , floor    = Math.floor;
 module.exports = function isInteger(it){
   return !isObject(it) && isFinite(it) && floor(it) === it;
 };
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js":[function(require,module,exports){
 module.exports = function(it){
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-regexp.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js":[function(require,module,exports){
 // 7.2.8 IsRegExp(argument)
-var isObject = require('./$.is-object')
-  , cof      = require('./$.cof')
-  , MATCH    = require('./$.wks')('match');
+var isObject = require('./_is-object')
+  , cof      = require('./_cof')
+  , MATCH    = require('./_wks')('match');
 module.exports = function(it){
   var isRegExp;
   return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
 };
-},{"./$.cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-call.js":[function(require,module,exports){
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js":[function(require,module,exports){
 // call something on iterator step with safe closing on error
-var anObject = require('./$.an-object');
+var anObject = require('./_an-object');
 module.exports = function(iterator, fn, value, entries){
   try {
     return entries ? fn(anObject(value)[0], value[1]) : fn(value);
@@ -1476,32 +1584,32 @@ module.exports = function(iterator, fn, value, entries){
     throw e;
   }
 };
-},{"./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-create.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js":[function(require,module,exports){
 'use strict';
-var $              = require('./$')
-  , descriptor     = require('./$.property-desc')
-  , setToStringTag = require('./$.set-to-string-tag')
+var create         = require('./_object-create')
+  , descriptor     = require('./_property-desc')
+  , setToStringTag = require('./_set-to-string-tag')
   , IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-require('./$.hide')(IteratorPrototype, require('./$.wks')('iterator'), function(){ return this; });
+require('./_hide')(IteratorPrototype, require('./_wks')('iterator'), function(){ return this; });
 
 module.exports = function(Constructor, NAME, next){
-  Constructor.prototype = $.create(IteratorPrototype, {next: descriptor(1, next)});
+  Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
   setToStringTag(Constructor, NAME + ' Iterator');
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.property-desc.js","./$.set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-to-string-tag.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-define.js":[function(require,module,exports){
+},{"./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js":[function(require,module,exports){
 'use strict';
-var LIBRARY        = require('./$.library')
-  , $export        = require('./$.export')
-  , redefine       = require('./$.redefine')
-  , hide           = require('./$.hide')
-  , has            = require('./$.has')
-  , Iterators      = require('./$.iterators')
-  , $iterCreate    = require('./$.iter-create')
-  , setToStringTag = require('./$.set-to-string-tag')
-  , getProto       = require('./$').getProto
-  , ITERATOR       = require('./$.wks')('iterator')
+var LIBRARY        = require('./_library')
+  , $export        = require('./_export')
+  , redefine       = require('./_redefine')
+  , hide           = require('./_hide')
+  , has            = require('./_has')
+  , Iterators      = require('./_iterators')
+  , $iterCreate    = require('./_iter-create')
+  , setToStringTag = require('./_set-to-string-tag')
+  , getPrototypeOf = require('./_object-gpo')
+  , ITERATOR       = require('./_wks')('iterator')
   , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
   , FF_ITERATOR    = '@@iterator'
   , KEYS           = 'keys'
@@ -1524,19 +1632,23 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
     , proto      = Base.prototype
     , $native    = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT]
     , $default   = $native || getMethod(DEFAULT)
-    , methods, key;
+    , $entries   = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined
+    , $anyNative = NAME == 'Array' ? proto.entries || $native : $native
+    , methods, key, IteratorPrototype;
   // Fix native
-  if($native){
-    var IteratorPrototype = getProto($default.call(new Base));
-    // Set @@toStringTag to native iterators
-    setToStringTag(IteratorPrototype, TAG, true);
-    // FF fix
-    if(!LIBRARY && has(proto, FF_ITERATOR))hide(IteratorPrototype, ITERATOR, returnThis);
-    // fix Array#{values, @@iterator}.name in V8 / FF
-    if(DEF_VALUES && $native.name !== VALUES){
-      VALUES_BUG = true;
-      $default = function values(){ return $native.call(this); };
+  if($anyNative){
+    IteratorPrototype = getPrototypeOf($anyNative.call(new Base));
+    if(IteratorPrototype !== Object.prototype){
+      // Set @@toStringTag to native iterators
+      setToStringTag(IteratorPrototype, TAG, true);
+      // fix for some old engines
+      if(!LIBRARY && !has(IteratorPrototype, ITERATOR))hide(IteratorPrototype, ITERATOR, returnThis);
     }
+  }
+  // fix Array#{values, @@iterator}.name in V8 / FF
+  if(DEF_VALUES && $native && $native.name !== VALUES){
+    VALUES_BUG = true;
+    $default = function values(){ return $native.call(this); };
   }
   // Define iterator
   if((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])){
@@ -1547,9 +1659,9 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
   Iterators[TAG]  = returnThis;
   if(DEFAULT){
     methods = {
-      values:  DEF_VALUES  ? $default : getMethod(VALUES),
-      keys:    IS_SET      ? $default : getMethod(KEYS),
-      entries: !DEF_VALUES ? $default : getMethod('entries')
+      values:  DEF_VALUES ? $default : getMethod(VALUES),
+      keys:    IS_SET     ? $default : getMethod(KEYS),
+      entries: $entries
     };
     if(FORCED)for(key in methods){
       if(!(key in proto))redefine(proto, key, methods[key]);
@@ -1557,8 +1669,8 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
   }
   return methods;
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.iter-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-create.js","./$.iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iterators.js","./$.library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.library.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js","./$.set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-to-string-tag.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-detect.js":[function(require,module,exports){
-var ITERATOR     = require('./$.wks')('iterator')
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iter-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js":[function(require,module,exports){
+var ITERATOR     = require('./_wks')('iterator')
   , SAFE_CLOSING = false;
 
 try {
@@ -1579,61 +1691,153 @@ module.exports = function(exec, skipClosing){
   } catch(e){ /* empty */ }
   return safe;
 };
-},{"./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-step.js":[function(require,module,exports){
+},{"./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js":[function(require,module,exports){
 module.exports = function(done, value){
   return {value: value, done: !!done};
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iterators.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js":[function(require,module,exports){
 module.exports = {};
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js":[function(require,module,exports){
-var $Object = Object;
-module.exports = {
-  create:     $Object.create,
-  getProto:   $Object.getPrototypeOf,
-  isEnum:     {}.propertyIsEnumerable,
-  getDesc:    $Object.getOwnPropertyDescriptor,
-  setDesc:    $Object.defineProperty,
-  setDescs:   $Object.defineProperties,
-  getKeys:    $Object.keys,
-  getNames:   $Object.getOwnPropertyNames,
-  getSymbols: $Object.getOwnPropertySymbols,
-  each:       [].forEach
-};
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.keyof.js":[function(require,module,exports){
-var $         = require('./$')
-  , toIObject = require('./$.to-iobject');
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_keyof.js":[function(require,module,exports){
+var getKeys   = require('./_object-keys')
+  , toIObject = require('./_to-iobject');
 module.exports = function(object, el){
   var O      = toIObject(object)
-    , keys   = $.getKeys(O)
+    , keys   = getKeys(O)
     , length = keys.length
     , index  = 0
     , key;
   while(length > index)if(O[key = keys[index++]] === el)return key;
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.library.js":[function(require,module,exports){
+},{"./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js":[function(require,module,exports){
 module.exports = false;
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-expm1.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js":[function(require,module,exports){
 // 20.2.2.14 Math.expm1(x)
 module.exports = Math.expm1 || function expm1(x){
   return (x = +x) == 0 ? x : x > -1e-6 && x < 1e-6 ? x + x * x / 2 : Math.exp(x) - 1;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-log1p.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js":[function(require,module,exports){
 // 20.2.2.20 Math.log1p(x)
 module.exports = Math.log1p || function log1p(x){
   return (x = +x) > -1e-8 && x < 1e-8 ? x - x * x / 2 : Math.log(1 + x);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-sign.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js":[function(require,module,exports){
 // 20.2.2.28 Math.sign(x)
 module.exports = Math.sign || function sign(x){
   return (x = +x) == 0 || x != x ? x : x < 0 ? -1 : 1;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.microtask.js":[function(require,module,exports){
-var global    = require('./$.global')
-  , macrotask = require('./$.task').set
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js":[function(require,module,exports){
+var META     = require('./_uid')('meta')
+  , isObject = require('./_is-object')
+  , has      = require('./_has')
+  , setDesc  = require('./_object-dp').f
+  , id       = 0;
+var isExtensible = Object.isExtensible || function(){
+  return true;
+};
+var FREEZE = !require('./_fails')(function(){
+  return isExtensible(Object.preventExtensions({}));
+});
+var setMeta = function(it){
+  setDesc(it, META, {value: {
+    i: 'O' + ++id, // object ID
+    w: {}          // weak collections IDs
+  }});
+};
+var fastKey = function(it, create){
+  // return primitive with prefix
+  if(!isObject(it))return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+  if(!has(it, META)){
+    // can't set metadata to uncaught frozen object
+    if(!isExtensible(it))return 'F';
+    // not necessary to add metadata
+    if(!create)return 'E';
+    // add missing metadata
+    setMeta(it);
+  // return object ID
+  } return it[META].i;
+};
+var getWeak = function(it, create){
+  if(!has(it, META)){
+    // can't set metadata to uncaught frozen object
+    if(!isExtensible(it))return true;
+    // not necessary to add metadata
+    if(!create)return false;
+    // add missing metadata
+    setMeta(it);
+  // return hash weak collections IDs
+  } return it[META].w;
+};
+// add metadata on freeze-family methods calling
+var onFreeze = function(it){
+  if(FREEZE && meta.NEED && isExtensible(it) && !has(it, META))setMeta(it);
+  return it;
+};
+var meta = module.exports = {
+  KEY:      META,
+  NEED:     false,
+  fastKey:  fastKey,
+  getWeak:  getWeak,
+  onFreeze: onFreeze
+};
+},{"./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js":[function(require,module,exports){
+var Map     = require('./es6.map')
+  , $export = require('./_export')
+  , shared  = require('./_shared')('metadata')
+  , store   = shared.store || (shared.store = new (require('./es6.weak-map')));
+
+var getOrCreateMetadataMap = function(target, targetKey, create){
+  var targetMetadata = store.get(target);
+  if(!targetMetadata){
+    if(!create)return undefined;
+    store.set(target, targetMetadata = new Map);
+  }
+  var keyMetadata = targetMetadata.get(targetKey);
+  if(!keyMetadata){
+    if(!create)return undefined;
+    targetMetadata.set(targetKey, keyMetadata = new Map);
+  } return keyMetadata;
+};
+var ordinaryHasOwnMetadata = function(MetadataKey, O, P){
+  var metadataMap = getOrCreateMetadataMap(O, P, false);
+  return metadataMap === undefined ? false : metadataMap.has(MetadataKey);
+};
+var ordinaryGetOwnMetadata = function(MetadataKey, O, P){
+  var metadataMap = getOrCreateMetadataMap(O, P, false);
+  return metadataMap === undefined ? undefined : metadataMap.get(MetadataKey);
+};
+var ordinaryDefineOwnMetadata = function(MetadataKey, MetadataValue, O, P){
+  getOrCreateMetadataMap(O, P, true).set(MetadataKey, MetadataValue);
+};
+var ordinaryOwnMetadataKeys = function(target, targetKey){
+  var metadataMap = getOrCreateMetadataMap(target, targetKey, false)
+    , keys        = [];
+  if(metadataMap)metadataMap.forEach(function(_, key){ keys.push(key); });
+  return keys;
+};
+var toMetaKey = function(it){
+  return it === undefined || typeof it == 'symbol' ? it : String(it);
+};
+var exp = function(O){
+  $export($export.S, 'Reflect', O);
+};
+
+module.exports = {
+  store: store,
+  map: getOrCreateMetadataMap,
+  has: ordinaryHasOwnMetadata,
+  get: ordinaryGetOwnMetadata,
+  set: ordinaryDefineOwnMetadata,
+  keys: ordinaryOwnMetadataKeys,
+  key: toMetaKey,
+  exp: exp
+};
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./es6.map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js","./es6.weak-map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_microtask.js":[function(require,module,exports){
+var global    = require('./_global')
+  , macrotask = require('./_task').set
   , Observer  = global.MutationObserver || global.WebKitMutationObserver
   , process   = global.process
   , Promise   = global.Promise
-  , isNode    = require('./$.cof')(process) == 'process'
+  , isNode    = require('./_cof')(process) == 'process'
   , head, last, notify;
 
 var flush = function(){
@@ -1684,7 +1888,7 @@ if(isNode){
   };
 }
 
-module.exports = function asap(fn){
+module.exports = function(fn){
   var task = {fn: fn, next: undefined, domain: isNode && process.domain};
   if(last)last.next = task;
   if(!head){
@@ -1692,14 +1896,17 @@ module.exports = function asap(fn){
     notify();
   } last = task;
 };
-},{"./$.cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.task":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.task.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-assign.js":[function(require,module,exports){
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_task":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js":[function(require,module,exports){
+'use strict';
 // 19.1.2.1 Object.assign(target, source, ...)
-var $        = require('./$')
-  , toObject = require('./$.to-object')
-  , IObject  = require('./$.iobject');
+var getKeys  = require('./_object-keys')
+  , gOPS     = require('./_object-gops')
+  , pIE      = require('./_object-pie')
+  , toObject = require('./_to-object')
+  , IObject  = require('./_iobject');
 
 // should work with symbols and should have deterministic property order (V8 bug)
-module.exports = require('./$.fails')(function(){
+module.exports = require('./_fails')(function(){
   var a = Object.assign
     , A = {}
     , B = {}
@@ -1710,14 +1917,12 @@ module.exports = require('./$.fails')(function(){
   return a({}, A)[S] != 7 || Object.keys(a({}, B)).join('') != K;
 }) ? function assign(target, source){ // eslint-disable-line no-unused-vars
   var T     = toObject(target)
-    , $$    = arguments
-    , $$len = $$.length
+    , aLen  = arguments.length
     , index = 1
-    , getKeys    = $.getKeys
-    , getSymbols = $.getSymbols
-    , isEnum     = $.isEnum;
-  while($$len > index){
-    var S      = IObject($$[index++])
+    , getSymbols = gOPS.f
+    , isEnum     = pIE.f;
+  while(aLen > index){
+    var S      = IObject(arguments[index++])
       , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
       , length = keys.length
       , j      = 0
@@ -1726,25 +1931,186 @@ module.exports = require('./$.fails')(function(){
   }
   return T;
 } : Object.assign;
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iobject.js","./$.to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js":[function(require,module,exports){
+},{"./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_object-gops":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js":[function(require,module,exports){
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+var anObject    = require('./_an-object')
+  , dPs         = require('./_object-dps')
+  , enumBugKeys = require('./_enum-bug-keys')
+  , IE_PROTO    = require('./_shared-key')('IE_PROTO')
+  , Empty       = function(){ /* empty */ }
+  , PROTOTYPE   = 'prototype';
+
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
+var createDict = function(){
+  // Thrash, waste and sodomy: IE GC bug
+  var iframe = require('./_dom-create')('iframe')
+    , i      = enumBugKeys.length
+    , gt     = '>'
+    , iframeDocument;
+  iframe.style.display = 'none';
+  require('./_html').appendChild(iframe);
+  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
+  // createDict = iframe.contentWindow.Object;
+  // html.removeChild(iframe);
+  iframeDocument = iframe.contentWindow.document;
+  iframeDocument.open();
+  iframeDocument.write('<script>document.F=Object</script' + gt);
+  iframeDocument.close();
+  createDict = iframeDocument.F;
+  while(i--)delete createDict[PROTOTYPE][enumBugKeys[i]];
+  return createDict();
+};
+
+module.exports = Object.create || function create(O, Properties){
+  var result;
+  if(O !== null){
+    Empty[PROTOTYPE] = anObject(O);
+    result = new Empty;
+    Empty[PROTOTYPE] = null;
+    // add "__proto__" for Object.getPrototypeOf polyfill
+    result[IE_PROTO] = O;
+  } else result = createDict();
+  return Properties === undefined ? result : dPs(result, Properties);
+};
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_dom-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_enum-bug-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_object-dps":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js","./_shared-key":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js":[function(require,module,exports){
+var anObject       = require('./_an-object')
+  , IE8_DOM_DEFINE = require('./_ie8-dom-define')
+  , toPrimitive    = require('./_to-primitive')
+  , dP             = Object.defineProperty;
+
+exports.f = require('./_descriptors') ? Object.defineProperty : function defineProperty(O, P, Attributes){
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if(IE8_DOM_DEFINE)try {
+    return dP(O, P, Attributes);
+  } catch(e){ /* empty */ }
+  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
+  if('value' in Attributes)O[P] = Attributes.value;
+  return O;
+};
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_ie8-dom-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js":[function(require,module,exports){
+var dP       = require('./_object-dp')
+  , anObject = require('./_an-object')
+  , getKeys  = require('./_object-keys');
+
+module.exports = require('./_descriptors') ? Object.defineProperties : function defineProperties(O, Properties){
+  anObject(O);
+  var keys   = getKeys(Properties)
+    , length = keys.length
+    , i = 0
+    , P;
+  while(length > i)dP.f(O, P = keys[i++], Properties[P]);
+  return O;
+};
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js":[function(require,module,exports){
+var pIE            = require('./_object-pie')
+  , createDesc     = require('./_property-desc')
+  , toIObject      = require('./_to-iobject')
+  , toPrimitive    = require('./_to-primitive')
+  , has            = require('./_has')
+  , IE8_DOM_DEFINE = require('./_ie8-dom-define')
+  , gOPD           = Object.getOwnPropertyDescriptor;
+
+exports.f = require('./_descriptors') ? gOPD : function getOwnPropertyDescriptor(O, P){
+  O = toIObject(O);
+  P = toPrimitive(P, true);
+  if(IE8_DOM_DEFINE)try {
+    return gOPD(O, P);
+  } catch(e){ /* empty */ }
+  if(has(O, P))return createDesc(!pIE.f.call(O, P), O[P]);
+};
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_ie8-dom-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js":[function(require,module,exports){
+// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+var toIObject = require('./_to-iobject')
+  , gOPN      = require('./_object-gopn').f
+  , toString  = {}.toString;
+
+var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
+  ? Object.getOwnPropertyNames(window) : [];
+
+var getWindowNames = function(it){
+  try {
+    return gOPN.f(it);
+  } catch(e){
+    return windowNames.slice();
+  }
+};
+
+module.exports.f = function getOwnPropertyNames(it){
+  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
+};
+},{"./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js":[function(require,module,exports){
+// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
+var $keys      = require('./_object-keys-internal')
+  , hiddenKeys = require('./_enum-bug-keys').concat('length', 'prototype');
+
+exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
+  return $keys(O, hiddenKeys);
+};
+},{"./_enum-bug-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_object-keys-internal":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js":[function(require,module,exports){
+exports.f = Object.getOwnPropertySymbols;
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js":[function(require,module,exports){
+// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
+var has         = require('./_has')
+  , toObject    = require('./_to-object')
+  , IE_PROTO    = require('./_shared-key')('IE_PROTO')
+  , ObjectProto = Object.prototype;
+
+module.exports = Object.getPrototypeOf || function(O){
+  O = toObject(O);
+  if(has(O, IE_PROTO))return O[IE_PROTO];
+  if(typeof O.constructor == 'function' && O instanceof O.constructor){
+    return O.constructor.prototype;
+  } return O instanceof Object ? ObjectProto : null;
+};
+},{"./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_shared-key":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js":[function(require,module,exports){
+var has          = require('./_has')
+  , toIObject    = require('./_to-iobject')
+  , arrayIndexOf = require('./_array-includes')(false)
+  , IE_PROTO     = require('./_shared-key')('IE_PROTO');
+
+module.exports = function(object, names){
+  var O      = toIObject(object)
+    , i      = 0
+    , result = []
+    , key;
+  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while(names.length > i)if(has(O, key = names[i++])){
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+},{"./_array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_shared-key":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js":[function(require,module,exports){
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys       = require('./_object-keys-internal')
+  , enumBugKeys = require('./_enum-bug-keys');
+
+module.exports = Object.keys || function keys(O){
+  return $keys(O, enumBugKeys);
+};
+},{"./_enum-bug-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_object-keys-internal":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js":[function(require,module,exports){
+exports.f = {}.propertyIsEnumerable;
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js":[function(require,module,exports){
 // most Object methods by ES6 should accept primitives
-var $export = require('./$.export')
-  , core    = require('./$.core')
-  , fails   = require('./$.fails');
+var $export = require('./_export')
+  , core    = require('./_core')
+  , fails   = require('./_fails');
 module.exports = function(KEY, exec){
   var fn  = (core.Object || {})[KEY] || Object[KEY]
     , exp = {};
   exp[KEY] = exec(fn);
   $export($export.S + $export.F * fails(function(){ fn(1); }), 'Object', exp);
 };
-},{"./$.core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-to-array.js":[function(require,module,exports){
-var $         = require('./$')
-  , toIObject = require('./$.to-iobject')
-  , isEnum    = $.isEnum;
+},{"./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js":[function(require,module,exports){
+var getKeys   = require('./_object-keys')
+  , toIObject = require('./_to-iobject')
+  , isEnum    = require('./_object-pie').f;
 module.exports = function(isEntries){
   return function(it){
     var O      = toIObject(it)
-      , keys   = $.getKeys(O)
+      , keys   = getKeys(O)
       , length = keys.length
       , i      = 0
       , result = []
@@ -1754,21 +2120,41 @@ module.exports = function(isEntries){
     } return result;
   };
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.own-keys.js":[function(require,module,exports){
+},{"./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js":[function(require,module,exports){
 // all object keys, includes non-enumerable and symbols
-var $        = require('./$')
-  , anObject = require('./$.an-object')
-  , Reflect  = require('./$.global').Reflect;
+var gOPN     = require('./_object-gopn')
+  , gOPS     = require('./_object-gops')
+  , anObject = require('./_an-object')
+  , Reflect  = require('./_global').Reflect;
 module.exports = Reflect && Reflect.ownKeys || function ownKeys(it){
-  var keys       = $.getNames(anObject(it))
-    , getSymbols = $.getSymbols;
+  var keys       = gOPN.f(anObject(it))
+    , getSymbols = gOPS.f;
   return getSymbols ? keys.concat(getSymbols(it)) : keys;
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.partial.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gops":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js":[function(require,module,exports){
+var $parseFloat = require('./_global').parseFloat
+  , $trim       = require('./_string-trim').trim;
+
+module.exports = 1 / $parseFloat(require('./_string-ws') + '-0') !== -Infinity ? function parseFloat(str){
+  var string = $trim(String(str), 3)
+    , result = $parseFloat(string);
+  return result === 0 && string.charAt(0) == '-' ? -0 : result;
+} : $parseFloat;
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_string-ws":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js":[function(require,module,exports){
+var $parseInt = require('./_global').parseInt
+  , $trim     = require('./_string-trim').trim
+  , ws        = require('./_string-ws')
+  , hex       = /^[\-+]?0[xX]/;
+
+module.exports = $parseInt(ws + '08') !== 8 || $parseInt(ws + '0x16') !== 22 ? function parseInt(str, radix){
+  var string = $trim(String(str), 3);
+  return $parseInt(string, (radix >>> 0) || (hex.test(string) ? 16 : 10));
+} : $parseInt;
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_string-ws":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_partial.js":[function(require,module,exports){
 'use strict';
-var path      = require('./$.path')
-  , invoke    = require('./$.invoke')
-  , aFunction = require('./$.a-function');
+var path      = require('./_path')
+  , invoke    = require('./_invoke')
+  , aFunction = require('./_a-function');
 module.exports = function(/* ...pargs */){
   var fn     = aFunction(this)
     , length = arguments.length
@@ -1778,20 +2164,19 @@ module.exports = function(/* ...pargs */){
     , holder = false;
   while(length > i)if((pargs[i] = arguments[i++]) === _)holder = true;
   return function(/* ...args */){
-    var that  = this
-      , $$    = arguments
-      , $$len = $$.length
+    var that = this
+      , aLen = arguments.length
       , j = 0, k = 0, args;
-    if(!holder && !$$len)return invoke(fn, pargs, that);
+    if(!holder && !aLen)return invoke(fn, pargs, that);
     args = pargs.slice();
-    if(holder)for(;length > j; j++)if(args[j] === _)args[j] = $$[k++];
-    while($$len > k)args.push($$[k++]);
+    if(holder)for(;length > j; j++)if(args[j] === _)args[j] = arguments[k++];
+    while(aLen > k)args.push(arguments[k++]);
     return invoke(fn, args, that);
   };
 };
-},{"./$.a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.a-function.js","./$.invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.invoke.js","./$.path":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.path.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.path.js":[function(require,module,exports){
-module.exports = require('./$.global');
-},{"./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.property-desc.js":[function(require,module,exports){
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_path":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_path.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_path.js":[function(require,module,exports){
+module.exports = require('./_global');
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js":[function(require,module,exports){
 module.exports = function(bitmap, value){
   return {
     enumerable  : !(bitmap & 1),
@@ -1800,41 +2185,46 @@ module.exports = function(bitmap, value){
     value       : value
   };
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine-all.js":[function(require,module,exports){
-var redefine = require('./$.redefine');
-module.exports = function(target, src){
-  for(var key in src)redefine(target, key, src[key]);
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js":[function(require,module,exports){
+var redefine = require('./_redefine');
+module.exports = function(target, src, safe){
+  for(var key in src)redefine(target, key, src[key], safe);
   return target;
 };
-},{"./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js":[function(require,module,exports){
-// add fake Function#toString
-// for correct work wrapped methods / constructors with methods like LoDash isNative
-var global    = require('./$.global')
-  , hide      = require('./$.hide')
-  , SRC       = require('./$.uid')('src')
+},{"./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js":[function(require,module,exports){
+var global    = require('./_global')
+  , hide      = require('./_hide')
+  , has       = require('./_has')
+  , SRC       = require('./_uid')('src')
   , TO_STRING = 'toString'
   , $toString = Function[TO_STRING]
   , TPL       = ('' + $toString).split(TO_STRING);
 
-require('./$.core').inspectSource = function(it){
+require('./_core').inspectSource = function(it){
   return $toString.call(it);
 };
 
 (module.exports = function(O, key, val, safe){
-  if(typeof val == 'function'){
-    val.hasOwnProperty(SRC) || hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
-    val.hasOwnProperty('name') || hide(val, 'name', key);
-  }
+  var isFunction = typeof val == 'function';
+  if(isFunction)has(val, 'name') || hide(val, 'name', key);
+  if(O[key] === val)return;
+  if(isFunction)has(val, SRC) || hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
   if(O === global){
     O[key] = val;
   } else {
-    if(!safe)delete O[key];
-    hide(O, key, val);
+    if(!safe){
+      delete O[key];
+      hide(O, key, val);
+    } else {
+      if(O[key])O[key] = val;
+      else hide(O, key, val);
+    }
   }
+// add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
 })(Function.prototype, TO_STRING, function toString(){
   return typeof this == 'function' && this[SRC] || $toString.call(this);
 });
-},{"./$.core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.replacer.js":[function(require,module,exports){
+},{"./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_replacer.js":[function(require,module,exports){
 module.exports = function(regExp, replace){
   var replacer = replace === Object(replace) ? function(part){
     return replace[part];
@@ -1843,17 +2233,16 @@ module.exports = function(regExp, replace){
     return String(it).replace(regExp, replacer);
   };
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.same-value.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js":[function(require,module,exports){
 // 7.2.9 SameValue(x, y)
 module.exports = Object.is || function is(x, y){
   return x === y ? x !== 0 || 1 / x === 1 / y : x != x && y != y;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-proto.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js":[function(require,module,exports){
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
-var getDesc  = require('./$').getDesc
-  , isObject = require('./$.is-object')
-  , anObject = require('./$.an-object');
+var isObject = require('./_is-object')
+  , anObject = require('./_an-object');
 var check = function(O, proto){
   anObject(O);
   if(!isObject(proto) && proto !== null)throw TypeError(proto + ": can't set as prototype!");
@@ -1862,7 +2251,7 @@ module.exports = {
   set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
     function(test, buggy, set){
       try {
-        set = require('./$.ctx')(Function.call, getDesc(Object.prototype, '__proto__').set, 2);
+        set = require('./_ctx')(Function.call, require('./_object-gopd').f(Object.prototype, '__proto__').set, 2);
         set(test, []);
         buggy = !(test instanceof Array);
       } catch(e){ buggy = true; }
@@ -1875,52 +2264,61 @@ module.exports = {
     }({}, false) : undefined),
   check: check
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-species.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js":[function(require,module,exports){
 'use strict';
-var global      = require('./$.global')
-  , $           = require('./$')
-  , DESCRIPTORS = require('./$.descriptors')
-  , SPECIES     = require('./$.wks')('species');
+var global      = require('./_global')
+  , dP          = require('./_object-dp')
+  , DESCRIPTORS = require('./_descriptors')
+  , SPECIES     = require('./_wks')('species');
 
 module.exports = function(KEY){
   var C = global[KEY];
-  if(DESCRIPTORS && C && !C[SPECIES])$.setDesc(C, SPECIES, {
+  if(DESCRIPTORS && C && !C[SPECIES])dP.f(C, SPECIES, {
     configurable: true,
     get: function(){ return this; }
   });
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-to-string-tag.js":[function(require,module,exports){
-var def = require('./$').setDesc
-  , has = require('./$.has')
-  , TAG = require('./$.wks')('toStringTag');
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js":[function(require,module,exports){
+var def = require('./_object-dp').f
+  , has = require('./_has')
+  , TAG = require('./_wks')('toStringTag');
 
 module.exports = function(it, tag, stat){
   if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 };
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.shared.js":[function(require,module,exports){
-var global = require('./$.global')
+},{"./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js":[function(require,module,exports){
+var shared = require('./_shared')('keys')
+  , uid    = require('./_uid');
+module.exports = function(key){
+  return shared[key] || (shared[key] = uid(key));
+};
+},{"./_shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js":[function(require,module,exports){
+var global = require('./_global')
   , SHARED = '__core-js_shared__'
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
 };
-},{"./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.species-constructor.js":[function(require,module,exports){
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js":[function(require,module,exports){
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
-var anObject  = require('./$.an-object')
-  , aFunction = require('./$.a-function')
-  , SPECIES   = require('./$.wks')('species');
+var anObject  = require('./_an-object')
+  , aFunction = require('./_a-function')
+  , SPECIES   = require('./_wks')('species');
 module.exports = function(O, D){
   var C = anObject(O).constructor, S;
   return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
 };
-},{"./$.a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.a-function.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.strict-new.js":[function(require,module,exports){
-module.exports = function(it, Constructor, name){
-  if(!(it instanceof Constructor))throw TypeError(name + ": use the 'new' operator!");
-  return it;
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js":[function(require,module,exports){
+var fails = require('./_fails');
+
+module.exports = function(method, arg){
+  return !!method && fails(function(){
+    arg ? method.call(null, function(){}, 1) : method.call(null);
+  });
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-at.js":[function(require,module,exports){
-var toInteger = require('./$.to-integer')
-  , defined   = require('./$.defined');
+},{"./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js":[function(require,module,exports){
+var toInteger = require('./_to-integer')
+  , defined   = require('./_defined');
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function(TO_STRING){
@@ -1936,20 +2334,40 @@ module.exports = function(TO_STRING){
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
-},{"./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js","./$.to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-context.js":[function(require,module,exports){
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js":[function(require,module,exports){
 // helper for String#{startsWith, endsWith, includes}
-var isRegExp = require('./$.is-regexp')
-  , defined  = require('./$.defined');
+var isRegExp = require('./_is-regexp')
+  , defined  = require('./_defined');
 
 module.exports = function(that, searchString, NAME){
   if(isRegExp(searchString))throw TypeError('String#' + NAME + " doesn't accept regex!");
   return String(defined(that));
 };
-},{"./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js","./$.is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-regexp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-pad.js":[function(require,module,exports){
-// https://github.com/ljharb/proposal-string-pad-left-right
-var toLength = require('./$.to-length')
-  , repeat   = require('./$.string-repeat')
-  , defined  = require('./$.defined');
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js":[function(require,module,exports){
+var $export = require('./_export')
+  , fails   = require('./_fails')
+  , defined = require('./_defined')
+  , quot    = /"/g;
+// B.2.3.2.1 CreateHTML(string, tag, attribute, value)
+var createHTML = function(string, tag, attribute, value) {
+  var S  = String(defined(string))
+    , p1 = '<' + tag;
+  if(attribute !== '')p1 += ' ' + attribute + '="' + String(value).replace(quot, '&quot;') + '"';
+  return p1 + '>' + S + '</' + tag + '>';
+};
+module.exports = function(NAME, exec){
+  var O = {};
+  O[NAME] = exec(createHTML);
+  $export($export.P + $export.F * fails(function(){
+    var test = ''[NAME]('"');
+    return test !== test.toLowerCase() || test.split('"').length > 3;
+  }), 'String', O);
+};
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js":[function(require,module,exports){
+// https://github.com/tc39/proposal-string-pad-start-end
+var toLength = require('./_to-length')
+  , repeat   = require('./_string-repeat')
+  , defined  = require('./_defined');
 
 module.exports = function(that, maxLength, fillString, left){
   var S            = String(defined(that))
@@ -1963,10 +2381,11 @@ module.exports = function(that, maxLength, fillString, left){
   if(stringFiller.length > fillLen)stringFiller = stringFiller.slice(0, fillLen);
   return left ? stringFiller + S : S + stringFiller;
 };
-},{"./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js","./$.string-repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-repeat.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-repeat.js":[function(require,module,exports){
+
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_string-repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js":[function(require,module,exports){
 'use strict';
-var toInteger = require('./$.to-integer')
-  , defined   = require('./$.defined');
+var toInteger = require('./_to-integer')
+  , defined   = require('./_defined');
 
 module.exports = function repeat(count){
   var str = String(defined(this))
@@ -1976,23 +2395,24 @@ module.exports = function repeat(count){
   for(;n > 0; (n >>>= 1) && (str += str))if(n & 1)res += str;
   return res;
 };
-},{"./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js","./$.to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-trim.js":[function(require,module,exports){
-var $export = require('./$.export')
-  , defined = require('./$.defined')
-  , fails   = require('./$.fails')
-  , spaces  = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
-      '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF'
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js":[function(require,module,exports){
+var $export = require('./_export')
+  , defined = require('./_defined')
+  , fails   = require('./_fails')
+  , spaces  = require('./_string-ws')
   , space   = '[' + spaces + ']'
   , non     = '\u200b\u0085'
   , ltrim   = RegExp('^' + space + space + '*')
   , rtrim   = RegExp(space + space + '*$');
 
-var exporter = function(KEY, exec){
-  var exp  = {};
-  exp[KEY] = exec(trim);
-  $export($export.P + $export.F * fails(function(){
+var exporter = function(KEY, exec, ALIAS){
+  var exp   = {};
+  var FORCE = fails(function(){
     return !!spaces[KEY]() || non[KEY]() != non;
-  }), 'String', exp);
+  });
+  var fn = exp[KEY] = FORCE ? exec(trim) : spaces[KEY];
+  if(ALIAS)exp[ALIAS] = fn;
+  $export($export.P + $export.F * FORCE, 'String', exp);
 };
 
 // 1 -> String#trimLeft
@@ -2006,12 +2426,15 @@ var trim = exporter.trim = function(string, TYPE){
 };
 
 module.exports = exporter;
-},{"./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.task.js":[function(require,module,exports){
-var ctx                = require('./$.ctx')
-  , invoke             = require('./$.invoke')
-  , html               = require('./$.html')
-  , cel                = require('./$.dom-create')
-  , global             = require('./$.global')
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_string-ws":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js":[function(require,module,exports){
+module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
+  '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js":[function(require,module,exports){
+var ctx                = require('./_ctx')
+  , invoke             = require('./_invoke')
+  , html               = require('./_html')
+  , cel                = require('./_dom-create')
+  , global             = require('./_global')
   , process            = global.process
   , setTask            = global.setImmediate
   , clearTask          = global.clearImmediate
@@ -2028,7 +2451,7 @@ var run = function(){
     fn();
   }
 };
-var listner = function(event){
+var listener = function(event){
   run.call(event.data);
 };
 // Node.js 0.9+ & IE10+ has setImmediate, otherwise:
@@ -2046,7 +2469,7 @@ if(!setTask || !clearTask){
     delete queue[id];
   };
   // Node.js 0.8-
-  if(require('./$.cof')(process) == 'process'){
+  if(require('./_cof')(process) == 'process'){
     defer = function(id){
       process.nextTick(ctx(run, id, 1));
     };
@@ -2054,7 +2477,7 @@ if(!setTask || !clearTask){
   } else if(MessageChannel){
     channel = new MessageChannel;
     port    = channel.port2;
-    channel.port1.onmessage = listner;
+    channel.port1.onmessage = listener;
     defer = ctx(port.postMessage, port, 1);
   // Browsers with postMessage, skip WebWorkers
   // IE8 has postMessage, but it's sync & typeof its postMessage is 'object'
@@ -2062,7 +2485,7 @@ if(!setTask || !clearTask){
     defer = function(id){
       global.postMessage(id + '', '*');
     };
-    global.addEventListener('message', listner, false);
+    global.addEventListener('message', listener, false);
   // IE8-
   } else if(ONREADYSTATECHANGE in cel('script')){
     defer = function(id){
@@ -2082,44 +2505,44 @@ module.exports = {
   set:   setTask,
   clear: clearTask
 };
-},{"./$.cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js","./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.dom-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.dom-create.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.html.js","./$.invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.invoke.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-index.js":[function(require,module,exports){
-var toInteger = require('./$.to-integer')
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_dom-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js":[function(require,module,exports){
+var toInteger = require('./_to-integer')
   , max       = Math.max
   , min       = Math.min;
 module.exports = function(index, length){
   index = toInteger(index);
   return index < 0 ? max(index + length, 0) : min(index, length);
 };
-},{"./$.to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-integer.js":[function(require,module,exports){
+},{"./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js":[function(require,module,exports){
 // 7.1.4 ToInteger
 var ceil  = Math.ceil
   , floor = Math.floor;
 module.exports = function(it){
   return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js":[function(require,module,exports){
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = require('./$.iobject')
-  , defined = require('./$.defined');
+var IObject = require('./_iobject')
+  , defined = require('./_defined');
 module.exports = function(it){
   return IObject(defined(it));
 };
-},{"./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js","./$.iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js":[function(require,module,exports){
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js":[function(require,module,exports){
 // 7.1.15 ToLength
-var toInteger = require('./$.to-integer')
+var toInteger = require('./_to-integer')
   , min       = Math.min;
 module.exports = function(it){
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 };
-},{"./$.to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js":[function(require,module,exports){
+},{"./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js":[function(require,module,exports){
 // 7.1.13 ToObject(argument)
-var defined = require('./$.defined');
+var defined = require('./_defined');
 module.exports = function(it){
   return Object(defined(it));
 };
-},{"./$.defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.defined.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-primitive.js":[function(require,module,exports){
+},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js":[function(require,module,exports){
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = require('./$.is-object');
+var isObject = require('./_is-object');
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function(it, S){
@@ -2130,325 +2553,867 @@ module.exports = function(it, S){
   if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
   throw TypeError("Can't convert object to primitive value");
 };
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.uid.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js":[function(require,module,exports){
+'use strict';
+if(require('./_descriptors')){
+  var LIBRARY             = require('./_library')
+    , global              = require('./_global')
+    , fails               = require('./_fails')
+    , $export             = require('./_export')
+    , $typed              = require('./_typed')
+    , $buffer             = require('./_typed-buffer')
+    , ctx                 = require('./_ctx')
+    , anInstance          = require('./_an-instance')
+    , propertyDesc        = require('./_property-desc')
+    , hide                = require('./_hide')
+    , redefineAll         = require('./_redefine-all')
+    , isInteger           = require('./_is-integer')
+    , toInteger           = require('./_to-integer')
+    , toLength            = require('./_to-length')
+    , toIndex             = require('./_to-index')
+    , toPrimitive         = require('./_to-primitive')
+    , has                 = require('./_has')
+    , same                = require('./_same-value')
+    , classof             = require('./_classof')
+    , isObject            = require('./_is-object')
+    , toObject            = require('./_to-object')
+    , isArrayIter         = require('./_is-array-iter')
+    , create              = require('./_object-create')
+    , getPrototypeOf      = require('./_object-gpo')
+    , gOPN                = require('./_object-gopn').f
+    , isIterable          = require('./core.is-iterable')
+    , getIterFn           = require('./core.get-iterator-method')
+    , uid                 = require('./_uid')
+    , wks                 = require('./_wks')
+    , createArrayMethod   = require('./_array-methods')
+    , createArrayIncludes = require('./_array-includes')
+    , speciesConstructor  = require('./_species-constructor')
+    , ArrayIterators      = require('./es6.array.iterator')
+    , Iterators           = require('./_iterators')
+    , $iterDetect         = require('./_iter-detect')
+    , setSpecies          = require('./_set-species')
+    , arrayFill           = require('./_array-fill')
+    , arrayCopyWithin     = require('./_array-copy-within')
+    , $DP                 = require('./_object-dp')
+    , $GOPD               = require('./_object-gopd')
+    , dP                  = $DP.f
+    , gOPD                = $GOPD.f
+    , RangeError          = global.RangeError
+    , TypeError           = global.TypeError
+    , Uint8Array          = global.Uint8Array
+    , ARRAY_BUFFER        = 'ArrayBuffer'
+    , SHARED_BUFFER       = 'Shared' + ARRAY_BUFFER
+    , BYTES_PER_ELEMENT   = 'BYTES_PER_ELEMENT'
+    , PROTOTYPE           = 'prototype'
+    , ArrayProto          = Array[PROTOTYPE]
+    , $ArrayBuffer        = $buffer.ArrayBuffer
+    , $DataView           = $buffer.DataView
+    , arrayForEach        = createArrayMethod(0)
+    , arrayFilter         = createArrayMethod(2)
+    , arraySome           = createArrayMethod(3)
+    , arrayEvery          = createArrayMethod(4)
+    , arrayFind           = createArrayMethod(5)
+    , arrayFindIndex      = createArrayMethod(6)
+    , arrayIncludes       = createArrayIncludes(true)
+    , arrayIndexOf        = createArrayIncludes(false)
+    , arrayValues         = ArrayIterators.values
+    , arrayKeys           = ArrayIterators.keys
+    , arrayEntries        = ArrayIterators.entries
+    , arrayLastIndexOf    = ArrayProto.lastIndexOf
+    , arrayReduce         = ArrayProto.reduce
+    , arrayReduceRight    = ArrayProto.reduceRight
+    , arrayJoin           = ArrayProto.join
+    , arraySort           = ArrayProto.sort
+    , arraySlice          = ArrayProto.slice
+    , arrayToString       = ArrayProto.toString
+    , arrayToLocaleString = ArrayProto.toLocaleString
+    , ITERATOR            = wks('iterator')
+    , TAG                 = wks('toStringTag')
+    , TYPED_CONSTRUCTOR   = uid('typed_constructor')
+    , DEF_CONSTRUCTOR     = uid('def_constructor')
+    , ALL_CONSTRUCTORS    = $typed.CONSTR
+    , TYPED_ARRAY         = $typed.TYPED
+    , VIEW                = $typed.VIEW
+    , WRONG_LENGTH        = 'Wrong length!';
+
+  var $map = createArrayMethod(1, function(O, length){
+    return allocate(speciesConstructor(O, O[DEF_CONSTRUCTOR]), length);
+  });
+
+  var LITTLE_ENDIAN = fails(function(){
+    return new Uint8Array(new Uint16Array([1]).buffer)[0] === 1;
+  });
+
+  var FORCED_SET = !!Uint8Array && !!Uint8Array[PROTOTYPE].set && fails(function(){
+    new Uint8Array(1).set({});
+  });
+
+  var strictToLength = function(it, SAME){
+    if(it === undefined)throw TypeError(WRONG_LENGTH);
+    var number = +it
+      , length = toLength(it);
+    if(SAME && !same(number, length))throw RangeError(WRONG_LENGTH);
+    return length;
+  };
+
+  var toOffset = function(it, BYTES){
+    var offset = toInteger(it);
+    if(offset < 0 || offset % BYTES)throw RangeError('Wrong offset!');
+    return offset;
+  };
+
+  var validate = function(it){
+    if(isObject(it) && TYPED_ARRAY in it)return it;
+    throw TypeError(it + ' is not a typed array!');
+  };
+
+  var allocate = function(C, length){
+    if(!(isObject(C) && TYPED_CONSTRUCTOR in C)){
+      throw TypeError('It is not a typed array constructor!');
+    } return new C(length);
+  };
+
+  var speciesFromList = function(O, list){
+    return fromList(speciesConstructor(O, O[DEF_CONSTRUCTOR]), list);
+  };
+
+  var fromList = function(C, list){
+    var index  = 0
+      , length = list.length
+      , result = allocate(C, length);
+    while(length > index)result[index] = list[index++];
+    return result;
+  };
+
+  var addGetter = function(it, key, internal){
+    dP(it, key, {get: function(){ return this._d[internal]; }});
+  };
+
+  var $from = function from(source /*, mapfn, thisArg */){
+    var O       = toObject(source)
+      , aLen    = arguments.length
+      , mapfn   = aLen > 1 ? arguments[1] : undefined
+      , mapping = mapfn !== undefined
+      , iterFn  = getIterFn(O)
+      , i, length, values, result, step, iterator;
+    if(iterFn != undefined && !isArrayIter(iterFn)){
+      for(iterator = iterFn.call(O), values = [], i = 0; !(step = iterator.next()).done; i++){
+        values.push(step.value);
+      } O = values;
+    }
+    if(mapping && aLen > 2)mapfn = ctx(mapfn, arguments[2], 2);
+    for(i = 0, length = toLength(O.length), result = allocate(this, length); length > i; i++){
+      result[i] = mapping ? mapfn(O[i], i) : O[i];
+    }
+    return result;
+  };
+
+  var $of = function of(/*...items*/){
+    var index  = 0
+      , length = arguments.length
+      , result = allocate(this, length);
+    while(length > index)result[index] = arguments[index++];
+    return result;
+  };
+
+  // iOS Safari 6.x fails here
+  var TO_LOCALE_BUG = !!Uint8Array && fails(function(){ arrayToLocaleString.call(new Uint8Array(1)); });
+
+  var $toLocaleString = function toLocaleString(){
+    return arrayToLocaleString.apply(TO_LOCALE_BUG ? arraySlice.call(validate(this)) : validate(this), arguments);
+  };
+
+  var proto = {
+    copyWithin: function copyWithin(target, start /*, end */){
+      return arrayCopyWithin.call(validate(this), target, start, arguments.length > 2 ? arguments[2] : undefined);
+    },
+    every: function every(callbackfn /*, thisArg */){
+      return arrayEvery(validate(this), callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+    },
+    fill: function fill(value /*, start, end */){ // eslint-disable-line no-unused-vars
+      return arrayFill.apply(validate(this), arguments);
+    },
+    filter: function filter(callbackfn /*, thisArg */){
+      return speciesFromList(this, arrayFilter(validate(this), callbackfn,
+        arguments.length > 1 ? arguments[1] : undefined));
+    },
+    find: function find(predicate /*, thisArg */){
+      return arrayFind(validate(this), predicate, arguments.length > 1 ? arguments[1] : undefined);
+    },
+    findIndex: function findIndex(predicate /*, thisArg */){
+      return arrayFindIndex(validate(this), predicate, arguments.length > 1 ? arguments[1] : undefined);
+    },
+    forEach: function forEach(callbackfn /*, thisArg */){
+      arrayForEach(validate(this), callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+    },
+    indexOf: function indexOf(searchElement /*, fromIndex */){
+      return arrayIndexOf(validate(this), searchElement, arguments.length > 1 ? arguments[1] : undefined);
+    },
+    includes: function includes(searchElement /*, fromIndex */){
+      return arrayIncludes(validate(this), searchElement, arguments.length > 1 ? arguments[1] : undefined);
+    },
+    join: function join(separator){ // eslint-disable-line no-unused-vars
+      return arrayJoin.apply(validate(this), arguments);
+    },
+    lastIndexOf: function lastIndexOf(searchElement /*, fromIndex */){ // eslint-disable-line no-unused-vars
+      return arrayLastIndexOf.apply(validate(this), arguments);
+    },
+    map: function map(mapfn /*, thisArg */){
+      return $map(validate(this), mapfn, arguments.length > 1 ? arguments[1] : undefined);
+    },
+    reduce: function reduce(callbackfn /*, initialValue */){ // eslint-disable-line no-unused-vars
+      return arrayReduce.apply(validate(this), arguments);
+    },
+    reduceRight: function reduceRight(callbackfn /*, initialValue */){ // eslint-disable-line no-unused-vars
+      return arrayReduceRight.apply(validate(this), arguments);
+    },
+    reverse: function reverse(){
+      var that   = this
+        , length = validate(that).length
+        , middle = Math.floor(length / 2)
+        , index  = 0
+        , value;
+      while(index < middle){
+        value         = that[index];
+        that[index++] = that[--length];
+        that[length]  = value;
+      } return that;
+    },
+    slice: function slice(start, end){
+      return speciesFromList(this, arraySlice.call(validate(this), start, end));
+    },
+    some: function some(callbackfn /*, thisArg */){
+      return arraySome(validate(this), callbackfn, arguments.length > 1 ? arguments[1] : undefined);
+    },
+    sort: function sort(comparefn){
+      return arraySort.call(validate(this), comparefn);
+    },
+    subarray: function subarray(begin, end){
+      var O      = validate(this)
+        , length = O.length
+        , $begin = toIndex(begin, length);
+      return new (speciesConstructor(O, O[DEF_CONSTRUCTOR]))(
+        O.buffer,
+        O.byteOffset + $begin * O.BYTES_PER_ELEMENT,
+        toLength((end === undefined ? length : toIndex(end, length)) - $begin)
+      );
+    }
+  };
+
+  var $set = function set(arrayLike /*, offset */){
+    validate(this);
+    var offset = toOffset(arguments[1], 1)
+      , length = this.length
+      , src    = toObject(arrayLike)
+      , len    = toLength(src.length)
+      , index  = 0;
+    if(len + offset > length)throw RangeError(WRONG_LENGTH);
+    while(index < len)this[offset + index] = src[index++];
+  };
+
+  var $iterators = {
+    entries: function entries(){
+      return arrayEntries.call(validate(this));
+    },
+    keys: function keys(){
+      return arrayKeys.call(validate(this));
+    },
+    values: function values(){
+      return arrayValues.call(validate(this));
+    }
+  };
+
+  var isTAIndex = function(target, key){
+    return isObject(target)
+      && target[TYPED_ARRAY]
+      && typeof key != 'symbol'
+      && key in target
+      && String(+key) == String(key);
+  };
+  var $getDesc = function getOwnPropertyDescriptor(target, key){
+    return isTAIndex(target, key = toPrimitive(key, true))
+      ? propertyDesc(2, target[key])
+      : gOPD(target, key);
+  };
+  var $setDesc = function defineProperty(target, key, desc){
+    if(isTAIndex(target, key = toPrimitive(key, true))
+      && isObject(desc)
+      && has(desc, 'value')
+      && !has(desc, 'get')
+      && !has(desc, 'set')
+      // TODO: add validation descriptor w/o calling accessors
+      && !desc.configurable
+      && (!has(desc, 'writable') || desc.writable)
+      && (!has(desc, 'enumerable') || desc.enumerable)
+    ){
+      target[key] = desc.value;
+      return target;
+    } else return dP(target, key, desc);
+  };
+
+  if(!ALL_CONSTRUCTORS){
+    $GOPD.f = $getDesc;
+    $DP.f   = $setDesc;
+  }
+
+  $export($export.S + $export.F * !ALL_CONSTRUCTORS, 'Object', {
+    getOwnPropertyDescriptor: $getDesc,
+    defineProperty:           $setDesc
+  });
+
+  if(fails(function(){ arrayToString.call({}); })){
+    arrayToString = arrayToLocaleString = function toString(){
+      return arrayJoin.call(this);
+    }
+  }
+
+  var $TypedArrayPrototype$ = redefineAll({}, proto);
+  redefineAll($TypedArrayPrototype$, $iterators);
+  hide($TypedArrayPrototype$, ITERATOR, $iterators.values);
+  redefineAll($TypedArrayPrototype$, {
+    set:            $set,
+    constructor:    function(){ /* noop */ },
+    toString:       arrayToString,
+    toLocaleString: $toLocaleString
+  });
+  addGetter($TypedArrayPrototype$, 'buffer', 'b');
+  addGetter($TypedArrayPrototype$, 'byteOffset', 'o');
+  addGetter($TypedArrayPrototype$, 'byteLength', 'l');
+  addGetter($TypedArrayPrototype$, 'length', 'e');
+  dP($TypedArrayPrototype$, TAG, {
+    get: function(){ return this[TYPED_ARRAY]; }
+  });
+
+  module.exports = function(KEY, BYTES, wrapper, CLAMPED){
+    CLAMPED = !!CLAMPED;
+    var NAME       = KEY + (CLAMPED ? 'Clamped' : '') + 'Array'
+      , ISNT_UINT8 = NAME != 'Uint8Array'
+      , GETTER     = 'get' + KEY
+      , SETTER     = 'set' + KEY
+      , TypedArray = global[NAME]
+      , Base       = TypedArray || {}
+      , TAC        = TypedArray && getPrototypeOf(TypedArray)
+      , FORCED     = !TypedArray || !$typed.ABV
+      , O          = {}
+      , TypedArrayPrototype = TypedArray && TypedArray[PROTOTYPE];
+    var getter = function(that, index){
+      var data = that._d;
+      return data.v[GETTER](index * BYTES + data.o, LITTLE_ENDIAN);
+    };
+    var setter = function(that, index, value){
+      var data = that._d;
+      if(CLAMPED)value = (value = Math.round(value)) < 0 ? 0 : value > 0xff ? 0xff : value & 0xff;
+      data.v[SETTER](index * BYTES + data.o, value, LITTLE_ENDIAN);
+    };
+    var addElement = function(that, index){
+      dP(that, index, {
+        get: function(){
+          return getter(this, index);
+        },
+        set: function(value){
+          return setter(this, index, value);
+        },
+        enumerable: true
+      });
+    };
+    if(FORCED){
+      TypedArray = wrapper(function(that, data, $offset, $length){
+        anInstance(that, TypedArray, NAME, '_d');
+        var index  = 0
+          , offset = 0
+          , buffer, byteLength, length, klass;
+        if(!isObject(data)){
+          length     = strictToLength(data, true)
+          byteLength = length * BYTES;
+          buffer     = new $ArrayBuffer(byteLength);
+        } else if(data instanceof $ArrayBuffer || (klass = classof(data)) == ARRAY_BUFFER || klass == SHARED_BUFFER){
+          buffer = data;
+          offset = toOffset($offset, BYTES);
+          var $len = data.byteLength;
+          if($length === undefined){
+            if($len % BYTES)throw RangeError(WRONG_LENGTH);
+            byteLength = $len - offset;
+            if(byteLength < 0)throw RangeError(WRONG_LENGTH);
+          } else {
+            byteLength = toLength($length) * BYTES;
+            if(byteLength + offset > $len)throw RangeError(WRONG_LENGTH);
+          }
+          length = byteLength / BYTES;
+        } else if(TYPED_ARRAY in data){
+          return fromList(TypedArray, data);
+        } else {
+          return $from.call(TypedArray, data);
+        }
+        hide(that, '_d', {
+          b: buffer,
+          o: offset,
+          l: byteLength,
+          e: length,
+          v: new $DataView(buffer)
+        });
+        while(index < length)addElement(that, index++);
+      });
+      TypedArrayPrototype = TypedArray[PROTOTYPE] = create($TypedArrayPrototype$);
+      hide(TypedArrayPrototype, 'constructor', TypedArray);
+    } else if(!$iterDetect(function(iter){
+      // V8 works with iterators, but fails in many other cases
+      // https://code.google.com/p/v8/issues/detail?id=4552
+      new TypedArray(null); // eslint-disable-line no-new
+      new TypedArray(iter); // eslint-disable-line no-new
+    }, true)){
+      TypedArray = wrapper(function(that, data, $offset, $length){
+        anInstance(that, TypedArray, NAME);
+        var klass;
+        // `ws` module bug, temporarily remove validation length for Uint8Array
+        // https://github.com/websockets/ws/pull/645
+        if(!isObject(data))return new Base(strictToLength(data, ISNT_UINT8));
+        if(data instanceof $ArrayBuffer || (klass = classof(data)) == ARRAY_BUFFER || klass == SHARED_BUFFER){
+          return $length !== undefined
+            ? new Base(data, toOffset($offset, BYTES), $length)
+            : $offset !== undefined
+              ? new Base(data, toOffset($offset, BYTES))
+              : new Base(data);
+        }
+        if(TYPED_ARRAY in data)return fromList(TypedArray, data);
+        return $from.call(TypedArray, data);
+      });
+      arrayForEach(TAC !== Function.prototype ? gOPN(Base).concat(gOPN(TAC)) : gOPN(Base), function(key){
+        if(!(key in TypedArray))hide(TypedArray, key, Base[key]);
+      });
+      TypedArray[PROTOTYPE] = TypedArrayPrototype;
+      if(!LIBRARY)TypedArrayPrototype.constructor = TypedArray;
+    }
+    var $nativeIterator   = TypedArrayPrototype[ITERATOR]
+      , CORRECT_ITER_NAME = !!$nativeIterator && ($nativeIterator.name == 'values' || $nativeIterator.name == undefined)
+      , $iterator         = $iterators.values;
+    hide(TypedArray, TYPED_CONSTRUCTOR, true);
+    hide(TypedArrayPrototype, TYPED_ARRAY, NAME);
+    hide(TypedArrayPrototype, VIEW, true);
+    hide(TypedArrayPrototype, DEF_CONSTRUCTOR, TypedArray);
+
+    if(CLAMPED ? new TypedArray(1)[TAG] != NAME : !(TAG in TypedArrayPrototype)){
+      dP(TypedArrayPrototype, TAG, {
+        get: function(){ return NAME; }
+      });
+    }
+
+    O[NAME] = TypedArray;
+
+    $export($export.G + $export.W + $export.F * (TypedArray != Base), O);
+
+    $export($export.S, NAME, {
+      BYTES_PER_ELEMENT: BYTES,
+      from: $from,
+      of: $of
+    });
+
+    if(!(BYTES_PER_ELEMENT in TypedArrayPrototype))hide(TypedArrayPrototype, BYTES_PER_ELEMENT, BYTES);
+
+    $export($export.P, NAME, proto);
+
+    $export($export.P + $export.F * FORCED_SET, NAME, {set: $set});
+
+    $export($export.P + $export.F * !CORRECT_ITER_NAME, NAME, $iterators);
+
+    $export($export.P + $export.F * (TypedArrayPrototype.toString != arrayToString), NAME, {toString: arrayToString});
+
+    $export($export.P + $export.F * (fails(function(){
+      return [1, 2].toLocaleString() != new TypedArray([1, 2]).toLocaleString()
+    }) || !fails(function(){
+      TypedArrayPrototype.toLocaleString.call([1, 2]);
+    })), NAME, {toLocaleString: $toLocaleString});
+
+    Iterators[NAME] = CORRECT_ITER_NAME ? $nativeIterator : $iterator;
+    if(!LIBRARY && !CORRECT_ITER_NAME)hide(TypedArrayPrototype, ITERATOR, $iterator);
+
+    setSpecies(NAME);
+  };
+} else module.exports = function(){ /* empty */ };
+},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_array-copy-within":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js","./_array-fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_is-array-iter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_same-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_species-constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js","./_typed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js","./core.get-iterator-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js","./core.is-iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.is-iterable.js","./es6.array.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js":[function(require,module,exports){
+'use strict';
+var global         = require('./_global')
+  , DESCRIPTORS    = require('./_descriptors')
+  , LIBRARY        = require('./_library')
+  , $typed         = require('./_typed')
+  , hide           = require('./_hide')
+  , redefineAll    = require('./_redefine-all')
+  , fails          = require('./_fails')
+  , anInstance     = require('./_an-instance')
+  , toInteger      = require('./_to-integer')
+  , toLength       = require('./_to-length')
+  , gOPN           = require('./_object-gopn').f
+  , dP             = require('./_object-dp').f
+  , arrayFill      = require('./_array-fill')
+  , setToStringTag = require('./_set-to-string-tag')
+  , ARRAY_BUFFER   = 'ArrayBuffer'
+  , DATA_VIEW      = 'DataView'
+  , PROTOTYPE      = 'prototype'
+  , WRONG_LENGTH   = 'Wrong length!'
+  , WRONG_INDEX    = 'Wrong index!'
+  , $ArrayBuffer   = global[ARRAY_BUFFER]
+  , $DataView      = global[DATA_VIEW]
+  , Math           = global.Math
+  , parseInt       = global.parseInt
+  , RangeError     = global.RangeError
+  , Infinity       = global.Infinity
+  , BaseBuffer     = $ArrayBuffer
+  , abs            = Math.abs
+  , pow            = Math.pow
+  , min            = Math.min
+  , floor          = Math.floor
+  , log            = Math.log
+  , LN2            = Math.LN2
+  , BUFFER         = 'buffer'
+  , BYTE_LENGTH    = 'byteLength'
+  , BYTE_OFFSET    = 'byteOffset'
+  , $BUFFER        = DESCRIPTORS ? '_b' : BUFFER
+  , $LENGTH        = DESCRIPTORS ? '_l' : BYTE_LENGTH
+  , $OFFSET        = DESCRIPTORS ? '_o' : BYTE_OFFSET;
+
+// IEEE754 conversions based on https://github.com/feross/ieee754
+var packIEEE754 = function(value, mLen, nBytes){
+  var buffer = Array(nBytes)
+    , eLen   = nBytes * 8 - mLen - 1
+    , eMax   = (1 << eLen) - 1
+    , eBias  = eMax >> 1
+    , rt     = mLen === 23 ? pow(2, -24) - pow(2, -77) : 0
+    , i      = 0
+    , s      = value < 0 || value === 0 && 1 / value < 0 ? 1 : 0
+    , e, m, c;
+  value = abs(value)
+  if(value != value || value === Infinity){
+    m = value != value ? 1 : 0;
+    e = eMax;
+  } else {
+    e = floor(log(value) / LN2);
+    if(value * (c = pow(2, -e)) < 1){
+      e--;
+      c *= 2;
+    }
+    if(e + eBias >= 1){
+      value += rt / c;
+    } else {
+      value += rt * pow(2, 1 - eBias);
+    }
+    if(value * c >= 2){
+      e++;
+      c /= 2;
+    }
+    if(e + eBias >= eMax){
+      m = 0;
+      e = eMax;
+    } else if(e + eBias >= 1){
+      m = (value * c - 1) * pow(2, mLen);
+      e = e + eBias;
+    } else {
+      m = value * pow(2, eBias - 1) * pow(2, mLen);
+      e = 0;
+    }
+  }
+  for(; mLen >= 8; buffer[i++] = m & 255, m /= 256, mLen -= 8);
+  e = e << mLen | m;
+  eLen += mLen;
+  for(; eLen > 0; buffer[i++] = e & 255, e /= 256, eLen -= 8);
+  buffer[--i] |= s * 128;
+  return buffer;
+};
+var unpackIEEE754 = function(buffer, mLen, nBytes){
+  var eLen  = nBytes * 8 - mLen - 1
+    , eMax  = (1 << eLen) - 1
+    , eBias = eMax >> 1
+    , nBits = eLen - 7
+    , i     = nBytes - 1
+    , s     = buffer[i--]
+    , e     = s & 127
+    , m;
+  s >>= 7;
+  for(; nBits > 0; e = e * 256 + buffer[i], i--, nBits -= 8);
+  m = e & (1 << -nBits) - 1;
+  e >>= -nBits;
+  nBits += mLen;
+  for(; nBits > 0; m = m * 256 + buffer[i], i--, nBits -= 8);
+  if(e === 0){
+    e = 1 - eBias;
+  } else if(e === eMax){
+    return m ? NaN : s ? -Infinity : Infinity;
+  } else {
+    m = m + pow(2, mLen);
+    e = e - eBias;
+  } return (s ? -1 : 1) * m * pow(2, e - mLen);
+};
+
+var unpackI32 = function(bytes){
+  return bytes[3] << 24 | bytes[2] << 16 | bytes[1] << 8 | bytes[0];
+};
+var packI8 = function(it){
+  return [it & 0xff];
+};
+var packI16 = function(it){
+  return [it & 0xff, it >> 8 & 0xff];
+};
+var packI32 = function(it){
+  return [it & 0xff, it >> 8 & 0xff, it >> 16 & 0xff, it >> 24 & 0xff];
+};
+var packF64 = function(it){
+  return packIEEE754(it, 52, 8);
+};
+var packF32 = function(it){
+  return packIEEE754(it, 23, 4);
+};
+
+var addGetter = function(C, key, internal){
+  dP(C[PROTOTYPE], key, {get: function(){ return this[internal]; }});
+};
+
+var get = function(view, bytes, index, isLittleEndian){
+  var numIndex = +index
+    , intIndex = toInteger(numIndex);
+  if(numIndex != intIndex || intIndex < 0 || intIndex + bytes > view[$LENGTH])throw RangeError(WRONG_INDEX);
+  var store = view[$BUFFER]._b
+    , start = intIndex + view[$OFFSET]
+    , pack  = store.slice(start, start + bytes);
+  return isLittleEndian ? pack : pack.reverse();
+};
+var set = function(view, bytes, index, conversion, value, isLittleEndian){
+  var numIndex = +index
+    , intIndex = toInteger(numIndex);
+  if(numIndex != intIndex || intIndex < 0 || intIndex + bytes > view[$LENGTH])throw RangeError(WRONG_INDEX);
+  var store = view[$BUFFER]._b
+    , start = intIndex + view[$OFFSET]
+    , pack  = conversion(+value);
+  for(var i = 0; i < bytes; i++)store[start + i] = pack[isLittleEndian ? i : bytes - i - 1];
+};
+
+var validateArrayBufferArguments = function(that, length){
+  anInstance(that, $ArrayBuffer, ARRAY_BUFFER);
+  var numberLength = +length
+    , byteLength   = toLength(numberLength);
+  if(numberLength != byteLength)throw RangeError(WRONG_LENGTH);
+  return byteLength;
+};
+
+if(!$typed.ABV){
+  $ArrayBuffer = function ArrayBuffer(length){
+    var byteLength = validateArrayBufferArguments(this, length);
+    this._b       = arrayFill.call(Array(byteLength), 0);
+    this[$LENGTH] = byteLength;
+  };
+
+  $DataView = function DataView(buffer, byteOffset, byteLength){
+    anInstance(this, $DataView, DATA_VIEW);
+    anInstance(buffer, $ArrayBuffer, DATA_VIEW);
+    var bufferLength = buffer[$LENGTH]
+      , offset       = toInteger(byteOffset);
+    if(offset < 0 || offset > bufferLength)throw RangeError('Wrong offset!');
+    byteLength = byteLength === undefined ? bufferLength - offset : toLength(byteLength);
+    if(offset + byteLength > bufferLength)throw RangeError(WRONG_LENGTH);
+    this[$BUFFER] = buffer;
+    this[$OFFSET] = offset;
+    this[$LENGTH] = byteLength;
+  };
+
+  if(DESCRIPTORS){
+    addGetter($ArrayBuffer, BYTE_LENGTH, '_l');
+    addGetter($DataView, BUFFER, '_b');
+    addGetter($DataView, BYTE_LENGTH, '_l');
+    addGetter($DataView, BYTE_OFFSET, '_o');
+  }
+
+  redefineAll($DataView[PROTOTYPE], {
+    getInt8: function getInt8(byteOffset){
+      return get(this, 1, byteOffset)[0] << 24 >> 24;
+    },
+    getUint8: function getUint8(byteOffset){
+      return get(this, 1, byteOffset)[0];
+    },
+    getInt16: function getInt16(byteOffset /*, littleEndian */){
+      var bytes = get(this, 2, byteOffset, arguments[1]);
+      return (bytes[1] << 8 | bytes[0]) << 16 >> 16;
+    },
+    getUint16: function getUint16(byteOffset /*, littleEndian */){
+      var bytes = get(this, 2, byteOffset, arguments[1]);
+      return bytes[1] << 8 | bytes[0];
+    },
+    getInt32: function getInt32(byteOffset /*, littleEndian */){
+      return unpackI32(get(this, 4, byteOffset, arguments[1]));
+    },
+    getUint32: function getUint32(byteOffset /*, littleEndian */){
+      return unpackI32(get(this, 4, byteOffset, arguments[1])) >>> 0;
+    },
+    getFloat32: function getFloat32(byteOffset /*, littleEndian */){
+      return unpackIEEE754(get(this, 4, byteOffset, arguments[1]), 23, 4);
+    },
+    getFloat64: function getFloat64(byteOffset /*, littleEndian */){
+      return unpackIEEE754(get(this, 8, byteOffset, arguments[1]), 52, 8);
+    },
+    setInt8: function setInt8(byteOffset, value){
+      set(this, 1, byteOffset, packI8, value);
+    },
+    setUint8: function setUint8(byteOffset, value){
+      set(this, 1, byteOffset, packI8, value);
+    },
+    setInt16: function setInt16(byteOffset, value /*, littleEndian */){
+      set(this, 2, byteOffset, packI16, value, arguments[2]);
+    },
+    setUint16: function setUint16(byteOffset, value /*, littleEndian */){
+      set(this, 2, byteOffset, packI16, value, arguments[2]);
+    },
+    setInt32: function setInt32(byteOffset, value /*, littleEndian */){
+      set(this, 4, byteOffset, packI32, value, arguments[2]);
+    },
+    setUint32: function setUint32(byteOffset, value /*, littleEndian */){
+      set(this, 4, byteOffset, packI32, value, arguments[2]);
+    },
+    setFloat32: function setFloat32(byteOffset, value /*, littleEndian */){
+      set(this, 4, byteOffset, packF32, value, arguments[2]);
+    },
+    setFloat64: function setFloat64(byteOffset, value /*, littleEndian */){
+      set(this, 8, byteOffset, packF64, value, arguments[2]);
+    }
+  });
+} else {
+  if(!fails(function(){
+    new $ArrayBuffer;     // eslint-disable-line no-new
+  }) || !fails(function(){
+    new $ArrayBuffer(.5); // eslint-disable-line no-new
+  })){
+    $ArrayBuffer = function ArrayBuffer(length){
+      return new BaseBuffer(validateArrayBufferArguments(this, length));
+    };
+    var ArrayBufferProto = $ArrayBuffer[PROTOTYPE] = BaseBuffer[PROTOTYPE];
+    for(var keys = gOPN(BaseBuffer), j = 0, key; keys.length > j; ){
+      if(!((key = keys[j++]) in $ArrayBuffer))hide($ArrayBuffer, key, BaseBuffer[key]);
+    };
+    if(!LIBRARY)ArrayBufferProto.constructor = $ArrayBuffer;
+  }
+  // iOS Safari 7.x bug
+  var view = new $DataView(new $ArrayBuffer(2))
+    , $setInt8 = $DataView[PROTOTYPE].setInt8;
+  view.setInt8(0, 2147483648);
+  view.setInt8(1, 2147483649);
+  if(view.getInt8(0) || !view.getInt8(1))redefineAll($DataView[PROTOTYPE], {
+    setInt8: function setInt8(byteOffset, value){
+      $setInt8.call(this, byteOffset, value << 24 >> 24);
+    },
+    setUint8: function setUint8(byteOffset, value){
+      $setInt8.call(this, byteOffset, value << 24 >> 24);
+    }
+  }, true);
+}
+setToStringTag($ArrayBuffer, ARRAY_BUFFER);
+setToStringTag($DataView, DATA_VIEW);
+hide($DataView[PROTOTYPE], $typed.VIEW, true);
+exports[ARRAY_BUFFER] = $ArrayBuffer;
+exports[DATA_VIEW] = $DataView;
+},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_array-fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_typed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js":[function(require,module,exports){
+var global = require('./_global')
+  , hide   = require('./_hide')
+  , uid    = require('./_uid')
+  , TYPED  = uid('typed_array')
+  , VIEW   = uid('view')
+  , ABV    = !!(global.ArrayBuffer && global.DataView)
+  , CONSTR = ABV
+  , i = 0, l = 9, Typed;
+
+var TypedArrayConstructors = (
+  'Int8Array,Uint8Array,Uint8ClampedArray,Int16Array,Uint16Array,Int32Array,Uint32Array,Float32Array,Float64Array'
+).split(',');
+
+while(i < l){
+  if(Typed = global[TypedArrayConstructors[i++]]){
+    hide(Typed.prototype, TYPED, true);
+    hide(Typed.prototype, VIEW, true);
+  } else CONSTR = false;
+}
+
+module.exports = {
+  ABV:    ABV,
+  CONSTR: CONSTR,
+  TYPED:  TYPED,
+  VIEW:   VIEW
+};
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js":[function(require,module,exports){
 var id = 0
   , px = Math.random();
 module.exports = function(key){
   return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js":[function(require,module,exports){
-var store  = require('./$.shared')('wks')
-  , uid    = require('./$.uid')
-  , Symbol = require('./$.global').Symbol;
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js":[function(require,module,exports){
+var store      = require('./_shared')('wks')
+  , uid        = require('./_uid')
+  , Symbol     = require('./_global').Symbol
+  , USE_SYMBOL = typeof Symbol == 'function';
 module.exports = function(name){
   return store[name] || (store[name] =
-    Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
+    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
 };
-},{"./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.shared.js","./$.uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js":[function(require,module,exports){
-var classof   = require('./$.classof')
-  , ITERATOR  = require('./$.wks')('iterator')
-  , Iterators = require('./$.iterators');
-module.exports = require('./$.core').getIteratorMethod = function(it){
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js":[function(require,module,exports){
+var classof   = require('./_classof')
+  , ITERATOR  = require('./_wks')('iterator')
+  , Iterators = require('./_iterators');
+module.exports = require('./_core').getIteratorMethod = function(it){
   if(it != undefined)return it[ITERATOR]
     || it['@@iterator']
     || Iterators[classof(it)];
 };
-},{"./$.classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.classof.js","./$.core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js","./$.iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iterators.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es5.js":[function(require,module,exports){
-'use strict';
-var $                 = require('./$')
-  , $export           = require('./$.export')
-  , DESCRIPTORS       = require('./$.descriptors')
-  , createDesc        = require('./$.property-desc')
-  , html              = require('./$.html')
-  , cel               = require('./$.dom-create')
-  , has               = require('./$.has')
-  , cof               = require('./$.cof')
-  , invoke            = require('./$.invoke')
-  , fails             = require('./$.fails')
-  , anObject          = require('./$.an-object')
-  , aFunction         = require('./$.a-function')
-  , isObject          = require('./$.is-object')
-  , toObject          = require('./$.to-object')
-  , toIObject         = require('./$.to-iobject')
-  , toInteger         = require('./$.to-integer')
-  , toIndex           = require('./$.to-index')
-  , toLength          = require('./$.to-length')
-  , IObject           = require('./$.iobject')
-  , IE_PROTO          = require('./$.uid')('__proto__')
-  , createArrayMethod = require('./$.array-methods')
-  , arrayIndexOf      = require('./$.array-includes')(false)
-  , ObjectProto       = Object.prototype
-  , ArrayProto        = Array.prototype
-  , arraySlice        = ArrayProto.slice
-  , arrayJoin         = ArrayProto.join
-  , defineProperty    = $.setDesc
-  , getOwnDescriptor  = $.getDesc
-  , defineProperties  = $.setDescs
-  , factories         = {}
-  , IE8_DOM_DEFINE;
-
-if(!DESCRIPTORS){
-  IE8_DOM_DEFINE = !fails(function(){
-    return defineProperty(cel('div'), 'a', {get: function(){ return 7; }}).a != 7;
-  });
-  $.setDesc = function(O, P, Attributes){
-    if(IE8_DOM_DEFINE)try {
-      return defineProperty(O, P, Attributes);
-    } catch(e){ /* empty */ }
-    if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
-    if('value' in Attributes)anObject(O)[P] = Attributes.value;
-    return O;
-  };
-  $.getDesc = function(O, P){
-    if(IE8_DOM_DEFINE)try {
-      return getOwnDescriptor(O, P);
-    } catch(e){ /* empty */ }
-    if(has(O, P))return createDesc(!ObjectProto.propertyIsEnumerable.call(O, P), O[P]);
-  };
-  $.setDescs = defineProperties = function(O, Properties){
-    anObject(O);
-    var keys   = $.getKeys(Properties)
-      , length = keys.length
-      , i = 0
-      , P;
-    while(length > i)$.setDesc(O, P = keys[i++], Properties[P]);
-    return O;
-  };
-}
-$export($export.S + $export.F * !DESCRIPTORS, 'Object', {
-  // 19.1.2.6 / 15.2.3.3 Object.getOwnPropertyDescriptor(O, P)
-  getOwnPropertyDescriptor: $.getDesc,
-  // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-  defineProperty: $.setDesc,
-  // 19.1.2.3 / 15.2.3.7 Object.defineProperties(O, Properties)
-  defineProperties: defineProperties
-});
-
-  // IE 8- don't enum bug keys
-var keys1 = ('constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,' +
-            'toLocaleString,toString,valueOf').split(',')
-  // Additional keys for getOwnPropertyNames
-  , keys2 = keys1.concat('length', 'prototype')
-  , keysLen1 = keys1.length;
-
-// Create object with `null` prototype: use iframe Object with cleared prototype
-var createDict = function(){
-  // Thrash, waste and sodomy: IE GC bug
-  var iframe = cel('iframe')
-    , i      = keysLen1
-    , gt     = '>'
-    , iframeDocument;
-  iframe.style.display = 'none';
-  html.appendChild(iframe);
-  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
-  // createDict = iframe.contentWindow.Object;
-  // html.removeChild(iframe);
-  iframeDocument = iframe.contentWindow.document;
-  iframeDocument.open();
-  iframeDocument.write('<script>document.F=Object</script' + gt);
-  iframeDocument.close();
-  createDict = iframeDocument.F;
-  while(i--)delete createDict.prototype[keys1[i]];
-  return createDict();
+},{"./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.is-iterable.js":[function(require,module,exports){
+var classof   = require('./_classof')
+  , ITERATOR  = require('./_wks')('iterator')
+  , Iterators = require('./_iterators');
+module.exports = require('./_core').isIterable = function(it){
+  var O = Object(it);
+  return O[ITERATOR] !== undefined
+    || '@@iterator' in O
+    || Iterators.hasOwnProperty(classof(O));
 };
-var createGetKeys = function(names, length){
-  return function(object){
-    var O      = toIObject(object)
-      , i      = 0
-      , result = []
-      , key;
-    for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
-    // Don't enum bug & hidden keys
-    while(length > i)if(has(O, key = names[i++])){
-      ~arrayIndexOf(result, key) || result.push(key);
-    }
-    return result;
-  };
-};
-var Empty = function(){};
-$export($export.S, 'Object', {
-  // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-  getPrototypeOf: $.getProto = $.getProto || function(O){
-    O = toObject(O);
-    if(has(O, IE_PROTO))return O[IE_PROTO];
-    if(typeof O.constructor == 'function' && O instanceof O.constructor){
-      return O.constructor.prototype;
-    } return O instanceof Object ? ObjectProto : null;
-  },
-  // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-  getOwnPropertyNames: $.getNames = $.getNames || createGetKeys(keys2, keys2.length, true),
-  // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-  create: $.create = $.create || function(O, /*?*/Properties){
-    var result;
-    if(O !== null){
-      Empty.prototype = anObject(O);
-      result = new Empty();
-      Empty.prototype = null;
-      // add "__proto__" for Object.getPrototypeOf shim
-      result[IE_PROTO] = O;
-    } else result = createDict();
-    return Properties === undefined ? result : defineProperties(result, Properties);
-  },
-  // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-  keys: $.getKeys = $.getKeys || createGetKeys(keys1, keysLen1, false)
-});
+},{"./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.regexp.escape.js":[function(require,module,exports){
+// https://github.com/benjamingr/RexExp.escape
+var $export = require('./_export')
+  , $re     = require('./_replacer')(/[\\^$*+?.()|[\]{}]/g, '\\$&');
 
-var construct = function(F, len, args){
-  if(!(len in factories)){
-    for(var n = [], i = 0; i < len; i++)n[i] = 'a[' + i + ']';
-    factories[len] = Function('F,a', 'return new F(' + n.join(',') + ')');
-  }
-  return factories[len](F, args);
-};
+$export($export.S, 'RegExp', {escape: function escape(it){ return $re(it); }});
 
-// 19.2.3.2 / 15.3.4.5 Function.prototype.bind(thisArg, args...)
-$export($export.P, 'Function', {
-  bind: function bind(that /*, args... */){
-    var fn       = aFunction(this)
-      , partArgs = arraySlice.call(arguments, 1);
-    var bound = function(/* args... */){
-      var args = partArgs.concat(arraySlice.call(arguments));
-      return this instanceof bound ? construct(fn, args.length, args) : invoke(fn, args, that);
-    };
-    if(isObject(fn.prototype))bound.prototype = fn.prototype;
-    return bound;
-  }
-});
-
-// fallback for not array-like ES3 strings and DOM objects
-$export($export.P + $export.F * fails(function(){
-  if(html)arraySlice.call(html);
-}), 'Array', {
-  slice: function(begin, end){
-    var len   = toLength(this.length)
-      , klass = cof(this);
-    end = end === undefined ? len : end;
-    if(klass == 'Array')return arraySlice.call(this, begin, end);
-    var start  = toIndex(begin, len)
-      , upTo   = toIndex(end, len)
-      , size   = toLength(upTo - start)
-      , cloned = Array(size)
-      , i      = 0;
-    for(; i < size; i++)cloned[i] = klass == 'String'
-      ? this.charAt(start + i)
-      : this[start + i];
-    return cloned;
-  }
-});
-$export($export.P + $export.F * (IObject != Object), 'Array', {
-  join: function join(separator){
-    return arrayJoin.call(IObject(this), separator === undefined ? ',' : separator);
-  }
-});
-
-// 22.1.2.2 / 15.4.3.2 Array.isArray(arg)
-$export($export.S, 'Array', {isArray: require('./$.is-array')});
-
-var createArrayReduce = function(isRight){
-  return function(callbackfn, memo){
-    aFunction(callbackfn);
-    var O      = IObject(this)
-      , length = toLength(O.length)
-      , index  = isRight ? length - 1 : 0
-      , i      = isRight ? -1 : 1;
-    if(arguments.length < 2)for(;;){
-      if(index in O){
-        memo = O[index];
-        index += i;
-        break;
-      }
-      index += i;
-      if(isRight ? index < 0 : length <= index){
-        throw TypeError('Reduce of empty array with no initial value');
-      }
-    }
-    for(;isRight ? index >= 0 : length > index; index += i)if(index in O){
-      memo = callbackfn(memo, O[index], index, this);
-    }
-    return memo;
-  };
-};
-
-var methodize = function($fn){
-  return function(arg1/*, arg2 = undefined */){
-    return $fn(this, arg1, arguments[1]);
-  };
-};
-
-$export($export.P, 'Array', {
-  // 22.1.3.10 / 15.4.4.18 Array.prototype.forEach(callbackfn [, thisArg])
-  forEach: $.each = $.each || methodize(createArrayMethod(0)),
-  // 22.1.3.15 / 15.4.4.19 Array.prototype.map(callbackfn [, thisArg])
-  map: methodize(createArrayMethod(1)),
-  // 22.1.3.7 / 15.4.4.20 Array.prototype.filter(callbackfn [, thisArg])
-  filter: methodize(createArrayMethod(2)),
-  // 22.1.3.23 / 15.4.4.17 Array.prototype.some(callbackfn [, thisArg])
-  some: methodize(createArrayMethod(3)),
-  // 22.1.3.5 / 15.4.4.16 Array.prototype.every(callbackfn [, thisArg])
-  every: methodize(createArrayMethod(4)),
-  // 22.1.3.18 / 15.4.4.21 Array.prototype.reduce(callbackfn [, initialValue])
-  reduce: createArrayReduce(false),
-  // 22.1.3.19 / 15.4.4.22 Array.prototype.reduceRight(callbackfn [, initialValue])
-  reduceRight: createArrayReduce(true),
-  // 22.1.3.11 / 15.4.4.14 Array.prototype.indexOf(searchElement [, fromIndex])
-  indexOf: methodize(arrayIndexOf),
-  // 22.1.3.14 / 15.4.4.15 Array.prototype.lastIndexOf(searchElement [, fromIndex])
-  lastIndexOf: function(el, fromIndex /* = @[*-1] */){
-    var O      = toIObject(this)
-      , length = toLength(O.length)
-      , index  = length - 1;
-    if(arguments.length > 1)index = Math.min(index, toInteger(fromIndex));
-    if(index < 0)index = toLength(length + index);
-    for(;index >= 0; index--)if(index in O)if(O[index] === el)return index;
-    return -1;
-  }
-});
-
-// 20.3.3.1 / 15.9.4.4 Date.now()
-$export($export.S, 'Date', {now: function(){ return +new Date; }});
-
-var lz = function(num){
-  return num > 9 ? num : '0' + num;
-};
-
-// 20.3.4.36 / 15.9.5.43 Date.prototype.toISOString()
-// PhantomJS / old WebKit has a broken implementations
-$export($export.P + $export.F * (fails(function(){
-  return new Date(-5e13 - 1).toISOString() != '0385-07-25T07:06:39.999Z';
-}) || !fails(function(){
-  new Date(NaN).toISOString();
-})), 'Date', {
-  toISOString: function toISOString(){
-    if(!isFinite(this))throw RangeError('Invalid time value');
-    var d = this
-      , y = d.getUTCFullYear()
-      , m = d.getUTCMilliseconds()
-      , s = y < 0 ? '-' : y > 9999 ? '+' : '';
-    return s + ('00000' + Math.abs(y)).slice(s ? -6 : -4) +
-      '-' + lz(d.getUTCMonth() + 1) + '-' + lz(d.getUTCDate()) +
-      'T' + lz(d.getUTCHours()) + ':' + lz(d.getUTCMinutes()) +
-      ':' + lz(d.getUTCSeconds()) + '.' + (m > 99 ? m : '0' + lz(m)) + 'Z';
-  }
-});
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.a-function.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-includes.js","./$.array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-methods.js","./$.cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.dom-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.dom-create.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.html.js","./$.invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.invoke.js","./$.iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iobject.js","./$.is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-array.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.property-desc.js","./$.to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-index.js","./$.to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-integer.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js","./$.to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js","./$.uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.copy-within.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_replacer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_replacer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.copy-within.js":[function(require,module,exports){
 // 22.1.3.3 Array.prototype.copyWithin(target, start, end = this.length)
-var $export = require('./$.export');
+var $export = require('./_export');
 
-$export($export.P, 'Array', {copyWithin: require('./$.array-copy-within')});
+$export($export.P, 'Array', {copyWithin: require('./_array-copy-within')});
 
-require('./$.add-to-unscopables')('copyWithin');
-},{"./$.add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.add-to-unscopables.js","./$.array-copy-within":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-copy-within.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.fill.js":[function(require,module,exports){
+require('./_add-to-unscopables')('copyWithin');
+},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-copy-within":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.every.js":[function(require,module,exports){
+'use strict';
+var $export = require('./_export')
+  , $every  = require('./_array-methods')(4);
+
+$export($export.P + $export.F * !require('./_strict-method')([].every, true), 'Array', {
+  // 22.1.3.5 / 15.4.4.16 Array.prototype.every(callbackfn [, thisArg])
+  every: function every(callbackfn /* , thisArg */){
+    return $every(this, callbackfn, arguments[1]);
+  }
+});
+},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.fill.js":[function(require,module,exports){
 // 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
-var $export = require('./$.export');
+var $export = require('./_export');
 
-$export($export.P, 'Array', {fill: require('./$.array-fill')});
+$export($export.P, 'Array', {fill: require('./_array-fill')});
 
-require('./$.add-to-unscopables')('fill');
-},{"./$.add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.add-to-unscopables.js","./$.array-fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-fill.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find-index.js":[function(require,module,exports){
+require('./_add-to-unscopables')('fill');
+},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.filter.js":[function(require,module,exports){
+'use strict';
+var $export = require('./_export')
+  , $filter = require('./_array-methods')(2);
+
+$export($export.P + $export.F * !require('./_strict-method')([].filter, true), 'Array', {
+  // 22.1.3.7 / 15.4.4.20 Array.prototype.filter(callbackfn [, thisArg])
+  filter: function filter(callbackfn /* , thisArg */){
+    return $filter(this, callbackfn, arguments[1]);
+  }
+});
+},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find-index.js":[function(require,module,exports){
 'use strict';
 // 22.1.3.9 Array.prototype.findIndex(predicate, thisArg = undefined)
-var $export = require('./$.export')
-  , $find   = require('./$.array-methods')(6)
+var $export = require('./_export')
+  , $find   = require('./_array-methods')(6)
   , KEY     = 'findIndex'
   , forced  = true;
 // Shouldn't skip holes
@@ -2458,12 +3423,12 @@ $export($export.P + $export.F * forced, 'Array', {
     return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
   }
 });
-require('./$.add-to-unscopables')(KEY);
-},{"./$.add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.add-to-unscopables.js","./$.array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-methods.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find.js":[function(require,module,exports){
+require('./_add-to-unscopables')(KEY);
+},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find.js":[function(require,module,exports){
 'use strict';
 // 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
-var $export = require('./$.export')
-  , $find   = require('./$.array-methods')(5)
+var $export = require('./_export')
+  , $find   = require('./_array-methods')(5)
   , KEY     = 'find'
   , forced  = true;
 // Shouldn't skip holes
@@ -2473,29 +3438,40 @@ $export($export.P + $export.F * forced, 'Array', {
     return $find(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
   }
 });
-require('./$.add-to-unscopables')(KEY);
-},{"./$.add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.add-to-unscopables.js","./$.array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-methods.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.from.js":[function(require,module,exports){
+require('./_add-to-unscopables')(KEY);
+},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.for-each.js":[function(require,module,exports){
 'use strict';
-var ctx         = require('./$.ctx')
-  , $export     = require('./$.export')
-  , toObject    = require('./$.to-object')
-  , call        = require('./$.iter-call')
-  , isArrayIter = require('./$.is-array-iter')
-  , toLength    = require('./$.to-length')
+var $export  = require('./_export')
+  , $forEach = require('./_array-methods')(0)
+  , STRICT   = require('./_strict-method')([].forEach, true);
+
+$export($export.P + $export.F * !STRICT, 'Array', {
+  // 22.1.3.10 / 15.4.4.18 Array.prototype.forEach(callbackfn [, thisArg])
+  forEach: function forEach(callbackfn /* , thisArg */){
+    return $forEach(this, callbackfn, arguments[1]);
+  }
+});
+},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.from.js":[function(require,module,exports){
+'use strict';
+var ctx         = require('./_ctx')
+  , $export     = require('./_export')
+  , toObject    = require('./_to-object')
+  , call        = require('./_iter-call')
+  , isArrayIter = require('./_is-array-iter')
+  , toLength    = require('./_to-length')
   , getIterFn   = require('./core.get-iterator-method');
-$export($export.S + $export.F * !require('./$.iter-detect')(function(iter){ Array.from(iter); }), 'Array', {
+$export($export.S + $export.F * !require('./_iter-detect')(function(iter){ Array.from(iter); }), 'Array', {
   // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
   from: function from(arrayLike/*, mapfn = undefined, thisArg = undefined*/){
     var O       = toObject(arrayLike)
       , C       = typeof this == 'function' ? this : Array
-      , $$      = arguments
-      , $$len   = $$.length
-      , mapfn   = $$len > 1 ? $$[1] : undefined
+      , aLen    = arguments.length
+      , mapfn   = aLen > 1 ? arguments[1] : undefined
       , mapping = mapfn !== undefined
       , index   = 0
       , iterFn  = getIterFn(O)
       , length, result, step, iterator;
-    if(mapping)mapfn = ctx(mapfn, $$len > 2 ? $$[2] : undefined, 2);
+    if(mapping)mapfn = ctx(mapfn, aLen > 2 ? arguments[2] : undefined, 2);
     // if object isn't iterable or it's array with default iterator - use simple case
     if(iterFn != undefined && !(C == Array && isArrayIter(iterFn))){
       for(iterator = iterFn.call(O), result = new C; !(step = iterator.next()).done; index++){
@@ -2512,18 +3488,34 @@ $export($export.S + $export.F * !require('./$.iter-detect')(function(iter){ Arra
   }
 });
 
-},{"./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.is-array-iter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-array-iter.js","./$.iter-call":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-call.js","./$.iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-detect.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js","./$.to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js","./core.get-iterator-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js":[function(require,module,exports){
+},{"./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-array-iter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_iter-call":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js","./_iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./core.get-iterator-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.index-of.js":[function(require,module,exports){
 'use strict';
-var addToUnscopables = require('./$.add-to-unscopables')
-  , step             = require('./$.iter-step')
-  , Iterators        = require('./$.iterators')
-  , toIObject        = require('./$.to-iobject');
+var $export  = require('./_export')
+  , $indexOf = require('./_array-includes')(false);
+
+$export($export.P + $export.F * !require('./_strict-method')([].indexOf), 'Array', {
+  // 22.1.3.11 / 15.4.4.14 Array.prototype.indexOf(searchElement [, fromIndex])
+  indexOf: function indexOf(searchElement /*, fromIndex = 0 */){
+    return $indexOf(this, searchElement, arguments[1]);
+  }
+});
+},{"./_array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.is-array.js":[function(require,module,exports){
+// 22.1.2.2 / 15.4.3.2 Array.isArray(arg)
+var $export = require('./_export');
+
+$export($export.S, 'Array', {isArray: require('./_is-array')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js":[function(require,module,exports){
+'use strict';
+var addToUnscopables = require('./_add-to-unscopables')
+  , step             = require('./_iter-step')
+  , Iterators        = require('./_iterators')
+  , toIObject        = require('./_to-iobject');
 
 // 22.1.3.4 Array.prototype.entries()
 // 22.1.3.13 Array.prototype.keys()
 // 22.1.3.29 Array.prototype.values()
 // 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = require('./$.iter-define')(Array, 'Array', function(iterated, kind){
+module.exports = require('./_iter-define')(Array, 'Array', function(iterated, kind){
   this._t = toIObject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
@@ -2547,65 +3539,257 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
-},{"./$.add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.add-to-unscopables.js","./$.iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-define.js","./$.iter-step":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-step.js","./$.iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iterators.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.of.js":[function(require,module,exports){
+},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_iter-step":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.join.js":[function(require,module,exports){
 'use strict';
-var $export = require('./$.export');
+// 22.1.3.13 Array.prototype.join(separator)
+var $export   = require('./_export')
+  , toIObject = require('./_to-iobject')
+  , arrayJoin = [].join;
+
+// fallback for not array-like strings
+$export($export.P + $export.F * (require('./_iobject') != Object || !require('./_strict-method')(arrayJoin)), 'Array', {
+  join: function join(separator){
+    return arrayJoin.call(toIObject(this), separator === undefined ? ',' : separator);
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.last-index-of.js":[function(require,module,exports){
+'use strict';
+var $export   = require('./_export')
+  , toIObject = require('./_to-iobject')
+  , toInteger = require('./_to-integer')
+  , toLength  = require('./_to-length');
+
+$export($export.P + $export.F * !require('./_strict-method')([].lastIndexOf), 'Array', {
+  // 22.1.3.14 / 15.4.4.15 Array.prototype.lastIndexOf(searchElement [, fromIndex])
+  lastIndexOf: function lastIndexOf(searchElement /*, fromIndex = @[*-1] */){
+    var O      = toIObject(this)
+      , length = toLength(O.length)
+      , index  = length - 1;
+    if(arguments.length > 1)index = Math.min(index, toInteger(arguments[1]));
+    if(index < 0)index = length + index;
+    for(;index >= 0; index--)if(index in O)if(O[index] === searchElement)return index;
+    return -1;
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.map.js":[function(require,module,exports){
+'use strict';
+var $export = require('./_export')
+  , $map    = require('./_array-methods')(1);
+
+$export($export.P + $export.F * !require('./_strict-method')([].map, true), 'Array', {
+  // 22.1.3.15 / 15.4.4.19 Array.prototype.map(callbackfn [, thisArg])
+  map: function map(callbackfn /* , thisArg */){
+    return $map(this, callbackfn, arguments[1]);
+  }
+});
+},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.of.js":[function(require,module,exports){
+'use strict';
+var $export = require('./_export');
 
 // WebKit Array.of isn't generic
-$export($export.S + $export.F * require('./$.fails')(function(){
+$export($export.S + $export.F * require('./_fails')(function(){
   function F(){}
   return !(Array.of.call(F) instanceof F);
 }), 'Array', {
   // 22.1.2.3 Array.of( ...items)
   of: function of(/* ...args */){
     var index  = 0
-      , $$     = arguments
-      , $$len  = $$.length
-      , result = new (typeof this == 'function' ? this : Array)($$len);
-    while($$len > index)result[index] = $$[index++];
-    result.length = $$len;
+      , aLen   = arguments.length
+      , result = new (typeof this == 'function' ? this : Array)(aLen);
+    while(aLen > index)result[index] = arguments[index++];
+    result.length = aLen;
     return result;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.species.js":[function(require,module,exports){
-require('./$.set-species')('Array');
-},{"./$.set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-species.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.has-instance.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce-right.js":[function(require,module,exports){
 'use strict';
-var $             = require('./$')
-  , isObject      = require('./$.is-object')
-  , HAS_INSTANCE  = require('./$.wks')('hasInstance')
-  , FunctionProto = Function.prototype;
+var $export = require('./_export')
+  , $reduce = require('./_array-reduce');
+
+$export($export.P + $export.F * !require('./_strict-method')([].reduceRight, true), 'Array', {
+  // 22.1.3.19 / 15.4.4.22 Array.prototype.reduceRight(callbackfn [, initialValue])
+  reduceRight: function reduceRight(callbackfn /* , initialValue */){
+    return $reduce(this, callbackfn, arguments.length, arguments[1], true);
+  }
+});
+},{"./_array-reduce":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce.js":[function(require,module,exports){
+'use strict';
+var $export = require('./_export')
+  , $reduce = require('./_array-reduce');
+
+$export($export.P + $export.F * !require('./_strict-method')([].reduce, true), 'Array', {
+  // 22.1.3.18 / 15.4.4.21 Array.prototype.reduce(callbackfn [, initialValue])
+  reduce: function reduce(callbackfn /* , initialValue */){
+    return $reduce(this, callbackfn, arguments.length, arguments[1], false);
+  }
+});
+},{"./_array-reduce":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.slice.js":[function(require,module,exports){
+'use strict';
+var $export    = require('./_export')
+  , html       = require('./_html')
+  , cof        = require('./_cof')
+  , toIndex    = require('./_to-index')
+  , toLength   = require('./_to-length')
+  , arraySlice = [].slice;
+
+// fallback for not array-like ES3 strings and DOM objects
+$export($export.P + $export.F * require('./_fails')(function(){
+  if(html)arraySlice.call(html);
+}), 'Array', {
+  slice: function slice(begin, end){
+    var len   = toLength(this.length)
+      , klass = cof(this);
+    end = end === undefined ? len : end;
+    if(klass == 'Array')return arraySlice.call(this, begin, end);
+    var start  = toIndex(begin, len)
+      , upTo   = toIndex(end, len)
+      , size   = toLength(upTo - start)
+      , cloned = Array(size)
+      , i      = 0;
+    for(; i < size; i++)cloned[i] = klass == 'String'
+      ? this.charAt(start + i)
+      : this[start + i];
+    return cloned;
+  }
+});
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.some.js":[function(require,module,exports){
+'use strict';
+var $export = require('./_export')
+  , $some   = require('./_array-methods')(3);
+
+$export($export.P + $export.F * !require('./_strict-method')([].some, true), 'Array', {
+  // 22.1.3.23 / 15.4.4.17 Array.prototype.some(callbackfn [, thisArg])
+  some: function some(callbackfn /* , thisArg */){
+    return $some(this, callbackfn, arguments[1]);
+  }
+});
+},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.sort.js":[function(require,module,exports){
+'use strict';
+var $export   = require('./_export')
+  , aFunction = require('./_a-function')
+  , toObject  = require('./_to-object')
+  , fails     = require('./_fails')
+  , $sort     = [].sort
+  , test      = [1, 2, 3];
+
+$export($export.P + $export.F * (fails(function(){
+  // IE8-
+  test.sort(undefined);
+}) || !fails(function(){
+  // V8 bug
+  test.sort(null);
+  // Old WebKit
+}) || !require('./_strict-method')($sort)), 'Array', {
+  // 22.1.3.25 Array.prototype.sort(comparefn)
+  sort: function sort(comparefn){
+    return comparefn === undefined
+      ? $sort.call(toObject(this))
+      : $sort.call(toObject(this), aFunction(comparefn));
+  }
+});
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.species.js":[function(require,module,exports){
+require('./_set-species')('Array');
+},{"./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.now.js":[function(require,module,exports){
+// 20.3.3.1 / 15.9.4.4 Date.now()
+var $export = require('./_export');
+
+$export($export.S, 'Date', {now: function(){ return +new Date; }});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-iso-string.js":[function(require,module,exports){
+'use strict';
+// 20.3.4.36 / 15.9.5.43 Date.prototype.toISOString()
+var $export = require('./_export')
+  , fails   = require('./_fails');
+
+var lz = function(num){
+  return num > 9 ? num : '0' + num;
+};
+
+// PhantomJS / old WebKit has a broken implementations
+$export($export.P + $export.F * (fails(function(){
+  return new Date(-5e13 - 1).toISOString() != '0385-07-25T07:06:39.999Z';
+}) || !fails(function(){
+  new Date(NaN).toISOString();
+})), 'Date', {
+  toISOString: function toISOString(){
+    if(!isFinite(this))throw RangeError('Invalid time value');
+    var d = this
+      , y = d.getUTCFullYear()
+      , m = d.getUTCMilliseconds()
+      , s = y < 0 ? '-' : y > 9999 ? '+' : '';
+    return s + ('00000' + Math.abs(y)).slice(s ? -6 : -4) +
+      '-' + lz(d.getUTCMonth() + 1) + '-' + lz(d.getUTCDate()) +
+      'T' + lz(d.getUTCHours()) + ':' + lz(d.getUTCMinutes()) +
+      ':' + lz(d.getUTCSeconds()) + '.' + (m > 99 ? m : '0' + lz(m)) + 'Z';
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-json.js":[function(require,module,exports){
+'use strict';
+var $export     = require('./_export')
+  , toObject    = require('./_to-object')
+  , toPrimitive = require('./_to-primitive');
+
+$export($export.P + $export.F * require('./_fails')(function(){
+  return new Date(NaN).toJSON() !== null || Date.prototype.toJSON.call({toISOString: function(){ return 1; }}) !== 1;
+}), 'Date', {
+  toJSON: function toJSON(key){
+    var O  = toObject(this)
+      , pv = toPrimitive(O);
+    return typeof pv == 'number' && !isFinite(pv) ? null : O.toISOString();
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-string.js":[function(require,module,exports){
+var DateProto    = Date.prototype
+  , INVALID_DATE = 'Invalid Date'
+  , TO_STRING    = 'toString'
+  , $toString    = DateProto[TO_STRING];
+if(new Date(NaN) + '' != INVALID_DATE){
+  require('./_redefine')(DateProto, TO_STRING, function toString(){
+    var value = +this;
+    return value === value ? $toString.call(this) : INVALID_DATE;
+  });
+}
+},{"./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.bind.js":[function(require,module,exports){
+// 19.2.3.2 / 15.3.4.5 Function.prototype.bind(thisArg, args...)
+var $export = require('./_export');
+
+$export($export.P, 'Function', {bind: require('./_bind')});
+},{"./_bind":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.has-instance.js":[function(require,module,exports){
+'use strict';
+var isObject       = require('./_is-object')
+  , getPrototypeOf = require('./_object-gpo')
+  , HAS_INSTANCE   = require('./_wks')('hasInstance')
+  , FunctionProto  = Function.prototype;
 // 19.2.3.6 Function.prototype[@@hasInstance](V)
-if(!(HAS_INSTANCE in FunctionProto))$.setDesc(FunctionProto, HAS_INSTANCE, {value: function(O){
+if(!(HAS_INSTANCE in FunctionProto))require('./_object-dp').f(FunctionProto, HAS_INSTANCE, {value: function(O){
   if(typeof this != 'function' || !isObject(O))return false;
   if(!isObject(this.prototype))return O instanceof this;
   // for environment w/o native `@@hasInstance` logic enough `instanceof`, but add this:
-  while(O = $.getProto(O))if(this.prototype === O)return true;
+  while(O = getPrototypeOf(O))if(this.prototype === O)return true;
   return false;
 }});
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.name.js":[function(require,module,exports){
-var setDesc    = require('./$').setDesc
-  , createDesc = require('./$.property-desc')
-  , has        = require('./$.has')
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.name.js":[function(require,module,exports){
+var dP         = require('./_object-dp').f
+  , createDesc = require('./_property-desc')
+  , has        = require('./_has')
   , FProto     = Function.prototype
   , nameRE     = /^\s*function ([^ (]*)/
   , NAME       = 'name';
 // 19.2.4.2 name
-NAME in FProto || require('./$.descriptors') && setDesc(FProto, NAME, {
+NAME in FProto || require('./_descriptors') && dP(FProto, NAME, {
   configurable: true,
   get: function(){
     var match = ('' + this).match(nameRE)
       , name  = match ? match[1] : '';
-    has(this, NAME) || setDesc(this, NAME, createDesc(5, name));
+    has(this, NAME) || dP(this, NAME, createDesc(5, name));
     return name;
   }
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js":[function(require,module,exports){
 'use strict';
-var strong = require('./$.collection-strong');
+var strong = require('./_collection-strong');
 
 // 23.1 Map Objects
-require('./$.collection')('Map', function(get){
+module.exports = require('./_collection')('Map', function(get){
   return function Map(){ return get(this, arguments.length > 0 ? arguments[0] : undefined); };
 }, {
   // 23.1.3.6 Map.prototype.get(key)
@@ -2618,10 +3802,10 @@ require('./$.collection')('Map', function(get){
     return strong.def(this, key === 0 ? 0 : key, value);
   }
 }, strong, true);
-},{"./$.collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection.js","./$.collection-strong":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-strong.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.acosh.js":[function(require,module,exports){
+},{"./_collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-strong":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.acosh.js":[function(require,module,exports){
 // 20.2.2.3 Math.acosh(x)
-var $export = require('./$.export')
-  , log1p   = require('./$.math-log1p')
+var $export = require('./_export')
+  , log1p   = require('./_math-log1p')
   , sqrt    = Math.sqrt
   , $acosh  = Math.acosh;
 
@@ -2633,46 +3817,46 @@ $export($export.S + $export.F * !($acosh && Math.floor($acosh(Number.MAX_VALUE))
       : log1p(x - 1 + sqrt(x - 1) * sqrt(x + 1));
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.math-log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-log1p.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.asinh.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.asinh.js":[function(require,module,exports){
 // 20.2.2.5 Math.asinh(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
 function asinh(x){
   return !isFinite(x = +x) || x == 0 ? x : x < 0 ? -asinh(-x) : Math.log(x + Math.sqrt(x * x + 1));
 }
 
 $export($export.S, 'Math', {asinh: asinh});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.atanh.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.atanh.js":[function(require,module,exports){
 // 20.2.2.7 Math.atanh(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Math', {
   atanh: function atanh(x){
     return (x = +x) == 0 ? x : Math.log((1 + x) / (1 - x)) / 2;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cbrt.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cbrt.js":[function(require,module,exports){
 // 20.2.2.9 Math.cbrt(x)
-var $export = require('./$.export')
-  , sign    = require('./$.math-sign');
+var $export = require('./_export')
+  , sign    = require('./_math-sign');
 
 $export($export.S, 'Math', {
   cbrt: function cbrt(x){
     return sign(x = +x) * Math.pow(Math.abs(x), 1 / 3);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.clz32.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.clz32.js":[function(require,module,exports){
 // 20.2.2.11 Math.clz32(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Math', {
   clz32: function clz32(x){
     return (x >>>= 0) ? 31 - Math.floor(Math.log(x + 0.5) * Math.LOG2E) : 32;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cosh.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cosh.js":[function(require,module,exports){
 // 20.2.2.12 Math.cosh(x)
-var $export = require('./$.export')
+var $export = require('./_export')
   , exp     = Math.exp;
 
 $export($export.S, 'Math', {
@@ -2680,15 +3864,15 @@ $export($export.S, 'Math', {
     return (exp(x = +x) + exp(-x)) / 2;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.expm1.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.expm1.js":[function(require,module,exports){
 // 20.2.2.14 Math.expm1(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
-$export($export.S, 'Math', {expm1: require('./$.math-expm1')});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.fround.js":[function(require,module,exports){
+$export($export.S, 'Math', {expm1: require('./_math-expm1')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.fround.js":[function(require,module,exports){
 // 20.2.2.16 Math.fround(x)
-var $export   = require('./$.export')
-  , sign      = require('./$.math-sign')
+var $export   = require('./_export')
+  , sign      = require('./_math-sign')
   , pow       = Math.pow
   , EPSILON   = pow(2, -52)
   , EPSILON32 = pow(2, -23)
@@ -2712,21 +3896,20 @@ $export($export.S, 'Math', {
     return $sign * result;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.hypot.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.hypot.js":[function(require,module,exports){
 // 20.2.2.17 Math.hypot([value1[, value2[, … ]]])
-var $export = require('./$.export')
+var $export = require('./_export')
   , abs     = Math.abs;
 
 $export($export.S, 'Math', {
   hypot: function hypot(value1, value2){ // eslint-disable-line no-unused-vars
-    var sum   = 0
-      , i     = 0
-      , $$    = arguments
-      , $$len = $$.length
-      , larg  = 0
+    var sum  = 0
+      , i    = 0
+      , aLen = arguments.length
+      , larg = 0
       , arg, div;
-    while(i < $$len){
-      arg = abs($$[i++]);
+    while(i < aLen){
+      arg = abs(arguments[i++]);
       if(larg < arg){
         div  = larg / arg;
         sum  = sum * div * div + 1;
@@ -2739,13 +3922,13 @@ $export($export.S, 'Math', {
     return larg === Infinity ? Infinity : larg * Math.sqrt(sum);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.imul.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.imul.js":[function(require,module,exports){
 // 20.2.2.18 Math.imul(x, y)
-var $export = require('./$.export')
+var $export = require('./_export')
   , $imul   = Math.imul;
 
 // some WebKit versions fails with big numbers, some has wrong arity
-$export($export.S + $export.F * require('./$.fails')(function(){
+$export($export.S + $export.F * require('./_fails')(function(){
   return $imul(0xffffffff, 5) != -5 || $imul.length != 2;
 }), 'Math', {
   imul: function imul(x, y){
@@ -2757,42 +3940,42 @@ $export($export.S + $export.F * require('./$.fails')(function(){
     return 0 | xl * yl + ((UINT16 & xn >>> 16) * yl + xl * (UINT16 & yn >>> 16) << 16 >>> 0);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log10.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log10.js":[function(require,module,exports){
 // 20.2.2.21 Math.log10(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Math', {
   log10: function log10(x){
     return Math.log(x) / Math.LN10;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log1p.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log1p.js":[function(require,module,exports){
 // 20.2.2.20 Math.log1p(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
-$export($export.S, 'Math', {log1p: require('./$.math-log1p')});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.math-log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-log1p.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log2.js":[function(require,module,exports){
+$export($export.S, 'Math', {log1p: require('./_math-log1p')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log2.js":[function(require,module,exports){
 // 20.2.2.22 Math.log2(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Math', {
   log2: function log2(x){
     return Math.log(x) / Math.LN2;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sign.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sign.js":[function(require,module,exports){
 // 20.2.2.28 Math.sign(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
-$export($export.S, 'Math', {sign: require('./$.math-sign')});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sinh.js":[function(require,module,exports){
+$export($export.S, 'Math', {sign: require('./_math-sign')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sinh.js":[function(require,module,exports){
 // 20.2.2.30 Math.sinh(x)
-var $export = require('./$.export')
-  , expm1   = require('./$.math-expm1')
+var $export = require('./_export')
+  , expm1   = require('./_math-expm1')
   , exp     = Math.exp;
 
 // V8 near Chromium 38 has a problem with very small numbers
-$export($export.S + $export.F * require('./$.fails')(function(){
+$export($export.S + $export.F * require('./_fails')(function(){
   return !Math.sinh(-2e-17) != -2e-17;
 }), 'Math', {
   sinh: function sinh(x){
@@ -2801,10 +3984,10 @@ $export($export.S + $export.F * require('./$.fails')(function(){
       : (exp(x - 1) - exp(-x - 1)) * (Math.E / 2);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.tanh.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.tanh.js":[function(require,module,exports){
 // 20.2.2.33 Math.tanh(x)
-var $export = require('./$.export')
-  , expm1   = require('./$.math-expm1')
+var $export = require('./_export')
+  , expm1   = require('./_math-expm1')
   , exp     = Math.exp;
 
 $export($export.S, 'Math', {
@@ -2814,31 +3997,34 @@ $export($export.S, 'Math', {
     return a == Infinity ? 1 : b == Infinity ? -1 : (a - b) / (exp(x) + exp(-x));
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.trunc.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.trunc.js":[function(require,module,exports){
 // 20.2.2.34 Math.trunc(x)
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Math', {
   trunc: function trunc(it){
     return (it > 0 ? Math.floor : Math.ceil)(it);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.constructor.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.constructor.js":[function(require,module,exports){
 'use strict';
-var $           = require('./$')
-  , global      = require('./$.global')
-  , has         = require('./$.has')
-  , cof         = require('./$.cof')
-  , toPrimitive = require('./$.to-primitive')
-  , fails       = require('./$.fails')
-  , $trim       = require('./$.string-trim').trim
-  , NUMBER      = 'Number'
-  , $Number     = global[NUMBER]
-  , Base        = $Number
-  , proto       = $Number.prototype
+var global            = require('./_global')
+  , has               = require('./_has')
+  , cof               = require('./_cof')
+  , inheritIfRequired = require('./_inherit-if-required')
+  , toPrimitive       = require('./_to-primitive')
+  , fails             = require('./_fails')
+  , gOPN              = require('./_object-gopn').f
+  , gOPD              = require('./_object-gopd').f
+  , dP                = require('./_object-dp').f
+  , $trim             = require('./_string-trim').trim
+  , NUMBER            = 'Number'
+  , $Number           = global[NUMBER]
+  , Base              = $Number
+  , proto             = $Number.prototype
   // Opera ~12 has broken Object#toString
-  , BROKEN_COF  = cof($.create(proto)) == NUMBER
-  , TRIM        = 'trim' in String.prototype;
+  , BROKEN_COF        = cof(require('./_object-create')(proto)) == NUMBER
+  , TRIM              = 'trim' in String.prototype;
 
 // 7.1.3 ToNumber(argument)
 var toNumber = function(argument){
@@ -2873,56 +4059,56 @@ if(!$Number(' 0o1') || !$Number('0b1') || $Number('+0x1')){
     return that instanceof $Number
       // check on 1..constructor(foo) case
       && (BROKEN_COF ? fails(function(){ proto.valueOf.call(that); }) : cof(that) != NUMBER)
-        ? new Base(toNumber(it)) : toNumber(it);
+        ? inheritIfRequired(new Base(toNumber(it)), that, $Number) : toNumber(it);
   };
-  $.each.call(require('./$.descriptors') ? $.getNames(Base) : (
+  for(var keys = require('./_descriptors') ? gOPN(Base) : (
     // ES3:
     'MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,' +
     // ES6 (in case, if modules with ES6 Number statics required before):
     'EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,' +
     'MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger'
-  ).split(','), function(key){
-    if(has(Base, key) && !has($Number, key)){
-      $.setDesc($Number, key, $.getDesc(Base, key));
+  ).split(','), j = 0, key; keys.length > j; j++){
+    if(has(Base, key = keys[j]) && !has($Number, key)){
+      dP($Number, key, gOPD(Base, key));
     }
-  });
+  }
   $Number.prototype = proto;
   proto.constructor = $Number;
-  require('./$.redefine')(global, NUMBER, $Number);
+  require('./_redefine')(global, NUMBER, $Number);
 }
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.cof.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js","./$.string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-trim.js","./$.to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.epsilon.js":[function(require,module,exports){
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_inherit-if-required":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.epsilon.js":[function(require,module,exports){
 // 20.1.2.1 Number.EPSILON
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Number', {EPSILON: Math.pow(2, -52)});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-finite.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-finite.js":[function(require,module,exports){
 // 20.1.2.2 Number.isFinite(number)
-var $export   = require('./$.export')
-  , _isFinite = require('./$.global').isFinite;
+var $export   = require('./_export')
+  , _isFinite = require('./_global').isFinite;
 
 $export($export.S, 'Number', {
   isFinite: function isFinite(it){
     return typeof it == 'number' && _isFinite(it);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-integer.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-integer.js":[function(require,module,exports){
 // 20.1.2.3 Number.isInteger(number)
-var $export = require('./$.export');
+var $export = require('./_export');
 
-$export($export.S, 'Number', {isInteger: require('./$.is-integer')});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-nan.js":[function(require,module,exports){
+$export($export.S, 'Number', {isInteger: require('./_is-integer')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-nan.js":[function(require,module,exports){
 // 20.1.2.4 Number.isNaN(number)
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Number', {
   isNaN: function isNaN(number){
     return number != number;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-safe-integer.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-safe-integer.js":[function(require,module,exports){
 // 20.1.2.5 Number.isSafeInteger(number)
-var $export   = require('./$.export')
-  , isInteger = require('./$.is-integer')
+var $export   = require('./_export')
+  , isInteger = require('./_is-integer')
   , abs       = Math.abs;
 
 $export($export.S, 'Number', {
@@ -2930,216 +4116,355 @@ $export($export.S, 'Number', {
     return isInteger(number) && abs(number) <= 0x1fffffffffffff;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.max-safe-integer.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.max-safe-integer.js":[function(require,module,exports){
 // 20.1.2.6 Number.MAX_SAFE_INTEGER
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Number', {MAX_SAFE_INTEGER: 0x1fffffffffffff});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.min-safe-integer.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.min-safe-integer.js":[function(require,module,exports){
 // 20.1.2.10 Number.MIN_SAFE_INTEGER
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Number', {MIN_SAFE_INTEGER: -0x1fffffffffffff});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-float.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-float.js":[function(require,module,exports){
+var $export     = require('./_export')
+  , $parseFloat = require('./_parse-float');
 // 20.1.2.12 Number.parseFloat(string)
-var $export = require('./$.export');
-
-$export($export.S, 'Number', {parseFloat: parseFloat});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-int.js":[function(require,module,exports){
+$export($export.S + $export.F * (Number.parseFloat != $parseFloat), 'Number', {parseFloat: $parseFloat});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-int.js":[function(require,module,exports){
+var $export   = require('./_export')
+  , $parseInt = require('./_parse-int');
 // 20.1.2.13 Number.parseInt(string, radix)
-var $export = require('./$.export');
+$export($export.S + $export.F * (Number.parseInt != $parseInt), 'Number', {parseInt: $parseInt});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-fixed.js":[function(require,module,exports){
+'use strict';
+var $export      = require('./_export')
+  , anInstance   = require('./_an-instance')
+  , toInteger    = require('./_to-integer')
+  , aNumberValue = require('./_a-number-value')
+  , repeat       = require('./_string-repeat')
+  , $toFixed     = 1..toFixed
+  , floor        = Math.floor
+  , data         = [0, 0, 0, 0, 0, 0]
+  , ERROR        = 'Number.toFixed: incorrect invocation!'
+  , ZERO         = '0';
 
-$export($export.S, 'Number', {parseInt: parseInt});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.assign.js":[function(require,module,exports){
+var multiply = function(n, c){
+  var i  = -1
+    , c2 = c;
+  while(++i < 6){
+    c2 += n * data[i];
+    data[i] = c2 % 1e7;
+    c2 = floor(c2 / 1e7);
+  }
+};
+var divide = function(n){
+  var i = 6
+    , c = 0;
+  while(--i >= 0){
+    c += data[i];
+    data[i] = floor(c / n);
+    c = (c % n) * 1e7;
+  }
+};
+var numToString = function(){
+  var i = 6
+    , s = '';
+  while(--i >= 0){
+    if(s !== '' || i === 0 || data[i] !== 0){
+      var t = String(data[i]);
+      s = s === '' ? t : s + repeat.call(ZERO, 7 - t.length) + t;
+    }
+  } return s;
+};
+var pow = function(x, n, acc){
+  return n === 0 ? acc : n % 2 === 1 ? pow(x, n - 1, acc * x) : pow(x * x, n / 2, acc);
+};
+var log = function(x){
+  var n  = 0
+    , x2 = x;
+  while(x2 >= 4096){
+    n += 12;
+    x2 /= 4096;
+  }
+  while(x2 >= 2){
+    n  += 1;
+    x2 /= 2;
+  } return n;
+};
+
+$export($export.P + $export.F * (!!$toFixed && (
+  0.00008.toFixed(3) !== '0.000' ||
+  0.9.toFixed(0) !== '1' ||
+  1.255.toFixed(2) !== '1.25' ||
+  1000000000000000128..toFixed(0) !== '1000000000000000128'
+) || !require('./_fails')(function(){
+  // V8 ~ Android 4.3-
+  $toFixed.call({});
+})), 'Number', {
+  toFixed: function toFixed(fractionDigits){
+    var x = aNumberValue(this, ERROR)
+      , f = toInteger(fractionDigits)
+      , s = ''
+      , m = ZERO
+      , e, z, j, k;
+    if(f < 0 || f > 20)throw RangeError(ERROR);
+    if(x != x)return 'NaN';
+    if(x <= -1e21 || x >= 1e21)return String(x);
+    if(x < 0){
+      s = '-';
+      x = -x;
+    }
+    if(x > 1e-21){
+      e = log(x * pow(2, 69, 1)) - 69;
+      z = e < 0 ? x * pow(2, -e, 1) : x / pow(2, e, 1);
+      z *= 0x10000000000000;
+      e = 52 - e;
+      if(e > 0){
+        multiply(0, z);
+        j = f;
+        while(j >= 7){
+          multiply(1e7, 0);
+          j -= 7;
+        }
+        multiply(pow(10, j, 1), 0);
+        j = e - 1;
+        while(j >= 23){
+          divide(1 << 23);
+          j -= 23;
+        }
+        divide(1 << j);
+        multiply(1, 1);
+        divide(2);
+        m = numToString();
+      } else {
+        multiply(0, z);
+        multiply(1 << -e, 0);
+        m = numToString() + repeat.call(ZERO, f);
+      }
+    }
+    if(f > 0){
+      k = m.length;
+      m = s + (k <= f ? '0.' + repeat.call(ZERO, f - k) + m : m.slice(0, k - f) + '.' + m.slice(k - f));
+    } else {
+      m = s + m;
+    } return m;
+  }
+});
+},{"./_a-number-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js","./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_string-repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-precision.js":[function(require,module,exports){
+'use strict';
+var $export      = require('./_export')
+  , $fails       = require('./_fails')
+  , aNumberValue = require('./_a-number-value')
+  , $toPrecision = 1..toPrecision;
+
+$export($export.P + $export.F * ($fails(function(){
+  // IE7-
+  return $toPrecision.call(1, undefined) !== '1';
+}) || !$fails(function(){
+  // V8 ~ Android 4.3-
+  $toPrecision.call({});
+})), 'Number', {
+  toPrecision: function toPrecision(precision){
+    var that = aNumberValue(this, 'Number#toPrecision: incorrect invocation!');
+    return precision === undefined ? $toPrecision.call(that) : $toPrecision.call(that, precision); 
+  }
+});
+},{"./_a-number-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.assign.js":[function(require,module,exports){
 // 19.1.3.1 Object.assign(target, source)
-var $export = require('./$.export');
+var $export = require('./_export');
 
-$export($export.S + $export.F, 'Object', {assign: require('./$.object-assign')});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.object-assign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-assign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.freeze.js":[function(require,module,exports){
+$export($export.S + $export.F, 'Object', {assign: require('./_object-assign')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-assign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.create.js":[function(require,module,exports){
+var $export = require('./_export')
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+$export($export.S, 'Object', {create: require('./_object-create')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-properties.js":[function(require,module,exports){
+var $export = require('./_export');
+// 19.1.2.3 / 15.2.3.7 Object.defineProperties(O, Properties)
+$export($export.S + $export.F * !require('./_descriptors'), 'Object', {defineProperties: require('./_object-dps')});
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dps":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-property.js":[function(require,module,exports){
+var $export = require('./_export');
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !require('./_descriptors'), 'Object', {defineProperty: require('./_object-dp').f});
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.freeze.js":[function(require,module,exports){
 // 19.1.2.5 Object.freeze(O)
-var isObject = require('./$.is-object');
+var isObject = require('./_is-object')
+  , meta     = require('./_meta').onFreeze;
 
-require('./$.object-sap')('freeze', function($freeze){
+require('./_object-sap')('freeze', function($freeze){
   return function freeze(it){
-    return $freeze && isObject(it) ? $freeze(it) : it;
+    return $freeze && isObject(it) ? $freeze(meta(it)) : it;
   };
 });
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js":[function(require,module,exports){
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
-var toIObject = require('./$.to-iobject');
+var toIObject                 = require('./_to-iobject')
+  , $getOwnPropertyDescriptor = require('./_object-gopd').f;
 
-require('./$.object-sap')('getOwnPropertyDescriptor', function($getOwnPropertyDescriptor){
+require('./_object-sap')('getOwnPropertyDescriptor', function(){
   return function getOwnPropertyDescriptor(it, key){
     return $getOwnPropertyDescriptor(toIObject(it), key);
   };
 });
-},{"./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-names.js":[function(require,module,exports){
+},{"./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-names.js":[function(require,module,exports){
 // 19.1.2.7 Object.getOwnPropertyNames(O)
-require('./$.object-sap')('getOwnPropertyNames', function(){
-  return require('./$.get-names').get;
+require('./_object-sap')('getOwnPropertyNames', function(){
+  return require('./_object-gopn-ext').f;
 });
-},{"./$.get-names":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.get-names.js","./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-prototype-of.js":[function(require,module,exports){
+},{"./_object-gopn-ext":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-prototype-of.js":[function(require,module,exports){
 // 19.1.2.9 Object.getPrototypeOf(O)
-var toObject = require('./$.to-object');
+var toObject        = require('./_to-object')
+  , $getPrototypeOf = require('./_object-gpo');
 
-require('./$.object-sap')('getPrototypeOf', function($getPrototypeOf){
+require('./_object-sap')('getPrototypeOf', function(){
   return function getPrototypeOf(it){
     return $getPrototypeOf(toObject(it));
   };
 });
-},{"./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js","./$.to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-extensible.js":[function(require,module,exports){
+},{"./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-extensible.js":[function(require,module,exports){
 // 19.1.2.11 Object.isExtensible(O)
-var isObject = require('./$.is-object');
+var isObject = require('./_is-object');
 
-require('./$.object-sap')('isExtensible', function($isExtensible){
+require('./_object-sap')('isExtensible', function($isExtensible){
   return function isExtensible(it){
     return isObject(it) ? $isExtensible ? $isExtensible(it) : true : false;
   };
 });
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-frozen.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-frozen.js":[function(require,module,exports){
 // 19.1.2.12 Object.isFrozen(O)
-var isObject = require('./$.is-object');
+var isObject = require('./_is-object');
 
-require('./$.object-sap')('isFrozen', function($isFrozen){
+require('./_object-sap')('isFrozen', function($isFrozen){
   return function isFrozen(it){
     return isObject(it) ? $isFrozen ? $isFrozen(it) : false : true;
   };
 });
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-sealed.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-sealed.js":[function(require,module,exports){
 // 19.1.2.13 Object.isSealed(O)
-var isObject = require('./$.is-object');
+var isObject = require('./_is-object');
 
-require('./$.object-sap')('isSealed', function($isSealed){
+require('./_object-sap')('isSealed', function($isSealed){
   return function isSealed(it){
     return isObject(it) ? $isSealed ? $isSealed(it) : false : true;
   };
 });
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is.js":[function(require,module,exports){
 // 19.1.3.10 Object.is(value1, value2)
-var $export = require('./$.export');
-$export($export.S, 'Object', {is: require('./$.same-value')});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.same-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.same-value.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.keys.js":[function(require,module,exports){
+var $export = require('./_export');
+$export($export.S, 'Object', {is: require('./_same-value')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_same-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.keys.js":[function(require,module,exports){
 // 19.1.2.14 Object.keys(O)
-var toObject = require('./$.to-object');
+var toObject = require('./_to-object')
+  , $keys    = require('./_object-keys');
 
-require('./$.object-sap')('keys', function($keys){
+require('./_object-sap')('keys', function(){
   return function keys(it){
     return $keys(toObject(it));
   };
 });
-},{"./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js","./$.to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.prevent-extensions.js":[function(require,module,exports){
+},{"./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.prevent-extensions.js":[function(require,module,exports){
 // 19.1.2.15 Object.preventExtensions(O)
-var isObject = require('./$.is-object');
+var isObject = require('./_is-object')
+  , meta     = require('./_meta').onFreeze;
 
-require('./$.object-sap')('preventExtensions', function($preventExtensions){
+require('./_object-sap')('preventExtensions', function($preventExtensions){
   return function preventExtensions(it){
-    return $preventExtensions && isObject(it) ? $preventExtensions(it) : it;
+    return $preventExtensions && isObject(it) ? $preventExtensions(meta(it)) : it;
   };
 });
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.seal.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.seal.js":[function(require,module,exports){
 // 19.1.2.17 Object.seal(O)
-var isObject = require('./$.is-object');
+var isObject = require('./_is-object')
+  , meta     = require('./_meta').onFreeze;
 
-require('./$.object-sap')('seal', function($seal){
+require('./_object-sap')('seal', function($seal){
   return function seal(it){
-    return $seal && isObject(it) ? $seal(it) : it;
+    return $seal && isObject(it) ? $seal(meta(it)) : it;
   };
 });
-},{"./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.set-prototype-of.js":[function(require,module,exports){
+},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.set-prototype-of.js":[function(require,module,exports){
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = require('./$.export');
-$export($export.S, 'Object', {setPrototypeOf: require('./$.set-proto').set});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.to-string.js":[function(require,module,exports){
+var $export = require('./_export');
+$export($export.S, 'Object', {setPrototypeOf: require('./_set-proto').set});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.to-string.js":[function(require,module,exports){
 'use strict';
 // 19.1.3.6 Object.prototype.toString()
-var classof = require('./$.classof')
+var classof = require('./_classof')
   , test    = {};
-test[require('./$.wks')('toStringTag')] = 'z';
+test[require('./_wks')('toStringTag')] = 'z';
 if(test + '' != '[object z]'){
-  require('./$.redefine')(Object.prototype, 'toString', function toString(){
+  require('./_redefine')(Object.prototype, 'toString', function toString(){
     return '[object ' + classof(this) + ']';
   }, true);
 }
-},{"./$.classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.classof.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.promise.js":[function(require,module,exports){
+},{"./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-float.js":[function(require,module,exports){
+var $export     = require('./_export')
+  , $parseFloat = require('./_parse-float');
+// 18.2.4 parseFloat(string)
+$export($export.G + $export.F * (parseFloat != $parseFloat), {parseFloat: $parseFloat});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-int.js":[function(require,module,exports){
+var $export   = require('./_export')
+  , $parseInt = require('./_parse-int');
+// 18.2.5 parseInt(string, radix)
+$export($export.G + $export.F * (parseInt != $parseInt), {parseInt: $parseInt});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.promise.js":[function(require,module,exports){
 'use strict';
-var $          = require('./$')
-  , LIBRARY    = require('./$.library')
-  , global     = require('./$.global')
-  , ctx        = require('./$.ctx')
-  , classof    = require('./$.classof')
-  , $export    = require('./$.export')
-  , isObject   = require('./$.is-object')
-  , anObject   = require('./$.an-object')
-  , aFunction  = require('./$.a-function')
-  , strictNew  = require('./$.strict-new')
-  , forOf      = require('./$.for-of')
-  , setProto   = require('./$.set-proto').set
-  , same       = require('./$.same-value')
-  , SPECIES    = require('./$.wks')('species')
-  , speciesConstructor = require('./$.species-constructor')
-  , asap       = require('./$.microtask')
-  , PROMISE    = 'Promise'
-  , process    = global.process
-  , isNode     = classof(process) == 'process'
-  , P          = global[PROMISE]
-  , Wrapper;
+var LIBRARY            = require('./_library')
+  , global             = require('./_global')
+  , ctx                = require('./_ctx')
+  , classof            = require('./_classof')
+  , $export            = require('./_export')
+  , isObject           = require('./_is-object')
+  , anObject           = require('./_an-object')
+  , aFunction          = require('./_a-function')
+  , anInstance         = require('./_an-instance')
+  , forOf              = require('./_for-of')
+  , setProto           = require('./_set-proto').set
+  , speciesConstructor = require('./_species-constructor')
+  , task               = require('./_task').set
+  , microtask          = require('./_microtask')
+  , PROMISE            = 'Promise'
+  , TypeError          = global.TypeError
+  , process            = global.process
+  , $Promise           = global[PROMISE]
+  , isNode             = classof(process) == 'process'
+  , empty              = function(){ /* empty */ }
+  , Internal, GenericPromiseCapability, Wrapper;
 
-var testResolve = function(sub){
-  var test = new P(function(){});
-  if(sub)test.constructor = Object;
-  return P.resolve(test) === test;
-};
-
-var USE_NATIVE = function(){
-  var works = false;
-  function P2(x){
-    var self = new P(x);
-    setProto(self, P2.prototype);
-    return self;
-  }
+var USE_NATIVE = !!function(){
   try {
-    works = P && P.resolve && testResolve();
-    setProto(P2, P);
-    P2.prototype = $.create(P.prototype, {constructor: {value: P2}});
-    // actual Firefox has broken subclass support, test that
-    if(!(P2.resolve(5).then(function(){}) instanceof P2)){
-      works = false;
-    }
-    // actual V8 bug, https://code.google.com/p/v8/issues/detail?id=4162
-    if(works && require('./$.descriptors')){
-      var thenableThenGotten = false;
-      P.resolve($.setDesc({}, 'then', {
-        get: function(){ thenableThenGotten = true; }
-      }));
-      works = thenableThenGotten;
-    }
-  } catch(e){ works = false; }
-  return works;
+    // correct subclassing with @@species support
+    var promise     = $Promise.resolve(1)
+      , FakePromise = (promise.constructor = {})[require('./_wks')('species')] = function(exec){ exec(empty, empty); };
+    // unhandled rejections tracking support, NodeJS Promise without it fails @@species test
+    return (isNode || typeof PromiseRejectionEvent == 'function') && promise.then(empty) instanceof FakePromise;
+  } catch(e){ /* empty */ }
 }();
 
 // helpers
 var sameConstructor = function(a, b){
-  // library wrapper special case
-  if(LIBRARY && a === P && b === Wrapper)return true;
-  return same(a, b);
-};
-var getConstructor = function(C){
-  var S = anObject(C)[SPECIES];
-  return S != undefined ? S : C;
+  // with library wrapper special case
+  return a === b || a === $Promise && b === Wrapper;
 };
 var isThenable = function(it){
   var then;
   return isObject(it) && typeof (then = it.then) == 'function' ? then : false;
 };
-var PromiseCapability = function(C){
+var newPromiseCapability = function(C){
+  return sameConstructor($Promise, C)
+    ? new PromiseCapability(C)
+    : new GenericPromiseCapability(C);
+};
+var PromiseCapability = GenericPromiseCapability = function(C){
   var resolve, reject;
   this.promise = new C(function($$resolve, $$reject){
     if(resolve !== undefined || reject !== undefined)throw TypeError('Bad Promise constructor');
     resolve = $$resolve;
     reject  = $$reject;
   });
-  this.resolve = aFunction(resolve),
-  this.reject  = aFunction(reject)
+  this.resolve = aFunction(resolve);
+  this.reject  = aFunction(reject);
 };
 var perform = function(exec){
   try {
@@ -3148,13 +4473,13 @@ var perform = function(exec){
     return {error: e};
   }
 };
-var notify = function(record, isReject){
-  if(record.n)return;
-  record.n = true;
-  var chain = record.c;
-  asap(function(){
-    var value = record.v
-      , ok    = record.s == 1
+var notify = function(promise, isReject){
+  if(promise._n)return;
+  promise._n = true;
+  var chain = promise._c;
+  microtask(function(){
+    var value = promise._v
+      , ok    = promise._s == 1
       , i     = 0;
     var run = function(reaction){
       var handler = ok ? reaction.ok : reaction.fail
@@ -3163,7 +4488,10 @@ var notify = function(record, isReject){
         , result, then;
       try {
         if(handler){
-          if(!ok)record.h = true;
+          if(!ok){
+            if(promise._h == 2)onHandleUnhandled(promise);
+            promise._h = 1;
+          }
           result = handler === true ? value : handler(value);
           if(result === reaction.promise){
             reject(TypeError('Promise-chain cycle'));
@@ -3176,12 +4504,17 @@ var notify = function(record, isReject){
       }
     };
     while(chain.length > i)run(chain[i++]); // variable length - can't use forEach
-    chain.length = 0;
-    record.n = false;
-    if(isReject)setTimeout(function(){
-      var promise = record.p
-        , handler, console;
-      if(isUnhandled(promise)){
+    promise._c = [];
+    promise._n = false;
+    if(isReject && !promise._h)onUnhandled(promise);
+  });
+};
+var onUnhandled = function(promise){
+  task.call(global, function(){
+    var value = promise._v
+      , abrupt, handler, console;
+    if(isUnhandled(promise)){
+      abrupt = perform(function(){
         if(isNode){
           process.emit('unhandledRejection', value, promise);
         } else if(handler = global.onunhandledrejection){
@@ -3189,42 +4522,54 @@ var notify = function(record, isReject){
         } else if((console = global.console) && console.error){
           console.error('Unhandled promise rejection', value);
         }
-      } record.a = undefined;
-    }, 1);
+      });
+      // Browsers should not trigger `rejectionHandled` event if it was handled here, NodeJS - should
+      promise._h = isNode || isUnhandled(promise) ? 2 : 1;
+    } promise._a = undefined;
+    if(abrupt)throw abrupt.error;
   });
 };
 var isUnhandled = function(promise){
-  var record = promise._d
-    , chain  = record.a || record.c
-    , i      = 0
+  if(promise._h == 1)return false;
+  var chain = promise._a || promise._c
+    , i     = 0
     , reaction;
-  if(record.h)return false;
   while(chain.length > i){
     reaction = chain[i++];
     if(reaction.fail || !isUnhandled(reaction.promise))return false;
   } return true;
 };
+var onHandleUnhandled = function(promise){
+  task.call(global, function(){
+    var handler;
+    if(isNode){
+      process.emit('rejectionHandled', promise);
+    } else if(handler = global.onrejectionhandled){
+      handler({promise: promise, reason: promise._v});
+    }
+  });
+};
 var $reject = function(value){
-  var record = this;
-  if(record.d)return;
-  record.d = true;
-  record = record.r || record; // unwrap
-  record.v = value;
-  record.s = 2;
-  record.a = record.c.slice();
-  notify(record, true);
+  var promise = this;
+  if(promise._d)return;
+  promise._d = true;
+  promise = promise._w || promise; // unwrap
+  promise._v = value;
+  promise._s = 2;
+  if(!promise._a)promise._a = promise._c.slice();
+  notify(promise, true);
 };
 var $resolve = function(value){
-  var record = this
+  var promise = this
     , then;
-  if(record.d)return;
-  record.d = true;
-  record = record.r || record; // unwrap
+  if(promise._d)return;
+  promise._d = true;
+  promise = promise._w || promise; // unwrap
   try {
-    if(record.p === value)throw TypeError("Promise can't be resolved itself");
+    if(promise === value)throw TypeError("Promise can't be resolved itself");
     if(then = isThenable(value)){
-      asap(function(){
-        var wrapper = {r: record, d: false}; // wrap
+      microtask(function(){
+        var wrapper = {_w: promise, _d: false}; // wrap
         try {
           then.call(value, ctx($resolve, wrapper, 1), ctx($reject, wrapper, 1));
         } catch(e){
@@ -3232,114 +4577,121 @@ var $resolve = function(value){
         }
       });
     } else {
-      record.v = value;
-      record.s = 1;
-      notify(record, false);
+      promise._v = value;
+      promise._s = 1;
+      notify(promise, false);
     }
   } catch(e){
-    $reject.call({r: record, d: false}, e); // wrap
+    $reject.call({_w: promise, _d: false}, e); // wrap
   }
 };
 
 // constructor polyfill
 if(!USE_NATIVE){
   // 25.4.3.1 Promise(executor)
-  P = function Promise(executor){
+  $Promise = function Promise(executor){
+    anInstance(this, $Promise, PROMISE, '_h');
     aFunction(executor);
-    var record = this._d = {
-      p: strictNew(this, P, PROMISE),         // <- promise
-      c: [],                                  // <- awaiting reactions
-      a: undefined,                           // <- checked in isUnhandled reactions
-      s: 0,                                   // <- state
-      d: false,                               // <- done
-      v: undefined,                           // <- value
-      h: false,                               // <- handled rejection
-      n: false                                // <- notify
-    };
+    Internal.call(this);
     try {
-      executor(ctx($resolve, record, 1), ctx($reject, record, 1));
+      executor(ctx($resolve, this, 1), ctx($reject, this, 1));
     } catch(err){
-      $reject.call(record, err);
+      $reject.call(this, err);
     }
   };
-  require('./$.redefine-all')(P.prototype, {
+  Internal = function Promise(executor){
+    this._c = [];             // <- awaiting reactions
+    this._a = undefined;      // <- checked in isUnhandled reactions
+    this._s = 0;              // <- state
+    this._d = false;          // <- done
+    this._v = undefined;      // <- value
+    this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
+    this._n = false;          // <- notify
+  };
+  Internal.prototype = require('./_redefine-all')($Promise.prototype, {
     // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
     then: function then(onFulfilled, onRejected){
-      var reaction = new PromiseCapability(speciesConstructor(this, P))
-        , promise  = reaction.promise
-        , record   = this._d;
+      var reaction = newPromiseCapability(speciesConstructor(this, $Promise));
       reaction.ok   = typeof onFulfilled == 'function' ? onFulfilled : true;
       reaction.fail = typeof onRejected == 'function' && onRejected;
-      record.c.push(reaction);
-      if(record.a)record.a.push(reaction);
-      if(record.s)notify(record, false);
-      return promise;
+      this._c.push(reaction);
+      if(this._a)this._a.push(reaction);
+      if(this._s)notify(this, false);
+      return reaction.promise;
     },
     // 25.4.5.1 Promise.prototype.catch(onRejected)
     'catch': function(onRejected){
       return this.then(undefined, onRejected);
     }
   });
+  PromiseCapability = function(){
+    var promise  = new Internal;
+    this.promise = promise;
+    this.resolve = ctx($resolve, promise, 1);
+    this.reject  = ctx($reject, promise, 1);
+  };
 }
 
-$export($export.G + $export.W + $export.F * !USE_NATIVE, {Promise: P});
-require('./$.set-to-string-tag')(P, PROMISE);
-require('./$.set-species')(PROMISE);
-Wrapper = require('./$.core')[PROMISE];
+$export($export.G + $export.W + $export.F * !USE_NATIVE, {Promise: $Promise});
+require('./_set-to-string-tag')($Promise, PROMISE);
+require('./_set-species')(PROMISE);
+Wrapper = require('./_core')[PROMISE];
 
 // statics
 $export($export.S + $export.F * !USE_NATIVE, PROMISE, {
   // 25.4.4.5 Promise.reject(r)
   reject: function reject(r){
-    var capability = new PromiseCapability(this)
+    var capability = newPromiseCapability(this)
       , $$reject   = capability.reject;
     $$reject(r);
     return capability.promise;
   }
 });
-$export($export.S + $export.F * (!USE_NATIVE || testResolve(true)), PROMISE, {
+$export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
   // 25.4.4.6 Promise.resolve(x)
   resolve: function resolve(x){
     // instanceof instead of internal slot check because we should fix it without replacement native Promise core
-    if(x instanceof P && sameConstructor(x.constructor, this))return x;
-    var capability = new PromiseCapability(this)
+    if(x instanceof $Promise && sameConstructor(x.constructor, this))return x;
+    var capability = newPromiseCapability(this)
       , $$resolve  = capability.resolve;
     $$resolve(x);
     return capability.promise;
   }
 });
-$export($export.S + $export.F * !(USE_NATIVE && require('./$.iter-detect')(function(iter){
-  P.all(iter)['catch'](function(){});
+$export($export.S + $export.F * !(USE_NATIVE && require('./_iter-detect')(function(iter){
+  $Promise.all(iter)['catch'](empty);
 })), PROMISE, {
   // 25.4.4.1 Promise.all(iterable)
   all: function all(iterable){
-    var C          = getConstructor(this)
-      , capability = new PromiseCapability(C)
+    var C          = this
+      , capability = newPromiseCapability(C)
       , resolve    = capability.resolve
-      , reject     = capability.reject
-      , values     = [];
+      , reject     = capability.reject;
     var abrupt = perform(function(){
-      forOf(iterable, false, values.push, values);
-      var remaining = values.length
-        , results   = Array(remaining);
-      if(remaining)$.each.call(values, function(promise, index){
-        var alreadyCalled = false;
+      var values    = []
+        , index     = 0
+        , remaining = 1;
+      forOf(iterable, false, function(promise){
+        var $index        = index++
+          , alreadyCalled = false;
+        values.push(undefined);
+        remaining++;
         C.resolve(promise).then(function(value){
           if(alreadyCalled)return;
-          alreadyCalled = true;
-          results[index] = value;
-          --remaining || resolve(results);
+          alreadyCalled  = true;
+          values[$index] = value;
+          --remaining || resolve(values);
         }, reject);
       });
-      else resolve(results);
+      --remaining || resolve(values);
     });
     if(abrupt)reject(abrupt.error);
     return capability.promise;
   },
   // 25.4.4.4 Promise.race(iterable)
   race: function race(iterable){
-    var C          = getConstructor(this)
-      , capability = new PromiseCapability(C)
+    var C          = this
+      , capability = newPromiseCapability(C)
       , reject     = capability.reject;
     var abrupt = perform(function(){
       forOf(iterable, false, function(promise){
@@ -3350,9 +4702,9 @@ $export($export.S + $export.F * !(USE_NATIVE && require('./$.iter-detect')(funct
     return capability.promise;
   }
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.a-function.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.classof.js","./$.core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js","./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.for-of.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-detect.js","./$.library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.library.js","./$.microtask":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.microtask.js","./$.redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine-all.js","./$.same-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.same-value.js","./$.set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-proto.js","./$.set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-species.js","./$.set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-to-string-tag.js","./$.species-constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.species-constructor.js","./$.strict-new":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.strict-new.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.apply.js":[function(require,module,exports){
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_microtask":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_microtask.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_species-constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_task":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.apply.js":[function(require,module,exports){
 // 26.1.1 Reflect.apply(target, thisArgument, argumentsList)
-var $export = require('./$.export')
+var $export = require('./_export')
   , _apply  = Function.apply;
 
 $export($export.S, 'Reflect', {
@@ -3360,18 +4712,18 @@ $export($export.S, 'Reflect', {
     return _apply.call(target, thisArgument, argumentsList);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.construct.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.construct.js":[function(require,module,exports){
 // 26.1.2 Reflect.construct(target, argumentsList [, newTarget])
-var $         = require('./$')
-  , $export   = require('./$.export')
-  , aFunction = require('./$.a-function')
-  , anObject  = require('./$.an-object')
-  , isObject  = require('./$.is-object')
-  , bind      = Function.bind || require('./$.core').Function.prototype.bind;
+var $export   = require('./_export')
+  , create    = require('./_object-create')
+  , aFunction = require('./_a-function')
+  , anObject  = require('./_an-object')
+  , isObject  = require('./_is-object')
+  , bind      = require('./_bind');
 
 // MS Edge supports only 2 arguments
 // FF Nightly sets third argument as `new.target`, but does not create `this` from it
-$export($export.S + $export.F * require('./$.fails')(function(){
+$export($export.S + $export.F * require('./_fails')(function(){
   function F(){}
   return !(Reflect.construct(function(){}, [], F) instanceof F);
 }), 'Reflect', {
@@ -3394,48 +4746,51 @@ $export($export.S + $export.F * require('./$.fails')(function(){
     }
     // with altered newTarget, not support built-in constructors
     var proto    = newTarget.prototype
-      , instance = $.create(isObject(proto) ? proto : Object.prototype)
+      , instance = create(isObject(proto) ? proto : Object.prototype)
       , result   = Function.apply.call(Target, instance, args);
     return isObject(result) ? result : instance;
   }
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.a-function.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.define-property.js":[function(require,module,exports){
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_bind":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.define-property.js":[function(require,module,exports){
 // 26.1.3 Reflect.defineProperty(target, propertyKey, attributes)
-var $        = require('./$')
-  , $export  = require('./$.export')
-  , anObject = require('./$.an-object');
+var dP          = require('./_object-dp')
+  , $export     = require('./_export')
+  , anObject    = require('./_an-object')
+  , toPrimitive = require('./_to-primitive');
 
 // MS Edge has broken Reflect.defineProperty - throwing instead of returning false
-$export($export.S + $export.F * require('./$.fails')(function(){
-  Reflect.defineProperty($.setDesc({}, 1, {value: 1}), 1, {value: 2});
+$export($export.S + $export.F * require('./_fails')(function(){
+  Reflect.defineProperty(dP.f({}, 1, {value: 1}), 1, {value: 2});
 }), 'Reflect', {
   defineProperty: function defineProperty(target, propertyKey, attributes){
     anObject(target);
+    propertyKey = toPrimitive(propertyKey, true);
+    anObject(attributes);
     try {
-      $.setDesc(target, propertyKey, attributes);
+      dP.f(target, propertyKey, attributes);
       return true;
     } catch(e){
       return false;
     }
   }
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.delete-property.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.delete-property.js":[function(require,module,exports){
 // 26.1.4 Reflect.deleteProperty(target, propertyKey)
-var $export  = require('./$.export')
-  , getDesc  = require('./$').getDesc
-  , anObject = require('./$.an-object');
+var $export  = require('./_export')
+  , gOPD     = require('./_object-gopd').f
+  , anObject = require('./_an-object');
 
 $export($export.S, 'Reflect', {
   deleteProperty: function deleteProperty(target, propertyKey){
-    var desc = getDesc(anObject(target), propertyKey);
+    var desc = gOPD(anObject(target), propertyKey);
     return desc && !desc.configurable ? false : delete target[propertyKey];
   }
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.enumerate.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.enumerate.js":[function(require,module,exports){
 'use strict';
 // 26.1.5 Reflect.enumerate(target)
-var $export  = require('./$.export')
-  , anObject = require('./$.an-object');
+var $export  = require('./_export')
+  , anObject = require('./_an-object');
 var Enumerate = function(iterated){
   this._t = anObject(iterated); // target
   this._i = 0;                  // next index
@@ -3443,7 +4798,7 @@ var Enumerate = function(iterated){
     , key;
   for(key in iterated)keys.push(key);
 };
-require('./$.iter-create')(Enumerate, 'Object', function(){
+require('./_iter-create')(Enumerate, 'Object', function(){
   var that = this
     , keys = that._k
     , key;
@@ -3458,62 +4813,63 @@ $export($export.S, 'Reflect', {
     return new Enumerate(target);
   }
 });
-},{"./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.iter-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-create.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_iter-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js":[function(require,module,exports){
 // 26.1.7 Reflect.getOwnPropertyDescriptor(target, propertyKey)
-var $        = require('./$')
-  , $export  = require('./$.export')
-  , anObject = require('./$.an-object');
+var gOPD     = require('./_object-gopd')
+  , $export  = require('./_export')
+  , anObject = require('./_an-object');
 
 $export($export.S, 'Reflect', {
   getOwnPropertyDescriptor: function getOwnPropertyDescriptor(target, propertyKey){
-    return $.getDesc(anObject(target), propertyKey);
+    return gOPD.f(anObject(target), propertyKey);
   }
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-prototype-of.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-prototype-of.js":[function(require,module,exports){
 // 26.1.8 Reflect.getPrototypeOf(target)
-var $export  = require('./$.export')
-  , getProto = require('./$').getProto
-  , anObject = require('./$.an-object');
+var $export  = require('./_export')
+  , getProto = require('./_object-gpo')
+  , anObject = require('./_an-object');
 
 $export($export.S, 'Reflect', {
   getPrototypeOf: function getPrototypeOf(target){
     return getProto(anObject(target));
   }
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get.js":[function(require,module,exports){
 // 26.1.6 Reflect.get(target, propertyKey [, receiver])
-var $        = require('./$')
-  , has      = require('./$.has')
-  , $export  = require('./$.export')
-  , isObject = require('./$.is-object')
-  , anObject = require('./$.an-object');
+var gOPD           = require('./_object-gopd')
+  , getPrototypeOf = require('./_object-gpo')
+  , has            = require('./_has')
+  , $export        = require('./_export')
+  , isObject       = require('./_is-object')
+  , anObject       = require('./_an-object');
 
 function get(target, propertyKey/*, receiver*/){
   var receiver = arguments.length < 3 ? target : arguments[2]
     , desc, proto;
   if(anObject(target) === receiver)return target[propertyKey];
-  if(desc = $.getDesc(target, propertyKey))return has(desc, 'value')
+  if(desc = gOPD.f(target, propertyKey))return has(desc, 'value')
     ? desc.value
     : desc.get !== undefined
       ? desc.get.call(receiver)
       : undefined;
-  if(isObject(proto = $.getProto(target)))return get(proto, propertyKey, receiver);
+  if(isObject(proto = getPrototypeOf(target)))return get(proto, propertyKey, receiver);
 }
 
 $export($export.S, 'Reflect', {get: get});
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.has.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.has.js":[function(require,module,exports){
 // 26.1.9 Reflect.has(target, propertyKey)
-var $export = require('./$.export');
+var $export = require('./_export');
 
 $export($export.S, 'Reflect', {
   has: function has(target, propertyKey){
     return propertyKey in target;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.is-extensible.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.is-extensible.js":[function(require,module,exports){
 // 26.1.10 Reflect.isExtensible(target)
-var $export       = require('./$.export')
-  , anObject      = require('./$.an-object')
+var $export       = require('./_export')
+  , anObject      = require('./_an-object')
   , $isExtensible = Object.isExtensible;
 
 $export($export.S, 'Reflect', {
@@ -3522,15 +4878,15 @@ $export($export.S, 'Reflect', {
     return $isExtensible ? $isExtensible(target) : true;
   }
 });
-},{"./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.own-keys.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.own-keys.js":[function(require,module,exports){
 // 26.1.11 Reflect.ownKeys(target)
-var $export = require('./$.export');
+var $export = require('./_export');
 
-$export($export.S, 'Reflect', {ownKeys: require('./$.own-keys')});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.own-keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.prevent-extensions.js":[function(require,module,exports){
+$export($export.S, 'Reflect', {ownKeys: require('./_own-keys')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.prevent-extensions.js":[function(require,module,exports){
 // 26.1.12 Reflect.preventExtensions(target)
-var $export            = require('./$.export')
-  , anObject           = require('./$.an-object')
+var $export            = require('./_export')
+  , anObject           = require('./_an-object')
   , $preventExtensions = Object.preventExtensions;
 
 $export($export.S, 'Reflect', {
@@ -3544,10 +4900,10 @@ $export($export.S, 'Reflect', {
     }
   }
 });
-},{"./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set-prototype-of.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set-prototype-of.js":[function(require,module,exports){
 // 26.1.14 Reflect.setPrototypeOf(target, proto)
-var $export  = require('./$.export')
-  , setProto = require('./$.set-proto');
+var $export  = require('./_export')
+  , setProto = require('./_set-proto');
 
 if(setProto)$export($export.S, 'Reflect', {
   setPrototypeOf: function setPrototypeOf(target, proto){
@@ -3560,136 +4916,226 @@ if(setProto)$export($export.S, 'Reflect', {
     }
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set.js":[function(require,module,exports){
 // 26.1.13 Reflect.set(target, propertyKey, V [, receiver])
-var $          = require('./$')
-  , has        = require('./$.has')
-  , $export    = require('./$.export')
-  , createDesc = require('./$.property-desc')
-  , anObject   = require('./$.an-object')
-  , isObject   = require('./$.is-object');
+var dP             = require('./_object-dp')
+  , gOPD           = require('./_object-gopd')
+  , getPrototypeOf = require('./_object-gpo')
+  , has            = require('./_has')
+  , $export        = require('./_export')
+  , createDesc     = require('./_property-desc')
+  , anObject       = require('./_an-object')
+  , isObject       = require('./_is-object');
 
 function set(target, propertyKey, V/*, receiver*/){
   var receiver = arguments.length < 4 ? target : arguments[3]
-    , ownDesc  = $.getDesc(anObject(target), propertyKey)
+    , ownDesc  = gOPD.f(anObject(target), propertyKey)
     , existingDescriptor, proto;
   if(!ownDesc){
-    if(isObject(proto = $.getProto(target))){
+    if(isObject(proto = getPrototypeOf(target))){
       return set(proto, propertyKey, V, receiver);
     }
     ownDesc = createDesc(0);
   }
   if(has(ownDesc, 'value')){
     if(ownDesc.writable === false || !isObject(receiver))return false;
-    existingDescriptor = $.getDesc(receiver, propertyKey) || createDesc(0);
+    existingDescriptor = gOPD.f(receiver, propertyKey) || createDesc(0);
     existingDescriptor.value = V;
-    $.setDesc(receiver, propertyKey, existingDescriptor);
+    dP.f(receiver, propertyKey, existingDescriptor);
     return true;
   }
   return ownDesc.set === undefined ? false : (ownDesc.set.call(receiver, V), true);
 }
 
 $export($export.S, 'Reflect', {set: set});
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.constructor.js":[function(require,module,exports){
-var $        = require('./$')
-  , global   = require('./$.global')
-  , isRegExp = require('./$.is-regexp')
-  , $flags   = require('./$.flags')
-  , $RegExp  = global.RegExp
-  , Base     = $RegExp
-  , proto    = $RegExp.prototype
-  , re1      = /a/g
-  , re2      = /a/g
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.constructor.js":[function(require,module,exports){
+var global            = require('./_global')
+  , inheritIfRequired = require('./_inherit-if-required')
+  , dP                = require('./_object-dp').f
+  , gOPN              = require('./_object-gopn').f
+  , isRegExp          = require('./_is-regexp')
+  , $flags            = require('./_flags')
+  , $RegExp           = global.RegExp
+  , Base              = $RegExp
+  , proto             = $RegExp.prototype
+  , re1               = /a/g
+  , re2               = /a/g
   // "new" creates a new object, old webkit buggy here
-  , CORRECT_NEW = new $RegExp(re1) !== re1;
+  , CORRECT_NEW       = new $RegExp(re1) !== re1;
 
-if(require('./$.descriptors') && (!CORRECT_NEW || require('./$.fails')(function(){
-  re2[require('./$.wks')('match')] = false;
+if(require('./_descriptors') && (!CORRECT_NEW || require('./_fails')(function(){
+  re2[require('./_wks')('match')] = false;
   // RegExp constructor can alter flags and IsRegExp works correct with @@match
   return $RegExp(re1) != re1 || $RegExp(re2) == re2 || $RegExp(re1, 'i') != '/a/i';
 }))){
   $RegExp = function RegExp(p, f){
-    var piRE = isRegExp(p)
+    var tiRE = this instanceof $RegExp
+      , piRE = isRegExp(p)
       , fiU  = f === undefined;
-    return !(this instanceof $RegExp) && piRE && p.constructor === $RegExp && fiU ? p
-      : CORRECT_NEW
+    return !tiRE && piRE && p.constructor === $RegExp && fiU ? p
+      : inheritIfRequired(CORRECT_NEW
         ? new Base(piRE && !fiU ? p.source : p, f)
-        : Base((piRE = p instanceof $RegExp) ? p.source : p, piRE && fiU ? $flags.call(p) : f);
+        : Base((piRE = p instanceof $RegExp) ? p.source : p, piRE && fiU ? $flags.call(p) : f)
+      , tiRE ? this : proto, $RegExp);
   };
-  $.each.call($.getNames(Base), function(key){
-    key in $RegExp || $.setDesc($RegExp, key, {
+  var proxy = function(key){
+    key in $RegExp || dP($RegExp, key, {
       configurable: true,
       get: function(){ return Base[key]; },
       set: function(it){ Base[key] = it; }
     });
-  });
+  };
+  for(var keys = gOPN(Base), i = 0; keys.length > i; )proxy(keys[i++]);
   proto.constructor = $RegExp;
   $RegExp.prototype = proto;
-  require('./$.redefine')(global, 'RegExp', $RegExp);
+  require('./_redefine')(global, 'RegExp', $RegExp);
 }
 
-require('./$.set-species')('RegExp');
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.flags.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-regexp.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js","./$.set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-species.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js":[function(require,module,exports){
+require('./_set-species')('RegExp');
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_inherit-if-required":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js":[function(require,module,exports){
 // 21.2.5.3 get RegExp.prototype.flags()
-var $ = require('./$');
-if(require('./$.descriptors') && /./g.flags != 'g')$.setDesc(RegExp.prototype, 'flags', {
+if(require('./_descriptors') && /./g.flags != 'g')require('./_object-dp').f(RegExp.prototype, 'flags', {
   configurable: true,
-  get: require('./$.flags')
+  get: require('./_flags')
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.flags.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.match.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.match.js":[function(require,module,exports){
 // @@match logic
-require('./$.fix-re-wks')('match', 1, function(defined, MATCH){
+require('./_fix-re-wks')('match', 1, function(defined, MATCH, $match){
   // 21.1.3.11 String.prototype.match(regexp)
-  return function match(regexp){
+  return [function match(regexp){
     'use strict';
     var O  = defined(this)
       , fn = regexp == undefined ? undefined : regexp[MATCH];
     return fn !== undefined ? fn.call(regexp, O) : new RegExp(regexp)[MATCH](String(O));
-  };
+  }, $match];
 });
-},{"./$.fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.replace.js":[function(require,module,exports){
+},{"./_fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.replace.js":[function(require,module,exports){
 // @@replace logic
-require('./$.fix-re-wks')('replace', 2, function(defined, REPLACE, $replace){
+require('./_fix-re-wks')('replace', 2, function(defined, REPLACE, $replace){
   // 21.1.3.14 String.prototype.replace(searchValue, replaceValue)
-  return function replace(searchValue, replaceValue){
+  return [function replace(searchValue, replaceValue){
     'use strict';
     var O  = defined(this)
       , fn = searchValue == undefined ? undefined : searchValue[REPLACE];
     return fn !== undefined
       ? fn.call(searchValue, O, replaceValue)
       : $replace.call(String(O), searchValue, replaceValue);
-  };
+  }, $replace];
 });
-},{"./$.fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.search.js":[function(require,module,exports){
+},{"./_fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.search.js":[function(require,module,exports){
 // @@search logic
-require('./$.fix-re-wks')('search', 1, function(defined, SEARCH){
+require('./_fix-re-wks')('search', 1, function(defined, SEARCH, $search){
   // 21.1.3.15 String.prototype.search(regexp)
-  return function search(regexp){
+  return [function search(regexp){
     'use strict';
     var O  = defined(this)
       , fn = regexp == undefined ? undefined : regexp[SEARCH];
     return fn !== undefined ? fn.call(regexp, O) : new RegExp(regexp)[SEARCH](String(O));
-  };
+  }, $search];
 });
-},{"./$.fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.split.js":[function(require,module,exports){
+},{"./_fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.split.js":[function(require,module,exports){
 // @@split logic
-require('./$.fix-re-wks')('split', 2, function(defined, SPLIT, $split){
+require('./_fix-re-wks')('split', 2, function(defined, SPLIT, $split){
+  'use strict';
+  var isRegExp   = require('./_is-regexp')
+    , _split     = $split
+    , $push      = [].push
+    , $SPLIT     = 'split'
+    , LENGTH     = 'length'
+    , LAST_INDEX = 'lastIndex';
+  if(
+    'abbc'[$SPLIT](/(b)*/)[1] == 'c' ||
+    'test'[$SPLIT](/(?:)/, -1)[LENGTH] != 4 ||
+    'ab'[$SPLIT](/(?:ab)*/)[LENGTH] != 2 ||
+    '.'[$SPLIT](/(.?)(.?)/)[LENGTH] != 4 ||
+    '.'[$SPLIT](/()()/)[LENGTH] > 1 ||
+    ''[$SPLIT](/.?/)[LENGTH]
+  ){
+    var NPCG = /()??/.exec('')[1] === undefined; // nonparticipating capturing group
+    // based on es5-shim implementation, need to rework it
+    $split = function(separator, limit){
+      var string = String(this);
+      if(separator === undefined && limit === 0)return [];
+      // If `separator` is not a regex, use native split
+      if(!isRegExp(separator))return _split.call(string, separator, limit);
+      var output = [];
+      var flags = (separator.ignoreCase ? 'i' : '') +
+                  (separator.multiline ? 'm' : '') +
+                  (separator.unicode ? 'u' : '') +
+                  (separator.sticky ? 'y' : '');
+      var lastLastIndex = 0;
+      var splitLimit = limit === undefined ? 4294967295 : limit >>> 0;
+      // Make `global` and avoid `lastIndex` issues by working with a copy
+      var separatorCopy = new RegExp(separator.source, flags + 'g');
+      var separator2, match, lastIndex, lastLength, i;
+      // Doesn't need flags gy, but they don't hurt
+      if(!NPCG)separator2 = new RegExp('^' + separatorCopy.source + '$(?!\\s)', flags);
+      while(match = separatorCopy.exec(string)){
+        // `separatorCopy.lastIndex` is not reliable cross-browser
+        lastIndex = match.index + match[0][LENGTH];
+        if(lastIndex > lastLastIndex){
+          output.push(string.slice(lastLastIndex, match.index));
+          // Fix browsers whose `exec` methods don't consistently return `undefined` for NPCG
+          if(!NPCG && match[LENGTH] > 1)match[0].replace(separator2, function(){
+            for(i = 1; i < arguments[LENGTH] - 2; i++)if(arguments[i] === undefined)match[i] = undefined;
+          });
+          if(match[LENGTH] > 1 && match.index < string[LENGTH])$push.apply(output, match.slice(1));
+          lastLength = match[0][LENGTH];
+          lastLastIndex = lastIndex;
+          if(output[LENGTH] >= splitLimit)break;
+        }
+        if(separatorCopy[LAST_INDEX] === match.index)separatorCopy[LAST_INDEX]++; // Avoid an infinite loop
+      }
+      if(lastLastIndex === string[LENGTH]){
+        if(lastLength || !separatorCopy.test(''))output.push('');
+      } else output.push(string.slice(lastLastIndex));
+      return output[LENGTH] > splitLimit ? output.slice(0, splitLimit) : output;
+    };
+  // Chakra, V8
+  } else if('0'[$SPLIT](undefined, 0)[LENGTH]){
+    $split = function(separator, limit){
+      return separator === undefined && limit === 0 ? [] : _split.call(this, separator, limit);
+    };
+  }
   // 21.1.3.17 String.prototype.split(separator, limit)
-  return function split(separator, limit){
-    'use strict';
+  return [function split(separator, limit){
     var O  = defined(this)
       , fn = separator == undefined ? undefined : separator[SPLIT];
-    return fn !== undefined
-      ? fn.call(separator, O, limit)
-      : $split.call(String(O), separator, limit);
-  };
+    return fn !== undefined ? fn.call(separator, O, limit) : $split.call(String(O), separator, limit);
+  }, $split];
 });
-},{"./$.fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js":[function(require,module,exports){
+},{"./_fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js","./_is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.to-string.js":[function(require,module,exports){
 'use strict';
-var strong = require('./$.collection-strong');
+require('./es6.regexp.flags');
+var anObject    = require('./_an-object')
+  , $flags      = require('./_flags')
+  , DESCRIPTORS = require('./_descriptors')
+  , TO_STRING   = 'toString'
+  , $toString   = /./[TO_STRING];
+
+var define = function(fn){
+  require('./_redefine')(RegExp.prototype, TO_STRING, fn, true);
+};
+
+// 21.2.5.14 RegExp.prototype.toString()
+if(require('./_fails')(function(){ return $toString.call({source: 'a', flags: 'b'}) != '/a/b'; })){
+  define(function toString(){
+    var R = anObject(this);
+    return '/'.concat(R.source, '/',
+      'flags' in R ? R.flags : !DESCRIPTORS && R instanceof RegExp ? $flags.call(R) : undefined);
+  });
+// FF44- RegExp#toString has a wrong name
+} else if($toString.name != TO_STRING){
+  define(function toString(){
+    return $toString.call(this);
+  });
+}
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./es6.regexp.flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js":[function(require,module,exports){
+'use strict';
+var strong = require('./_collection-strong');
 
 // 23.2 Set Objects
-require('./$.collection')('Set', function(get){
+module.exports = require('./_collection')('Set', function(get){
   return function Set(){ return get(this, arguments.length > 0 ? arguments[0] : undefined); };
 }, {
   // 23.2.3.1 Set.prototype.add(value)
@@ -3697,30 +5143,61 @@ require('./$.collection')('Set', function(get){
     return strong.def(this, value = value === 0 ? 0 : value, value);
   }
 }, strong);
-},{"./$.collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection.js","./$.collection-strong":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-strong.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.code-point-at.js":[function(require,module,exports){
+},{"./_collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-strong":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.anchor.js":[function(require,module,exports){
 'use strict';
-var $export = require('./$.export')
-  , $at     = require('./$.string-at')(false);
+// B.2.3.2 String.prototype.anchor(name)
+require('./_string-html')('anchor', function(createHTML){
+  return function anchor(name){
+    return createHTML(this, 'a', 'name', name);
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.big.js":[function(require,module,exports){
+'use strict';
+// B.2.3.3 String.prototype.big()
+require('./_string-html')('big', function(createHTML){
+  return function big(){
+    return createHTML(this, 'big', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.blink.js":[function(require,module,exports){
+'use strict';
+// B.2.3.4 String.prototype.blink()
+require('./_string-html')('blink', function(createHTML){
+  return function blink(){
+    return createHTML(this, 'blink', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.bold.js":[function(require,module,exports){
+'use strict';
+// B.2.3.5 String.prototype.bold()
+require('./_string-html')('bold', function(createHTML){
+  return function bold(){
+    return createHTML(this, 'b', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.code-point-at.js":[function(require,module,exports){
+'use strict';
+var $export = require('./_export')
+  , $at     = require('./_string-at')(false);
 $export($export.P, 'String', {
   // 21.1.3.3 String.prototype.codePointAt(pos)
   codePointAt: function codePointAt(pos){
     return $at(this, pos);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.ends-with.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.ends-with.js":[function(require,module,exports){
 // 21.1.3.6 String.prototype.endsWith(searchString [, endPosition])
 'use strict';
-var $export   = require('./$.export')
-  , toLength  = require('./$.to-length')
-  , context   = require('./$.string-context')
+var $export   = require('./_export')
+  , toLength  = require('./_to-length')
+  , context   = require('./_string-context')
   , ENDS_WITH = 'endsWith'
   , $endsWith = ''[ENDS_WITH];
 
-$export($export.P + $export.F * require('./$.fails-is-regexp')(ENDS_WITH), 'String', {
+$export($export.P + $export.F * require('./_fails-is-regexp')(ENDS_WITH), 'String', {
   endsWith: function endsWith(searchString /*, endPosition = @length */){
     var that = context(this, searchString, ENDS_WITH)
-      , $$   = arguments
-      , endPosition = $$.length > 1 ? $$[1] : undefined
+      , endPosition = arguments.length > 1 ? arguments[1] : undefined
       , len    = toLength(that.length)
       , end    = endPosition === undefined ? len : Math.min(toLength(endPosition), len)
       , search = String(searchString);
@@ -3729,9 +5206,33 @@ $export($export.P + $export.F * require('./$.fails-is-regexp')(ENDS_WITH), 'Stri
       : that.slice(end - search.length, end) === search;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails-is-regexp.js","./$.string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-context.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.from-code-point.js":[function(require,module,exports){
-var $export        = require('./$.export')
-  , toIndex        = require('./$.to-index')
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fixed.js":[function(require,module,exports){
+'use strict';
+// B.2.3.6 String.prototype.fixed()
+require('./_string-html')('fixed', function(createHTML){
+  return function fixed(){
+    return createHTML(this, 'tt', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontcolor.js":[function(require,module,exports){
+'use strict';
+// B.2.3.7 String.prototype.fontcolor(color)
+require('./_string-html')('fontcolor', function(createHTML){
+  return function fontcolor(color){
+    return createHTML(this, 'font', 'color', color);
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontsize.js":[function(require,module,exports){
+'use strict';
+// B.2.3.8 String.prototype.fontsize(size)
+require('./_string-html')('fontsize', function(createHTML){
+  return function fontsize(size){
+    return createHTML(this, 'font', 'size', size);
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.from-code-point.js":[function(require,module,exports){
+var $export        = require('./_export')
+  , toIndex        = require('./_to-index')
   , fromCharCode   = String.fromCharCode
   , $fromCodePoint = String.fromCodePoint;
 
@@ -3739,13 +5240,12 @@ var $export        = require('./$.export')
 $export($export.S + $export.F * (!!$fromCodePoint && $fromCodePoint.length != 1), 'String', {
   // 21.1.2.2 String.fromCodePoint(...codePoints)
   fromCodePoint: function fromCodePoint(x){ // eslint-disable-line no-unused-vars
-    var res   = []
-      , $$    = arguments
-      , $$len = $$.length
-      , i     = 0
+    var res  = []
+      , aLen = arguments.length
+      , i    = 0
       , code;
-    while($$len > i){
-      code = +$$[i++];
+    while(aLen > i){
+      code = +arguments[i++];
       if(toIndex(code, 0x10ffff) !== code)throw RangeError(code + ' is not a valid code point');
       res.push(code < 0x10000
         ? fromCharCode(code)
@@ -3754,25 +5254,33 @@ $export($export.S + $export.F * (!!$fromCodePoint && $fromCodePoint.length != 1)
     } return res.join('');
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-index.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.includes.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.includes.js":[function(require,module,exports){
 // 21.1.3.7 String.prototype.includes(searchString, position = 0)
 'use strict';
-var $export  = require('./$.export')
-  , context  = require('./$.string-context')
+var $export  = require('./_export')
+  , context  = require('./_string-context')
   , INCLUDES = 'includes';
 
-$export($export.P + $export.F * require('./$.fails-is-regexp')(INCLUDES), 'String', {
+$export($export.P + $export.F * require('./_fails-is-regexp')(INCLUDES), 'String', {
   includes: function includes(searchString /*, position = 0 */){
     return !!~context(this, searchString, INCLUDES)
       .indexOf(searchString, arguments.length > 1 ? arguments[1] : undefined);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails-is-regexp.js","./$.string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-context.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.iterator.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.italics.js":[function(require,module,exports){
 'use strict';
-var $at  = require('./$.string-at')(true);
+// B.2.3.9 String.prototype.italics()
+require('./_string-html')('italics', function(createHTML){
+  return function italics(){
+    return createHTML(this, 'i', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.iterator.js":[function(require,module,exports){
+'use strict';
+var $at  = require('./_string-at')(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-require('./$.iter-define')(String, 'String', function(iterated){
+require('./_iter-define')(String, 'String', function(iterated){
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -3785,108 +5293,150 @@ require('./$.iter-define')(String, 'String', function(iterated){
   this._i += point.length;
   return {value: point, done: false};
 });
-},{"./$.iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iter-define.js","./$.string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.raw.js":[function(require,module,exports){
-var $export   = require('./$.export')
-  , toIObject = require('./$.to-iobject')
-  , toLength  = require('./$.to-length');
+},{"./_iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.link.js":[function(require,module,exports){
+'use strict';
+// B.2.3.10 String.prototype.link(url)
+require('./_string-html')('link', function(createHTML){
+  return function link(url){
+    return createHTML(this, 'a', 'href', url);
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.raw.js":[function(require,module,exports){
+var $export   = require('./_export')
+  , toIObject = require('./_to-iobject')
+  , toLength  = require('./_to-length');
 
 $export($export.S, 'String', {
   // 21.1.2.4 String.raw(callSite, ...substitutions)
   raw: function raw(callSite){
-    var tpl   = toIObject(callSite.raw)
-      , len   = toLength(tpl.length)
-      , $$    = arguments
-      , $$len = $$.length
-      , res   = []
-      , i     = 0;
+    var tpl  = toIObject(callSite.raw)
+      , len  = toLength(tpl.length)
+      , aLen = arguments.length
+      , res  = []
+      , i    = 0;
     while(len > i){
       res.push(String(tpl[i++]));
-      if(i < $$len)res.push(String($$[i]));
+      if(i < aLen)res.push(String(arguments[i]));
     } return res.join('');
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.repeat.js":[function(require,module,exports){
-var $export = require('./$.export');
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.repeat.js":[function(require,module,exports){
+var $export = require('./_export');
 
 $export($export.P, 'String', {
   // 21.1.3.13 String.prototype.repeat(count)
-  repeat: require('./$.string-repeat')
+  repeat: require('./_string-repeat')
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.string-repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-repeat.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.starts-with.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.small.js":[function(require,module,exports){
+'use strict';
+// B.2.3.11 String.prototype.small()
+require('./_string-html')('small', function(createHTML){
+  return function small(){
+    return createHTML(this, 'small', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.starts-with.js":[function(require,module,exports){
 // 21.1.3.18 String.prototype.startsWith(searchString [, position ])
 'use strict';
-var $export     = require('./$.export')
-  , toLength    = require('./$.to-length')
-  , context     = require('./$.string-context')
+var $export     = require('./_export')
+  , toLength    = require('./_to-length')
+  , context     = require('./_string-context')
   , STARTS_WITH = 'startsWith'
   , $startsWith = ''[STARTS_WITH];
 
-$export($export.P + $export.F * require('./$.fails-is-regexp')(STARTS_WITH), 'String', {
+$export($export.P + $export.F * require('./_fails-is-regexp')(STARTS_WITH), 'String', {
   startsWith: function startsWith(searchString /*, position = 0 */){
     var that   = context(this, searchString, STARTS_WITH)
-      , $$     = arguments
-      , index  = toLength(Math.min($$.length > 1 ? $$[1] : undefined, that.length))
+      , index  = toLength(Math.min(arguments.length > 1 ? arguments[1] : undefined, that.length))
       , search = String(searchString);
     return $startsWith
       ? $startsWith.call(that, search, index)
       : that.slice(index, index + search.length) === search;
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails-is-regexp.js","./$.string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-context.js","./$.to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.trim.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.strike.js":[function(require,module,exports){
+'use strict';
+// B.2.3.12 String.prototype.strike()
+require('./_string-html')('strike', function(createHTML){
+  return function strike(){
+    return createHTML(this, 'strike', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sub.js":[function(require,module,exports){
+'use strict';
+// B.2.3.13 String.prototype.sub()
+require('./_string-html')('sub', function(createHTML){
+  return function sub(){
+    return createHTML(this, 'sub', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sup.js":[function(require,module,exports){
+'use strict';
+// B.2.3.14 String.prototype.sup()
+require('./_string-html')('sup', function(createHTML){
+  return function sup(){
+    return createHTML(this, 'sup', '', '');
+  }
+});
+},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.trim.js":[function(require,module,exports){
 'use strict';
 // 21.1.3.25 String.prototype.trim()
-require('./$.string-trim')('trim', function($trim){
+require('./_string-trim')('trim', function($trim){
   return function trim(){
     return $trim(this, 3);
   };
 });
-},{"./$.string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.symbol.js":[function(require,module,exports){
+},{"./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.symbol.js":[function(require,module,exports){
 'use strict';
 // ECMAScript 6 symbols shim
-var $              = require('./$')
-  , global         = require('./$.global')
-  , has            = require('./$.has')
-  , DESCRIPTORS    = require('./$.descriptors')
-  , $export        = require('./$.export')
-  , redefine       = require('./$.redefine')
-  , $fails         = require('./$.fails')
-  , shared         = require('./$.shared')
-  , setToStringTag = require('./$.set-to-string-tag')
-  , uid            = require('./$.uid')
-  , wks            = require('./$.wks')
-  , keyOf          = require('./$.keyof')
-  , $names         = require('./$.get-names')
-  , enumKeys       = require('./$.enum-keys')
-  , isArray        = require('./$.is-array')
-  , anObject       = require('./$.an-object')
-  , toIObject      = require('./$.to-iobject')
-  , createDesc     = require('./$.property-desc')
-  , getDesc        = $.getDesc
-  , setDesc        = $.setDesc
-  , _create        = $.create
-  , getNames       = $names.get
+var global         = require('./_global')
+  , core           = require('./_core')
+  , has            = require('./_has')
+  , DESCRIPTORS    = require('./_descriptors')
+  , $export        = require('./_export')
+  , redefine       = require('./_redefine')
+  , META           = require('./_meta').KEY
+  , $fails         = require('./_fails')
+  , shared         = require('./_shared')
+  , setToStringTag = require('./_set-to-string-tag')
+  , uid            = require('./_uid')
+  , wks            = require('./_wks')
+  , keyOf          = require('./_keyof')
+  , enumKeys       = require('./_enum-keys')
+  , isArray        = require('./_is-array')
+  , anObject       = require('./_an-object')
+  , toIObject      = require('./_to-iobject')
+  , toPrimitive    = require('./_to-primitive')
+  , createDesc     = require('./_property-desc')
+  , _create        = require('./_object-create')
+  , gOPNExt        = require('./_object-gopn-ext')
+  , $GOPD          = require('./_object-gopd')
+  , $DP            = require('./_object-dp')
+  , gOPD           = $GOPD.f
+  , dP             = $DP.f
+  , gOPN           = gOPNExt.f
   , $Symbol        = global.Symbol
   , $JSON          = global.JSON
   , _stringify     = $JSON && $JSON.stringify
   , setter         = false
   , HIDDEN         = wks('_hidden')
-  , isEnum         = $.isEnum
+  , isEnum         = {}.propertyIsEnumerable
   , SymbolRegistry = shared('symbol-registry')
   , AllSymbols     = shared('symbols')
-  , useNative      = typeof $Symbol == 'function'
-  , ObjectProto    = Object.prototype;
+  , ObjectProto    = Object.prototype
+  , USE_NATIVE     = typeof $Symbol == 'function';
 
 // fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
 var setSymbolDesc = DESCRIPTORS && $fails(function(){
-  return _create(setDesc({}, 'a', {
-    get: function(){ return setDesc(this, 'a', {value: 7}).a; }
+  return _create(dP({}, 'a', {
+    get: function(){ return dP(this, 'a', {value: 7}).a; }
   })).a != 7;
 }) ? function(it, key, D){
-  var protoDesc = getDesc(ObjectProto, key);
+  var protoDesc = gOPD(ObjectProto, key);
   if(protoDesc)delete ObjectProto[key];
-  setDesc(it, key, D);
-  if(protoDesc && it !== ObjectProto)setDesc(ObjectProto, key, protoDesc);
-} : setDesc;
+  dP(it, key, D);
+  if(protoDesc && it !== ObjectProto)dP(ObjectProto, key, protoDesc);
+} : dP;
 
 var wrap = function(tag){
   var sym = AllSymbols[tag] = _create($Symbol.prototype);
@@ -3906,15 +5456,18 @@ var isSymbol = function(it){
 };
 
 var $defineProperty = function defineProperty(it, key, D){
-  if(D && has(AllSymbols, key)){
+  anObject(it);
+  key = toPrimitive(key, true);
+  anObject(D);
+  if(has(AllSymbols, key)){
     if(!D.enumerable){
-      if(!has(it, HIDDEN))setDesc(it, HIDDEN, createDesc(1, {}));
+      if(!has(it, HIDDEN))dP(it, HIDDEN, createDesc(1, {}));
       it[HIDDEN][key] = true;
     } else {
       if(has(it, HIDDEN) && it[HIDDEN][key])it[HIDDEN][key] = false;
       D = _create(D, {enumerable: createDesc(0, false)});
     } return setSymbolDesc(it, key, D);
-  } return setDesc(it, key, D);
+  } return dP(it, key, D);
 };
 var $defineProperties = function defineProperties(it, P){
   anObject(it);
@@ -3929,25 +5482,24 @@ var $create = function create(it, P){
   return P === undefined ? _create(it) : $defineProperties(_create(it), P);
 };
 var $propertyIsEnumerable = function propertyIsEnumerable(key){
-  var E = isEnum.call(this, key);
-  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key]
-    ? E : true;
+  var E = isEnum.call(this, key = toPrimitive(key, true));
+  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
 };
 var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key){
-  var D = getDesc(it = toIObject(it), key);
+  var D = gOPD(it = toIObject(it), key = toPrimitive(key, true));
   if(D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key]))D.enumerable = true;
   return D;
 };
 var $getOwnPropertyNames = function getOwnPropertyNames(it){
-  var names  = getNames(toIObject(it))
+  var names  = gOPN(toIObject(it))
     , result = []
     , i      = 0
     , key;
-  while(names.length > i)if(!has(AllSymbols, key = names[i++]) && key != HIDDEN)result.push(key);
+  while(names.length > i)if(!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META)result.push(key);
   return result;
 };
 var $getOwnPropertySymbols = function getOwnPropertySymbols(it){
-  var names  = getNames(toIObject(it))
+  var names  = gOPN(toIObject(it))
     , result = []
     , i      = 0
     , key;
@@ -3958,9 +5510,8 @@ var $stringify = function stringify(it){
   if(it === undefined || isSymbol(it))return; // IE8 returns string on undefined
   var args = [it]
     , i    = 1
-    , $$   = arguments
     , replacer, $replacer;
-  while($$.length > i)args.push($$[i++]);
+  while(arguments.length > i)args.push(arguments[i++]);
   replacer = args[1];
   if(typeof replacer == 'function')$replacer = replacer;
   if($replacer || !isArray(replacer))replacer = function(key, value){
@@ -3970,7 +5521,7 @@ var $stringify = function stringify(it){
   args[1] = replacer;
   return _stringify.apply($JSON, args);
 };
-var buggyJSON = $fails(function(){
+var BUGGY_JSON = $fails(function(){
   var S = $Symbol();
   // MS Edge converts symbol values to JSON as {}
   // WebKit converts symbol values to JSON as null
@@ -3979,7 +5530,7 @@ var buggyJSON = $fails(function(){
 });
 
 // 19.4.1.1 Symbol([description])
-if(!useNative){
+if(!USE_NATIVE){
   $Symbol = function Symbol(){
     if(isSymbol(this))throw TypeError('Symbol is not a constructor');
     return wrap(uid(arguments.length > 0 ? arguments[0] : undefined));
@@ -3992,20 +5543,42 @@ if(!useNative){
     return it instanceof $Symbol;
   };
 
-  $.create     = $create;
-  $.isEnum     = $propertyIsEnumerable;
-  $.getDesc    = $getOwnPropertyDescriptor;
-  $.setDesc    = $defineProperty;
-  $.setDescs   = $defineProperties;
-  $.getNames   = $names.get = $getOwnPropertyNames;
-  $.getSymbols = $getOwnPropertySymbols;
+  $GOPD.f = $getOwnPropertyDescriptor;
+  $DP.f   = $defineProperty;
+  require('./_object-gopn').f = gOPNExt.f = $getOwnPropertyNames;
+  require('./_object-pie').f  = $propertyIsEnumerable
+  require('./_object-gops').f = $getOwnPropertySymbols;
 
-  if(DESCRIPTORS && !require('./$.library')){
+  if(DESCRIPTORS && !require('./_library')){
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
   }
 }
 
-var symbolStatics = {
+$export($export.G + $export.W + $export.F * !USE_NATIVE, {Symbol: $Symbol});
+
+// 19.4.2.2 Symbol.hasInstance
+// 19.4.2.3 Symbol.isConcatSpreadable
+// 19.4.2.4 Symbol.iterator
+// 19.4.2.6 Symbol.match
+// 19.4.2.8 Symbol.replace
+// 19.4.2.9 Symbol.search
+// 19.4.2.10 Symbol.species
+// 19.4.2.11 Symbol.split
+// 19.4.2.12 Symbol.toPrimitive
+// 19.4.2.13 Symbol.toStringTag
+// 19.4.2.14 Symbol.unscopables
+for(var symbols = (
+  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
+).split(','), i = 0; symbols.length > i; ){
+  var key     = symbols[i++]
+    , Wrapper = core.Symbol
+    , sym     = wks(key);
+  if(!(key in Wrapper))dP(Wrapper, key, {value: USE_NATIVE ? sym : wrap(sym)});
+};
+
+setter = true;
+
+$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
   // 19.4.2.1 Symbol.for(key)
   'for': function(key){
     return has(SymbolRegistry, key += '')
@@ -4018,33 +5591,9 @@ var symbolStatics = {
   },
   useSetter: function(){ setter = true; },
   useSimple: function(){ setter = false; }
-};
-// 19.4.2.2 Symbol.hasInstance
-// 19.4.2.3 Symbol.isConcatSpreadable
-// 19.4.2.4 Symbol.iterator
-// 19.4.2.6 Symbol.match
-// 19.4.2.8 Symbol.replace
-// 19.4.2.9 Symbol.search
-// 19.4.2.10 Symbol.species
-// 19.4.2.11 Symbol.split
-// 19.4.2.12 Symbol.toPrimitive
-// 19.4.2.13 Symbol.toStringTag
-// 19.4.2.14 Symbol.unscopables
-$.each.call((
-  'hasInstance,isConcatSpreadable,iterator,match,replace,search,' +
-  'species,split,toPrimitive,toStringTag,unscopables'
-).split(','), function(it){
-  var sym = wks(it);
-  symbolStatics[it] = useNative ? sym : wrap(sym);
 });
 
-setter = true;
-
-$export($export.G + $export.W, {Symbol: $Symbol});
-
-$export($export.S, 'Symbol', symbolStatics);
-
-$export($export.S + $export.F * !useNative, 'Object', {
+$export($export.S + $export.F * !USE_NATIVE, 'Object', {
   // 19.1.2.2 Object.create(O [, Properties])
   create: $create,
   // 19.1.2.4 Object.defineProperty(O, P, Attributes)
@@ -4060,7 +5609,7 @@ $export($export.S + $export.F * !useNative, 'Object', {
 });
 
 // 24.3.2 JSON.stringify(value [, replacer [, space]])
-$JSON && $export($export.S + $export.F * (!useNative || buggyJSON), 'JSON', {stringify: $stringify});
+$JSON && $export($export.S + $export.F * (!USE_NATIVE || BUGGY_JSON), 'JSON', {stringify: $stringify});
 
 // 19.4.3.5 Symbol.prototype[@@toStringTag]
 setToStringTag($Symbol, 'Symbol');
@@ -4068,56 +5617,177 @@ setToStringTag($Symbol, 'Symbol');
 setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.an-object.js","./$.descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.descriptors.js","./$.enum-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.enum-keys.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.fails.js","./$.get-names":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.get-names.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-array.js","./$.keyof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.keyof.js","./$.library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.library.js","./$.property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.property-desc.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js","./$.set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.set-to-string-tag.js","./$.shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.shared.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js","./$.uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.uid.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js":[function(require,module,exports){
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_enum-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-keys.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js","./_keyof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_keyof.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gopn-ext":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js","./_object-gops":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.array-buffer.js":[function(require,module,exports){
 'use strict';
-var $            = require('./$')
-  , redefine     = require('./$.redefine')
-  , weak         = require('./$.collection-weak')
-  , isObject     = require('./$.is-object')
-  , has          = require('./$.has')
-  , frozenStore  = weak.frozenStore
-  , WEAK         = weak.WEAK
-  , isExtensible = Object.isExtensible || isObject
-  , tmp          = {};
+var $export      = require('./_export')
+  , $typed       = require('./_typed')
+  , buffer       = require('./_typed-buffer')
+  , anObject     = require('./_an-object')
+  , toIndex      = require('./_to-index')
+  , toLength     = require('./_to-length')
+  , isObject     = require('./_is-object')
+  , TYPED_ARRAY  = require('./_wks')('typed_array')
+  , ArrayBuffer  = require('./_global').ArrayBuffer
+  , speciesConstructor = require('./_species-constructor')
+  , $ArrayBuffer = buffer.ArrayBuffer
+  , $DataView    = buffer.DataView
+  , $isView      = $typed.ABV && ArrayBuffer.isView
+  , $slice       = $ArrayBuffer.prototype.slice
+  , VIEW         = $typed.VIEW
+  , ARRAY_BUFFER = 'ArrayBuffer';
 
-// 23.3 WeakMap Objects
-var $WeakMap = require('./$.collection')('WeakMap', function(get){
-  return function WeakMap(){ return get(this, arguments.length > 0 ? arguments[0] : undefined); };
-}, {
+$export($export.G + $export.W + $export.F * (ArrayBuffer !== $ArrayBuffer), {ArrayBuffer: $ArrayBuffer});
+
+$export($export.S + $export.F * !$typed.CONSTR, ARRAY_BUFFER, {
+  // 24.1.3.1 ArrayBuffer.isView(arg)
+  isView: function isView(it){
+    return $isView && $isView(it) || isObject(it) && VIEW in it;
+  }
+});
+
+$export($export.P + $export.U + $export.F * require('./_fails')(function(){
+  return !new $ArrayBuffer(2).slice(1, undefined).byteLength;
+}), ARRAY_BUFFER, {
+  // 24.1.4.3 ArrayBuffer.prototype.slice(start, end)
+  slice: function slice(start, end){
+    if($slice !== undefined && end === undefined)return $slice.call(anObject(this), start); // FF fix
+    var len    = anObject(this).byteLength
+      , first  = toIndex(start, len)
+      , final  = toIndex(end === undefined ? len : end, len)
+      , result = new (speciesConstructor(this, $ArrayBuffer))(toLength(final - first))
+      , viewS  = new $DataView(this)
+      , viewT  = new $DataView(result)
+      , index  = 0;
+    while(first < final){
+      viewT.setUint8(index++, viewS.getUint8(first++));
+    } return result;
+  }
+});
+
+require('./_set-species')(ARRAY_BUFFER);
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_species-constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_typed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.data-view.js":[function(require,module,exports){
+var $export = require('./_export');
+$export($export.G + $export.W + $export.F * !require('./_typed').ABV, {
+  DataView: require('./_typed-buffer').DataView
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_typed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float32-array.js":[function(require,module,exports){
+require('./_typed-array')('Float32', 4, function(init){
+  return function Float32Array(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+});
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float64-array.js":[function(require,module,exports){
+require('./_typed-array')('Float64', 8, function(init){
+  return function Float64Array(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+});
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int16-array.js":[function(require,module,exports){
+require('./_typed-array')('Int16', 2, function(init){
+  return function Int16Array(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+});
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int32-array.js":[function(require,module,exports){
+require('./_typed-array')('Int32', 4, function(init){
+  return function Int32Array(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+});
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int8-array.js":[function(require,module,exports){
+require('./_typed-array')('Int8', 1, function(init){
+  return function Int8Array(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+});
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint16-array.js":[function(require,module,exports){
+require('./_typed-array')('Uint16', 2, function(init){
+  return function Uint16Array(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+});
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint32-array.js":[function(require,module,exports){
+require('./_typed-array')('Uint32', 4, function(init){
+  return function Uint32Array(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+});
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-array.js":[function(require,module,exports){
+require('./_typed-array')('Uint8', 1, function(init){
+  return function Uint8Array(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+});
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-clamped-array.js":[function(require,module,exports){
+require('./_typed-array')('Uint8', 1, function(init){
+  return function Uint8ClampedArray(data, byteOffset, length){
+    return init(this, data, byteOffset, length);
+  };
+}, true);
+},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js":[function(require,module,exports){
+'use strict';
+var each         = require('./_array-methods')(0)
+  , redefine     = require('./_redefine')
+  , meta         = require('./_meta')
+  , assign       = require('./_object-assign')
+  , weak         = require('./_collection-weak')
+  , isObject     = require('./_is-object')
+  , has          = require('./_has')
+  , getWeak      = meta.getWeak
+  , isExtensible = Object.isExtensible
+  , uncaughtFrozenStore = weak.ufstore
+  , tmp          = {}
+  , InternalMap;
+
+var wrapper = function(get){
+  return function WeakMap(){
+    return get(this, arguments.length > 0 ? arguments[0] : undefined);
+  };
+};
+
+var methods = {
   // 23.3.3.3 WeakMap.prototype.get(key)
   get: function get(key){
     if(isObject(key)){
-      if(!isExtensible(key))return frozenStore(this).get(key);
-      if(has(key, WEAK))return key[WEAK][this._i];
+      var data = getWeak(key);
+      if(data === true)return uncaughtFrozenStore(this).get(key);
+      return data ? data[this._i] : undefined;
     }
   },
   // 23.3.3.5 WeakMap.prototype.set(key, value)
   set: function set(key, value){
     return weak.def(this, key, value);
   }
-}, weak, true, true);
+};
+
+// 23.3 WeakMap Objects
+var $WeakMap = module.exports = require('./_collection')('WeakMap', wrapper, methods, weak, true, true);
 
 // IE11 WeakMap frozen keys fix
 if(new $WeakMap().set((Object.freeze || Object)(tmp), 7).get(tmp) != 7){
-  $.each.call(['delete', 'has', 'get', 'set'], function(key){
+  InternalMap = weak.getConstructor(wrapper);
+  assign(InternalMap.prototype, methods);
+  meta.NEED = true;
+  each(['delete', 'has', 'get', 'set'], function(key){
     var proto  = $WeakMap.prototype
       , method = proto[key];
     redefine(proto, key, function(a, b){
-      // store frozen objects on leaky map
+      // store frozen objects on internal weakmap shim
       if(isObject(a) && !isExtensible(a)){
-        var result = frozenStore(this)[key](a, b);
+        if(!this._f)this._f = new InternalMap;
+        var result = this._f[key](a, b);
         return key == 'set' ? this : result;
       // store all the rest on native weakmap
       } return method.call(this, a, b);
     });
   });
 }
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection.js","./$.collection-weak":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-weak.js","./$.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.has.js","./$.is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.is-object.js","./$.redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-set.js":[function(require,module,exports){
+},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-weak":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-assign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-set.js":[function(require,module,exports){
 'use strict';
-var weak = require('./$.collection-weak');
+var weak = require('./_collection-weak');
 
 // 23.4 WeakSet Objects
-require('./$.collection')('WeakSet', function(get){
+require('./_collection')('WeakSet', function(get){
   return function WeakSet(){ return get(this, arguments.length > 0 ? arguments[0] : undefined); };
 }, {
   // 23.4.3.1 WeakSet.prototype.add(value)
@@ -4125,10 +5795,10 @@ require('./$.collection')('WeakSet', function(get){
     return weak.def(this, value, true);
   }
 }, weak, false, true);
-},{"./$.collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection.js","./$.collection-weak":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-weak.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.array.includes.js":[function(require,module,exports){
+},{"./_collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-weak":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.array.includes.js":[function(require,module,exports){
 'use strict';
-var $export   = require('./$.export')
-  , $includes = require('./$.array-includes')(true);
+var $export   = require('./_export')
+  , $includes = require('./_array-includes')(true);
 
 $export($export.P, 'Array', {
   // https://github.com/domenic/Array.prototype.includes
@@ -4137,159 +5807,342 @@ $export($export.P, 'Array', {
   }
 });
 
-require('./$.add-to-unscopables')('includes');
-},{"./$.add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.add-to-unscopables.js","./$.array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.array-includes.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.map.to-json.js":[function(require,module,exports){
-// https://github.com/DavidBruant/Map-Set.prototype.toJSON
-var $export  = require('./$.export');
+require('./_add-to-unscopables')('includes');
+},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.error.is-error.js":[function(require,module,exports){
+// https://github.com/ljharb/proposal-is-error
+var $export = require('./_export')
+  , cof     = require('./_cof');
 
-$export($export.P, 'Map', {toJSON: require('./$.collection-to-json')('Map')});
-},{"./$.collection-to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-to-json.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.entries.js":[function(require,module,exports){
+$export($export.S, 'Error', {
+  isError: function isError(it){
+    return cof(it) === 'Error';
+  }
+});
+},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.map.to-json.js":[function(require,module,exports){
+// https://github.com/DavidBruant/Map-Set.prototype.toJSON
+var $export  = require('./_export');
+
+$export($export.P + $export.R, 'Map', {toJSON: require('./_collection-to-json')('Map')});
+},{"./_collection-to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.iaddh.js":[function(require,module,exports){
+// https://gist.github.com/BrendanEich/4294d5c212a6d2254703
+var $export = require('./_export');
+
+$export($export.S, 'Math', {
+  iaddh: function iaddh(x0, x1, y0, y1){
+    var $x0 = x0 >>> 0
+      , $x1 = x1 >>> 0
+      , $y0 = y0 >>> 0;
+    return $x1 + (y1 >>> 0) + (($x0 & $y0 | ($x0 | $y0) & ~($x0 + $y0 >>> 0)) >>> 31) | 0;
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.imulh.js":[function(require,module,exports){
+// https://gist.github.com/BrendanEich/4294d5c212a6d2254703
+var $export = require('./_export');
+
+$export($export.S, 'Math', {
+  imulh: function imulh(u, v){
+    var UINT16 = 0xffff
+      , $u = +u
+      , $v = +v
+      , u0 = $u & UINT16
+      , v0 = $v & UINT16
+      , u1 = $u >> 16
+      , v1 = $v >> 16
+      , t  = (u1 * v0 >>> 0) + (u0 * v0 >>> 16);
+    return u1 * v1 + (t >> 16) + ((u0 * v1 >>> 0) + (t & UINT16) >> 16);
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.isubh.js":[function(require,module,exports){
+// https://gist.github.com/BrendanEich/4294d5c212a6d2254703
+var $export = require('./_export');
+
+$export($export.S, 'Math', {
+  isubh: function isubh(x0, x1, y0, y1){
+    var $x0 = x0 >>> 0
+      , $x1 = x1 >>> 0
+      , $y0 = y0 >>> 0;
+    return $x1 - (y1 >>> 0) - ((~$x0 & $y0 | ~($x0 ^ $y0) & $x0 - $y0 >>> 0) >>> 31) | 0;
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.umulh.js":[function(require,module,exports){
+// https://gist.github.com/BrendanEich/4294d5c212a6d2254703
+var $export = require('./_export');
+
+$export($export.S, 'Math', {
+  umulh: function umulh(u, v){
+    var UINT16 = 0xffff
+      , $u = +u
+      , $v = +v
+      , u0 = $u & UINT16
+      , v0 = $v & UINT16
+      , u1 = $u >>> 16
+      , v1 = $v >>> 16
+      , t  = (u1 * v0 >>> 0) + (u0 * v0 >>> 16);
+    return u1 * v1 + (t >>> 16) + ((u0 * v1 >>> 0) + (t & UINT16) >>> 16);
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.entries.js":[function(require,module,exports){
 // http://goo.gl/XkBrjD
-var $export  = require('./$.export')
-  , $entries = require('./$.object-to-array')(true);
+var $export  = require('./_export')
+  , $entries = require('./_object-to-array')(true);
 
 $export($export.S, 'Object', {
   entries: function entries(it){
     return $entries(it);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.object-to-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-to-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-to-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js":[function(require,module,exports){
 // https://gist.github.com/WebReflection/9353781
-var $          = require('./$')
-  , $export    = require('./$.export')
-  , ownKeys    = require('./$.own-keys')
-  , toIObject  = require('./$.to-iobject')
-  , createDesc = require('./$.property-desc');
+var $export    = require('./_export')
+  , ownKeys    = require('./_own-keys')
+  , toIObject  = require('./_to-iobject')
+  , createDesc = require('./_property-desc')
+  , gOPD       = require('./_object-gopd')
+  , dP         = require('./_object-dp');
 
 $export($export.S, 'Object', {
   getOwnPropertyDescriptors: function getOwnPropertyDescriptors(object){
     var O       = toIObject(object)
-      , setDesc = $.setDesc
-      , getDesc = $.getDesc
+      , getDesc = gOPD.f
       , keys    = ownKeys(O)
       , result  = {}
       , i       = 0
       , key, D;
     while(keys.length > i){
       D = getDesc(O, key = keys[i++]);
-      if(key in result)setDesc(result, key, createDesc(0, D));
+      if(key in result)dP.f(result, key, createDesc(0, D));
       else result[key] = D;
     } return result;
   }
 });
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.own-keys.js","./$.property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.property-desc.js","./$.to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.values.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.values.js":[function(require,module,exports){
 // http://goo.gl/XkBrjD
-var $export = require('./$.export')
-  , $values = require('./$.object-to-array')(false);
+var $export = require('./_export')
+  , $values = require('./_object-to-array')(false);
 
 $export($export.S, 'Object', {
   values: function values(it){
     return $values(it);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.object-to-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.object-to-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.regexp.escape.js":[function(require,module,exports){
-// https://github.com/benjamingr/RexExp.escape
-var $export = require('./$.export')
-  , $re     = require('./$.replacer')(/[\\^$*+?.()|[\]{}]/g, '\\$&');
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-to-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.define-metadata.js":[function(require,module,exports){
+var metadata                  = require('./_metadata')
+  , anObject                  = require('./_an-object')
+  , toMetaKey                 = metadata.key
+  , ordinaryDefineOwnMetadata = metadata.set;
 
-$export($export.S, 'RegExp', {escape: function escape(it){ return $re(it); }});
+metadata.exp({defineMetadata: function defineMetadata(metadataKey, metadataValue, target, targetKey){
+  ordinaryDefineOwnMetadata(metadataKey, metadataValue, anObject(target), toMetaKey(targetKey));
+}});
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.delete-metadata.js":[function(require,module,exports){
+var metadata               = require('./_metadata')
+  , anObject               = require('./_an-object')
+  , toMetaKey              = metadata.key
+  , getOrCreateMetadataMap = metadata.map
+  , store                  = metadata.store;
 
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.replacer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.replacer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.set.to-json.js":[function(require,module,exports){
+metadata.exp({deleteMetadata: function deleteMetadata(metadataKey, target /*, targetKey */){
+  var targetKey   = arguments.length < 3 ? undefined : toMetaKey(arguments[2])
+    , metadataMap = getOrCreateMetadataMap(anObject(target), targetKey, false);
+  if(metadataMap === undefined || !metadataMap['delete'](metadataKey))return false;
+  if(metadataMap.size)return true;
+  var targetMetadata = store.get(target);
+  targetMetadata['delete'](targetKey);
+  return !!targetMetadata.size || store['delete'](target);
+}});
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata-keys.js":[function(require,module,exports){
+var Set                     = require('./es6.set')
+  , from                    = require('./_array-from-iterable')
+  , metadata                = require('./_metadata')
+  , anObject                = require('./_an-object')
+  , getPrototypeOf          = require('./_object-gpo')
+  , ordinaryOwnMetadataKeys = metadata.keys
+  , toMetaKey               = metadata.key;
+
+var ordinaryMetadataKeys = function(O, P){
+  var oKeys  = ordinaryOwnMetadataKeys(O, P)
+    , parent = getPrototypeOf(O);
+  if(parent === null)return oKeys;
+  var pKeys  = ordinaryMetadataKeys(parent, P);
+  return pKeys.length ? oKeys.length ? from(new Set(oKeys.concat(pKeys))) : pKeys : oKeys;
+};
+
+metadata.exp({getMetadataKeys: function getMetadataKeys(target /*, targetKey */){
+  return ordinaryMetadataKeys(anObject(target), arguments.length < 2 ? undefined : toMetaKey(arguments[1]));
+}});
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_array-from-iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./es6.set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata.js":[function(require,module,exports){
+var metadata               = require('./_metadata')
+  , anObject               = require('./_an-object')
+  , getPrototypeOf         = require('./_object-gpo')
+  , ordinaryHasOwnMetadata = metadata.has
+  , ordinaryGetOwnMetadata = metadata.get
+  , toMetaKey              = metadata.key;
+
+var ordinaryGetMetadata = function(MetadataKey, O, P){
+  var hasOwn = ordinaryHasOwnMetadata(MetadataKey, O, P);
+  if(hasOwn)return ordinaryGetOwnMetadata(MetadataKey, O, P);
+  var parent = getPrototypeOf(O);
+  return parent !== null ? ordinaryGetMetadata(MetadataKey, parent, P) : undefined;
+};
+
+metadata.exp({getMetadata: function getMetadata(metadataKey, target /*, targetKey */){
+  return ordinaryGetMetadata(metadataKey, anObject(target), arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
+}});
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata-keys.js":[function(require,module,exports){
+var metadata                = require('./_metadata')
+  , anObject                = require('./_an-object')
+  , ordinaryOwnMetadataKeys = metadata.keys
+  , toMetaKey               = metadata.key;
+
+metadata.exp({getOwnMetadataKeys: function getOwnMetadataKeys(target /*, targetKey */){
+  return ordinaryOwnMetadataKeys(anObject(target), arguments.length < 2 ? undefined : toMetaKey(arguments[1]));
+}});
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata.js":[function(require,module,exports){
+var metadata               = require('./_metadata')
+  , anObject               = require('./_an-object')
+  , ordinaryGetOwnMetadata = metadata.get
+  , toMetaKey              = metadata.key;
+
+metadata.exp({getOwnMetadata: function getOwnMetadata(metadataKey, target /*, targetKey */){
+  return ordinaryGetOwnMetadata(metadataKey, anObject(target)
+    , arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
+}});
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-metadata.js":[function(require,module,exports){
+var metadata               = require('./_metadata')
+  , anObject               = require('./_an-object')
+  , getPrototypeOf         = require('./_object-gpo')
+  , ordinaryHasOwnMetadata = metadata.has
+  , toMetaKey              = metadata.key;
+
+var ordinaryHasMetadata = function(MetadataKey, O, P){
+  var hasOwn = ordinaryHasOwnMetadata(MetadataKey, O, P);
+  if(hasOwn)return true;
+  var parent = getPrototypeOf(O);
+  return parent !== null ? ordinaryHasMetadata(MetadataKey, parent, P) : false;
+};
+
+metadata.exp({hasMetadata: function hasMetadata(metadataKey, target /*, targetKey */){
+  return ordinaryHasMetadata(metadataKey, anObject(target), arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
+}});
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-own-metadata.js":[function(require,module,exports){
+var metadata               = require('./_metadata')
+  , anObject               = require('./_an-object')
+  , ordinaryHasOwnMetadata = metadata.has
+  , toMetaKey              = metadata.key;
+
+metadata.exp({hasOwnMetadata: function hasOwnMetadata(metadataKey, target /*, targetKey */){
+  return ordinaryHasOwnMetadata(metadataKey, anObject(target)
+    , arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
+}});
+},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.metadata.js":[function(require,module,exports){
+var metadata                  = require('./_metadata')
+  , anObject                  = require('./_an-object')
+  , aFunction                 = require('./_a-function')
+  , toMetaKey                 = metadata.key
+  , ordinaryDefineOwnMetadata = metadata.set;
+
+metadata.exp({metadata: function metadata(metadataKey, metadataValue){
+  return function decorator(target, targetKey){
+    ordinaryDefineOwnMetadata(
+      metadataKey, metadataValue,
+      (targetKey !== undefined ? anObject : aFunction)(target),
+      toMetaKey(targetKey)
+    );
+  };
+}});
+},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.set.to-json.js":[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
-var $export  = require('./$.export');
+var $export  = require('./_export');
 
-$export($export.P, 'Set', {toJSON: require('./$.collection-to-json')('Set')});
-},{"./$.collection-to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.collection-to-json.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.at.js":[function(require,module,exports){
+$export($export.P + $export.R, 'Set', {toJSON: require('./_collection-to-json')('Set')});
+},{"./_collection-to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.at.js":[function(require,module,exports){
 'use strict';
 // https://github.com/mathiasbynens/String.prototype.at
-var $export = require('./$.export')
-  , $at     = require('./$.string-at')(true);
+var $export = require('./_export')
+  , $at     = require('./_string-at')(true);
 
 $export($export.P, 'String', {
   at: function at(pos){
     return $at(this, pos);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-left.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-end.js":[function(require,module,exports){
 'use strict';
-var $export = require('./$.export')
-  , $pad    = require('./$.string-pad');
+var $export = require('./_export')
+  , $pad    = require('./_string-pad');
 
 $export($export.P, 'String', {
-  padLeft: function padLeft(maxLength /*, fillString = ' ' */){
-    return $pad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, true);
-  }
-});
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.string-pad":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-pad.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-right.js":[function(require,module,exports){
-'use strict';
-var $export = require('./$.export')
-  , $pad    = require('./$.string-pad');
-
-$export($export.P, 'String', {
-  padRight: function padRight(maxLength /*, fillString = ' ' */){
+  padEnd: function padEnd(maxLength /*, fillString = ' ' */){
     return $pad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, false);
   }
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.string-pad":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-pad.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-left.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-pad":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-start.js":[function(require,module,exports){
+'use strict';
+var $export = require('./_export')
+  , $pad    = require('./_string-pad');
+
+$export($export.P, 'String', {
+  padStart: function padStart(maxLength /*, fillString = ' ' */){
+    return $pad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, true);
+  }
+});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-pad":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-left.js":[function(require,module,exports){
 'use strict';
 // https://github.com/sebmarkbage/ecmascript-string-left-right-trim
-require('./$.string-trim')('trimLeft', function($trim){
+require('./_string-trim')('trimLeft', function($trim){
   return function trimLeft(){
     return $trim(this, 1);
   };
-});
-},{"./$.string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-right.js":[function(require,module,exports){
+}, 'trimStart');
+},{"./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-right.js":[function(require,module,exports){
 'use strict';
 // https://github.com/sebmarkbage/ecmascript-string-left-right-trim
-require('./$.string-trim')('trimRight', function($trim){
+require('./_string-trim')('trimRight', function($trim){
   return function trimRight(){
     return $trim(this, 2);
   };
-});
-},{"./$.string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/js.array.statics.js":[function(require,module,exports){
-// JavaScript 1.6 / Strawman array statics shim
-var $       = require('./$')
-  , $export = require('./$.export')
-  , $ctx    = require('./$.ctx')
-  , $Array  = require('./$.core').Array || Array
-  , statics = {};
-var setStatics = function(keys, length){
-  $.each.call(keys.split(','), function(key){
-    if(length == undefined && key in $Array)statics[key] = $Array[key];
-    else if(key in [])statics[key] = $ctx(Function.call, [][key], length);
-  });
-};
-setStatics('pop,reverse,shift,keys,values,entries', 1);
-setStatics('indexOf,every,some,forEach,map,filter,find,findIndex,includes', 3);
-setStatics('join,slice,concat,push,splice,unshift,sort,lastIndexOf,' +
-           'reduce,reduceRight,copyWithin,fill');
-$export($export.S, 'Array', statics);
-},{"./$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.js","./$.core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js","./$.ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.ctx.js","./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.dom.iterable.js":[function(require,module,exports){
-require('./es6.array.iterator');
-var global      = require('./$.global')
-  , hide        = require('./$.hide')
-  , Iterators   = require('./$.iterators')
-  , ITERATOR    = require('./$.wks')('iterator')
-  , NL          = global.NodeList
-  , HTC         = global.HTMLCollection
-  , NLProto     = NL && NL.prototype
-  , HTCProto    = HTC && HTC.prototype
-  , ArrayValues = Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
-if(NLProto && !NLProto[ITERATOR])hide(NLProto, ITERATOR, ArrayValues);
-if(HTCProto && !HTCProto[ITERATOR])hide(HTCProto, ITERATOR, ArrayValues);
-},{"./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.hide.js","./$.iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.iterators.js","./$.wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.wks.js","./es6.array.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.immediate.js":[function(require,module,exports){
-var $export = require('./$.export')
-  , $task   = require('./$.task');
+}, 'trimEnd');
+},{"./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.system.global.js":[function(require,module,exports){
+// https://github.com/ljharb/proposal-global
+var $export = require('./_export');
+
+$export($export.S, 'System', {global: require('./_global')});
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.dom.iterable.js":[function(require,module,exports){
+var $iterators    = require('./es6.array.iterator')
+  , redefine      = require('./_redefine')
+  , global        = require('./_global')
+  , hide          = require('./_hide')
+  , Iterators     = require('./_iterators')
+  , wks           = require('./_wks')
+  , ITERATOR      = wks('iterator')
+  , TO_STRING_TAG = wks('toStringTag')
+  , ArrayValues   = Iterators.Array;
+
+for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList', 'CSSRuleList'], i = 0; i < 5; i++){
+  var NAME       = collections[i]
+    , Collection = global[NAME]
+    , proto      = Collection && Collection.prototype
+    , key;
+  if(proto){
+    if(!proto[ITERATOR])hide(proto, ITERATOR, ArrayValues);
+    if(!proto[TO_STRING_TAG])hide(proto, TO_STRING_TAG, NAME);
+    Iterators[NAME] = ArrayValues;
+    for(key in $iterators)if(!proto[key])redefine(proto, key, $iterators[key], true);
+  }
+}
+},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js","./es6.array.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.immediate.js":[function(require,module,exports){
+var $export = require('./_export')
+  , $task   = require('./_task');
 $export($export.G + $export.B, {
   setImmediate:   $task.set,
   clearImmediate: $task.clear
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.task":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.task.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.timers.js":[function(require,module,exports){
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_task":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.timers.js":[function(require,module,exports){
 // ie9- setTimeout & setInterval additional parameters fix
-var global     = require('./$.global')
-  , $export    = require('./$.export')
-  , invoke     = require('./$.invoke')
-  , partial    = require('./$.partial')
+var global     = require('./_global')
+  , $export    = require('./_export')
+  , invoke     = require('./_invoke')
+  , partial    = require('./_partial')
   , navigator  = global.navigator
   , MSIE       = !!navigator && /MSIE .\./.test(navigator.userAgent); // <- dirty ie9- check
 var wrap = function(set){
@@ -4305,26 +6158,33 @@ $export($export.G + $export.B + $export.F * MSIE, {
   setTimeout:  wrap(global.setTimeout),
   setInterval: wrap(global.setInterval)
 });
-},{"./$.export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.export.js","./$.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.global.js","./$.invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.invoke.js","./$.partial":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.partial.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/shim.js":[function(require,module,exports){
-require('./modules/es5');
+},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_partial":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_partial.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/shim.js":[function(require,module,exports){
 require('./modules/es6.symbol');
-require('./modules/es6.object.assign');
-require('./modules/es6.object.is');
-require('./modules/es6.object.set-prototype-of');
-require('./modules/es6.object.to-string');
+require('./modules/es6.object.create');
+require('./modules/es6.object.define-property');
+require('./modules/es6.object.define-properties');
+require('./modules/es6.object.get-own-property-descriptor');
+require('./modules/es6.object.get-prototype-of');
+require('./modules/es6.object.keys');
+require('./modules/es6.object.get-own-property-names');
 require('./modules/es6.object.freeze');
 require('./modules/es6.object.seal');
 require('./modules/es6.object.prevent-extensions');
 require('./modules/es6.object.is-frozen');
 require('./modules/es6.object.is-sealed');
 require('./modules/es6.object.is-extensible');
-require('./modules/es6.object.get-own-property-descriptor');
-require('./modules/es6.object.get-prototype-of');
-require('./modules/es6.object.keys');
-require('./modules/es6.object.get-own-property-names');
+require('./modules/es6.object.assign');
+require('./modules/es6.object.is');
+require('./modules/es6.object.set-prototype-of');
+require('./modules/es6.object.to-string');
+require('./modules/es6.function.bind');
 require('./modules/es6.function.name');
 require('./modules/es6.function.has-instance');
+require('./modules/es6.parse-int');
+require('./modules/es6.parse-float');
 require('./modules/es6.number.constructor');
+require('./modules/es6.number.to-fixed');
+require('./modules/es6.number.to-precision');
 require('./modules/es6.number.epsilon');
 require('./modules/es6.number.is-finite');
 require('./modules/es6.number.is-integer');
@@ -4360,15 +6220,46 @@ require('./modules/es6.string.ends-with');
 require('./modules/es6.string.includes');
 require('./modules/es6.string.repeat');
 require('./modules/es6.string.starts-with');
+require('./modules/es6.string.anchor');
+require('./modules/es6.string.big');
+require('./modules/es6.string.blink');
+require('./modules/es6.string.bold');
+require('./modules/es6.string.fixed');
+require('./modules/es6.string.fontcolor');
+require('./modules/es6.string.fontsize');
+require('./modules/es6.string.italics');
+require('./modules/es6.string.link');
+require('./modules/es6.string.small');
+require('./modules/es6.string.strike');
+require('./modules/es6.string.sub');
+require('./modules/es6.string.sup');
+require('./modules/es6.date.now');
+require('./modules/es6.date.to-string');
+require('./modules/es6.date.to-iso-string');
+require('./modules/es6.date.to-json');
+require('./modules/es6.array.is-array');
 require('./modules/es6.array.from');
 require('./modules/es6.array.of');
-require('./modules/es6.array.iterator');
-require('./modules/es6.array.species');
+require('./modules/es6.array.join');
+require('./modules/es6.array.slice');
+require('./modules/es6.array.sort');
+require('./modules/es6.array.for-each');
+require('./modules/es6.array.map');
+require('./modules/es6.array.filter');
+require('./modules/es6.array.some');
+require('./modules/es6.array.every');
+require('./modules/es6.array.reduce');
+require('./modules/es6.array.reduce-right');
+require('./modules/es6.array.index-of');
+require('./modules/es6.array.last-index-of');
 require('./modules/es6.array.copy-within');
 require('./modules/es6.array.fill');
 require('./modules/es6.array.find');
 require('./modules/es6.array.find-index');
+require('./modules/es6.array.species');
+require('./modules/es6.array.iterator');
 require('./modules/es6.regexp.constructor');
+require('./modules/es6.regexp.to-string');
 require('./modules/es6.regexp.flags');
 require('./modules/es6.regexp.match');
 require('./modules/es6.regexp.replace');
@@ -4379,6 +6270,17 @@ require('./modules/es6.map');
 require('./modules/es6.set');
 require('./modules/es6.weak-map');
 require('./modules/es6.weak-set');
+require('./modules/es6.typed.array-buffer');
+require('./modules/es6.typed.data-view');
+require('./modules/es6.typed.int8-array');
+require('./modules/es6.typed.uint8-array');
+require('./modules/es6.typed.uint8-clamped-array');
+require('./modules/es6.typed.int16-array');
+require('./modules/es6.typed.uint16-array');
+require('./modules/es6.typed.int32-array');
+require('./modules/es6.typed.uint32-array');
+require('./modules/es6.typed.float32-array');
+require('./modules/es6.typed.float64-array');
 require('./modules/es6.reflect.apply');
 require('./modules/es6.reflect.construct');
 require('./modules/es6.reflect.define-property');
@@ -4395,22 +6297,35 @@ require('./modules/es6.reflect.set');
 require('./modules/es6.reflect.set-prototype-of');
 require('./modules/es7.array.includes');
 require('./modules/es7.string.at');
-require('./modules/es7.string.pad-left');
-require('./modules/es7.string.pad-right');
+require('./modules/es7.string.pad-start');
+require('./modules/es7.string.pad-end');
 require('./modules/es7.string.trim-left');
 require('./modules/es7.string.trim-right');
-require('./modules/es7.regexp.escape');
 require('./modules/es7.object.get-own-property-descriptors');
 require('./modules/es7.object.values');
 require('./modules/es7.object.entries');
 require('./modules/es7.map.to-json');
 require('./modules/es7.set.to-json');
-require('./modules/js.array.statics');
+require('./modules/es7.system.global');
+require('./modules/es7.error.is-error');
+require('./modules/es7.math.iaddh');
+require('./modules/es7.math.isubh');
+require('./modules/es7.math.imulh');
+require('./modules/es7.math.umulh');
+require('./modules/es7.reflect.define-metadata');
+require('./modules/es7.reflect.delete-metadata');
+require('./modules/es7.reflect.get-metadata');
+require('./modules/es7.reflect.get-metadata-keys');
+require('./modules/es7.reflect.get-own-metadata');
+require('./modules/es7.reflect.get-own-metadata-keys');
+require('./modules/es7.reflect.has-metadata');
+require('./modules/es7.reflect.has-own-metadata');
+require('./modules/es7.reflect.metadata');
 require('./modules/web.timers');
 require('./modules/web.immediate');
 require('./modules/web.dom.iterable');
-module.exports = require('./modules/$.core');
-},{"./modules/$.core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/$.core.js","./modules/es5":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es5.js","./modules/es6.array.copy-within":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.copy-within.js","./modules/es6.array.fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.fill.js","./modules/es6.array.find":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find.js","./modules/es6.array.find-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find-index.js","./modules/es6.array.from":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.from.js","./modules/es6.array.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js","./modules/es6.array.of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.of.js","./modules/es6.array.species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.species.js","./modules/es6.function.has-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.has-instance.js","./modules/es6.function.name":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.name.js","./modules/es6.map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js","./modules/es6.math.acosh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.acosh.js","./modules/es6.math.asinh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.asinh.js","./modules/es6.math.atanh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.atanh.js","./modules/es6.math.cbrt":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cbrt.js","./modules/es6.math.clz32":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.clz32.js","./modules/es6.math.cosh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cosh.js","./modules/es6.math.expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.expm1.js","./modules/es6.math.fround":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.fround.js","./modules/es6.math.hypot":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.hypot.js","./modules/es6.math.imul":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.imul.js","./modules/es6.math.log10":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log10.js","./modules/es6.math.log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log1p.js","./modules/es6.math.log2":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log2.js","./modules/es6.math.sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sign.js","./modules/es6.math.sinh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sinh.js","./modules/es6.math.tanh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.tanh.js","./modules/es6.math.trunc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.trunc.js","./modules/es6.number.constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.constructor.js","./modules/es6.number.epsilon":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.epsilon.js","./modules/es6.number.is-finite":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-finite.js","./modules/es6.number.is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-integer.js","./modules/es6.number.is-nan":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-nan.js","./modules/es6.number.is-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-safe-integer.js","./modules/es6.number.max-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.max-safe-integer.js","./modules/es6.number.min-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.min-safe-integer.js","./modules/es6.number.parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-float.js","./modules/es6.number.parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-int.js","./modules/es6.object.assign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.assign.js","./modules/es6.object.freeze":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.freeze.js","./modules/es6.object.get-own-property-descriptor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js","./modules/es6.object.get-own-property-names":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-names.js","./modules/es6.object.get-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-prototype-of.js","./modules/es6.object.is":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is.js","./modules/es6.object.is-extensible":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-extensible.js","./modules/es6.object.is-frozen":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-frozen.js","./modules/es6.object.is-sealed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-sealed.js","./modules/es6.object.keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.keys.js","./modules/es6.object.prevent-extensions":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.prevent-extensions.js","./modules/es6.object.seal":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.seal.js","./modules/es6.object.set-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.set-prototype-of.js","./modules/es6.object.to-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.to-string.js","./modules/es6.promise":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.promise.js","./modules/es6.reflect.apply":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.apply.js","./modules/es6.reflect.construct":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.construct.js","./modules/es6.reflect.define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.define-property.js","./modules/es6.reflect.delete-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.delete-property.js","./modules/es6.reflect.enumerate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.enumerate.js","./modules/es6.reflect.get":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get.js","./modules/es6.reflect.get-own-property-descriptor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js","./modules/es6.reflect.get-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-prototype-of.js","./modules/es6.reflect.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.has.js","./modules/es6.reflect.is-extensible":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.is-extensible.js","./modules/es6.reflect.own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.own-keys.js","./modules/es6.reflect.prevent-extensions":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.prevent-extensions.js","./modules/es6.reflect.set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set.js","./modules/es6.reflect.set-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set-prototype-of.js","./modules/es6.regexp.constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.constructor.js","./modules/es6.regexp.flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js","./modules/es6.regexp.match":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.match.js","./modules/es6.regexp.replace":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.replace.js","./modules/es6.regexp.search":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.search.js","./modules/es6.regexp.split":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.split.js","./modules/es6.set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js","./modules/es6.string.code-point-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.code-point-at.js","./modules/es6.string.ends-with":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.ends-with.js","./modules/es6.string.from-code-point":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.from-code-point.js","./modules/es6.string.includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.includes.js","./modules/es6.string.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.iterator.js","./modules/es6.string.raw":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.raw.js","./modules/es6.string.repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.repeat.js","./modules/es6.string.starts-with":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.starts-with.js","./modules/es6.string.trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.trim.js","./modules/es6.symbol":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.symbol.js","./modules/es6.weak-map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js","./modules/es6.weak-set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-set.js","./modules/es7.array.includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.array.includes.js","./modules/es7.map.to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.map.to-json.js","./modules/es7.object.entries":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.entries.js","./modules/es7.object.get-own-property-descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js","./modules/es7.object.values":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.values.js","./modules/es7.regexp.escape":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.regexp.escape.js","./modules/es7.set.to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.set.to-json.js","./modules/es7.string.at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.at.js","./modules/es7.string.pad-left":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-left.js","./modules/es7.string.pad-right":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-right.js","./modules/es7.string.trim-left":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-left.js","./modules/es7.string.trim-right":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-right.js","./modules/js.array.statics":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/js.array.statics.js","./modules/web.dom.iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.dom.iterable.js","./modules/web.immediate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.immediate.js","./modules/web.timers":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.timers.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/debug/browser.js":[function(require,module,exports){
+module.exports = require('./modules/_core');
+},{"./modules/_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./modules/es6.array.copy-within":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.copy-within.js","./modules/es6.array.every":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.every.js","./modules/es6.array.fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.fill.js","./modules/es6.array.filter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.filter.js","./modules/es6.array.find":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find.js","./modules/es6.array.find-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find-index.js","./modules/es6.array.for-each":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.for-each.js","./modules/es6.array.from":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.from.js","./modules/es6.array.index-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.index-of.js","./modules/es6.array.is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.is-array.js","./modules/es6.array.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js","./modules/es6.array.join":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.join.js","./modules/es6.array.last-index-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.last-index-of.js","./modules/es6.array.map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.map.js","./modules/es6.array.of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.of.js","./modules/es6.array.reduce":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce.js","./modules/es6.array.reduce-right":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce-right.js","./modules/es6.array.slice":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.slice.js","./modules/es6.array.some":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.some.js","./modules/es6.array.sort":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.sort.js","./modules/es6.array.species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.species.js","./modules/es6.date.now":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.now.js","./modules/es6.date.to-iso-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-iso-string.js","./modules/es6.date.to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-json.js","./modules/es6.date.to-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-string.js","./modules/es6.function.bind":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.bind.js","./modules/es6.function.has-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.has-instance.js","./modules/es6.function.name":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.name.js","./modules/es6.map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js","./modules/es6.math.acosh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.acosh.js","./modules/es6.math.asinh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.asinh.js","./modules/es6.math.atanh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.atanh.js","./modules/es6.math.cbrt":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cbrt.js","./modules/es6.math.clz32":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.clz32.js","./modules/es6.math.cosh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cosh.js","./modules/es6.math.expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.expm1.js","./modules/es6.math.fround":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.fround.js","./modules/es6.math.hypot":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.hypot.js","./modules/es6.math.imul":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.imul.js","./modules/es6.math.log10":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log10.js","./modules/es6.math.log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log1p.js","./modules/es6.math.log2":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log2.js","./modules/es6.math.sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sign.js","./modules/es6.math.sinh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sinh.js","./modules/es6.math.tanh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.tanh.js","./modules/es6.math.trunc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.trunc.js","./modules/es6.number.constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.constructor.js","./modules/es6.number.epsilon":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.epsilon.js","./modules/es6.number.is-finite":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-finite.js","./modules/es6.number.is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-integer.js","./modules/es6.number.is-nan":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-nan.js","./modules/es6.number.is-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-safe-integer.js","./modules/es6.number.max-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.max-safe-integer.js","./modules/es6.number.min-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.min-safe-integer.js","./modules/es6.number.parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-float.js","./modules/es6.number.parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-int.js","./modules/es6.number.to-fixed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-fixed.js","./modules/es6.number.to-precision":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-precision.js","./modules/es6.object.assign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.assign.js","./modules/es6.object.create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.create.js","./modules/es6.object.define-properties":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-properties.js","./modules/es6.object.define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-property.js","./modules/es6.object.freeze":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.freeze.js","./modules/es6.object.get-own-property-descriptor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js","./modules/es6.object.get-own-property-names":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-names.js","./modules/es6.object.get-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-prototype-of.js","./modules/es6.object.is":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is.js","./modules/es6.object.is-extensible":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-extensible.js","./modules/es6.object.is-frozen":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-frozen.js","./modules/es6.object.is-sealed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-sealed.js","./modules/es6.object.keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.keys.js","./modules/es6.object.prevent-extensions":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.prevent-extensions.js","./modules/es6.object.seal":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.seal.js","./modules/es6.object.set-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.set-prototype-of.js","./modules/es6.object.to-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.to-string.js","./modules/es6.parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-float.js","./modules/es6.parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-int.js","./modules/es6.promise":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.promise.js","./modules/es6.reflect.apply":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.apply.js","./modules/es6.reflect.construct":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.construct.js","./modules/es6.reflect.define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.define-property.js","./modules/es6.reflect.delete-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.delete-property.js","./modules/es6.reflect.enumerate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.enumerate.js","./modules/es6.reflect.get":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get.js","./modules/es6.reflect.get-own-property-descriptor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js","./modules/es6.reflect.get-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-prototype-of.js","./modules/es6.reflect.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.has.js","./modules/es6.reflect.is-extensible":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.is-extensible.js","./modules/es6.reflect.own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.own-keys.js","./modules/es6.reflect.prevent-extensions":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.prevent-extensions.js","./modules/es6.reflect.set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set.js","./modules/es6.reflect.set-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set-prototype-of.js","./modules/es6.regexp.constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.constructor.js","./modules/es6.regexp.flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js","./modules/es6.regexp.match":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.match.js","./modules/es6.regexp.replace":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.replace.js","./modules/es6.regexp.search":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.search.js","./modules/es6.regexp.split":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.split.js","./modules/es6.regexp.to-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.to-string.js","./modules/es6.set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js","./modules/es6.string.anchor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.anchor.js","./modules/es6.string.big":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.big.js","./modules/es6.string.blink":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.blink.js","./modules/es6.string.bold":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.bold.js","./modules/es6.string.code-point-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.code-point-at.js","./modules/es6.string.ends-with":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.ends-with.js","./modules/es6.string.fixed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fixed.js","./modules/es6.string.fontcolor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontcolor.js","./modules/es6.string.fontsize":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontsize.js","./modules/es6.string.from-code-point":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.from-code-point.js","./modules/es6.string.includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.includes.js","./modules/es6.string.italics":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.italics.js","./modules/es6.string.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.iterator.js","./modules/es6.string.link":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.link.js","./modules/es6.string.raw":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.raw.js","./modules/es6.string.repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.repeat.js","./modules/es6.string.small":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.small.js","./modules/es6.string.starts-with":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.starts-with.js","./modules/es6.string.strike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.strike.js","./modules/es6.string.sub":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sub.js","./modules/es6.string.sup":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sup.js","./modules/es6.string.trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.trim.js","./modules/es6.symbol":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.symbol.js","./modules/es6.typed.array-buffer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.array-buffer.js","./modules/es6.typed.data-view":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.data-view.js","./modules/es6.typed.float32-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float32-array.js","./modules/es6.typed.float64-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float64-array.js","./modules/es6.typed.int16-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int16-array.js","./modules/es6.typed.int32-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int32-array.js","./modules/es6.typed.int8-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int8-array.js","./modules/es6.typed.uint16-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint16-array.js","./modules/es6.typed.uint32-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint32-array.js","./modules/es6.typed.uint8-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-array.js","./modules/es6.typed.uint8-clamped-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-clamped-array.js","./modules/es6.weak-map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js","./modules/es6.weak-set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-set.js","./modules/es7.array.includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.array.includes.js","./modules/es7.error.is-error":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.error.is-error.js","./modules/es7.map.to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.map.to-json.js","./modules/es7.math.iaddh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.iaddh.js","./modules/es7.math.imulh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.imulh.js","./modules/es7.math.isubh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.isubh.js","./modules/es7.math.umulh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.umulh.js","./modules/es7.object.entries":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.entries.js","./modules/es7.object.get-own-property-descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js","./modules/es7.object.values":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.values.js","./modules/es7.reflect.define-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.define-metadata.js","./modules/es7.reflect.delete-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.delete-metadata.js","./modules/es7.reflect.get-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata.js","./modules/es7.reflect.get-metadata-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata-keys.js","./modules/es7.reflect.get-own-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata.js","./modules/es7.reflect.get-own-metadata-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata-keys.js","./modules/es7.reflect.has-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-metadata.js","./modules/es7.reflect.has-own-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-own-metadata.js","./modules/es7.reflect.metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.metadata.js","./modules/es7.set.to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.set.to-json.js","./modules/es7.string.at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.at.js","./modules/es7.string.pad-end":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-end.js","./modules/es7.string.pad-start":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-start.js","./modules/es7.string.trim-left":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-left.js","./modules/es7.string.trim-right":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-right.js","./modules/es7.system.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.system.global.js","./modules/web.dom.iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.dom.iterable.js","./modules/web.immediate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.immediate.js","./modules/web.timers":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.timers.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/debug/browser.js":[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -5713,13 +7628,13 @@ module.exports = arrayEach;
 function arrayFilter(array, predicate) {
   var index = -1,
       length = array.length,
-      resIndex = -1,
+      resIndex = 0,
       result = [];
 
   while (++index < length) {
     var value = array[index];
     if (predicate(value, index, array)) {
-      result[++resIndex] = value;
+      result[resIndex++] = value;
     }
   }
   return result;
@@ -5747,8 +7662,7 @@ module.exports = arrayIncludes;
 
 },{"./_baseIndexOf":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIndexOf.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludesWith.js":[function(require,module,exports){
 /**
- * A specialized version of `_.includesWith` for arrays without support for
- * specifying an index to search from.
+ * This function is like `arrayIncludes` except that it accepts a comparator.
  *
  * @private
  * @param {Array} array The array to search.
@@ -6403,33 +8317,28 @@ function baseIsEqualDeep(object, other, equalFunc, customizer, bitmask, stack) {
 
   if (!objIsArr) {
     objTag = getTag(object);
-    if (objTag == argsTag) {
-      objTag = objectTag;
-    } else if (objTag != objectTag) {
-      objIsArr = isTypedArray(object);
-    }
+    objTag = objTag == argsTag ? objectTag : objTag;
   }
   if (!othIsArr) {
     othTag = getTag(other);
-    if (othTag == argsTag) {
-      othTag = objectTag;
-    } else if (othTag != objectTag) {
-      othIsArr = isTypedArray(other);
-    }
+    othTag = othTag == argsTag ? objectTag : othTag;
   }
   var objIsObj = objTag == objectTag && !isHostObject(object),
       othIsObj = othTag == objectTag && !isHostObject(other),
       isSameTag = objTag == othTag;
 
-  if (isSameTag && !(objIsArr || objIsObj)) {
-    return equalByTag(object, other, objTag, equalFunc, customizer, bitmask);
+  if (isSameTag && !objIsObj) {
+    stack || (stack = new Stack);
+    return (objIsArr || isTypedArray(object))
+      ? equalArrays(object, other, equalFunc, customizer, bitmask, stack)
+      : equalByTag(object, other, objTag, equalFunc, customizer, bitmask, stack);
   }
-  var isPartial = bitmask & PARTIAL_COMPARE_FLAG;
-  if (!isPartial) {
+  if (!(bitmask & PARTIAL_COMPARE_FLAG)) {
     var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
         othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
 
     if (objIsWrapped || othIsWrapped) {
+      stack || (stack = new Stack);
       return equalFunc(objIsWrapped ? object.value() : object, othIsWrapped ? other.value() : other, customizer, bitmask, stack);
     }
   }
@@ -6437,7 +8346,7 @@ function baseIsEqualDeep(object, other, equalFunc, customizer, bitmask, stack) {
     return false;
   }
   stack || (stack = new Stack);
-  return (objIsArr ? equalArrays : equalObjects)(object, other, equalFunc, customizer, bitmask, stack);
+  return equalObjects(object, other, equalFunc, customizer, bitmask, stack);
 }
 
 module.exports = baseIsEqualDeep;
@@ -7083,9 +8992,9 @@ var UNORDERED_COMPARE_FLAG = 1,
  * @param {Array} array The array to compare.
  * @param {Array} other The other array to compare.
  * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Function} [customizer] The function to customize comparisons.
- * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual` for more details.
- * @param {Object} [stack] Tracks traversed `array` and `other` objects.
+ * @param {Function} customizer The function to customize comparisons.
+ * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual` for more details.
+ * @param {Object} stack Tracks traversed `array` and `other` objects.
  * @returns {boolean} Returns `true` if the arrays are equivalent, else `false`.
  */
 function equalArrays(array, other, equalFunc, customizer, bitmask, stack) {
@@ -7145,6 +9054,7 @@ module.exports = equalArrays;
 },{"./_arraySome":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arraySome.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalByTag.js":[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     Uint8Array = require('./_Uint8Array'),
+    equalArrays = require('./_equalArrays'),
     mapToArray = require('./_mapToArray'),
     setToArray = require('./_setToArray');
 
@@ -7167,7 +9077,7 @@ var arrayBufferTag = '[object ArrayBuffer]';
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = Symbol ? Symbol.prototype : undefined,
-    symbolValueOf = Symbol ? symbolProto.valueOf : undefined;
+    symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
 
 /**
  * A specialized version of `baseIsEqualDeep` for comparing objects of
@@ -7181,11 +9091,12 @@ var symbolProto = Symbol ? Symbol.prototype : undefined,
  * @param {Object} other The other object to compare.
  * @param {string} tag The `toStringTag` of the objects to compare.
  * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Function} [customizer] The function to customize comparisons.
- * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual` for more details.
+ * @param {Function} customizer The function to customize comparisons.
+ * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual` for more details.
+ * @param {Object} stack Tracks traversed `object` and `other` objects.
  * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
  */
-function equalByTag(object, other, tag, equalFunc, customizer, bitmask) {
+function equalByTag(object, other, tag, equalFunc, customizer, bitmask, stack) {
   switch (tag) {
     case arrayBufferTag:
       if ((object.byteLength != other.byteLength) ||
@@ -7220,19 +9131,28 @@ function equalByTag(object, other, tag, equalFunc, customizer, bitmask) {
       var isPartial = bitmask & PARTIAL_COMPARE_FLAG;
       convert || (convert = setToArray);
 
+      if (object.size != other.size && !isPartial) {
+        return false;
+      }
+      // Assume cyclic values are equal.
+      var stacked = stack.get(object);
+      if (stacked) {
+        return stacked == other;
+      }
       // Recursively compare objects (susceptible to call stack limits).
-      return (isPartial || object.size == other.size) &&
-        equalFunc(convert(object), convert(other), customizer, bitmask | UNORDERED_COMPARE_FLAG);
+      return equalArrays(convert(object), convert(other), equalFunc, customizer, bitmask | UNORDERED_COMPARE_FLAG, stack.set(object, other));
 
     case symbolTag:
-      return !!Symbol && (symbolValueOf.call(object) == symbolValueOf.call(other));
+      if (symbolValueOf) {
+        return symbolValueOf.call(object) == symbolValueOf.call(other);
+      }
   }
   return false;
 }
 
 module.exports = equalByTag;
 
-},{"./_Symbol":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Symbol.js","./_Uint8Array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Uint8Array.js","./_mapToArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapToArray.js","./_setToArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_setToArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalObjects.js":[function(require,module,exports){
+},{"./_Symbol":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Symbol.js","./_Uint8Array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Uint8Array.js","./_equalArrays":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalArrays.js","./_mapToArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapToArray.js","./_setToArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_setToArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalObjects.js":[function(require,module,exports){
 var baseHas = require('./_baseHas'),
     keys = require('./keys');
 
@@ -7247,9 +9167,9 @@ var PARTIAL_COMPARE_FLAG = 2;
  * @param {Object} object The object to compare.
  * @param {Object} other The other object to compare.
  * @param {Function} equalFunc The function to determine equivalents of values.
- * @param {Function} [customizer] The function to customize comparisons.
- * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual` for more details.
- * @param {Object} [stack] Tracks traversed `object` and `other` objects.
+ * @param {Function} customizer The function to customize comparisons.
+ * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual` for more details.
+ * @param {Object} stack Tracks traversed `object` and `other` objects.
  * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
  */
 function equalObjects(object, other, equalFunc, customizer, bitmask, stack) {
@@ -7368,7 +9288,7 @@ var isNative = require('./isNative');
  * @returns {*} Returns the function if it's native, else `undefined`.
  */
 function getNative(object, key) {
-  var value = object == null ? undefined : object[key];
+  var value = object[key];
   return isNative(value) ? value : undefined;
 }
 
@@ -7736,8 +9656,6 @@ function isKeyable(value) {
 module.exports = isKeyable;
 
 },{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js":[function(require,module,exports){
-var isFunction = require('./isFunction');
-
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -7750,14 +9668,14 @@ var objectProto = Object.prototype;
  */
 function isPrototype(value) {
   var Ctor = value && value.constructor,
-      proto = (isFunction(Ctor) && Ctor.prototype) || objectProto;
+      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto;
 
   return value === proto;
 }
 
 module.exports = isPrototype;
 
-},{"./isFunction":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isStrictComparable.js":[function(require,module,exports){
+},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isStrictComparable.js":[function(require,module,exports){
 var isObject = require('./isObject');
 
 /**
@@ -8173,9 +10091,21 @@ function stringToPath(string) {
 module.exports = stringToPath;
 
 },{"./toString":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toString.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/assignIn.js":[function(require,module,exports){
-var copyObject = require('./_copyObject'),
+var assignValue = require('./_assignValue'),
+    copyObject = require('./_copyObject'),
     createAssigner = require('./_createAssigner'),
+    isArrayLike = require('./isArrayLike'),
+    isPrototype = require('./_isPrototype'),
     keysIn = require('./keysIn');
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Built-in value references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+
+/** Detect if properties shadowing those on `Object.prototype` are non-enumerable. */
+var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
 
 /**
  * This method is like `_.assign` except that it iterates over own and
@@ -8207,12 +10137,18 @@ var copyObject = require('./_copyObject'),
  * // => { 'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5 }
  */
 var assignIn = createAssigner(function(object, source) {
-  copyObject(source, keysIn(source), object);
+  if (nonEnumShadows || isPrototype(source) || isArrayLike(source)) {
+    copyObject(source, keysIn(source), object);
+    return;
+  }
+  for (var key in source) {
+    assignValue(object, key, source[key]);
+  }
 });
 
 module.exports = assignIn;
 
-},{"./_copyObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObject.js","./_createAssigner":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createAssigner.js","./keysIn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keysIn.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/each.js":[function(require,module,exports){
+},{"./_assignValue":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assignValue.js","./_copyObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObject.js","./_createAssigner":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createAssigner.js","./_isPrototype":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js","./isArrayLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./keysIn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keysIn.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/each.js":[function(require,module,exports){
 module.exports = require('./forEach');
 
 },{"./forEach":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/forEach.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js":[function(require,module,exports){
@@ -8537,8 +10473,7 @@ var getLength = require('./_getLength'),
  * // => false
  */
 function isArrayLike(value) {
-  return value != null &&
-    !(typeof value == 'function' && isFunction(value)) && isLength(getLength(value));
+  return value != null && isLength(getLength(value)) && !isFunction(value);
 }
 
 module.exports = isArrayLike;
@@ -8590,14 +10525,14 @@ var objectProto = Object.prototype;
 var hasOwnProperty = objectProto.hasOwnProperty;
 
 /**
- * Checks if `value` is empty. A value is considered empty unless it's an
- * `arguments` object, array, string, or jQuery-like collection with a length
- * greater than `0` or an object with own enumerable properties.
+ * Checks if `value` is an empty collection or object. A value is considered
+ * empty if it's an `arguments` object, array, string, or jQuery-like collection
+ * with a length of `0` or has no own enumerable properties.
  *
  * @static
  * @memberOf _
  * @category Lang
- * @param {Array|Object|string} value The value to inspect.
+ * @param {*} value The value to check.
  * @returns {boolean} Returns `true` if `value` is empty, else `false`.
  * @example
  *
@@ -8666,8 +10601,8 @@ var objectToString = objectProto.toString;
  */
 function isFunction(value) {
   // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in Safari 8 which returns 'object' for typed array constructors, and
-  // PhantomJS 1.9 which returns 'function' for `NodeList` instances.
+  // in Safari 8 which returns 'object' for typed array and weak map constructors,
+  // and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
   var tag = isObject(value) ? objectToString.call(value) : '';
   return tag == funcTag || tag == genTag;
 }
@@ -9503,7 +11438,7 @@ var INFINITY = 1 / 0;
 
 /** Used to convert symbols to primitives and strings. */
 var symbolProto = Symbol ? Symbol.prototype : undefined,
-    symbolToString = Symbol ? symbolProto.toString : undefined;
+    symbolToString = symbolProto ? symbolProto.toString : undefined;
 
 /**
  * Converts `value` to a string if it's not one. An empty string is returned
@@ -9534,7 +11469,7 @@ function toString(value) {
     return '';
   }
   if (isSymbol(value)) {
-    return Symbol ? symbolToString.call(value) : '';
+    return symbolToString ? symbolToString.call(value) : '';
   }
   var result = (value + '');
   return (result == '0' && (1 / value) == -INFINITY) ? '-0' : result;
@@ -10034,15 +11969,6 @@ var LocalStorage = function (_Service) {
       });
     }
   }, {
-    key: 'get',
-    value: function get(id) {
-      var _this5 = this;
-
-      return this.ready().then(function () {
-        return Promise.resolve(_this5.store[id]);
-      });
-    }
-  }, {
     key: 'find',
     value: function find() {
       for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
@@ -10051,72 +11977,56 @@ var LocalStorage = function (_Service) {
 
       return this.execute.apply(this, ['find'].concat(args));
     }
-
-    // Create without hooks and mixins that can be used internally
-
-  }, {
-    key: '_create',
-    value: function _create(data) {
-      var id = data[this._id] || this._uId + 1;
-
-      // If the item already exists then just update it.
-      if (this.store[id]) {
-        return this.update(id, data);
-      }
-
-      // otherwise call our original _create method
-      return _get(Object.getPrototypeOf(LocalStorage.prototype), '_create', this).call(this, data);
-    }
   }, {
     key: 'create',
     value: function create() {
-      var _this6 = this;
+      var _this5 = this;
 
       for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
         args[_key3] = arguments[_key3];
       }
 
       return this.execute.apply(this, ['create'].concat(args)).then(function (data) {
-        return _this6.flush(data);
+        return _this5.flush(data);
       });
     }
   }, {
     key: 'patch',
     value: function patch() {
-      var _this7 = this;
+      var _this6 = this;
 
       for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
         args[_key4] = arguments[_key4];
       }
 
       return this.execute.apply(this, ['patch'].concat(args)).then(function (data) {
-        return _this7.flush(data);
+        return _this6.flush(data);
       });
     }
   }, {
     key: 'update',
     value: function update() {
-      var _this8 = this;
+      var _this7 = this;
 
       for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
         args[_key5] = arguments[_key5];
       }
 
       return this.execute.apply(this, ['update'].concat(args)).then(function (data) {
-        return _this8.flush(data);
+        return _this7.flush(data);
       });
     }
   }, {
     key: 'remove',
     value: function remove() {
-      var _this9 = this;
+      var _this8 = this;
 
       for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
         args[_key6] = arguments[_key6];
       }
 
       return this.execute.apply(this, ['remove'].concat(args)).then(function (data) {
-        return _this9.flush(data);
+        return _this8.flush(data);
       });
     }
   }]);
