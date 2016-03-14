@@ -1,8 +1,7 @@
 /*jshint expr: true*/
 
-// import { base, example } from 'feathers-service-tests';
-// import errors from 'feathers-errors';
-import { example } from 'feathers-service-tests';
+import { base, example } from 'feathers-service-tests';
+import errors from 'feathers-errors';
 import feathers from 'feathers';
 import assert from 'assert';
 import server from './test-app';
@@ -43,19 +42,19 @@ describe('Feathers Localstorage Service', () => {
   it('is CommonJS compatible', () => {
     assert.equal(typeof require('../lib'), 'function');
   });
-  
+
   it('loads and sets data in storage', done => {
     const name = 'test-storage';
-    
+
     localstorage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
-    
+
     const app = feathers()
       .use('/messages', service({
         name,
         storage: localstorage
       }));
     const messageService = app.service('messages');
-      
+
     messageService.create({
       text: 'testing 1'
     }).then(() => messageService.create({
@@ -63,7 +62,7 @@ describe('Feathers Localstorage Service', () => {
     })).then(() => {
       return new Promise((resolve) => {
         setTimeout(() => {
-          
+
           const data = JSON.parse(localstorage.getItem(name));
           assert.deepEqual(data, {
             0: {
@@ -88,7 +87,7 @@ describe('Feathers Localstorage Service', () => {
     }).then(() => {
       return new Promise((resolve) => {
         setTimeout(() => {
-          
+
           const data = JSON.parse(localstorage.getItem(name));
           assert.deepEqual(data, {
             2: {
@@ -102,7 +101,7 @@ describe('Feathers Localstorage Service', () => {
     }).then(done, done);
   });
 
-  // base(people, _ids, errors);
+  base(people, _ids, errors);
 });
 
 describe('Localstorage service example test', () => {
