@@ -71,7 +71,7 @@ You can run this example with `npm start` from the cloned repository and going t
 
 ## Changelog
 
-__0.2.0__
+__0.3.0__
 - Revert `create` so that it behaves the same as every other service and doesn't call update.
 
 __0.2.0__
