@@ -72,6 +72,9 @@ You can run this example with `npm start` from the cloned repository and going t
 ## Changelog
 
 __0.2.0__
+- Revert `create` so that it behaves the same as every other service and doesn't call update.
+
+__0.2.0__
 - `get` and `find` methods were not waiting for store to be ready
 - `create` will not throw a `Conflict` error if id exists anymore. Instead it updates more like a cache and localstorage is expected to work.
 
