@@ -51,16 +51,15 @@ class LocalStorage extends Service {
     return this.execute('find', ... args);
   }
 
+  get(... args) {
+    return this.execute('get', ... args);
+  }
+
   create(... args) {
     return this.execute('create', ... args)
       .then(data => this.flush(data));
   }
 
-  get(... args) {
-    return this.execute('get', ... args)
-      .then(data => this.flush(data));
-  }
-  
   patch(... args) {
     return this.execute('patch', ... args)
       .then(data => this.flush(data));
