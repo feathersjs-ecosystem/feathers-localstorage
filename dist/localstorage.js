@@ -1,10 +1,8 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}(g.feathers || (g.feathers = {})).localstorage = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-polyfill/lib/index.js":[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}(g.feathers || (g.feathers = {})).localstorage = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/babel-polyfill/lib/index.js":[function(require,module,exports){
 (function (global){
 /* eslint max-len: 0 */
 
 "use strict";
-
-var _Object$defineProperty = require("babel-runtime/core-js/object/define-property")["default"];
 
 require("core-js/shim");
 
@@ -19,8 +17,9 @@ if (global._babelPolyfill) {
 }
 global._babelPolyfill = true;
 
+var DEFINE_PROPERTY = "defineProperty";
 function define(O, key, value) {
-  O[key] || _Object$defineProperty(O, key, {
+  O[key] || Object[DEFINE_PROPERTY](O, key, {
     writable: true,
     configurable: true,
     value: value
@@ -34,7 +33,7 @@ define(String.prototype, "padRight", "".padEnd);
   [][key] && define(Array, key, Function.call.bind([][key]));
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"babel-regenerator-runtime":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-regenerator-runtime/runtime.js","babel-runtime/core-js/object/define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/core-js/object/define-property.js","core-js/fn/regexp/escape":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/fn/regexp/escape.js","core-js/shim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/shim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-regenerator-runtime/runtime.js":[function(require,module,exports){
+},{"babel-regenerator-runtime":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/babel-regenerator-runtime/runtime.js","core-js/fn/regexp/escape":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/fn/regexp/escape.js","core-js/shim":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/shim.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/babel-regenerator-runtime/runtime.js":[function(require,module,exports){
 (function (process,global){
 /**
  * Copyright (c) 2014, Facebook, Inc.
@@ -695,42 +694,21 @@ define(String.prototype, "padRight", "".padEnd);
 );
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/process/browser.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/core-js/object/define-property.js":[function(require,module,exports){
-module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
-},{"core-js/library/fn/object/define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/node_modules/core-js/library/fn/object/define-property.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/node_modules/core-js/library/fn/object/define-property.js":[function(require,module,exports){
-var $ = require('../../modules/$');
-module.exports = function defineProperty(it, key, desc){
-  return $.setDesc(it, key, desc);
-};
-},{"../../modules/$":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/node_modules/core-js/library/modules/$.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-runtime/node_modules/core-js/library/modules/$.js":[function(require,module,exports){
-var $Object = Object;
-module.exports = {
-  create:     $Object.create,
-  getProto:   $Object.getPrototypeOf,
-  isEnum:     {}.propertyIsEnumerable,
-  getDesc:    $Object.getOwnPropertyDescriptor,
-  setDesc:    $Object.defineProperty,
-  setDescs:   $Object.defineProperties,
-  getKeys:    $Object.keys,
-  getNames:   $Object.getOwnPropertyNames,
-  getSymbols: $Object.getOwnPropertySymbols,
-  each:       [].forEach
-};
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/fn/regexp/escape.js":[function(require,module,exports){
+},{"_process":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/process/browser.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/fn/regexp/escape.js":[function(require,module,exports){
 require('../../modules/core.regexp.escape');
 module.exports = require('../../modules/_core').RegExp.escape;
-},{"../../modules/_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","../../modules/core.regexp.escape":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.regexp.escape.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js":[function(require,module,exports){
+},{"../../modules/_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","../../modules/core.regexp.escape":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.regexp.escape.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js":[function(require,module,exports){
 module.exports = function(it){
   if(typeof it != 'function')throw TypeError(it + ' is not a function!');
   return it;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js":[function(require,module,exports){
 var cof = require('./_cof');
 module.exports = function(it, msg){
   if(typeof it != 'number' && cof(it) != 'Number')throw TypeError(msg);
   return +it;
 };
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js":[function(require,module,exports){
 // 22.1.3.31 Array.prototype[@@unscopables]
 var UNSCOPABLES = require('./_wks')('unscopables')
   , ArrayProto  = Array.prototype;
@@ -738,19 +716,19 @@ if(ArrayProto[UNSCOPABLES] == undefined)require('./_hide')(ArrayProto, UNSCOPABL
 module.exports = function(key){
   ArrayProto[UNSCOPABLES][key] = true;
 };
-},{"./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js":[function(require,module,exports){
+},{"./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js":[function(require,module,exports){
 module.exports = function(it, Constructor, name, forbiddenField){
   if(!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)){
     throw TypeError(name + ': incorrect invocation!');
   } return it;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js":[function(require,module,exports){
 var isObject = require('./_is-object');
 module.exports = function(it){
   if(!isObject(it))throw TypeError(it + ' is not an object!');
   return it;
 };
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js":[function(require,module,exports){
 // 22.1.3.3 Array.prototype.copyWithin(target, start, end = this.length)
 'use strict';
 var toObject = require('./_to-object')
@@ -777,7 +755,7 @@ module.exports = [].copyWithin || function copyWithin(target/*= 0*/, start/*= 0,
     from += inc;
   } return O;
 };
-},{"./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js":[function(require,module,exports){
+},{"./_to-index":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js":[function(require,module,exports){
 // 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
 'use strict';
 var toObject = require('./_to-object')
@@ -793,7 +771,7 @@ module.exports = function fill(value /*, start = 0, end = @length */){
   while(endPos > index)O[index++] = value;
   return O;
 };
-},{"./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js":[function(require,module,exports){
+},{"./_to-index":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js":[function(require,module,exports){
 var forOf = require('./_for-of');
 
 module.exports = function(iter, ITERATOR){
@@ -802,7 +780,7 @@ module.exports = function(iter, ITERATOR){
   return result;
 };
 
-},{"./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js":[function(require,module,exports){
+},{"./_for-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js":[function(require,module,exports){
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = require('./_to-iobject')
@@ -824,7 +802,7 @@ module.exports = function(IS_INCLUDES){
     } return !IS_INCLUDES && -1;
   };
 };
-},{"./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js":[function(require,module,exports){
+},{"./_to-index":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js":[function(require,module,exports){
 // 0 -> Array#forEach
 // 1 -> Array#map
 // 2 -> Array#filter
@@ -869,7 +847,7 @@ module.exports = function(TYPE, $create){
     return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
   };
 };
-},{"./_array-species-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-species-create.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js":[function(require,module,exports){
+},{"./_array-species-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-species-create.js","./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js":[function(require,module,exports){
 var aFunction = require('./_a-function')
   , toObject  = require('./_to-object')
   , IObject   = require('./_iobject')
@@ -898,7 +876,7 @@ module.exports = function(that, callbackfn, aLen, memo, isRight){
   }
   return memo;
 };
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-species-create.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-species-create.js":[function(require,module,exports){
 // 9.4.2.3 ArraySpeciesCreate(originalArray, length)
 var isObject = require('./_is-object')
   , isArray  = require('./_is-array')
@@ -915,7 +893,7 @@ module.exports = function(original, length){
     }
   } return new (C === undefined ? Array : C)(length);
 };
-},{"./_is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js":[function(require,module,exports){
+},{"./_is-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js":[function(require,module,exports){
 'use strict';
 var aFunction  = require('./_a-function')
   , isObject   = require('./_is-object')
@@ -940,30 +918,37 @@ module.exports = Function.bind || function bind(that /*, args... */){
   if(isObject(fn.prototype))bound.prototype = fn.prototype;
   return bound;
 };
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_invoke":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js":[function(require,module,exports){
 // getting tag from 19.1.3.6 Object.prototype.toString()
 var cof = require('./_cof')
   , TAG = require('./_wks')('toStringTag')
   // ES3 wrong here
   , ARG = cof(function(){ return arguments; }()) == 'Arguments';
 
+// fallback for IE11 Script Access Denied error
+var tryGet = function(it, key){
+  try {
+    return it[key];
+  } catch(e){ /* empty */ }
+};
+
 module.exports = function(it){
   var O, T, B;
   return it === undefined ? 'Undefined' : it === null ? 'Null'
     // @@toStringTag case
-    : typeof (T = (O = Object(it))[TAG]) == 'string' ? T
+    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
     // builtinTag case
     : ARG ? cof(O)
     // ES3 arguments fallback
     : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
 };
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js":[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = function(it){
   return toString.call(it).slice(8, -1);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js":[function(require,module,exports){
 'use strict';
 var dP          = require('./_object-dp').f
   , create      = require('./_object-create')
@@ -1107,7 +1092,7 @@ module.exports = {
     setSpecies(NAME);
   }
 };
-},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_iter-step":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js":[function(require,module,exports){
+},{"./_an-instance":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_for-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iter-define":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_iter-step":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js","./_meta":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_redefine-all":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-species":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js":[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var classof = require('./_classof')
   , from    = require('./_array-from-iterable');
@@ -1117,7 +1102,7 @@ module.exports = function(NAME){
     return from(this);
   };
 };
-},{"./_array-from-iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js","./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js":[function(require,module,exports){
+},{"./_array-from-iterable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js","./_classof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js":[function(require,module,exports){
 'use strict';
 var redefineAll       = require('./_redefine-all')
   , getWeak           = require('./_meta').getWeak
@@ -1201,7 +1186,7 @@ module.exports = {
   },
   ufstore: uncaughtFrozenStore
 };
-},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js":[function(require,module,exports){
+},{"./_an-instance":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_for-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_redefine-all":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js":[function(require,module,exports){
 'use strict';
 var global            = require('./_global')
   , $export           = require('./_export')
@@ -1287,10 +1272,10 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
 
   return C;
 };
-},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_inherit-if-required":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js":[function(require,module,exports){
-var core = module.exports = {version: '2.1.3'};
+},{"./_an-instance":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_for-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_inherit-if-required":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_meta":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_redefine-all":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-to-string-tag":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js":[function(require,module,exports){
+var core = module.exports = {version: '2.2.1'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js":[function(require,module,exports){
 // optional / simple context binding
 var aFunction = require('./_a-function');
 module.exports = function(fn, that, length){
@@ -1311,18 +1296,28 @@ module.exports = function(fn, that, length){
     return fn.apply(that, arguments);
   };
 };
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_date-to-primitive.js":[function(require,module,exports){
+'use strict';
+var anObject    = require('./_an-object')
+  , toPrimitive = require('./_to-primitive')
+  , NUMBER      = 'number';
+
+module.exports = function(hint){
+  if(hint !== 'string' && hint !== NUMBER && hint !== 'default')throw TypeError('Incorrect hint');
+  return toPrimitive(anObject(this), hint != NUMBER);
+};
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js":[function(require,module,exports){
 // 7.2.1 RequireObjectCoercible(argument)
 module.exports = function(it){
   if(it == undefined)throw TypeError("Can't call method on  " + it);
   return it;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js":[function(require,module,exports){
 // Thank's IE8 for his funny defineProperty
 module.exports = !require('./_fails')(function(){
   return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 });
-},{"./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js":[function(require,module,exports){
+},{"./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js":[function(require,module,exports){
 var isObject = require('./_is-object')
   , document = require('./_global').document
   // in old IE typeof document.createElement is 'object'
@@ -1330,12 +1325,12 @@ var isObject = require('./_is-object')
 module.exports = function(it){
   return is ? document.createElement(it) : {};
 };
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js":[function(require,module,exports){
 // IE 8- don't enum bug keys
 module.exports = (
   'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
 ).split(',');
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-keys.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-keys.js":[function(require,module,exports){
 // all enumerable object keys, includes symbols
 var getKeys = require('./_object-keys')
   , gOPS    = require('./_object-gops')
@@ -1351,7 +1346,7 @@ module.exports = function(it){
     while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))result.push(key);
   } return result;
 };
-},{"./_object-gops":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js":[function(require,module,exports){
+},{"./_object-gops":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js":[function(require,module,exports){
 var global    = require('./_global')
   , core      = require('./_core')
   , hide      = require('./_hide')
@@ -1395,7 +1390,7 @@ $export.W = 32;  // wrap
 $export.U = 64;  // safe
 $export.R = 128; // real proto method for `library` 
 module.exports = $export;
-},{"./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js":[function(require,module,exports){
+},{"./_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js":[function(require,module,exports){
 var MATCH = require('./_wks')('match');
 module.exports = function(KEY){
   var re = /./;
@@ -1408,7 +1403,7 @@ module.exports = function(KEY){
     } catch(f){ /* empty */ }
   } return true;
 };
-},{"./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js":[function(require,module,exports){
+},{"./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js":[function(require,module,exports){
 module.exports = function(exec){
   try {
     return !!exec();
@@ -1416,7 +1411,7 @@ module.exports = function(exec){
     return true;
   }
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js":[function(require,module,exports){
 'use strict';
 var hide     = require('./_hide')
   , redefine = require('./_redefine')
@@ -1445,7 +1440,7 @@ module.exports = function(KEY, length, exec){
     );
   }
 };
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js":[function(require,module,exports){
 'use strict';
 // 21.2.5.3 get RegExp.prototype.flags
 var anObject = require('./_an-object');
@@ -1459,7 +1454,7 @@ module.exports = function(){
   if(that.sticky)     result += 'y';
   return result;
 };
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js":[function(require,module,exports){
 var ctx         = require('./_ctx')
   , call        = require('./_iter-call')
   , isArrayIter = require('./_is-array-iter')
@@ -1479,17 +1474,17 @@ module.exports = function(iterable, entries, fn, that, ITERATOR){
     call(iterator, f, step.value, entries);
   }
 };
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_is-array-iter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_iter-call":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./core.get-iterator-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_is-array-iter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_iter-call":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./core.get-iterator-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js":[function(require,module,exports){
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
   ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
 if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js":[function(require,module,exports){
 var hasOwnProperty = {}.hasOwnProperty;
 module.exports = function(it, key){
   return hasOwnProperty.call(it, key);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js":[function(require,module,exports){
 var dP         = require('./_object-dp')
   , createDesc = require('./_property-desc');
 module.exports = require('./_descriptors') ? function(object, key, value){
@@ -1498,13 +1493,13 @@ module.exports = require('./_descriptors') ? function(object, key, value){
   object[key] = value;
   return object;
 };
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_property-desc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js":[function(require,module,exports){
 module.exports = require('./_global').document && document.documentElement;
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js":[function(require,module,exports){
 module.exports = !require('./_descriptors') && !require('./_fails')(function(){
   return Object.defineProperty(require('./_dom-create')('div'), 'a', {get: function(){ return 7; }}).a != 7;
 });
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_dom-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_dom-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js":[function(require,module,exports){
 var isObject       = require('./_is-object')
   , setPrototypeOf = require('./_set-proto').set;
 module.exports = function(that, target, C){
@@ -1513,7 +1508,7 @@ module.exports = function(that, target, C){
     setPrototypeOf(that, P);
   } return that;
 };
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_set-proto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js":[function(require,module,exports){
 // fast apply, http://jsperf.lnkit.com/fast-apply/5
 module.exports = function(fn, args, that){
   var un = that === undefined;
@@ -1530,13 +1525,13 @@ module.exports = function(fn, args, that){
                       : fn.call(that, args[0], args[1], args[2], args[3]);
   } return              fn.apply(that, args);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js":[function(require,module,exports){
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 var cof = require('./_cof');
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js":[function(require,module,exports){
 // check on default Array iterator
 var Iterators  = require('./_iterators')
   , ITERATOR   = require('./_wks')('iterator')
@@ -1545,24 +1540,24 @@ var Iterators  = require('./_iterators')
 module.exports = function(it){
   return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
 };
-},{"./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js":[function(require,module,exports){
+},{"./_iterators":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js":[function(require,module,exports){
 // 7.2.2 IsArray(argument)
 var cof = require('./_cof');
 module.exports = Array.isArray || function isArray(arg){
   return cof(arg) == 'Array';
 };
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js":[function(require,module,exports){
 // 20.1.2.3 Number.isInteger(number)
 var isObject = require('./_is-object')
   , floor    = Math.floor;
 module.exports = function isInteger(it){
   return !isObject(it) && isFinite(it) && floor(it) === it;
 };
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js":[function(require,module,exports){
 module.exports = function(it){
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js":[function(require,module,exports){
 // 7.2.8 IsRegExp(argument)
 var isObject = require('./_is-object')
   , cof      = require('./_cof')
@@ -1571,7 +1566,7 @@ module.exports = function(it){
   var isRegExp;
   return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
 };
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js":[function(require,module,exports){
 // call something on iterator step with safe closing on error
 var anObject = require('./_an-object');
 module.exports = function(iterator, fn, value, entries){
@@ -1584,7 +1579,7 @@ module.exports = function(iterator, fn, value, entries){
     throw e;
   }
 };
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js":[function(require,module,exports){
 'use strict';
 var create         = require('./_object-create')
   , descriptor     = require('./_property-desc')
@@ -1598,7 +1593,7 @@ module.exports = function(Constructor, NAME, next){
   Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
   setToStringTag(Constructor, NAME + ' Iterator');
 };
-},{"./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js":[function(require,module,exports){
+},{"./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_object-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_property-desc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_set-to-string-tag":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js":[function(require,module,exports){
 'use strict';
 var LIBRARY        = require('./_library')
   , $export        = require('./_export')
@@ -1669,7 +1664,7 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
   }
   return methods;
 };
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iter-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iter-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js","./_iterators":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_library":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-to-string-tag":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js":[function(require,module,exports){
 var ITERATOR     = require('./_wks')('iterator')
   , SAFE_CLOSING = false;
 
@@ -1691,13 +1686,13 @@ module.exports = function(exec, skipClosing){
   } catch(e){ /* empty */ }
   return safe;
 };
-},{"./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js":[function(require,module,exports){
+},{"./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js":[function(require,module,exports){
 module.exports = function(done, value){
   return {value: value, done: !!done};
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js":[function(require,module,exports){
 module.exports = {};
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_keyof.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_keyof.js":[function(require,module,exports){
 var getKeys   = require('./_object-keys')
   , toIObject = require('./_to-iobject');
 module.exports = function(object, el){
@@ -1708,24 +1703,24 @@ module.exports = function(object, el){
     , key;
   while(length > index)if(O[key = keys[index++]] === el)return key;
 };
-},{"./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js":[function(require,module,exports){
+},{"./_object-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js":[function(require,module,exports){
 module.exports = false;
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js":[function(require,module,exports){
 // 20.2.2.14 Math.expm1(x)
 module.exports = Math.expm1 || function expm1(x){
   return (x = +x) == 0 ? x : x > -1e-6 && x < 1e-6 ? x + x * x / 2 : Math.exp(x) - 1;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js":[function(require,module,exports){
 // 20.2.2.20 Math.log1p(x)
 module.exports = Math.log1p || function log1p(x){
   return (x = +x) > -1e-8 && x < 1e-8 ? x - x * x / 2 : Math.log(1 + x);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js":[function(require,module,exports){
 // 20.2.2.28 Math.sign(x)
 module.exports = Math.sign || function sign(x){
   return (x = +x) == 0 || x != x ? x : x < 0 ? -1 : 1;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js":[function(require,module,exports){
 var META     = require('./_uid')('meta')
   , isObject = require('./_is-object')
   , has      = require('./_has')
@@ -1779,7 +1774,7 @@ var meta = module.exports = {
   getWeak:  getWeak,
   onFreeze: onFreeze
 };
-},{"./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js":[function(require,module,exports){
+},{"./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_uid":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js":[function(require,module,exports){
 var Map     = require('./es6.map')
   , $export = require('./_export')
   , shared  = require('./_shared')('metadata')
@@ -1831,7 +1826,7 @@ module.exports = {
   key: toMetaKey,
   exp: exp
 };
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./es6.map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js","./es6.weak-map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_microtask.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_shared":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./es6.map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js","./es6.weak-map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_microtask.js":[function(require,module,exports){
 var global    = require('./_global')
   , macrotask = require('./_task').set
   , Observer  = global.MutationObserver || global.WebKitMutationObserver
@@ -1841,17 +1836,11 @@ var global    = require('./_global')
   , head, last, notify;
 
 var flush = function(){
-  var parent, domain, fn;
-  if(isNode && (parent = process.domain)){
-    process.domain = null;
-    parent.exit();
-  }
+  var parent, fn;
+  if(isNode && (parent = process.domain))parent.exit();
   while(head){
-    domain = head.domain;
-    fn     = head.fn;
-    if(domain)domain.enter();
+    fn = head.fn;
     fn(); // <- currently we use it only for Promise - try / catch not required
-    if(domain)domain.exit();
     head = head.next;
   } last = undefined;
   if(parent)parent.enter();
@@ -1864,11 +1853,11 @@ if(isNode){
   };
 // browsers with MutationObserver
 } else if(Observer){
-  var toggle = 1
+  var toggle = true
     , node   = document.createTextNode('');
   new Observer(flush).observe(node, {characterData: true}); // eslint-disable-line no-new
   notify = function(){
-    node.data = toggle = -toggle;
+    node.data = toggle = !toggle;
   };
 // environments with maybe non-completely correct, but existent Promise
 } else if(Promise && Promise.resolve){
@@ -1889,32 +1878,32 @@ if(isNode){
 }
 
 module.exports = function(fn){
-  var task = {fn: fn, next: undefined, domain: isNode && process.domain};
+  var task = {fn: fn, next: undefined};
   if(last)last.next = task;
   if(!head){
     head = task;
     notify();
   } last = task;
 };
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_task":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_task":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js":[function(require,module,exports){
 'use strict';
 // 19.1.2.1 Object.assign(target, source, ...)
 var getKeys  = require('./_object-keys')
   , gOPS     = require('./_object-gops')
   , pIE      = require('./_object-pie')
   , toObject = require('./_to-object')
-  , IObject  = require('./_iobject');
+  , IObject  = require('./_iobject')
+  , $assign  = Object.assign;
 
 // should work with symbols and should have deterministic property order (V8 bug)
-module.exports = require('./_fails')(function(){
-  var a = Object.assign
-    , A = {}
+module.exports = !$assign || require('./_fails')(function(){
+  var A = {}
     , B = {}
     , S = Symbol()
     , K = 'abcdefghijklmnopqrst';
   A[S] = 7;
   K.split('').forEach(function(k){ B[k] = k; });
-  return a({}, A)[S] != 7 || Object.keys(a({}, B)).join('') != K;
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
 }) ? function assign(target, source){ // eslint-disable-line no-unused-vars
   var T     = toObject(target)
     , aLen  = arguments.length
@@ -1928,10 +1917,9 @@ module.exports = require('./_fails')(function(){
       , j      = 0
       , key;
     while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
-  }
-  return T;
-} : Object.assign;
-},{"./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_object-gops":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js":[function(require,module,exports){
+  } return T;
+} : $assign;
+},{"./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_object-gops":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js":[function(require,module,exports){
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject    = require('./_an-object')
   , dPs         = require('./_object-dps')
@@ -1972,7 +1960,7 @@ module.exports = Object.create || function create(O, Properties){
   } else result = createDict();
   return Properties === undefined ? result : dPs(result, Properties);
 };
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_dom-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_enum-bug-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_object-dps":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js","./_shared-key":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_dom-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_enum-bug-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_object-dps":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js","./_shared-key":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js":[function(require,module,exports){
 var anObject       = require('./_an-object')
   , IE8_DOM_DEFINE = require('./_ie8-dom-define')
   , toPrimitive    = require('./_to-primitive')
@@ -1989,7 +1977,7 @@ exports.f = require('./_descriptors') ? Object.defineProperty : function defineP
   if('value' in Attributes)O[P] = Attributes.value;
   return O;
 };
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_ie8-dom-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_ie8-dom-define":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js":[function(require,module,exports){
 var dP       = require('./_object-dp')
   , anObject = require('./_an-object')
   , getKeys  = require('./_object-keys');
@@ -2003,7 +1991,15 @@ module.exports = require('./_descriptors') ? Object.defineProperties : function 
   while(length > i)dP.f(O, P = keys[i++], Properties[P]);
   return O;
 };
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-forced-pam.js":[function(require,module,exports){
+// Forced replacement prototype accessors methods
+module.exports = require('./_library')|| !require('./_fails')(function(){
+  var K = Math.random();
+  // In FF throws only define methods
+  __defineSetter__.call(null, K, function(){ /* empty */});
+  delete require('./_global')[K];
+});
+},{"./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_library":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js":[function(require,module,exports){
 var pIE            = require('./_object-pie')
   , createDesc     = require('./_property-desc')
   , toIObject      = require('./_to-iobject')
@@ -2020,7 +2016,7 @@ exports.f = require('./_descriptors') ? gOPD : function getOwnPropertyDescriptor
   } catch(e){ /* empty */ }
   if(has(O, P))return createDesc(!pIE.f.call(O, P), O[P]);
 };
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_ie8-dom-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_ie8-dom-define":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ie8-dom-define.js","./_object-pie":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_property-desc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js":[function(require,module,exports){
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = require('./_to-iobject')
   , gOPN      = require('./_object-gopn').f
@@ -2031,7 +2027,7 @@ var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNa
 
 var getWindowNames = function(it){
   try {
-    return gOPN.f(it);
+    return gOPN(it);
   } catch(e){
     return windowNames.slice();
   }
@@ -2040,7 +2036,8 @@ var getWindowNames = function(it){
 module.exports.f = function getOwnPropertyNames(it){
   return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
 };
-},{"./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js":[function(require,module,exports){
+
+},{"./_object-gopn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js":[function(require,module,exports){
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
 var $keys      = require('./_object-keys-internal')
   , hiddenKeys = require('./_enum-bug-keys').concat('length', 'prototype');
@@ -2048,9 +2045,9 @@ var $keys      = require('./_object-keys-internal')
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
   return $keys(O, hiddenKeys);
 };
-},{"./_enum-bug-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_object-keys-internal":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js":[function(require,module,exports){
+},{"./_enum-bug-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_object-keys-internal":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js":[function(require,module,exports){
 exports.f = Object.getOwnPropertySymbols;
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js":[function(require,module,exports){
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has         = require('./_has')
   , toObject    = require('./_to-object')
@@ -2064,7 +2061,7 @@ module.exports = Object.getPrototypeOf || function(O){
     return O.constructor.prototype;
   } return O instanceof Object ? ObjectProto : null;
 };
-},{"./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_shared-key":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js":[function(require,module,exports){
+},{"./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_shared-key":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js":[function(require,module,exports){
 var has          = require('./_has')
   , toIObject    = require('./_to-iobject')
   , arrayIndexOf = require('./_array-includes')(false)
@@ -2082,7 +2079,7 @@ module.exports = function(object, names){
   }
   return result;
 };
-},{"./_array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_shared-key":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js":[function(require,module,exports){
+},{"./_array-includes":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_shared-key":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js":[function(require,module,exports){
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys       = require('./_object-keys-internal')
   , enumBugKeys = require('./_enum-bug-keys');
@@ -2090,9 +2087,9 @@ var $keys       = require('./_object-keys-internal')
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
 };
-},{"./_enum-bug-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_object-keys-internal":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js":[function(require,module,exports){
+},{"./_enum-bug-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-bug-keys.js","./_object-keys-internal":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys-internal.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js":[function(require,module,exports){
 exports.f = {}.propertyIsEnumerable;
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js":[function(require,module,exports){
 // most Object methods by ES6 should accept primitives
 var $export = require('./_export')
   , core    = require('./_core')
@@ -2103,7 +2100,7 @@ module.exports = function(KEY, exec){
   exp[KEY] = exec(fn);
   $export($export.S + $export.F * fails(function(){ fn(1); }), 'Object', exp);
 };
-},{"./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js":[function(require,module,exports){
+},{"./_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js":[function(require,module,exports){
 var getKeys   = require('./_object-keys')
   , toIObject = require('./_to-iobject')
   , isEnum    = require('./_object-pie').f;
@@ -2120,7 +2117,7 @@ module.exports = function(isEntries){
     } return result;
   };
 };
-},{"./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js":[function(require,module,exports){
+},{"./_object-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-pie":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js":[function(require,module,exports){
 // all object keys, includes non-enumerable and symbols
 var gOPN     = require('./_object-gopn')
   , gOPS     = require('./_object-gops')
@@ -2131,7 +2128,7 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it){
     , getSymbols = gOPS.f;
   return getSymbols ? keys.concat(getSymbols(it)) : keys;
 };
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gops":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_object-gopn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gops":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js":[function(require,module,exports){
 var $parseFloat = require('./_global').parseFloat
   , $trim       = require('./_string-trim').trim;
 
@@ -2140,7 +2137,7 @@ module.exports = 1 / $parseFloat(require('./_string-ws') + '-0') !== -Infinity ?
     , result = $parseFloat(string);
   return result === 0 && string.charAt(0) == '-' ? -0 : result;
 } : $parseFloat;
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_string-ws":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_string-trim":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_string-ws":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js":[function(require,module,exports){
 var $parseInt = require('./_global').parseInt
   , $trim     = require('./_string-trim').trim
   , ws        = require('./_string-ws')
@@ -2150,7 +2147,7 @@ module.exports = $parseInt(ws + '08') !== 8 || $parseInt(ws + '0x16') !== 22 ? f
   var string = $trim(String(str), 3);
   return $parseInt(string, (radix >>> 0) || (hex.test(string) ? 16 : 10));
 } : $parseInt;
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_string-ws":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_partial.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_string-trim":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_string-ws":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_partial.js":[function(require,module,exports){
 'use strict';
 var path      = require('./_path')
   , invoke    = require('./_invoke')
@@ -2174,9 +2171,9 @@ module.exports = function(/* ...pargs */){
     return invoke(fn, args, that);
   };
 };
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_path":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_path.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_path.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_invoke":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_path":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_path.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_path.js":[function(require,module,exports){
 module.exports = require('./_global');
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js":[function(require,module,exports){
 module.exports = function(bitmap, value){
   return {
     enumerable  : !(bitmap & 1),
@@ -2185,13 +2182,13 @@ module.exports = function(bitmap, value){
     value       : value
   };
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js":[function(require,module,exports){
 var redefine = require('./_redefine');
 module.exports = function(target, src, safe){
   for(var key in src)redefine(target, key, src[key], safe);
   return target;
 };
-},{"./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js":[function(require,module,exports){
+},{"./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js":[function(require,module,exports){
 var global    = require('./_global')
   , hide      = require('./_hide')
   , has       = require('./_has')
@@ -2224,7 +2221,7 @@ require('./_core').inspectSource = function(it){
 })(Function.prototype, TO_STRING, function toString(){
   return typeof this == 'function' && this[SRC] || $toString.call(this);
 });
-},{"./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_replacer.js":[function(require,module,exports){
+},{"./_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_uid":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_replacer.js":[function(require,module,exports){
 module.exports = function(regExp, replace){
   var replacer = replace === Object(replace) ? function(part){
     return replace[part];
@@ -2233,12 +2230,12 @@ module.exports = function(regExp, replace){
     return String(it).replace(regExp, replacer);
   };
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js":[function(require,module,exports){
 // 7.2.9 SameValue(x, y)
 module.exports = Object.is || function is(x, y){
   return x === y ? x !== 0 || 1 / x === 1 / y : x != x && y != y;
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js":[function(require,module,exports){
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
 var isObject = require('./_is-object')
@@ -2264,7 +2261,7 @@ module.exports = {
     }({}, false) : undefined),
   check: check
 };
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js":[function(require,module,exports){
 'use strict';
 var global      = require('./_global')
   , dP          = require('./_object-dp')
@@ -2278,7 +2275,7 @@ module.exports = function(KEY){
     get: function(){ return this; }
   });
 };
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js":[function(require,module,exports){
 var def = require('./_object-dp').f
   , has = require('./_has')
   , TAG = require('./_wks')('toStringTag');
@@ -2286,20 +2283,20 @@ var def = require('./_object-dp').f
 module.exports = function(it, tag, stat){
   if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 };
-},{"./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js":[function(require,module,exports){
+},{"./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared-key.js":[function(require,module,exports){
 var shared = require('./_shared')('keys')
   , uid    = require('./_uid');
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
 };
-},{"./_shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js":[function(require,module,exports){
+},{"./_shared":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_uid":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js":[function(require,module,exports){
 var global = require('./_global')
   , SHARED = '__core-js_shared__'
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
 };
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js":[function(require,module,exports){
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
 var anObject  = require('./_an-object')
   , aFunction = require('./_a-function')
@@ -2308,7 +2305,7 @@ module.exports = function(O, D){
   var C = anObject(O).constructor, S;
   return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
 };
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js":[function(require,module,exports){
 var fails = require('./_fails');
 
 module.exports = function(method, arg){
@@ -2316,7 +2313,7 @@ module.exports = function(method, arg){
     arg ? method.call(null, function(){}, 1) : method.call(null);
   });
 };
-},{"./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js":[function(require,module,exports){
+},{"./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js":[function(require,module,exports){
 var toInteger = require('./_to-integer')
   , defined   = require('./_defined');
 // true  -> String#at
@@ -2334,7 +2331,7 @@ module.exports = function(TO_STRING){
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_to-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js":[function(require,module,exports){
 // helper for String#{startsWith, endsWith, includes}
 var isRegExp = require('./_is-regexp')
   , defined  = require('./_defined');
@@ -2343,7 +2340,7 @@ module.exports = function(that, searchString, NAME){
   if(isRegExp(searchString))throw TypeError('String#' + NAME + " doesn't accept regex!");
   return String(defined(that));
 };
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_is-regexp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js":[function(require,module,exports){
 var $export = require('./_export')
   , fails   = require('./_fails')
   , defined = require('./_defined')
@@ -2363,7 +2360,7 @@ module.exports = function(NAME, exec){
     return test !== test.toLowerCase() || test.split('"').length > 3;
   }), 'String', O);
 };
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js":[function(require,module,exports){
 // https://github.com/tc39/proposal-string-pad-start-end
 var toLength = require('./_to-length')
   , repeat   = require('./_string-repeat')
@@ -2382,7 +2379,7 @@ module.exports = function(that, maxLength, fillString, left){
   return left ? stringFiller + S : S + stringFiller;
 };
 
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_string-repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_string-repeat":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js":[function(require,module,exports){
 'use strict';
 var toInteger = require('./_to-integer')
   , defined   = require('./_defined');
@@ -2395,7 +2392,7 @@ module.exports = function repeat(count){
   for(;n > 0; (n >>>= 1) && (str += str))if(n & 1)res += str;
   return res;
 };
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_to-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js":[function(require,module,exports){
 var $export = require('./_export')
   , defined = require('./_defined')
   , fails   = require('./_fails')
@@ -2426,10 +2423,10 @@ var trim = exporter.trim = function(string, TYPE){
 };
 
 module.exports = exporter;
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_string-ws":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_string-ws":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-ws.js":[function(require,module,exports){
 module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
   '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js":[function(require,module,exports){
 var ctx                = require('./_ctx')
   , invoke             = require('./_invoke')
   , html               = require('./_html')
@@ -2505,7 +2502,7 @@ module.exports = {
   set:   setTask,
   clear: clearTask
 };
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_dom-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_dom-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_dom-create.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_invoke":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js":[function(require,module,exports){
 var toInteger = require('./_to-integer')
   , max       = Math.max
   , min       = Math.min;
@@ -2513,34 +2510,34 @@ module.exports = function(index, length){
   index = toInteger(index);
   return index < 0 ? max(index + length, 0) : min(index, length);
 };
-},{"./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js":[function(require,module,exports){
+},{"./_to-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js":[function(require,module,exports){
 // 7.1.4 ToInteger
 var ceil  = Math.ceil
   , floor = Math.floor;
 module.exports = function(it){
   return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js":[function(require,module,exports){
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = require('./_iobject')
   , defined = require('./_defined');
 module.exports = function(it){
   return IObject(defined(it));
 };
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js":[function(require,module,exports){
 // 7.1.15 ToLength
 var toInteger = require('./_to-integer')
   , min       = Math.min;
 module.exports = function(it){
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 };
-},{"./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js":[function(require,module,exports){
+},{"./_to-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js":[function(require,module,exports){
 // 7.1.13 ToObject(argument)
 var defined = require('./_defined');
 module.exports = function(it){
   return Object(defined(it));
 };
-},{"./_defined":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js":[function(require,module,exports){
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js":[function(require,module,exports){
 // 7.1.1 ToPrimitive(input [, PreferredType])
 var isObject = require('./_is-object');
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
@@ -2553,7 +2550,7 @@ module.exports = function(it, S){
   if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
   throw TypeError("Can't convert object to primitive value");
 };
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js":[function(require,module,exports){
 'use strict';
 if(require('./_descriptors')){
   var LIBRARY             = require('./_library')
@@ -2779,9 +2776,6 @@ if(require('./_descriptors')){
         that[length]  = value;
       } return that;
     },
-    slice: function slice(start, end){
-      return speciesFromList(this, arraySlice.call(validate(this), start, end));
-    },
     some: function some(callbackfn /*, thisArg */){
       return arraySome(validate(this), callbackfn, arguments.length > 1 ? arguments[1] : undefined);
     },
@@ -2798,6 +2792,10 @@ if(require('./_descriptors')){
         toLength((end === undefined ? length : toIndex(end, length)) - $begin)
       );
     }
+  };
+
+  var $slice = function slice(start, end){
+    return speciesFromList(this, arraySlice.call(validate(this), start, end));
   };
 
   var $set = function set(arrayLike /*, offset */){
@@ -2871,6 +2869,7 @@ if(require('./_descriptors')){
   redefineAll($TypedArrayPrototype$, $iterators);
   hide($TypedArrayPrototype$, ITERATOR, $iterators.values);
   redefineAll($TypedArrayPrototype$, {
+    slice:          $slice,
     set:            $set,
     constructor:    function(){ /* noop */ },
     toString:       arrayToString,
@@ -3011,11 +3010,17 @@ if(require('./_descriptors')){
 
     $export($export.P, NAME, proto);
 
+    setSpecies(NAME);
+
     $export($export.P + $export.F * FORCED_SET, NAME, {set: $set});
 
     $export($export.P + $export.F * !CORRECT_ITER_NAME, NAME, $iterators);
 
     $export($export.P + $export.F * (TypedArrayPrototype.toString != arrayToString), NAME, {toString: arrayToString});
+
+    $export($export.P + $export.F * fails(function(){
+      new TypedArray(1).slice();
+    }), NAME, {slice: $slice});
 
     $export($export.P + $export.F * (fails(function(){
       return [1, 2].toLocaleString() != new TypedArray([1, 2]).toLocaleString()
@@ -3025,11 +3030,9 @@ if(require('./_descriptors')){
 
     Iterators[NAME] = CORRECT_ITER_NAME ? $nativeIterator : $iterator;
     if(!LIBRARY && !CORRECT_ITER_NAME)hide(TypedArrayPrototype, ITERATOR, $iterator);
-
-    setSpecies(NAME);
   };
 } else module.exports = function(){ /* empty */ };
-},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_array-copy-within":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js","./_array-fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_is-array-iter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_same-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_species-constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js","./_typed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js","./core.get-iterator-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js","./core.is-iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.is-iterable.js","./es6.array.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js":[function(require,module,exports){
+},{"./_an-instance":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_array-copy-within":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js","./_array-fill":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_array-includes":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_classof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_is-array-iter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_is-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_iterators":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_library":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_property-desc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_redefine-all":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_same-value":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js","./_set-species":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_species-constructor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_to-index":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js","./_typed":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js","./_uid":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js","./core.get-iterator-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js","./core.is-iterable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.is-iterable.js","./es6.array.iterator":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js":[function(require,module,exports){
 'use strict';
 var global         = require('./_global')
   , DESCRIPTORS    = require('./_descriptors')
@@ -3305,7 +3308,7 @@ setToStringTag($DataView, DATA_VIEW);
 hide($DataView[PROTOTYPE], $typed.VIEW, true);
 exports[ARRAY_BUFFER] = $ArrayBuffer;
 exports[DATA_VIEW] = $DataView;
-},{"./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_array-fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_typed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js":[function(require,module,exports){
+},{"./_an-instance":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_array-fill":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_library":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine-all":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-to-string-tag":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_to-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_typed":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js":[function(require,module,exports){
 var global = require('./_global')
   , hide   = require('./_hide')
   , uid    = require('./_uid')
@@ -3332,13 +3335,13 @@ module.exports = {
   TYPED:  TYPED,
   VIEW:   VIEW
 };
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_uid":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js":[function(require,module,exports){
 var id = 0
   , px = Math.random();
 module.exports = function(key){
   return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
 };
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js":[function(require,module,exports){
 var store      = require('./_shared')('wks')
   , uid        = require('./_uid')
   , Symbol     = require('./_global').Symbol
@@ -3347,7 +3350,7 @@ module.exports = function(name){
   return store[name] || (store[name] =
     USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
 };
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_shared":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_uid":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js":[function(require,module,exports){
 var classof   = require('./_classof')
   , ITERATOR  = require('./_wks')('iterator')
   , Iterators = require('./_iterators');
@@ -3356,7 +3359,7 @@ module.exports = require('./_core').getIteratorMethod = function(it){
     || it['@@iterator']
     || Iterators[classof(it)];
 };
-},{"./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.is-iterable.js":[function(require,module,exports){
+},{"./_classof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_iterators":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.is-iterable.js":[function(require,module,exports){
 var classof   = require('./_classof')
   , ITERATOR  = require('./_wks')('iterator')
   , Iterators = require('./_iterators');
@@ -3366,21 +3369,21 @@ module.exports = require('./_core').isIterable = function(it){
     || '@@iterator' in O
     || Iterators.hasOwnProperty(classof(O));
 };
-},{"./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.regexp.escape.js":[function(require,module,exports){
+},{"./_classof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_iterators":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.regexp.escape.js":[function(require,module,exports){
 // https://github.com/benjamingr/RexExp.escape
 var $export = require('./_export')
   , $re     = require('./_replacer')(/[\\^$*+?.()|[\]{}]/g, '\\$&');
 
 $export($export.S, 'RegExp', {escape: function escape(it){ return $re(it); }});
 
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_replacer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_replacer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.copy-within.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_replacer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_replacer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.copy-within.js":[function(require,module,exports){
 // 22.1.3.3 Array.prototype.copyWithin(target, start, end = this.length)
 var $export = require('./_export');
 
 $export($export.P, 'Array', {copyWithin: require('./_array-copy-within')});
 
 require('./_add-to-unscopables')('copyWithin');
-},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-copy-within":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.every.js":[function(require,module,exports){
+},{"./_add-to-unscopables":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-copy-within":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-copy-within.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.every.js":[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $every  = require('./_array-methods')(4);
@@ -3391,14 +3394,14 @@ $export($export.P + $export.F * !require('./_strict-method')([].every, true), 'A
     return $every(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.fill.js":[function(require,module,exports){
+},{"./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.fill.js":[function(require,module,exports){
 // 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
 var $export = require('./_export');
 
 $export($export.P, 'Array', {fill: require('./_array-fill')});
 
 require('./_add-to-unscopables')('fill');
-},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.filter.js":[function(require,module,exports){
+},{"./_add-to-unscopables":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-fill":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-fill.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.filter.js":[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $filter = require('./_array-methods')(2);
@@ -3409,7 +3412,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].filter, true), '
     return $filter(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find-index.js":[function(require,module,exports){
+},{"./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find-index.js":[function(require,module,exports){
 'use strict';
 // 22.1.3.9 Array.prototype.findIndex(predicate, thisArg = undefined)
 var $export = require('./_export')
@@ -3424,7 +3427,7 @@ $export($export.P + $export.F * forced, 'Array', {
   }
 });
 require('./_add-to-unscopables')(KEY);
-},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find.js":[function(require,module,exports){
+},{"./_add-to-unscopables":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find.js":[function(require,module,exports){
 'use strict';
 // 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
 var $export = require('./_export')
@@ -3439,7 +3442,7 @@ $export($export.P + $export.F * forced, 'Array', {
   }
 });
 require('./_add-to-unscopables')(KEY);
-},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.for-each.js":[function(require,module,exports){
+},{"./_add-to-unscopables":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.for-each.js":[function(require,module,exports){
 'use strict';
 var $export  = require('./_export')
   , $forEach = require('./_array-methods')(0)
@@ -3451,7 +3454,7 @@ $export($export.P + $export.F * !STRICT, 'Array', {
     return $forEach(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.from.js":[function(require,module,exports){
+},{"./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.from.js":[function(require,module,exports){
 'use strict';
 var ctx         = require('./_ctx')
   , $export     = require('./_export')
@@ -3488,7 +3491,7 @@ $export($export.S + $export.F * !require('./_iter-detect')(function(iter){ Array
   }
 });
 
-},{"./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-array-iter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_iter-call":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js","./_iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./core.get-iterator-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.index-of.js":[function(require,module,exports){
+},{"./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-array-iter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array-iter.js","./_iter-call":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-call.js","./_iter-detect":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./core.get-iterator-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/core.get-iterator-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.index-of.js":[function(require,module,exports){
 'use strict';
 var $export  = require('./_export')
   , $indexOf = require('./_array-includes')(false);
@@ -3499,12 +3502,12 @@ $export($export.P + $export.F * !require('./_strict-method')([].indexOf), 'Array
     return $indexOf(this, searchElement, arguments[1]);
   }
 });
-},{"./_array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.is-array.js":[function(require,module,exports){
+},{"./_array-includes":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.is-array.js":[function(require,module,exports){
 // 22.1.2.2 / 15.4.3.2 Array.isArray(arg)
 var $export = require('./_export');
 
 $export($export.S, 'Array', {isArray: require('./_is-array')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js":[function(require,module,exports){
 'use strict';
 var addToUnscopables = require('./_add-to-unscopables')
   , step             = require('./_iter-step')
@@ -3539,7 +3542,7 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
-},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_iter-step":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.join.js":[function(require,module,exports){
+},{"./_add-to-unscopables":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_iter-define":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_iter-step":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-step.js","./_iterators":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.join.js":[function(require,module,exports){
 'use strict';
 // 22.1.3.13 Array.prototype.join(separator)
 var $export   = require('./_export')
@@ -3552,7 +3555,7 @@ $export($export.P + $export.F * (require('./_iobject') != Object || !require('./
     return arrayJoin.call(toIObject(this), separator === undefined ? ',' : separator);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.last-index-of.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iobject.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.last-index-of.js":[function(require,module,exports){
 'use strict';
 var $export   = require('./_export')
   , toIObject = require('./_to-iobject')
@@ -3571,7 +3574,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].lastIndexOf), 'A
     return -1;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.map.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.map.js":[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $map    = require('./_array-methods')(1);
@@ -3582,7 +3585,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].map, true), 'Arr
     return $map(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.of.js":[function(require,module,exports){
+},{"./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.of.js":[function(require,module,exports){
 'use strict';
 var $export = require('./_export');
 
@@ -3601,7 +3604,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
     return result;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce-right.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce-right.js":[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $reduce = require('./_array-reduce');
@@ -3612,7 +3615,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].reduceRight, tru
     return $reduce(this, callbackfn, arguments.length, arguments[1], true);
   }
 });
-},{"./_array-reduce":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce.js":[function(require,module,exports){
+},{"./_array-reduce":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce.js":[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $reduce = require('./_array-reduce');
@@ -3623,7 +3626,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].reduce, true), '
     return $reduce(this, callbackfn, arguments.length, arguments[1], false);
   }
 });
-},{"./_array-reduce":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.slice.js":[function(require,module,exports){
+},{"./_array-reduce":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-reduce.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.slice.js":[function(require,module,exports){
 'use strict';
 var $export    = require('./_export')
   , html       = require('./_html')
@@ -3652,7 +3655,7 @@ $export($export.P + $export.F * require('./_fails')(function(){
     return cloned;
   }
 });
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.some.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_html.js","./_to-index":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.some.js":[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $some   = require('./_array-methods')(3);
@@ -3663,7 +3666,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].some, true), 'Ar
     return $some(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.sort.js":[function(require,module,exports){
+},{"./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.sort.js":[function(require,module,exports){
 'use strict';
 var $export   = require('./_export')
   , aFunction = require('./_a-function')
@@ -3687,18 +3690,19 @@ $export($export.P + $export.F * (fails(function(){
       : $sort.call(toObject(this), aFunction(comparefn));
   }
 });
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_strict-method":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.species.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_strict-method":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_strict-method.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.species.js":[function(require,module,exports){
 require('./_set-species')('Array');
-},{"./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.now.js":[function(require,module,exports){
+},{"./_set-species":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.now.js":[function(require,module,exports){
 // 20.3.3.1 / 15.9.4.4 Date.now()
 var $export = require('./_export');
 
-$export($export.S, 'Date', {now: function(){ return +new Date; }});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-iso-string.js":[function(require,module,exports){
+$export($export.S, 'Date', {now: function(){ return new Date().getTime(); }});
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-iso-string.js":[function(require,module,exports){
 'use strict';
 // 20.3.4.36 / 15.9.5.43 Date.prototype.toISOString()
 var $export = require('./_export')
-  , fails   = require('./_fails');
+  , fails   = require('./_fails')
+  , getTime = Date.prototype.getTime;
 
 var lz = function(num){
   return num > 9 ? num : '0' + num;
@@ -3711,7 +3715,7 @@ $export($export.P + $export.F * (fails(function(){
   new Date(NaN).toISOString();
 })), 'Date', {
   toISOString: function toISOString(){
-    if(!isFinite(this))throw RangeError('Invalid time value');
+    if(!isFinite(getTime.call(this)))throw RangeError('Invalid time value');
     var d = this
       , y = d.getUTCFullYear()
       , m = d.getUTCMilliseconds()
@@ -3722,7 +3726,7 @@ $export($export.P + $export.F * (fails(function(){
       ':' + lz(d.getUTCSeconds()) + '.' + (m > 99 ? m : '0' + lz(m)) + 'Z';
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-json.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-json.js":[function(require,module,exports){
 'use strict';
 var $export     = require('./_export')
   , toObject    = require('./_to-object')
@@ -3737,23 +3741,29 @@ $export($export.P + $export.F * require('./_fails')(function(){
     return typeof pv == 'number' && !isFinite(pv) ? null : O.toISOString();
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-string.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-primitive.js":[function(require,module,exports){
+var TO_PRIMITIVE = require('./_wks')('toPrimitive')
+  , proto        = Date.prototype;
+
+if(!(TO_PRIMITIVE in proto))require('./_hide')(proto, TO_PRIMITIVE, require('./_date-to-primitive'));
+},{"./_date-to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_date-to-primitive.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-string.js":[function(require,module,exports){
 var DateProto    = Date.prototype
   , INVALID_DATE = 'Invalid Date'
   , TO_STRING    = 'toString'
-  , $toString    = DateProto[TO_STRING];
+  , $toString    = DateProto[TO_STRING]
+  , getTime      = DateProto.getTime;
 if(new Date(NaN) + '' != INVALID_DATE){
   require('./_redefine')(DateProto, TO_STRING, function toString(){
-    var value = +this;
+    var value = getTime.call(this);
     return value === value ? $toString.call(this) : INVALID_DATE;
   });
 }
-},{"./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.bind.js":[function(require,module,exports){
+},{"./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.bind.js":[function(require,module,exports){
 // 19.2.3.2 / 15.3.4.5 Function.prototype.bind(thisArg, args...)
 var $export = require('./_export');
 
 $export($export.P, 'Function', {bind: require('./_bind')});
-},{"./_bind":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.has-instance.js":[function(require,module,exports){
+},{"./_bind":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.has-instance.js":[function(require,module,exports){
 'use strict';
 var isObject       = require('./_is-object')
   , getPrototypeOf = require('./_object-gpo')
@@ -3767,7 +3777,7 @@ if(!(HAS_INSTANCE in FunctionProto))require('./_object-dp').f(FunctionProto, HAS
   while(O = getPrototypeOf(O))if(this.prototype === O)return true;
   return false;
 }});
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.name.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.name.js":[function(require,module,exports){
 var dP         = require('./_object-dp').f
   , createDesc = require('./_property-desc')
   , has        = require('./_has')
@@ -3784,7 +3794,7 @@ NAME in FProto || require('./_descriptors') && dP(FProto, NAME, {
     return name;
   }
 });
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_property-desc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js":[function(require,module,exports){
 'use strict';
 var strong = require('./_collection-strong');
 
@@ -3802,7 +3812,7 @@ module.exports = require('./_collection')('Map', function(get){
     return strong.def(this, key === 0 ? 0 : key, value);
   }
 }, strong, true);
-},{"./_collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-strong":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.acosh.js":[function(require,module,exports){
+},{"./_collection":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-strong":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.acosh.js":[function(require,module,exports){
 // 20.2.2.3 Math.acosh(x)
 var $export = require('./_export')
   , log1p   = require('./_math-log1p')
@@ -3817,7 +3827,7 @@ $export($export.S + $export.F * !($acosh && Math.floor($acosh(Number.MAX_VALUE))
       : log1p(x - 1 + sqrt(x - 1) * sqrt(x + 1));
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.asinh.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-log1p":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.asinh.js":[function(require,module,exports){
 // 20.2.2.5 Math.asinh(x)
 var $export = require('./_export');
 
@@ -3826,7 +3836,7 @@ function asinh(x){
 }
 
 $export($export.S, 'Math', {asinh: asinh});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.atanh.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.atanh.js":[function(require,module,exports){
 // 20.2.2.7 Math.atanh(x)
 var $export = require('./_export');
 
@@ -3835,7 +3845,7 @@ $export($export.S, 'Math', {
     return (x = +x) == 0 ? x : Math.log((1 + x) / (1 - x)) / 2;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cbrt.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cbrt.js":[function(require,module,exports){
 // 20.2.2.9 Math.cbrt(x)
 var $export = require('./_export')
   , sign    = require('./_math-sign');
@@ -3845,7 +3855,7 @@ $export($export.S, 'Math', {
     return sign(x = +x) * Math.pow(Math.abs(x), 1 / 3);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.clz32.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.clz32.js":[function(require,module,exports){
 // 20.2.2.11 Math.clz32(x)
 var $export = require('./_export');
 
@@ -3854,7 +3864,7 @@ $export($export.S, 'Math', {
     return (x >>>= 0) ? 31 - Math.floor(Math.log(x + 0.5) * Math.LOG2E) : 32;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cosh.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cosh.js":[function(require,module,exports){
 // 20.2.2.12 Math.cosh(x)
 var $export = require('./_export')
   , exp     = Math.exp;
@@ -3864,12 +3874,12 @@ $export($export.S, 'Math', {
     return (exp(x = +x) + exp(-x)) / 2;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.expm1.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.expm1.js":[function(require,module,exports){
 // 20.2.2.14 Math.expm1(x)
 var $export = require('./_export');
 
 $export($export.S, 'Math', {expm1: require('./_math-expm1')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.fround.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-expm1":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.fround.js":[function(require,module,exports){
 // 20.2.2.16 Math.fround(x)
 var $export   = require('./_export')
   , sign      = require('./_math-sign')
@@ -3896,7 +3906,7 @@ $export($export.S, 'Math', {
     return $sign * result;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.hypot.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.hypot.js":[function(require,module,exports){
 // 20.2.2.17 Math.hypot([value1[, value2[, … ]]])
 var $export = require('./_export')
   , abs     = Math.abs;
@@ -3922,7 +3932,7 @@ $export($export.S, 'Math', {
     return larg === Infinity ? Infinity : larg * Math.sqrt(sum);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.imul.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.imul.js":[function(require,module,exports){
 // 20.2.2.18 Math.imul(x, y)
 var $export = require('./_export')
   , $imul   = Math.imul;
@@ -3940,7 +3950,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
     return 0 | xl * yl + ((UINT16 & xn >>> 16) * yl + xl * (UINT16 & yn >>> 16) << 16 >>> 0);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log10.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log10.js":[function(require,module,exports){
 // 20.2.2.21 Math.log10(x)
 var $export = require('./_export');
 
@@ -3949,12 +3959,12 @@ $export($export.S, 'Math', {
     return Math.log(x) / Math.LN10;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log1p.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log1p.js":[function(require,module,exports){
 // 20.2.2.20 Math.log1p(x)
 var $export = require('./_export');
 
 $export($export.S, 'Math', {log1p: require('./_math-log1p')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log2.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-log1p":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-log1p.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log2.js":[function(require,module,exports){
 // 20.2.2.22 Math.log2(x)
 var $export = require('./_export');
 
@@ -3963,12 +3973,12 @@ $export($export.S, 'Math', {
     return Math.log(x) / Math.LN2;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sign.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sign.js":[function(require,module,exports){
 // 20.2.2.28 Math.sign(x)
 var $export = require('./_export');
 
 $export($export.S, 'Math', {sign: require('./_math-sign')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sinh.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-sign":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-sign.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sinh.js":[function(require,module,exports){
 // 20.2.2.30 Math.sinh(x)
 var $export = require('./_export')
   , expm1   = require('./_math-expm1')
@@ -3984,7 +3994,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
       : (exp(x - 1) - exp(-x - 1)) * (Math.E / 2);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.tanh.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_math-expm1":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.tanh.js":[function(require,module,exports){
 // 20.2.2.33 Math.tanh(x)
 var $export = require('./_export')
   , expm1   = require('./_math-expm1')
@@ -3997,7 +4007,7 @@ $export($export.S, 'Math', {
     return a == Infinity ? 1 : b == Infinity ? -1 : (a - b) / (exp(x) + exp(-x));
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.trunc.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_math-expm1":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_math-expm1.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.trunc.js":[function(require,module,exports){
 // 20.2.2.34 Math.trunc(x)
 var $export = require('./_export');
 
@@ -4006,7 +4016,7 @@ $export($export.S, 'Math', {
     return (it > 0 ? Math.floor : Math.ceil)(it);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.constructor.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.constructor.js":[function(require,module,exports){
 'use strict';
 var global            = require('./_global')
   , has               = require('./_has')
@@ -4076,12 +4086,12 @@ if(!$Number(' 0o1') || !$Number('0b1') || $Number('+0x1')){
   proto.constructor = $Number;
   require('./_redefine')(global, NUMBER, $Number);
 }
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_inherit-if-required":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.epsilon.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_inherit-if-required":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_object-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_string-trim":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.epsilon.js":[function(require,module,exports){
 // 20.1.2.1 Number.EPSILON
 var $export = require('./_export');
 
 $export($export.S, 'Number', {EPSILON: Math.pow(2, -52)});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-finite.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-finite.js":[function(require,module,exports){
 // 20.1.2.2 Number.isFinite(number)
 var $export   = require('./_export')
   , _isFinite = require('./_global').isFinite;
@@ -4091,12 +4101,12 @@ $export($export.S, 'Number', {
     return typeof it == 'number' && _isFinite(it);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-integer.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-integer.js":[function(require,module,exports){
 // 20.1.2.3 Number.isInteger(number)
 var $export = require('./_export');
 
 $export($export.S, 'Number', {isInteger: require('./_is-integer')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-nan.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-nan.js":[function(require,module,exports){
 // 20.1.2.4 Number.isNaN(number)
 var $export = require('./_export');
 
@@ -4105,7 +4115,7 @@ $export($export.S, 'Number', {
     return number != number;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-safe-integer.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-safe-integer.js":[function(require,module,exports){
 // 20.1.2.5 Number.isSafeInteger(number)
 var $export   = require('./_export')
   , isInteger = require('./_is-integer')
@@ -4116,27 +4126,27 @@ $export($export.S, 'Number', {
     return isInteger(number) && abs(number) <= 0x1fffffffffffff;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.max-safe-integer.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_is-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-integer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.max-safe-integer.js":[function(require,module,exports){
 // 20.1.2.6 Number.MAX_SAFE_INTEGER
 var $export = require('./_export');
 
 $export($export.S, 'Number', {MAX_SAFE_INTEGER: 0x1fffffffffffff});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.min-safe-integer.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.min-safe-integer.js":[function(require,module,exports){
 // 20.1.2.10 Number.MIN_SAFE_INTEGER
 var $export = require('./_export');
 
 $export($export.S, 'Number', {MIN_SAFE_INTEGER: -0x1fffffffffffff});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-float.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-float.js":[function(require,module,exports){
 var $export     = require('./_export')
   , $parseFloat = require('./_parse-float');
 // 20.1.2.12 Number.parseFloat(string)
 $export($export.S + $export.F * (Number.parseFloat != $parseFloat), 'Number', {parseFloat: $parseFloat});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-int.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-float":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-int.js":[function(require,module,exports){
 var $export   = require('./_export')
   , $parseInt = require('./_parse-int');
 // 20.1.2.13 Number.parseInt(string, radix)
 $export($export.S + $export.F * (Number.parseInt != $parseInt), 'Number', {parseInt: $parseInt});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-fixed.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-int":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-fixed.js":[function(require,module,exports){
 'use strict';
 var $export      = require('./_export')
   , anInstance   = require('./_an-instance')
@@ -4251,7 +4261,7 @@ $export($export.P + $export.F * (!!$toFixed && (
     } return m;
   }
 });
-},{"./_a-number-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js","./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_string-repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js","./_to-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-precision.js":[function(require,module,exports){
+},{"./_a-number-value":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js","./_an-instance":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_string-repeat":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js","./_to-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-integer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-precision.js":[function(require,module,exports){
 'use strict';
 var $export      = require('./_export')
   , $fails       = require('./_fails')
@@ -4270,24 +4280,24 @@ $export($export.P + $export.F * ($fails(function(){
     return precision === undefined ? $toPrecision.call(that) : $toPrecision.call(that, precision); 
   }
 });
-},{"./_a-number-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.assign.js":[function(require,module,exports){
+},{"./_a-number-value":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-number-value.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.assign.js":[function(require,module,exports){
 // 19.1.3.1 Object.assign(target, source)
 var $export = require('./_export');
 
 $export($export.S + $export.F, 'Object', {assign: require('./_object-assign')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-assign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.create.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-assign":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.create.js":[function(require,module,exports){
 var $export = require('./_export')
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 $export($export.S, 'Object', {create: require('./_object-create')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-properties.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-properties.js":[function(require,module,exports){
 var $export = require('./_export');
 // 19.1.2.3 / 15.2.3.7 Object.defineProperties(O, Properties)
 $export($export.S + $export.F * !require('./_descriptors'), 'Object', {defineProperties: require('./_object-dps')});
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dps":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-property.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dps":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dps.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-property.js":[function(require,module,exports){
 var $export = require('./_export');
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 $export($export.S + $export.F * !require('./_descriptors'), 'Object', {defineProperty: require('./_object-dp').f});
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.freeze.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.freeze.js":[function(require,module,exports){
 // 19.1.2.5 Object.freeze(O)
 var isObject = require('./_is-object')
   , meta     = require('./_meta').onFreeze;
@@ -4297,7 +4307,7 @@ require('./_object-sap')('freeze', function($freeze){
     return $freeze && isObject(it) ? $freeze(meta(it)) : it;
   };
 });
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js":[function(require,module,exports){
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
 var toIObject                 = require('./_to-iobject')
   , $getOwnPropertyDescriptor = require('./_object-gopd').f;
@@ -4307,12 +4317,12 @@ require('./_object-sap')('getOwnPropertyDescriptor', function(){
     return $getOwnPropertyDescriptor(toIObject(it), key);
   };
 });
-},{"./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-names.js":[function(require,module,exports){
+},{"./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-names.js":[function(require,module,exports){
 // 19.1.2.7 Object.getOwnPropertyNames(O)
 require('./_object-sap')('getOwnPropertyNames', function(){
   return require('./_object-gopn-ext').f;
 });
-},{"./_object-gopn-ext":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-prototype-of.js":[function(require,module,exports){
+},{"./_object-gopn-ext":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-prototype-of.js":[function(require,module,exports){
 // 19.1.2.9 Object.getPrototypeOf(O)
 var toObject        = require('./_to-object')
   , $getPrototypeOf = require('./_object-gpo');
@@ -4322,7 +4332,7 @@ require('./_object-sap')('getPrototypeOf', function(){
     return $getPrototypeOf(toObject(it));
   };
 });
-},{"./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-extensible.js":[function(require,module,exports){
+},{"./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-extensible.js":[function(require,module,exports){
 // 19.1.2.11 Object.isExtensible(O)
 var isObject = require('./_is-object');
 
@@ -4331,7 +4341,7 @@ require('./_object-sap')('isExtensible', function($isExtensible){
     return isObject(it) ? $isExtensible ? $isExtensible(it) : true : false;
   };
 });
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-frozen.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-frozen.js":[function(require,module,exports){
 // 19.1.2.12 Object.isFrozen(O)
 var isObject = require('./_is-object');
 
@@ -4340,7 +4350,7 @@ require('./_object-sap')('isFrozen', function($isFrozen){
     return isObject(it) ? $isFrozen ? $isFrozen(it) : false : true;
   };
 });
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-sealed.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-sealed.js":[function(require,module,exports){
 // 19.1.2.13 Object.isSealed(O)
 var isObject = require('./_is-object');
 
@@ -4349,11 +4359,11 @@ require('./_object-sap')('isSealed', function($isSealed){
     return isObject(it) ? $isSealed ? $isSealed(it) : false : true;
   };
 });
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is.js":[function(require,module,exports){
 // 19.1.3.10 Object.is(value1, value2)
 var $export = require('./_export');
 $export($export.S, 'Object', {is: require('./_same-value')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_same-value":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.keys.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_same-value":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_same-value.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.keys.js":[function(require,module,exports){
 // 19.1.2.14 Object.keys(O)
 var toObject = require('./_to-object')
   , $keys    = require('./_object-keys');
@@ -4363,7 +4373,7 @@ require('./_object-sap')('keys', function(){
     return $keys(toObject(it));
   };
 });
-},{"./_object-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.prevent-extensions.js":[function(require,module,exports){
+},{"./_object-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-keys.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.prevent-extensions.js":[function(require,module,exports){
 // 19.1.2.15 Object.preventExtensions(O)
 var isObject = require('./_is-object')
   , meta     = require('./_meta').onFreeze;
@@ -4373,7 +4383,7 @@ require('./_object-sap')('preventExtensions', function($preventExtensions){
     return $preventExtensions && isObject(it) ? $preventExtensions(meta(it)) : it;
   };
 });
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.seal.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.seal.js":[function(require,module,exports){
 // 19.1.2.17 Object.seal(O)
 var isObject = require('./_is-object')
   , meta     = require('./_meta').onFreeze;
@@ -4383,11 +4393,11 @@ require('./_object-sap')('seal', function($seal){
     return $seal && isObject(it) ? $seal(meta(it)) : it;
   };
 });
-},{"./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.set-prototype-of.js":[function(require,module,exports){
+},{"./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-sap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-sap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.set-prototype-of.js":[function(require,module,exports){
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
 var $export = require('./_export');
 $export($export.S, 'Object', {setPrototypeOf: require('./_set-proto').set});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.to-string.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_set-proto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.to-string.js":[function(require,module,exports){
 'use strict';
 // 19.1.3.6 Object.prototype.toString()
 var classof = require('./_classof')
@@ -4398,17 +4408,17 @@ if(test + '' != '[object z]'){
     return '[object ' + classof(this) + ']';
   }, true);
 }
-},{"./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-float.js":[function(require,module,exports){
+},{"./_classof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-float.js":[function(require,module,exports){
 var $export     = require('./_export')
   , $parseFloat = require('./_parse-float');
 // 18.2.4 parseFloat(string)
 $export($export.G + $export.F * (parseFloat != $parseFloat), {parseFloat: $parseFloat});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-int.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-float":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-float.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-int.js":[function(require,module,exports){
 var $export   = require('./_export')
   , $parseInt = require('./_parse-int');
 // 18.2.5 parseInt(string, radix)
 $export($export.G + $export.F * (parseInt != $parseInt), {parseInt: $parseInt});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.promise.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_parse-int":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_parse-int.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.promise.js":[function(require,module,exports){
 'use strict';
 var LIBRARY            = require('./_library')
   , global             = require('./_global')
@@ -4428,6 +4438,7 @@ var LIBRARY            = require('./_library')
   , TypeError          = global.TypeError
   , process            = global.process
   , $Promise           = global[PROMISE]
+  , process            = global.process
   , isNode             = classof(process) == 'process'
   , empty              = function(){ /* empty */ }
   , Internal, GenericPromiseCapability, Wrapper;
@@ -4485,6 +4496,7 @@ var notify = function(promise, isReject){
       var handler = ok ? reaction.ok : reaction.fail
         , resolve = reaction.resolve
         , reject  = reaction.reject
+        , domain  = reaction.domain
         , result, then;
       try {
         if(handler){
@@ -4492,7 +4504,12 @@ var notify = function(promise, isReject){
             if(promise._h == 2)onHandleUnhandled(promise);
             promise._h = 1;
           }
-          result = handler === true ? value : handler(value);
+          if(handler === true)result = value;
+          else {
+            if(domain)domain.enter();
+            result = handler(value);
+            if(domain)domain.exit();
+          }
           if(result === reaction.promise){
             reject(TypeError('Promise-chain cycle'));
           } else if(then = isThenable(result)){
@@ -4611,9 +4628,10 @@ if(!USE_NATIVE){
   Internal.prototype = require('./_redefine-all')($Promise.prototype, {
     // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
     then: function then(onFulfilled, onRejected){
-      var reaction = newPromiseCapability(speciesConstructor(this, $Promise));
-      reaction.ok   = typeof onFulfilled == 'function' ? onFulfilled : true;
-      reaction.fail = typeof onRejected == 'function' && onRejected;
+      var reaction    = newPromiseCapability(speciesConstructor(this, $Promise));
+      reaction.ok     = typeof onFulfilled == 'function' ? onFulfilled : true;
+      reaction.fail   = typeof onRejected == 'function' && onRejected;
+      reaction.domain = isNode ? process.domain : undefined;
       this._c.push(reaction);
       if(this._a)this._a.push(reaction);
       if(this._s)notify(this, false);
@@ -4702,7 +4720,7 @@ $export($export.S + $export.F * !(USE_NATIVE && require('./_iter-detect')(functi
     return capability.promise;
   }
 });
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_classof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_ctx":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_for-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_microtask":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_microtask.js","./_redefine-all":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_species-constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_task":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.apply.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-instance":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-instance.js","./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_classof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_classof.js","./_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_ctx":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_ctx.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_for-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_for-of.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_iter-detect":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-detect.js","./_library":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_microtask":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_microtask.js","./_redefine-all":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine-all.js","./_set-proto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js","./_set-species":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_set-to-string-tag":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_species-constructor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_task":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.apply.js":[function(require,module,exports){
 // 26.1.1 Reflect.apply(target, thisArgument, argumentsList)
 var $export = require('./_export')
   , _apply  = Function.apply;
@@ -4712,7 +4730,7 @@ $export($export.S, 'Reflect', {
     return _apply.call(target, thisArgument, argumentsList);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.construct.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.construct.js":[function(require,module,exports){
 // 26.1.2 Reflect.construct(target, argumentsList [, newTarget])
 var $export   = require('./_export')
   , create    = require('./_object-create')
@@ -4751,7 +4769,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
     return isObject(result) ? result : instance;
   }
 });
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_bind":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.define-property.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_bind":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_bind.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.define-property.js":[function(require,module,exports){
 // 26.1.3 Reflect.defineProperty(target, propertyKey, attributes)
 var dP          = require('./_object-dp')
   , $export     = require('./_export')
@@ -4774,7 +4792,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
     }
   }
 });
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.delete-property.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.delete-property.js":[function(require,module,exports){
 // 26.1.4 Reflect.deleteProperty(target, propertyKey)
 var $export  = require('./_export')
   , gOPD     = require('./_object-gopd').f
@@ -4786,7 +4804,7 @@ $export($export.S, 'Reflect', {
     return desc && !desc.configurable ? false : delete target[propertyKey];
   }
 });
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.enumerate.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.enumerate.js":[function(require,module,exports){
 'use strict';
 // 26.1.5 Reflect.enumerate(target)
 var $export  = require('./_export')
@@ -4813,7 +4831,7 @@ $export($export.S, 'Reflect', {
     return new Enumerate(target);
   }
 });
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_iter-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_iter-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js":[function(require,module,exports){
 // 26.1.7 Reflect.getOwnPropertyDescriptor(target, propertyKey)
 var gOPD     = require('./_object-gopd')
   , $export  = require('./_export')
@@ -4824,7 +4842,7 @@ $export($export.S, 'Reflect', {
     return gOPD.f(anObject(target), propertyKey);
   }
 });
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-prototype-of.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-prototype-of.js":[function(require,module,exports){
 // 26.1.8 Reflect.getPrototypeOf(target)
 var $export  = require('./_export')
   , getProto = require('./_object-gpo')
@@ -4835,7 +4853,7 @@ $export($export.S, 'Reflect', {
     return getProto(anObject(target));
   }
 });
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get.js":[function(require,module,exports){
 // 26.1.6 Reflect.get(target, propertyKey [, receiver])
 var gOPD           = require('./_object-gopd')
   , getPrototypeOf = require('./_object-gpo')
@@ -4857,7 +4875,7 @@ function get(target, propertyKey/*, receiver*/){
 }
 
 $export($export.S, 'Reflect', {get: get});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.has.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.has.js":[function(require,module,exports){
 // 26.1.9 Reflect.has(target, propertyKey)
 var $export = require('./_export');
 
@@ -4866,7 +4884,7 @@ $export($export.S, 'Reflect', {
     return propertyKey in target;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.is-extensible.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.is-extensible.js":[function(require,module,exports){
 // 26.1.10 Reflect.isExtensible(target)
 var $export       = require('./_export')
   , anObject      = require('./_an-object')
@@ -4878,12 +4896,12 @@ $export($export.S, 'Reflect', {
     return $isExtensible ? $isExtensible(target) : true;
   }
 });
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.own-keys.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.own-keys.js":[function(require,module,exports){
 // 26.1.11 Reflect.ownKeys(target)
 var $export = require('./_export');
 
 $export($export.S, 'Reflect', {ownKeys: require('./_own-keys')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.prevent-extensions.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_own-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.prevent-extensions.js":[function(require,module,exports){
 // 26.1.12 Reflect.preventExtensions(target)
 var $export            = require('./_export')
   , anObject           = require('./_an-object')
@@ -4900,7 +4918,7 @@ $export($export.S, 'Reflect', {
     }
   }
 });
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set-prototype-of.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set-prototype-of.js":[function(require,module,exports){
 // 26.1.14 Reflect.setPrototypeOf(target, proto)
 var $export  = require('./_export')
   , setProto = require('./_set-proto');
@@ -4916,7 +4934,7 @@ if(setProto)$export($export.S, 'Reflect', {
     }
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_set-proto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_set-proto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-proto.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set.js":[function(require,module,exports){
 // 26.1.13 Reflect.set(target, propertyKey, V [, receiver])
 var dP             = require('./_object-dp')
   , gOPD           = require('./_object-gopd')
@@ -4948,7 +4966,7 @@ function set(target, propertyKey, V/*, receiver*/){
 }
 
 $export($export.S, 'Reflect', {set: set});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.constructor.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_property-desc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.constructor.js":[function(require,module,exports){
 var global            = require('./_global')
   , inheritIfRequired = require('./_inherit-if-required')
   , dP                = require('./_object-dp').f
@@ -4992,13 +5010,13 @@ if(require('./_descriptors') && (!CORRECT_NEW || require('./_fails')(function(){
 }
 
 require('./_set-species')('RegExp');
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_inherit-if-required":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_flags":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_inherit-if-required":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_inherit-if-required.js","./_is-regexp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-species":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js":[function(require,module,exports){
 // 21.2.5.3 get RegExp.prototype.flags()
 if(require('./_descriptors') && /./g.flags != 'g')require('./_object-dp').f(RegExp.prototype, 'flags', {
   configurable: true,
   get: require('./_flags')
 });
-},{"./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.match.js":[function(require,module,exports){
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_flags":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.match.js":[function(require,module,exports){
 // @@match logic
 require('./_fix-re-wks')('match', 1, function(defined, MATCH, $match){
   // 21.1.3.11 String.prototype.match(regexp)
@@ -5009,7 +5027,7 @@ require('./_fix-re-wks')('match', 1, function(defined, MATCH, $match){
     return fn !== undefined ? fn.call(regexp, O) : new RegExp(regexp)[MATCH](String(O));
   }, $match];
 });
-},{"./_fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.replace.js":[function(require,module,exports){
+},{"./_fix-re-wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.replace.js":[function(require,module,exports){
 // @@replace logic
 require('./_fix-re-wks')('replace', 2, function(defined, REPLACE, $replace){
   // 21.1.3.14 String.prototype.replace(searchValue, replaceValue)
@@ -5022,7 +5040,7 @@ require('./_fix-re-wks')('replace', 2, function(defined, REPLACE, $replace){
       : $replace.call(String(O), searchValue, replaceValue);
   }, $replace];
 });
-},{"./_fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.search.js":[function(require,module,exports){
+},{"./_fix-re-wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.search.js":[function(require,module,exports){
 // @@search logic
 require('./_fix-re-wks')('search', 1, function(defined, SEARCH, $search){
   // 21.1.3.15 String.prototype.search(regexp)
@@ -5033,7 +5051,7 @@ require('./_fix-re-wks')('search', 1, function(defined, SEARCH, $search){
     return fn !== undefined ? fn.call(regexp, O) : new RegExp(regexp)[SEARCH](String(O));
   }, $search];
 });
-},{"./_fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.split.js":[function(require,module,exports){
+},{"./_fix-re-wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.split.js":[function(require,module,exports){
 // @@split logic
 require('./_fix-re-wks')('split', 2, function(defined, SPLIT, $split){
   'use strict';
@@ -5104,7 +5122,7 @@ require('./_fix-re-wks')('split', 2, function(defined, SPLIT, $split){
     return fn !== undefined ? fn.call(separator, O, limit) : $split.call(String(O), separator, limit);
   }, $split];
 });
-},{"./_fix-re-wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js","./_is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.to-string.js":[function(require,module,exports){
+},{"./_fix-re-wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fix-re-wks.js","./_is-regexp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.to-string.js":[function(require,module,exports){
 'use strict';
 require('./es6.regexp.flags');
 var anObject    = require('./_an-object')
@@ -5130,7 +5148,7 @@ if(require('./_fails')(function(){ return $toString.call({source: 'a', flags: 'b
     return $toString.call(this);
   });
 }
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./es6.regexp.flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_flags":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./es6.regexp.flags":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js":[function(require,module,exports){
 'use strict';
 var strong = require('./_collection-strong');
 
@@ -5143,7 +5161,7 @@ module.exports = require('./_collection')('Set', function(get){
     return strong.def(this, value = value === 0 ? 0 : value, value);
   }
 }, strong);
-},{"./_collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-strong":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.anchor.js":[function(require,module,exports){
+},{"./_collection":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-strong":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-strong.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.anchor.js":[function(require,module,exports){
 'use strict';
 // B.2.3.2 String.prototype.anchor(name)
 require('./_string-html')('anchor', function(createHTML){
@@ -5151,7 +5169,7 @@ require('./_string-html')('anchor', function(createHTML){
     return createHTML(this, 'a', 'name', name);
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.big.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.big.js":[function(require,module,exports){
 'use strict';
 // B.2.3.3 String.prototype.big()
 require('./_string-html')('big', function(createHTML){
@@ -5159,7 +5177,7 @@ require('./_string-html')('big', function(createHTML){
     return createHTML(this, 'big', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.blink.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.blink.js":[function(require,module,exports){
 'use strict';
 // B.2.3.4 String.prototype.blink()
 require('./_string-html')('blink', function(createHTML){
@@ -5167,7 +5185,7 @@ require('./_string-html')('blink', function(createHTML){
     return createHTML(this, 'blink', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.bold.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.bold.js":[function(require,module,exports){
 'use strict';
 // B.2.3.5 String.prototype.bold()
 require('./_string-html')('bold', function(createHTML){
@@ -5175,7 +5193,7 @@ require('./_string-html')('bold', function(createHTML){
     return createHTML(this, 'b', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.code-point-at.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.code-point-at.js":[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $at     = require('./_string-at')(false);
@@ -5185,7 +5203,7 @@ $export($export.P, 'String', {
     return $at(this, pos);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.ends-with.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-at":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.ends-with.js":[function(require,module,exports){
 // 21.1.3.6 String.prototype.endsWith(searchString [, endPosition])
 'use strict';
 var $export   = require('./_export')
@@ -5206,7 +5224,7 @@ $export($export.P + $export.F * require('./_fails-is-regexp')(ENDS_WITH), 'Strin
       : that.slice(end - search.length, end) === search;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fixed.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fixed.js":[function(require,module,exports){
 'use strict';
 // B.2.3.6 String.prototype.fixed()
 require('./_string-html')('fixed', function(createHTML){
@@ -5214,7 +5232,7 @@ require('./_string-html')('fixed', function(createHTML){
     return createHTML(this, 'tt', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontcolor.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontcolor.js":[function(require,module,exports){
 'use strict';
 // B.2.3.7 String.prototype.fontcolor(color)
 require('./_string-html')('fontcolor', function(createHTML){
@@ -5222,7 +5240,7 @@ require('./_string-html')('fontcolor', function(createHTML){
     return createHTML(this, 'font', 'color', color);
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontsize.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontsize.js":[function(require,module,exports){
 'use strict';
 // B.2.3.8 String.prototype.fontsize(size)
 require('./_string-html')('fontsize', function(createHTML){
@@ -5230,7 +5248,7 @@ require('./_string-html')('fontsize', function(createHTML){
     return createHTML(this, 'font', 'size', size);
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.from-code-point.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.from-code-point.js":[function(require,module,exports){
 var $export        = require('./_export')
   , toIndex        = require('./_to-index')
   , fromCharCode   = String.fromCharCode
@@ -5254,7 +5272,7 @@ $export($export.S + $export.F * (!!$fromCodePoint && $fromCodePoint.length != 1)
     } return res.join('');
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.includes.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_to-index":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.includes.js":[function(require,module,exports){
 // 21.1.3.7 String.prototype.includes(searchString, position = 0)
 'use strict';
 var $export  = require('./_export')
@@ -5267,7 +5285,7 @@ $export($export.P + $export.F * require('./_fails-is-regexp')(INCLUDES), 'String
       .indexOf(searchString, arguments.length > 1 ? arguments[1] : undefined);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.italics.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.italics.js":[function(require,module,exports){
 'use strict';
 // B.2.3.9 String.prototype.italics()
 require('./_string-html')('italics', function(createHTML){
@@ -5275,7 +5293,7 @@ require('./_string-html')('italics', function(createHTML){
     return createHTML(this, 'i', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.iterator.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.iterator.js":[function(require,module,exports){
 'use strict';
 var $at  = require('./_string-at')(true);
 
@@ -5293,7 +5311,7 @@ require('./_iter-define')(String, 'String', function(iterated){
   this._i += point.length;
   return {value: point, done: false};
 });
-},{"./_iter-define":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.link.js":[function(require,module,exports){
+},{"./_iter-define":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-define.js","./_string-at":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.link.js":[function(require,module,exports){
 'use strict';
 // B.2.3.10 String.prototype.link(url)
 require('./_string-html')('link', function(createHTML){
@@ -5301,7 +5319,7 @@ require('./_string-html')('link', function(createHTML){
     return createHTML(this, 'a', 'href', url);
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.raw.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.raw.js":[function(require,module,exports){
 var $export   = require('./_export')
   , toIObject = require('./_to-iobject')
   , toLength  = require('./_to-length');
@@ -5320,14 +5338,14 @@ $export($export.S, 'String', {
     } return res.join('');
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.repeat.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.repeat.js":[function(require,module,exports){
 var $export = require('./_export');
 
 $export($export.P, 'String', {
   // 21.1.3.13 String.prototype.repeat(count)
   repeat: require('./_string-repeat')
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.small.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-repeat":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-repeat.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.small.js":[function(require,module,exports){
 'use strict';
 // B.2.3.11 String.prototype.small()
 require('./_string-html')('small', function(createHTML){
@@ -5335,7 +5353,7 @@ require('./_string-html')('small', function(createHTML){
     return createHTML(this, 'small', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.starts-with.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.starts-with.js":[function(require,module,exports){
 // 21.1.3.18 String.prototype.startsWith(searchString [, position ])
 'use strict';
 var $export     = require('./_export')
@@ -5354,7 +5372,7 @@ $export($export.P + $export.F * require('./_fails-is-regexp')(STARTS_WITH), 'Str
       : that.slice(index, index + search.length) === search;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.strike.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails-is-regexp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails-is-regexp.js","./_string-context":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-context.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.strike.js":[function(require,module,exports){
 'use strict';
 // B.2.3.12 String.prototype.strike()
 require('./_string-html')('strike', function(createHTML){
@@ -5362,7 +5380,7 @@ require('./_string-html')('strike', function(createHTML){
     return createHTML(this, 'strike', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sub.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sub.js":[function(require,module,exports){
 'use strict';
 // B.2.3.13 String.prototype.sub()
 require('./_string-html')('sub', function(createHTML){
@@ -5370,7 +5388,7 @@ require('./_string-html')('sub', function(createHTML){
     return createHTML(this, 'sub', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sup.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sup.js":[function(require,module,exports){
 'use strict';
 // B.2.3.14 String.prototype.sup()
 require('./_string-html')('sup', function(createHTML){
@@ -5378,7 +5396,7 @@ require('./_string-html')('sup', function(createHTML){
     return createHTML(this, 'sup', '', '');
   }
 });
-},{"./_string-html":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.trim.js":[function(require,module,exports){
+},{"./_string-html":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-html.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.trim.js":[function(require,module,exports){
 'use strict';
 // 21.1.3.25 String.prototype.trim()
 require('./_string-trim')('trim', function($trim){
@@ -5386,7 +5404,7 @@ require('./_string-trim')('trim', function($trim){
     return $trim(this, 3);
   };
 });
-},{"./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.symbol.js":[function(require,module,exports){
+},{"./_string-trim":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.symbol.js":[function(require,module,exports){
 'use strict';
 // ECMAScript 6 symbols shim
 var global         = require('./_global')
@@ -5419,12 +5437,15 @@ var global         = require('./_global')
   , $JSON          = global.JSON
   , _stringify     = $JSON && $JSON.stringify
   , setter         = false
+  , PROTOTYPE      = 'prototype'
   , HIDDEN         = wks('_hidden')
+  , TO_PRIMITIVE   = wks('toPrimitive')
   , isEnum         = {}.propertyIsEnumerable
   , SymbolRegistry = shared('symbol-registry')
   , AllSymbols     = shared('symbols')
-  , ObjectProto    = Object.prototype
-  , USE_NATIVE     = typeof $Symbol == 'function';
+  , ObjectProto    = Object[PROTOTYPE]
+  , USE_NATIVE     = typeof $Symbol == 'function'
+  , QObject        = global.QObject;
 
 // fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
 var setSymbolDesc = DESCRIPTORS && $fails(function(){
@@ -5439,7 +5460,7 @@ var setSymbolDesc = DESCRIPTORS && $fails(function(){
 } : dP;
 
 var wrap = function(tag){
-  var sym = AllSymbols[tag] = _create($Symbol.prototype);
+  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
   sym._k = tag;
   DESCRIPTORS && setter && setSymbolDesc(ObjectProto, tag, {
     configurable: true,
@@ -5451,8 +5472,10 @@ var wrap = function(tag){
   return sym;
 };
 
-var isSymbol = function(it){
+var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function(it){
   return typeof it == 'symbol';
+} : function(it){
+  return it instanceof $Symbol;
 };
 
 var $defineProperty = function defineProperty(it, key, D){
@@ -5532,16 +5555,12 @@ var BUGGY_JSON = $fails(function(){
 // 19.4.1.1 Symbol([description])
 if(!USE_NATIVE){
   $Symbol = function Symbol(){
-    if(isSymbol(this))throw TypeError('Symbol is not a constructor');
+    if(this instanceof $Symbol)throw TypeError('Symbol is not a constructor!');
     return wrap(uid(arguments.length > 0 ? arguments[0] : undefined));
   };
-  redefine($Symbol.prototype, 'toString', function toString(){
+  redefine($Symbol[PROTOTYPE], 'toString', function toString(){
     return this._k;
   });
-
-  isSymbol = function(it){
-    return it instanceof $Symbol;
-  };
 
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f   = $defineProperty;
@@ -5576,7 +5595,8 @@ for(var symbols = (
   if(!(key in Wrapper))dP(Wrapper, key, {value: USE_NATIVE ? sym : wrap(sym)});
 };
 
-setter = true;
+// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
+if(!QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild)setter = true;
 
 $export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
   // 19.4.2.1 Symbol.for(key)
@@ -5587,7 +5607,8 @@ $export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
   },
   // 19.4.2.5 Symbol.keyFor(sym)
   keyFor: function keyFor(key){
-    return keyOf(SymbolRegistry, key);
+    if(isSymbol(key))return keyOf(SymbolRegistry, key);
+    throw TypeError(key + ' is not a symbol!');
   },
   useSetter: function(){ setter = true; },
   useSimple: function(){ setter = false; }
@@ -5611,13 +5632,15 @@ $export($export.S + $export.F * !USE_NATIVE, 'Object', {
 // 24.3.2 JSON.stringify(value [, replacer [, space]])
 $JSON && $export($export.S + $export.F * (!USE_NATIVE || BUGGY_JSON), 'JSON', {stringify: $stringify});
 
+// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
+$Symbol[PROTOTYPE][TO_PRIMITIVE] || require('./_hide')($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
 // 19.4.3.5 Symbol.prototype[@@toStringTag]
 setToStringTag($Symbol, 'Symbol');
 // 20.2.1.9 Math[@@toStringTag]
 setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_enum-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-keys.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js","./_keyof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_keyof.js","./_library":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gopn-ext":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js","./_object-gops":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-pie":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-to-string-tag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_shared":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-primitive":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js","./_uid":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.array-buffer.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_enum-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_enum-keys.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_is-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-array.js","./_keyof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_keyof.js","./_library":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_library.js","./_meta":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-create.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gopn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn.js","./_object-gopn-ext":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopn-ext.js","./_object-gops":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gops.js","./_object-pie":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-pie.js","./_property-desc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_set-to-string-tag":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-to-string-tag.js","./_shared":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_shared.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js","./_uid":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_uid.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.array-buffer.js":[function(require,module,exports){
 'use strict';
 var $export      = require('./_export')
   , $typed       = require('./_typed')
@@ -5665,66 +5688,66 @@ $export($export.P + $export.U + $export.F * require('./_fails')(function(){
 });
 
 require('./_set-species')(ARRAY_BUFFER);
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_set-species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_species-constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_to-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_typed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.data-view.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_fails":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_fails.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_set-species":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_set-species.js","./_species-constructor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_species-constructor.js","./_to-index":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-index.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js","./_typed":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.data-view.js":[function(require,module,exports){
 var $export = require('./_export');
 $export($export.G + $export.W + $export.F * !require('./_typed').ABV, {
   DataView: require('./_typed-buffer').DataView
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_typed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float32-array.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_typed":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed.js","./_typed-buffer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-buffer.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float32-array.js":[function(require,module,exports){
 require('./_typed-array')('Float32', 4, function(init){
   return function Float32Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float64-array.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float64-array.js":[function(require,module,exports){
 require('./_typed-array')('Float64', 8, function(init){
   return function Float64Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int16-array.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int16-array.js":[function(require,module,exports){
 require('./_typed-array')('Int16', 2, function(init){
   return function Int16Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int32-array.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int32-array.js":[function(require,module,exports){
 require('./_typed-array')('Int32', 4, function(init){
   return function Int32Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int8-array.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int8-array.js":[function(require,module,exports){
 require('./_typed-array')('Int8', 1, function(init){
   return function Int8Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint16-array.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint16-array.js":[function(require,module,exports){
 require('./_typed-array')('Uint16', 2, function(init){
   return function Uint16Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint32-array.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint32-array.js":[function(require,module,exports){
 require('./_typed-array')('Uint32', 4, function(init){
   return function Uint32Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-array.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-array.js":[function(require,module,exports){
 require('./_typed-array')('Uint8', 1, function(init){
   return function Uint8Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-clamped-array.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-clamped-array.js":[function(require,module,exports){
 require('./_typed-array')('Uint8', 1, function(init){
   return function Uint8ClampedArray(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 }, true);
-},{"./_typed-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js":[function(require,module,exports){
+},{"./_typed-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_typed-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js":[function(require,module,exports){
 'use strict';
 var each         = require('./_array-methods')(0)
   , redefine     = require('./_redefine')
@@ -5782,7 +5805,7 @@ if(new $WeakMap().set((Object.freeze || Object)(tmp), 7).get(tmp) != 7){
     });
   });
 }
-},{"./_array-methods":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-weak":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js","./_has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-assign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-set.js":[function(require,module,exports){
+},{"./_array-methods":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-methods.js","./_collection":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-weak":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js","./_has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_has.js","./_is-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-object.js","./_meta":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_meta.js","./_object-assign":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-assign.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-set.js":[function(require,module,exports){
 'use strict';
 var weak = require('./_collection-weak');
 
@@ -5795,20 +5818,20 @@ require('./_collection')('WeakSet', function(get){
     return weak.def(this, value, true);
   }
 }, weak, false, true);
-},{"./_collection":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-weak":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.array.includes.js":[function(require,module,exports){
+},{"./_collection":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection.js","./_collection-weak":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-weak.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.array.includes.js":[function(require,module,exports){
 'use strict';
+// https://github.com/tc39/Array.prototype.includes
 var $export   = require('./_export')
   , $includes = require('./_array-includes')(true);
 
 $export($export.P, 'Array', {
-  // https://github.com/domenic/Array.prototype.includes
   includes: function includes(el /*, fromIndex = 0 */){
     return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
   }
 });
 
 require('./_add-to-unscopables')('includes');
-},{"./_add-to-unscopables":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.error.is-error.js":[function(require,module,exports){
+},{"./_add-to-unscopables":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_add-to-unscopables.js","./_array-includes":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-includes.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.error.is-error.js":[function(require,module,exports){
 // https://github.com/ljharb/proposal-is-error
 var $export = require('./_export')
   , cof     = require('./_cof');
@@ -5818,12 +5841,12 @@ $export($export.S, 'Error', {
     return cof(it) === 'Error';
   }
 });
-},{"./_cof":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.map.to-json.js":[function(require,module,exports){
+},{"./_cof":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_cof.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.map.to-json.js":[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var $export  = require('./_export');
 
 $export($export.P + $export.R, 'Map', {toJSON: require('./_collection-to-json')('Map')});
-},{"./_collection-to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.iaddh.js":[function(require,module,exports){
+},{"./_collection-to-json":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.iaddh.js":[function(require,module,exports){
 // https://gist.github.com/BrendanEich/4294d5c212a6d2254703
 var $export = require('./_export');
 
@@ -5835,7 +5858,7 @@ $export($export.S, 'Math', {
     return $x1 + (y1 >>> 0) + (($x0 & $y0 | ($x0 | $y0) & ~($x0 + $y0 >>> 0)) >>> 31) | 0;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.imulh.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.imulh.js":[function(require,module,exports){
 // https://gist.github.com/BrendanEich/4294d5c212a6d2254703
 var $export = require('./_export');
 
@@ -5852,7 +5875,7 @@ $export($export.S, 'Math', {
     return u1 * v1 + (t >> 16) + ((u0 * v1 >>> 0) + (t & UINT16) >> 16);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.isubh.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.isubh.js":[function(require,module,exports){
 // https://gist.github.com/BrendanEich/4294d5c212a6d2254703
 var $export = require('./_export');
 
@@ -5864,7 +5887,7 @@ $export($export.S, 'Math', {
     return $x1 - (y1 >>> 0) - ((~$x0 & $y0 | ~($x0 ^ $y0) & $x0 - $y0 >>> 0) >>> 31) | 0;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.umulh.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.umulh.js":[function(require,module,exports){
 // https://gist.github.com/BrendanEich/4294d5c212a6d2254703
 var $export = require('./_export');
 
@@ -5881,8 +5904,34 @@ $export($export.S, 'Math', {
     return u1 * v1 + (t >>> 16) + ((u0 * v1 >>> 0) + (t & UINT16) >>> 16);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.entries.js":[function(require,module,exports){
-// http://goo.gl/XkBrjD
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.define-getter.js":[function(require,module,exports){
+'use strict';
+var $export         = require('./_export')
+  , toObject        = require('./_to-object')
+  , aFunction       = require('./_a-function')
+  , $defineProperty = require('./_object-dp');
+
+// B.2.2.2 Object.prototype.__defineGetter__(P, getter)
+require('./_descriptors') && $export($export.P + require('./_object-forced-pam'), 'Object', {
+  __defineGetter__: function __defineGetter__(P, getter){
+    $defineProperty.f(toObject(this), P, {get: aFunction(getter), enumerable: true, configurable: true});
+  }
+});
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-forced-pam":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-forced-pam.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.define-setter.js":[function(require,module,exports){
+'use strict';
+var $export         = require('./_export')
+  , toObject        = require('./_to-object')
+  , aFunction       = require('./_a-function')
+  , $defineProperty = require('./_object-dp');
+
+// B.2.2.3 Object.prototype.__defineSetter__(P, setter)
+require('./_descriptors') && $export($export.P + require('./_object-forced-pam'), 'Object', {
+  __defineSetter__: function __defineSetter__(P, setter){
+    $defineProperty.f(toObject(this), P, {set: aFunction(setter), enumerable: true, configurable: true});
+  }
+});
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-forced-pam":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-forced-pam.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.entries.js":[function(require,module,exports){
+// https://github.com/tc39/proposal-object-values-entries
 var $export  = require('./_export')
   , $entries = require('./_object-to-array')(true);
 
@@ -5891,8 +5940,8 @@ $export($export.S, 'Object', {
     return $entries(it);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-to-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js":[function(require,module,exports){
-// https://gist.github.com/WebReflection/9353781
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-to-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js":[function(require,module,exports){
+// https://github.com/tc39/proposal-object-getownpropertydescriptors
 var $export    = require('./_export')
   , ownKeys    = require('./_own-keys')
   , toIObject  = require('./_to-iobject')
@@ -5915,8 +5964,46 @@ $export($export.S, 'Object', {
     } return result;
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dp":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js","./_property-desc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_to-iobject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.values.js":[function(require,module,exports){
-// http://goo.gl/XkBrjD
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-dp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-dp.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_own-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_own-keys.js","./_property-desc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_property-desc.js","./_to-iobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-iobject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.lookup-getter.js":[function(require,module,exports){
+'use strict';
+var $export                  = require('./_export')
+  , toObject                 = require('./_to-object')
+  , toPrimitive              = require('./_to-primitive')
+  , getPrototypeOf           = require('./_object-gpo')
+  , getOwnPropertyDescriptor = require('./_object-gopd').f;
+
+// B.2.2.4 Object.prototype.__lookupGetter__(P)
+require('./_descriptors') && $export($export.P + require('./_object-forced-pam'), 'Object', {
+  __lookupGetter__: function __lookupGetter__(P){
+    var O = toObject(this)
+      , K = toPrimitive(P, true)
+      , D;
+    do {
+      if(D = getOwnPropertyDescriptor(O, K))return D.get;
+    } while(O = getPrototypeOf(O));
+  }
+});
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-forced-pam":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-forced-pam.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.lookup-setter.js":[function(require,module,exports){
+'use strict';
+var $export                  = require('./_export')
+  , toObject                 = require('./_to-object')
+  , toPrimitive              = require('./_to-primitive')
+  , getPrototypeOf           = require('./_object-gpo')
+  , getOwnPropertyDescriptor = require('./_object-gopd').f;
+
+// B.2.2.5 Object.prototype.__lookupSetter__(P)
+require('./_descriptors') && $export($export.P + require('./_object-forced-pam'), 'Object', {
+  __lookupSetter__: function __lookupSetter__(P){
+    var O = toObject(this)
+      , K = toPrimitive(P, true)
+      , D;
+    do {
+      if(D = getOwnPropertyDescriptor(O, K))return D.set;
+    } while(O = getPrototypeOf(O));
+  }
+});
+},{"./_descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_descriptors.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-forced-pam":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-forced-pam.js","./_object-gopd":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gopd.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./_to-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-object.js","./_to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-primitive.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.values.js":[function(require,module,exports){
+// https://github.com/tc39/proposal-object-values-entries
 var $export = require('./_export')
   , $values = require('./_object-to-array')(false);
 
@@ -5925,7 +6012,7 @@ $export($export.S, 'Object', {
     return $values(it);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-to-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.define-metadata.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_object-to-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-to-array.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.define-metadata.js":[function(require,module,exports){
 var metadata                  = require('./_metadata')
   , anObject                  = require('./_an-object')
   , toMetaKey                 = metadata.key
@@ -5934,7 +6021,7 @@ var metadata                  = require('./_metadata')
 metadata.exp({defineMetadata: function defineMetadata(metadataKey, metadataValue, target, targetKey){
   ordinaryDefineOwnMetadata(metadataKey, metadataValue, anObject(target), toMetaKey(targetKey));
 }});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.delete-metadata.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.delete-metadata.js":[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , toMetaKey              = metadata.key
@@ -5950,7 +6037,7 @@ metadata.exp({deleteMetadata: function deleteMetadata(metadataKey, target /*, ta
   targetMetadata['delete'](targetKey);
   return !!targetMetadata.size || store['delete'](target);
 }});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata-keys.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata-keys.js":[function(require,module,exports){
 var Set                     = require('./es6.set')
   , from                    = require('./_array-from-iterable')
   , metadata                = require('./_metadata')
@@ -5970,7 +6057,7 @@ var ordinaryMetadataKeys = function(O, P){
 metadata.exp({getMetadataKeys: function getMetadataKeys(target /*, targetKey */){
   return ordinaryMetadataKeys(anObject(target), arguments.length < 2 ? undefined : toMetaKey(arguments[1]));
 }});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_array-from-iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./es6.set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_array-from-iterable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_array-from-iterable.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js","./es6.set":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata.js":[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , getPrototypeOf         = require('./_object-gpo')
@@ -5988,7 +6075,7 @@ var ordinaryGetMetadata = function(MetadataKey, O, P){
 metadata.exp({getMetadata: function getMetadata(metadataKey, target /*, targetKey */){
   return ordinaryGetMetadata(metadataKey, anObject(target), arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
 }});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata-keys.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata-keys.js":[function(require,module,exports){
 var metadata                = require('./_metadata')
   , anObject                = require('./_an-object')
   , ordinaryOwnMetadataKeys = metadata.keys
@@ -5997,7 +6084,7 @@ var metadata                = require('./_metadata')
 metadata.exp({getOwnMetadataKeys: function getOwnMetadataKeys(target /*, targetKey */){
   return ordinaryOwnMetadataKeys(anObject(target), arguments.length < 2 ? undefined : toMetaKey(arguments[1]));
 }});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata.js":[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , ordinaryGetOwnMetadata = metadata.get
@@ -6007,7 +6094,7 @@ metadata.exp({getOwnMetadata: function getOwnMetadata(metadataKey, target /*, ta
   return ordinaryGetOwnMetadata(metadataKey, anObject(target)
     , arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
 }});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-metadata.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-metadata.js":[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , getPrototypeOf         = require('./_object-gpo')
@@ -6024,7 +6111,7 @@ var ordinaryHasMetadata = function(MetadataKey, O, P){
 metadata.exp({hasMetadata: function hasMetadata(metadataKey, target /*, targetKey */){
   return ordinaryHasMetadata(metadataKey, anObject(target), arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
 }});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-own-metadata.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js","./_object-gpo":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_object-gpo.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-own-metadata.js":[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , ordinaryHasOwnMetadata = metadata.has
@@ -6034,7 +6121,7 @@ metadata.exp({hasOwnMetadata: function hasOwnMetadata(metadataKey, target /*, ta
   return ordinaryHasOwnMetadata(metadataKey, anObject(target)
     , arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
 }});
-},{"./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.metadata.js":[function(require,module,exports){
+},{"./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.metadata.js":[function(require,module,exports){
 var metadata                  = require('./_metadata')
   , anObject                  = require('./_an-object')
   , aFunction                 = require('./_a-function')
@@ -6050,12 +6137,12 @@ metadata.exp({metadata: function metadata(metadataKey, metadataValue){
     );
   };
 }});
-},{"./_a-function":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.set.to-json.js":[function(require,module,exports){
+},{"./_a-function":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_a-function.js","./_an-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_an-object.js","./_metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_metadata.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.set.to-json.js":[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var $export  = require('./_export');
 
 $export($export.P + $export.R, 'Set', {toJSON: require('./_collection-to-json')('Set')});
-},{"./_collection-to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js","./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.at.js":[function(require,module,exports){
+},{"./_collection-to-json":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_collection-to-json.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.at.js":[function(require,module,exports){
 'use strict';
 // https://github.com/mathiasbynens/String.prototype.at
 var $export = require('./_export')
@@ -6066,8 +6153,40 @@ $export($export.P, 'String', {
     return $at(this, pos);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-end.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-at":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-at.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.match-all.js":[function(require,module,exports){
 'use strict';
+// https://tc39.github.io/String.prototype.matchAll/
+var $export     = require('./_export')
+  , defined     = require('./_defined')
+  , toLength    = require('./_to-length')
+  , isRegExp    = require('./_is-regexp')
+  , getFlags    = require('./_flags')
+  , RegExpProto = RegExp.prototype;
+
+var $RegExpStringIterator = function(regexp, string){
+  this._r = regexp;
+  this._s = string;
+};
+
+require('./_iter-create')($RegExpStringIterator, 'RegExp String', function next(){
+  var match = this._r.exec(this._s);
+  return {value: match, done: match === null};
+});
+
+$export($export.P, 'String', {
+  matchAll: function matchAll(regexp){
+    defined(this);
+    if(!isRegExp(regexp))throw TypeError(regexp + ' is not a regexp!');
+    var S     = String(this)
+      , flags = 'flags' in RegExpProto ? String(regexp.flags) : getFlags.call(regexp)
+      , rx    = new RegExp(regexp.source, ~flags.indexOf('g') ? flags : 'g' + flags);
+    rx.lastIndex = toLength(regexp.lastIndex);
+    return new $RegExpStringIterator(rx, S);
+  }
+});
+},{"./_defined":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_defined.js","./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_flags":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_flags.js","./_is-regexp":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_is-regexp.js","./_iter-create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iter-create.js","./_to-length":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_to-length.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-end.js":[function(require,module,exports){
+'use strict';
+// https://github.com/tc39/proposal-string-pad-start-end
 var $export = require('./_export')
   , $pad    = require('./_string-pad');
 
@@ -6076,8 +6195,9 @@ $export($export.P, 'String', {
     return $pad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, false);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-pad":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-start.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-pad":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-start.js":[function(require,module,exports){
 'use strict';
+// https://github.com/tc39/proposal-string-pad-start-end
 var $export = require('./_export')
   , $pad    = require('./_string-pad');
 
@@ -6086,7 +6206,7 @@ $export($export.P, 'String', {
     return $pad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, true);
   }
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-pad":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-left.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_string-pad":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-pad.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-left.js":[function(require,module,exports){
 'use strict';
 // https://github.com/sebmarkbage/ecmascript-string-left-right-trim
 require('./_string-trim')('trimLeft', function($trim){
@@ -6094,7 +6214,7 @@ require('./_string-trim')('trimLeft', function($trim){
     return $trim(this, 1);
   };
 }, 'trimStart');
-},{"./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-right.js":[function(require,module,exports){
+},{"./_string-trim":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-right.js":[function(require,module,exports){
 'use strict';
 // https://github.com/sebmarkbage/ecmascript-string-left-right-trim
 require('./_string-trim')('trimRight', function($trim){
@@ -6102,12 +6222,12 @@ require('./_string-trim')('trimRight', function($trim){
     return $trim(this, 2);
   };
 }, 'trimEnd');
-},{"./_string-trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.system.global.js":[function(require,module,exports){
+},{"./_string-trim":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_string-trim.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.system.global.js":[function(require,module,exports){
 // https://github.com/ljharb/proposal-global
 var $export = require('./_export');
 
 $export($export.S, 'System', {global: require('./_global')});
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.dom.iterable.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.dom.iterable.js":[function(require,module,exports){
 var $iterators    = require('./es6.array.iterator')
   , redefine      = require('./_redefine')
   , global        = require('./_global')
@@ -6130,14 +6250,14 @@ for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList'
     for(key in $iterators)if(!proto[key])redefine(proto, key, $iterators[key], true);
   }
 }
-},{"./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iterators":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_redefine":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js","./es6.array.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.immediate.js":[function(require,module,exports){
+},{"./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_hide":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_hide.js","./_iterators":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_iterators.js","./_redefine":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_redefine.js","./_wks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_wks.js","./es6.array.iterator":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.immediate.js":[function(require,module,exports){
 var $export = require('./_export')
   , $task   = require('./_task');
 $export($export.G + $export.B, {
   setImmediate:   $task.set,
   clearImmediate: $task.clear
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_task":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.timers.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_task":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_task.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.timers.js":[function(require,module,exports){
 // ie9- setTimeout & setInterval additional parameters fix
 var global     = require('./_global')
   , $export    = require('./_export')
@@ -6158,7 +6278,7 @@ $export($export.G + $export.B + $export.F * MSIE, {
   setTimeout:  wrap(global.setTimeout),
   setInterval: wrap(global.setInterval)
 });
-},{"./_export":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_invoke":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_partial":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_partial.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/shim.js":[function(require,module,exports){
+},{"./_export":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_export.js","./_global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_global.js","./_invoke":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_invoke.js","./_partial":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_partial.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/shim.js":[function(require,module,exports){
 require('./modules/es6.symbol');
 require('./modules/es6.object.create');
 require('./modules/es6.object.define-property');
@@ -6234,9 +6354,10 @@ require('./modules/es6.string.strike');
 require('./modules/es6.string.sub');
 require('./modules/es6.string.sup');
 require('./modules/es6.date.now');
-require('./modules/es6.date.to-string');
-require('./modules/es6.date.to-iso-string');
 require('./modules/es6.date.to-json');
+require('./modules/es6.date.to-iso-string');
+require('./modules/es6.date.to-string');
+require('./modules/es6.date.to-primitive');
 require('./modules/es6.array.is-array');
 require('./modules/es6.array.from');
 require('./modules/es6.array.of');
@@ -6301,9 +6422,14 @@ require('./modules/es7.string.pad-start');
 require('./modules/es7.string.pad-end');
 require('./modules/es7.string.trim-left');
 require('./modules/es7.string.trim-right');
+require('./modules/es7.string.match-all');
 require('./modules/es7.object.get-own-property-descriptors');
 require('./modules/es7.object.values');
 require('./modules/es7.object.entries');
+require('./modules/es7.object.define-getter');
+require('./modules/es7.object.define-setter');
+require('./modules/es7.object.lookup-getter');
+require('./modules/es7.object.lookup-setter');
 require('./modules/es7.map.to-json');
 require('./modules/es7.set.to-json');
 require('./modules/es7.system.global');
@@ -6325,7 +6451,7 @@ require('./modules/web.timers');
 require('./modules/web.immediate');
 require('./modules/web.dom.iterable');
 module.exports = require('./modules/_core');
-},{"./modules/_core":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./modules/es6.array.copy-within":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.copy-within.js","./modules/es6.array.every":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.every.js","./modules/es6.array.fill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.fill.js","./modules/es6.array.filter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.filter.js","./modules/es6.array.find":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find.js","./modules/es6.array.find-index":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find-index.js","./modules/es6.array.for-each":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.for-each.js","./modules/es6.array.from":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.from.js","./modules/es6.array.index-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.index-of.js","./modules/es6.array.is-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.is-array.js","./modules/es6.array.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js","./modules/es6.array.join":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.join.js","./modules/es6.array.last-index-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.last-index-of.js","./modules/es6.array.map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.map.js","./modules/es6.array.of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.of.js","./modules/es6.array.reduce":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce.js","./modules/es6.array.reduce-right":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce-right.js","./modules/es6.array.slice":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.slice.js","./modules/es6.array.some":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.some.js","./modules/es6.array.sort":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.sort.js","./modules/es6.array.species":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.species.js","./modules/es6.date.now":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.now.js","./modules/es6.date.to-iso-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-iso-string.js","./modules/es6.date.to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-json.js","./modules/es6.date.to-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-string.js","./modules/es6.function.bind":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.bind.js","./modules/es6.function.has-instance":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.has-instance.js","./modules/es6.function.name":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.name.js","./modules/es6.map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js","./modules/es6.math.acosh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.acosh.js","./modules/es6.math.asinh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.asinh.js","./modules/es6.math.atanh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.atanh.js","./modules/es6.math.cbrt":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cbrt.js","./modules/es6.math.clz32":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.clz32.js","./modules/es6.math.cosh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cosh.js","./modules/es6.math.expm1":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.expm1.js","./modules/es6.math.fround":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.fround.js","./modules/es6.math.hypot":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.hypot.js","./modules/es6.math.imul":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.imul.js","./modules/es6.math.log10":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log10.js","./modules/es6.math.log1p":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log1p.js","./modules/es6.math.log2":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log2.js","./modules/es6.math.sign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sign.js","./modules/es6.math.sinh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sinh.js","./modules/es6.math.tanh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.tanh.js","./modules/es6.math.trunc":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.trunc.js","./modules/es6.number.constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.constructor.js","./modules/es6.number.epsilon":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.epsilon.js","./modules/es6.number.is-finite":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-finite.js","./modules/es6.number.is-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-integer.js","./modules/es6.number.is-nan":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-nan.js","./modules/es6.number.is-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-safe-integer.js","./modules/es6.number.max-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.max-safe-integer.js","./modules/es6.number.min-safe-integer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.min-safe-integer.js","./modules/es6.number.parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-float.js","./modules/es6.number.parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-int.js","./modules/es6.number.to-fixed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-fixed.js","./modules/es6.number.to-precision":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-precision.js","./modules/es6.object.assign":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.assign.js","./modules/es6.object.create":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.create.js","./modules/es6.object.define-properties":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-properties.js","./modules/es6.object.define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-property.js","./modules/es6.object.freeze":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.freeze.js","./modules/es6.object.get-own-property-descriptor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js","./modules/es6.object.get-own-property-names":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-names.js","./modules/es6.object.get-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-prototype-of.js","./modules/es6.object.is":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is.js","./modules/es6.object.is-extensible":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-extensible.js","./modules/es6.object.is-frozen":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-frozen.js","./modules/es6.object.is-sealed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-sealed.js","./modules/es6.object.keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.keys.js","./modules/es6.object.prevent-extensions":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.prevent-extensions.js","./modules/es6.object.seal":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.seal.js","./modules/es6.object.set-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.set-prototype-of.js","./modules/es6.object.to-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.to-string.js","./modules/es6.parse-float":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-float.js","./modules/es6.parse-int":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-int.js","./modules/es6.promise":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.promise.js","./modules/es6.reflect.apply":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.apply.js","./modules/es6.reflect.construct":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.construct.js","./modules/es6.reflect.define-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.define-property.js","./modules/es6.reflect.delete-property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.delete-property.js","./modules/es6.reflect.enumerate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.enumerate.js","./modules/es6.reflect.get":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get.js","./modules/es6.reflect.get-own-property-descriptor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js","./modules/es6.reflect.get-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-prototype-of.js","./modules/es6.reflect.has":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.has.js","./modules/es6.reflect.is-extensible":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.is-extensible.js","./modules/es6.reflect.own-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.own-keys.js","./modules/es6.reflect.prevent-extensions":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.prevent-extensions.js","./modules/es6.reflect.set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set.js","./modules/es6.reflect.set-prototype-of":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set-prototype-of.js","./modules/es6.regexp.constructor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.constructor.js","./modules/es6.regexp.flags":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js","./modules/es6.regexp.match":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.match.js","./modules/es6.regexp.replace":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.replace.js","./modules/es6.regexp.search":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.search.js","./modules/es6.regexp.split":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.split.js","./modules/es6.regexp.to-string":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.to-string.js","./modules/es6.set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js","./modules/es6.string.anchor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.anchor.js","./modules/es6.string.big":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.big.js","./modules/es6.string.blink":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.blink.js","./modules/es6.string.bold":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.bold.js","./modules/es6.string.code-point-at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.code-point-at.js","./modules/es6.string.ends-with":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.ends-with.js","./modules/es6.string.fixed":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fixed.js","./modules/es6.string.fontcolor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontcolor.js","./modules/es6.string.fontsize":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontsize.js","./modules/es6.string.from-code-point":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.from-code-point.js","./modules/es6.string.includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.includes.js","./modules/es6.string.italics":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.italics.js","./modules/es6.string.iterator":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.iterator.js","./modules/es6.string.link":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.link.js","./modules/es6.string.raw":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.raw.js","./modules/es6.string.repeat":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.repeat.js","./modules/es6.string.small":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.small.js","./modules/es6.string.starts-with":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.starts-with.js","./modules/es6.string.strike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.strike.js","./modules/es6.string.sub":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sub.js","./modules/es6.string.sup":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sup.js","./modules/es6.string.trim":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.trim.js","./modules/es6.symbol":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.symbol.js","./modules/es6.typed.array-buffer":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.array-buffer.js","./modules/es6.typed.data-view":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.data-view.js","./modules/es6.typed.float32-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float32-array.js","./modules/es6.typed.float64-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float64-array.js","./modules/es6.typed.int16-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int16-array.js","./modules/es6.typed.int32-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int32-array.js","./modules/es6.typed.int8-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int8-array.js","./modules/es6.typed.uint16-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint16-array.js","./modules/es6.typed.uint32-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint32-array.js","./modules/es6.typed.uint8-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-array.js","./modules/es6.typed.uint8-clamped-array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-clamped-array.js","./modules/es6.weak-map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js","./modules/es6.weak-set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-set.js","./modules/es7.array.includes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.array.includes.js","./modules/es7.error.is-error":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.error.is-error.js","./modules/es7.map.to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.map.to-json.js","./modules/es7.math.iaddh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.iaddh.js","./modules/es7.math.imulh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.imulh.js","./modules/es7.math.isubh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.isubh.js","./modules/es7.math.umulh":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.umulh.js","./modules/es7.object.entries":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.entries.js","./modules/es7.object.get-own-property-descriptors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js","./modules/es7.object.values":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.values.js","./modules/es7.reflect.define-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.define-metadata.js","./modules/es7.reflect.delete-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.delete-metadata.js","./modules/es7.reflect.get-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata.js","./modules/es7.reflect.get-metadata-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata-keys.js","./modules/es7.reflect.get-own-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata.js","./modules/es7.reflect.get-own-metadata-keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata-keys.js","./modules/es7.reflect.has-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-metadata.js","./modules/es7.reflect.has-own-metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-own-metadata.js","./modules/es7.reflect.metadata":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.metadata.js","./modules/es7.set.to-json":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.set.to-json.js","./modules/es7.string.at":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.at.js","./modules/es7.string.pad-end":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-end.js","./modules/es7.string.pad-start":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-start.js","./modules/es7.string.trim-left":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-left.js","./modules/es7.string.trim-right":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-right.js","./modules/es7.system.global":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.system.global.js","./modules/web.dom.iterable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.dom.iterable.js","./modules/web.immediate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.immediate.js","./modules/web.timers":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.timers.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/debug/browser.js":[function(require,module,exports){
+},{"./modules/_core":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/_core.js","./modules/es6.array.copy-within":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.copy-within.js","./modules/es6.array.every":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.every.js","./modules/es6.array.fill":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.fill.js","./modules/es6.array.filter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.filter.js","./modules/es6.array.find":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find.js","./modules/es6.array.find-index":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.find-index.js","./modules/es6.array.for-each":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.for-each.js","./modules/es6.array.from":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.from.js","./modules/es6.array.index-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.index-of.js","./modules/es6.array.is-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.is-array.js","./modules/es6.array.iterator":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.iterator.js","./modules/es6.array.join":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.join.js","./modules/es6.array.last-index-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.last-index-of.js","./modules/es6.array.map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.map.js","./modules/es6.array.of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.of.js","./modules/es6.array.reduce":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce.js","./modules/es6.array.reduce-right":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.reduce-right.js","./modules/es6.array.slice":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.slice.js","./modules/es6.array.some":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.some.js","./modules/es6.array.sort":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.sort.js","./modules/es6.array.species":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.array.species.js","./modules/es6.date.now":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.now.js","./modules/es6.date.to-iso-string":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-iso-string.js","./modules/es6.date.to-json":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-json.js","./modules/es6.date.to-primitive":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-primitive.js","./modules/es6.date.to-string":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.date.to-string.js","./modules/es6.function.bind":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.bind.js","./modules/es6.function.has-instance":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.has-instance.js","./modules/es6.function.name":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.function.name.js","./modules/es6.map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.map.js","./modules/es6.math.acosh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.acosh.js","./modules/es6.math.asinh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.asinh.js","./modules/es6.math.atanh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.atanh.js","./modules/es6.math.cbrt":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cbrt.js","./modules/es6.math.clz32":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.clz32.js","./modules/es6.math.cosh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.cosh.js","./modules/es6.math.expm1":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.expm1.js","./modules/es6.math.fround":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.fround.js","./modules/es6.math.hypot":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.hypot.js","./modules/es6.math.imul":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.imul.js","./modules/es6.math.log10":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log10.js","./modules/es6.math.log1p":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log1p.js","./modules/es6.math.log2":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.log2.js","./modules/es6.math.sign":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sign.js","./modules/es6.math.sinh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.sinh.js","./modules/es6.math.tanh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.tanh.js","./modules/es6.math.trunc":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.math.trunc.js","./modules/es6.number.constructor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.constructor.js","./modules/es6.number.epsilon":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.epsilon.js","./modules/es6.number.is-finite":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-finite.js","./modules/es6.number.is-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-integer.js","./modules/es6.number.is-nan":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-nan.js","./modules/es6.number.is-safe-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.is-safe-integer.js","./modules/es6.number.max-safe-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.max-safe-integer.js","./modules/es6.number.min-safe-integer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.min-safe-integer.js","./modules/es6.number.parse-float":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-float.js","./modules/es6.number.parse-int":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.parse-int.js","./modules/es6.number.to-fixed":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-fixed.js","./modules/es6.number.to-precision":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.number.to-precision.js","./modules/es6.object.assign":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.assign.js","./modules/es6.object.create":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.create.js","./modules/es6.object.define-properties":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-properties.js","./modules/es6.object.define-property":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.define-property.js","./modules/es6.object.freeze":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.freeze.js","./modules/es6.object.get-own-property-descriptor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-descriptor.js","./modules/es6.object.get-own-property-names":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-own-property-names.js","./modules/es6.object.get-prototype-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.get-prototype-of.js","./modules/es6.object.is":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is.js","./modules/es6.object.is-extensible":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-extensible.js","./modules/es6.object.is-frozen":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-frozen.js","./modules/es6.object.is-sealed":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.is-sealed.js","./modules/es6.object.keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.keys.js","./modules/es6.object.prevent-extensions":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.prevent-extensions.js","./modules/es6.object.seal":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.seal.js","./modules/es6.object.set-prototype-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.set-prototype-of.js","./modules/es6.object.to-string":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.object.to-string.js","./modules/es6.parse-float":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-float.js","./modules/es6.parse-int":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.parse-int.js","./modules/es6.promise":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.promise.js","./modules/es6.reflect.apply":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.apply.js","./modules/es6.reflect.construct":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.construct.js","./modules/es6.reflect.define-property":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.define-property.js","./modules/es6.reflect.delete-property":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.delete-property.js","./modules/es6.reflect.enumerate":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.enumerate.js","./modules/es6.reflect.get":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get.js","./modules/es6.reflect.get-own-property-descriptor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-own-property-descriptor.js","./modules/es6.reflect.get-prototype-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.get-prototype-of.js","./modules/es6.reflect.has":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.has.js","./modules/es6.reflect.is-extensible":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.is-extensible.js","./modules/es6.reflect.own-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.own-keys.js","./modules/es6.reflect.prevent-extensions":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.prevent-extensions.js","./modules/es6.reflect.set":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set.js","./modules/es6.reflect.set-prototype-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.reflect.set-prototype-of.js","./modules/es6.regexp.constructor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.constructor.js","./modules/es6.regexp.flags":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.flags.js","./modules/es6.regexp.match":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.match.js","./modules/es6.regexp.replace":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.replace.js","./modules/es6.regexp.search":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.search.js","./modules/es6.regexp.split":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.split.js","./modules/es6.regexp.to-string":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.regexp.to-string.js","./modules/es6.set":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.set.js","./modules/es6.string.anchor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.anchor.js","./modules/es6.string.big":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.big.js","./modules/es6.string.blink":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.blink.js","./modules/es6.string.bold":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.bold.js","./modules/es6.string.code-point-at":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.code-point-at.js","./modules/es6.string.ends-with":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.ends-with.js","./modules/es6.string.fixed":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fixed.js","./modules/es6.string.fontcolor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontcolor.js","./modules/es6.string.fontsize":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.fontsize.js","./modules/es6.string.from-code-point":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.from-code-point.js","./modules/es6.string.includes":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.includes.js","./modules/es6.string.italics":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.italics.js","./modules/es6.string.iterator":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.iterator.js","./modules/es6.string.link":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.link.js","./modules/es6.string.raw":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.raw.js","./modules/es6.string.repeat":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.repeat.js","./modules/es6.string.small":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.small.js","./modules/es6.string.starts-with":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.starts-with.js","./modules/es6.string.strike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.strike.js","./modules/es6.string.sub":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sub.js","./modules/es6.string.sup":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.sup.js","./modules/es6.string.trim":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.string.trim.js","./modules/es6.symbol":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.symbol.js","./modules/es6.typed.array-buffer":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.array-buffer.js","./modules/es6.typed.data-view":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.data-view.js","./modules/es6.typed.float32-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float32-array.js","./modules/es6.typed.float64-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.float64-array.js","./modules/es6.typed.int16-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int16-array.js","./modules/es6.typed.int32-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int32-array.js","./modules/es6.typed.int8-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.int8-array.js","./modules/es6.typed.uint16-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint16-array.js","./modules/es6.typed.uint32-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint32-array.js","./modules/es6.typed.uint8-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-array.js","./modules/es6.typed.uint8-clamped-array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.typed.uint8-clamped-array.js","./modules/es6.weak-map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-map.js","./modules/es6.weak-set":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es6.weak-set.js","./modules/es7.array.includes":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.array.includes.js","./modules/es7.error.is-error":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.error.is-error.js","./modules/es7.map.to-json":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.map.to-json.js","./modules/es7.math.iaddh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.iaddh.js","./modules/es7.math.imulh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.imulh.js","./modules/es7.math.isubh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.isubh.js","./modules/es7.math.umulh":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.math.umulh.js","./modules/es7.object.define-getter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.define-getter.js","./modules/es7.object.define-setter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.define-setter.js","./modules/es7.object.entries":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.entries.js","./modules/es7.object.get-own-property-descriptors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.get-own-property-descriptors.js","./modules/es7.object.lookup-getter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.lookup-getter.js","./modules/es7.object.lookup-setter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.lookup-setter.js","./modules/es7.object.values":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.object.values.js","./modules/es7.reflect.define-metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.define-metadata.js","./modules/es7.reflect.delete-metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.delete-metadata.js","./modules/es7.reflect.get-metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata.js","./modules/es7.reflect.get-metadata-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-metadata-keys.js","./modules/es7.reflect.get-own-metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata.js","./modules/es7.reflect.get-own-metadata-keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.get-own-metadata-keys.js","./modules/es7.reflect.has-metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-metadata.js","./modules/es7.reflect.has-own-metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.has-own-metadata.js","./modules/es7.reflect.metadata":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.reflect.metadata.js","./modules/es7.set.to-json":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.set.to-json.js","./modules/es7.string.at":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.at.js","./modules/es7.string.match-all":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.match-all.js","./modules/es7.string.pad-end":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-end.js","./modules/es7.string.pad-start":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.pad-start.js","./modules/es7.string.trim-left":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-left.js","./modules/es7.string.trim-right":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.string.trim-right.js","./modules/es7.system.global":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/es7.system.global.js","./modules/web.dom.iterable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.dom.iterable.js","./modules/web.immediate":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.immediate.js","./modules/web.timers":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/core-js/modules/web.timers.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/browser.js":[function(require,module,exports){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -6495,7 +6621,7 @@ function localstorage(){
   } catch (e) {}
 }
 
-},{"./debug":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/debug/debug.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/debug/debug.js":[function(require,module,exports){
+},{"./debug":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/debug.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/debug.js":[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -6694,18 +6820,18 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/ms/index.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/feathers-errors/lib/index.js":[function(require,module,exports){
+},{"ms":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/ms/index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-errors/lib/index.js":[function(require,module,exports){
 'use strict';
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6747,7 +6873,7 @@ var debug = require('debug')('feathers-errors');
 // http://stackoverflow.com/questions/33870684/why-doesnt-instanceof-work-on-instances-of-error-subclasses-under-babel-node
 // https://github.com/loganfsmyth/babel-plugin-transform-builtin-extend
 
-var FeathersError = (function (_extendableBuiltin2) {
+var FeathersError = function (_extendableBuiltin2) {
   _inherits(FeathersError, _extendableBuiltin2);
 
   function FeathersError(msg, name, code, className, data) {
@@ -6810,6 +6936,7 @@ var FeathersError = (function (_extendableBuiltin2) {
   // NOTE (EK): A little hack to get around `message` not
   // being included in the default toJSON call.
 
+
   _createClass(FeathersError, [{
     key: 'toJSON',
     value: function toJSON() {
@@ -6825,9 +6952,9 @@ var FeathersError = (function (_extendableBuiltin2) {
   }]);
 
   return FeathersError;
-})(_extendableBuiltin(Error));
+}(_extendableBuiltin(Error));
 
-var BadRequest = (function (_FeathersError) {
+var BadRequest = function (_FeathersError) {
   _inherits(BadRequest, _FeathersError);
 
   function BadRequest(message, data) {
@@ -6837,9 +6964,9 @@ var BadRequest = (function (_FeathersError) {
   }
 
   return BadRequest;
-})(FeathersError);
+}(FeathersError);
 
-var NotAuthenticated = (function (_FeathersError2) {
+var NotAuthenticated = function (_FeathersError2) {
   _inherits(NotAuthenticated, _FeathersError2);
 
   function NotAuthenticated(message, data) {
@@ -6849,9 +6976,9 @@ var NotAuthenticated = (function (_FeathersError2) {
   }
 
   return NotAuthenticated;
-})(FeathersError);
+}(FeathersError);
 
-var PaymentError = (function (_FeathersError3) {
+var PaymentError = function (_FeathersError3) {
   _inherits(PaymentError, _FeathersError3);
 
   function PaymentError(message, data) {
@@ -6861,9 +6988,9 @@ var PaymentError = (function (_FeathersError3) {
   }
 
   return PaymentError;
-})(FeathersError);
+}(FeathersError);
 
-var Forbidden = (function (_FeathersError4) {
+var Forbidden = function (_FeathersError4) {
   _inherits(Forbidden, _FeathersError4);
 
   function Forbidden(message, data) {
@@ -6873,9 +7000,9 @@ var Forbidden = (function (_FeathersError4) {
   }
 
   return Forbidden;
-})(FeathersError);
+}(FeathersError);
 
-var NotFound = (function (_FeathersError5) {
+var NotFound = function (_FeathersError5) {
   _inherits(NotFound, _FeathersError5);
 
   function NotFound(message, data) {
@@ -6885,9 +7012,9 @@ var NotFound = (function (_FeathersError5) {
   }
 
   return NotFound;
-})(FeathersError);
+}(FeathersError);
 
-var MethodNotAllowed = (function (_FeathersError6) {
+var MethodNotAllowed = function (_FeathersError6) {
   _inherits(MethodNotAllowed, _FeathersError6);
 
   function MethodNotAllowed(message, data) {
@@ -6897,9 +7024,9 @@ var MethodNotAllowed = (function (_FeathersError6) {
   }
 
   return MethodNotAllowed;
-})(FeathersError);
+}(FeathersError);
 
-var NotAcceptable = (function (_FeathersError7) {
+var NotAcceptable = function (_FeathersError7) {
   _inherits(NotAcceptable, _FeathersError7);
 
   function NotAcceptable(message, data) {
@@ -6909,9 +7036,9 @@ var NotAcceptable = (function (_FeathersError7) {
   }
 
   return NotAcceptable;
-})(FeathersError);
+}(FeathersError);
 
-var Timeout = (function (_FeathersError8) {
+var Timeout = function (_FeathersError8) {
   _inherits(Timeout, _FeathersError8);
 
   function Timeout(message, data) {
@@ -6921,9 +7048,9 @@ var Timeout = (function (_FeathersError8) {
   }
 
   return Timeout;
-})(FeathersError);
+}(FeathersError);
 
-var Conflict = (function (_FeathersError9) {
+var Conflict = function (_FeathersError9) {
   _inherits(Conflict, _FeathersError9);
 
   function Conflict(message, data) {
@@ -6933,9 +7060,9 @@ var Conflict = (function (_FeathersError9) {
   }
 
   return Conflict;
-})(FeathersError);
+}(FeathersError);
 
-var Unprocessable = (function (_FeathersError10) {
+var Unprocessable = function (_FeathersError10) {
   _inherits(Unprocessable, _FeathersError10);
 
   function Unprocessable(message, data) {
@@ -6945,9 +7072,9 @@ var Unprocessable = (function (_FeathersError10) {
   }
 
   return Unprocessable;
-})(FeathersError);
+}(FeathersError);
 
-var GeneralError = (function (_FeathersError11) {
+var GeneralError = function (_FeathersError11) {
   _inherits(GeneralError, _FeathersError11);
 
   function GeneralError(message, data) {
@@ -6957,9 +7084,9 @@ var GeneralError = (function (_FeathersError11) {
   }
 
   return GeneralError;
-})(FeathersError);
+}(FeathersError);
 
-var NotImplemented = (function (_FeathersError12) {
+var NotImplemented = function (_FeathersError12) {
   _inherits(NotImplemented, _FeathersError12);
 
   function NotImplemented(message, data) {
@@ -6969,9 +7096,9 @@ var NotImplemented = (function (_FeathersError12) {
   }
 
   return NotImplemented;
-})(FeathersError);
+}(FeathersError);
 
-var Unavailable = (function (_FeathersError13) {
+var Unavailable = function (_FeathersError13) {
   _inherits(Unavailable, _FeathersError13);
 
   function Unavailable(message, data) {
@@ -6981,7 +7108,7 @@ var Unavailable = (function (_FeathersError13) {
   }
 
   return Unavailable;
-})(FeathersError);
+}(FeathersError);
 
 var errors = {
   FeathersError: FeathersError,
@@ -7002,7 +7129,7 @@ var errors = {
 
 exports.default = _extends({ types: errors, errors: errors }, errors);
 module.exports = exports['default'];
-},{"debug":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/debug/browser.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/feathers-memory/lib/index.js":[function(require,module,exports){
+},{"debug":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/browser.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-memory/lib/index.js":[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -7259,7 +7386,7 @@ function init(options) {
 init.Service = Service;
 module.exports = exports['default'];
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./utils":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/feathers-memory/lib/utils.js","babel-polyfill":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/babel-polyfill/lib/index.js","feathers-errors":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/feathers-errors/lib/index.js","feathers-query-filters":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js","lodash/extend":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/extend.js","lodash/filter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/filter.js","lodash/isEmpty":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isEmpty.js","lodash/omit":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/omit.js","lodash/pick":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/pick.js","lodash/values":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/values.js","uberproto":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/feathers-memory/lib/utils.js":[function(require,module,exports){
+},{"./utils":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-memory/lib/utils.js","babel-polyfill":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/babel-polyfill/lib/index.js","feathers-errors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-errors/lib/index.js","feathers-query-filters":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js","lodash/extend":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/extend.js","lodash/filter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/filter.js","lodash/isEmpty":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isEmpty.js","lodash/omit":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/omit.js","lodash/pick":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/pick.js","lodash/values":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/values.js","uberproto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-memory/lib/utils.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7354,7 +7481,7 @@ function sorter($sort) {
     return comparator;
   };
 }
-},{"lodash/each":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/each.js","lodash/isMatch":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isMatch.js","lodash/isObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js","lodash/some":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/some.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js":[function(require,module,exports){
+},{"lodash/each":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/each.js","lodash/isMatch":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isMatch.js","lodash/isObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js","lodash/some":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/some.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7401,7 +7528,7 @@ function getLimit(limit, paginate) {
 }
 
 module.exports = exports['default'];
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Hash.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Hash.js":[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 /** Used for built-in method references. */
@@ -7421,7 +7548,7 @@ Hash.prototype = nativeCreate ? nativeCreate(null) : objectProto;
 
 module.exports = Hash;
 
-},{"./_nativeCreate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js":[function(require,module,exports){
+},{"./_nativeCreate":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js":[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -7430,7 +7557,7 @@ var Map = getNative(root, 'Map');
 
 module.exports = Map;
 
-},{"./_getNative":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js","./_root":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_MapCache.js":[function(require,module,exports){
+},{"./_getNative":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js","./_root":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_MapCache.js":[function(require,module,exports){
 var mapClear = require('./_mapClear'),
     mapDelete = require('./_mapDelete'),
     mapGet = require('./_mapGet'),
@@ -7464,7 +7591,7 @@ MapCache.prototype.set = mapSet;
 
 module.exports = MapCache;
 
-},{"./_mapClear":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapClear.js","./_mapDelete":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapDelete.js","./_mapGet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapGet.js","./_mapHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapHas.js","./_mapSet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapSet.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Reflect.js":[function(require,module,exports){
+},{"./_mapClear":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapClear.js","./_mapDelete":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapDelete.js","./_mapGet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapGet.js","./_mapHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapHas.js","./_mapSet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapSet.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Reflect.js":[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -7472,7 +7599,7 @@ var Reflect = root.Reflect;
 
 module.exports = Reflect;
 
-},{"./_root":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Set.js":[function(require,module,exports){
+},{"./_root":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Set.js":[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -7481,7 +7608,7 @@ var Set = getNative(root, 'Set');
 
 module.exports = Set;
 
-},{"./_getNative":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js","./_root":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_SetCache.js":[function(require,module,exports){
+},{"./_getNative":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js","./_root":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_SetCache.js":[function(require,module,exports){
 var MapCache = require('./_MapCache'),
     cachePush = require('./_cachePush');
 
@@ -7508,7 +7635,7 @@ SetCache.prototype.push = cachePush;
 
 module.exports = SetCache;
 
-},{"./_MapCache":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_MapCache.js","./_cachePush":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_cachePush.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Stack.js":[function(require,module,exports){
+},{"./_MapCache":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_MapCache.js","./_cachePush":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_cachePush.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Stack.js":[function(require,module,exports){
 var stackClear = require('./_stackClear'),
     stackDelete = require('./_stackDelete'),
     stackGet = require('./_stackGet'),
@@ -7542,7 +7669,7 @@ Stack.prototype.set = stackSet;
 
 module.exports = Stack;
 
-},{"./_stackClear":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackClear.js","./_stackDelete":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackDelete.js","./_stackGet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackGet.js","./_stackHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackHas.js","./_stackSet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackSet.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Symbol.js":[function(require,module,exports){
+},{"./_stackClear":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackClear.js","./_stackDelete":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackDelete.js","./_stackGet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackGet.js","./_stackHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackHas.js","./_stackSet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackSet.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Symbol.js":[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -7550,7 +7677,7 @@ var Symbol = root.Symbol;
 
 module.exports = Symbol;
 
-},{"./_root":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Uint8Array.js":[function(require,module,exports){
+},{"./_root":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Uint8Array.js":[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -7558,7 +7685,7 @@ var Uint8Array = root.Uint8Array;
 
 module.exports = Uint8Array;
 
-},{"./_root":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_WeakMap.js":[function(require,module,exports){
+},{"./_root":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_WeakMap.js":[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -7567,7 +7694,7 @@ var WeakMap = getNative(root, 'WeakMap');
 
 module.exports = WeakMap;
 
-},{"./_getNative":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js","./_root":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_apply.js":[function(require,module,exports){
+},{"./_getNative":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js","./_root":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_apply.js":[function(require,module,exports){
 /**
  * A faster alternative to `Function#apply`, this function invokes `func`
  * with the `this` binding of `thisArg` and the arguments of `args`.
@@ -7591,7 +7718,7 @@ function apply(func, thisArg, args) {
 
 module.exports = apply;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayEach.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayEach.js":[function(require,module,exports){
 /**
  * A specialized version of `_.forEach` for arrays without support for
  * iteratee shorthands.
@@ -7615,7 +7742,7 @@ function arrayEach(array, iteratee) {
 
 module.exports = arrayEach;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayFilter.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayFilter.js":[function(require,module,exports){
 /**
  * A specialized version of `_.filter` for arrays without support for
  * iteratee shorthands.
@@ -7642,7 +7769,7 @@ function arrayFilter(array, predicate) {
 
 module.exports = arrayFilter;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludes.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludes.js":[function(require,module,exports){
 var baseIndexOf = require('./_baseIndexOf');
 
 /**
@@ -7660,7 +7787,7 @@ function arrayIncludes(array, value) {
 
 module.exports = arrayIncludes;
 
-},{"./_baseIndexOf":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIndexOf.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludesWith.js":[function(require,module,exports){
+},{"./_baseIndexOf":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIndexOf.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludesWith.js":[function(require,module,exports){
 /**
  * This function is like `arrayIncludes` except that it accepts a comparator.
  *
@@ -7684,7 +7811,7 @@ function arrayIncludesWith(array, value, comparator) {
 
 module.exports = arrayIncludesWith;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js":[function(require,module,exports){
 /**
  * A specialized version of `_.map` for arrays without support for iteratee
  * shorthands.
@@ -7707,7 +7834,7 @@ function arrayMap(array, iteratee) {
 
 module.exports = arrayMap;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayPush.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayPush.js":[function(require,module,exports){
 /**
  * Appends the elements of `values` to `array`.
  *
@@ -7729,7 +7856,7 @@ function arrayPush(array, values) {
 
 module.exports = arrayPush;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayReduce.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayReduce.js":[function(require,module,exports){
 /**
  * A specialized version of `_.reduce` for arrays without support for
  * iteratee shorthands.
@@ -7756,7 +7883,7 @@ function arrayReduce(array, iteratee, accumulator, initAccum) {
 
 module.exports = arrayReduce;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arraySome.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arraySome.js":[function(require,module,exports){
 /**
  * A specialized version of `_.some` for arrays without support for iteratee
  * shorthands.
@@ -7780,7 +7907,7 @@ function arraySome(array, predicate) {
 
 module.exports = arraySome;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assignValue.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assignValue.js":[function(require,module,exports){
 var eq = require('./eq');
 
 /** Used for built-in method references. */
@@ -7809,7 +7936,7 @@ function assignValue(object, key, value) {
 
 module.exports = assignValue;
 
-},{"./eq":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocDelete.js":[function(require,module,exports){
+},{"./eq":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocDelete.js":[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 /** Used for built-in method references. */
@@ -7842,7 +7969,7 @@ function assocDelete(array, key) {
 
 module.exports = assocDelete;
 
-},{"./_assocIndexOf":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocGet.js":[function(require,module,exports){
+},{"./_assocIndexOf":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocGet.js":[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 /**
@@ -7860,7 +7987,7 @@ function assocGet(array, key) {
 
 module.exports = assocGet;
 
-},{"./_assocIndexOf":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocHas.js":[function(require,module,exports){
+},{"./_assocIndexOf":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocHas.js":[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 /**
@@ -7877,7 +8004,7 @@ function assocHas(array, key) {
 
 module.exports = assocHas;
 
-},{"./_assocIndexOf":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js":[function(require,module,exports){
+},{"./_assocIndexOf":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js":[function(require,module,exports){
 var eq = require('./eq');
 
 /**
@@ -7901,7 +8028,7 @@ function assocIndexOf(array, key) {
 
 module.exports = assocIndexOf;
 
-},{"./eq":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocSet.js":[function(require,module,exports){
+},{"./eq":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocSet.js":[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 /**
@@ -7923,7 +8050,7 @@ function assocSet(array, key, value) {
 
 module.exports = assocSet;
 
-},{"./_assocIndexOf":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastFunction.js":[function(require,module,exports){
+},{"./_assocIndexOf":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocIndexOf.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastFunction.js":[function(require,module,exports){
 var identity = require('./identity');
 
 /**
@@ -7939,7 +8066,7 @@ function baseCastFunction(value) {
 
 module.exports = baseCastFunction;
 
-},{"./identity":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/identity.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastPath.js":[function(require,module,exports){
+},{"./identity":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/identity.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastPath.js":[function(require,module,exports){
 var isArray = require('./isArray'),
     stringToPath = require('./_stringToPath');
 
@@ -7956,7 +8083,7 @@ function baseCastPath(value) {
 
 module.exports = baseCastPath;
 
-},{"./_stringToPath":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stringToPath.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseDifference.js":[function(require,module,exports){
+},{"./_stringToPath":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stringToPath.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseDifference.js":[function(require,module,exports){
 var SetCache = require('./_SetCache'),
     arrayIncludes = require('./_arrayIncludes'),
     arrayIncludesWith = require('./_arrayIncludesWith'),
@@ -8024,7 +8151,7 @@ function baseDifference(array, values, iteratee, comparator) {
 
 module.exports = baseDifference;
 
-},{"./_SetCache":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_SetCache.js","./_arrayIncludes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludes.js","./_arrayIncludesWith":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludesWith.js","./_arrayMap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js","./_baseUnary":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseUnary.js","./_cacheHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_cacheHas.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseEach.js":[function(require,module,exports){
+},{"./_SetCache":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_SetCache.js","./_arrayIncludes":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludes.js","./_arrayIncludesWith":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayIncludesWith.js","./_arrayMap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js","./_baseUnary":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseUnary.js","./_cacheHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_cacheHas.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseEach.js":[function(require,module,exports){
 var baseForOwn = require('./_baseForOwn'),
     createBaseEach = require('./_createBaseEach');
 
@@ -8040,7 +8167,7 @@ var baseEach = createBaseEach(baseForOwn);
 
 module.exports = baseEach;
 
-},{"./_baseForOwn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseForOwn.js","./_createBaseEach":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createBaseEach.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFilter.js":[function(require,module,exports){
+},{"./_baseForOwn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseForOwn.js","./_createBaseEach":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createBaseEach.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFilter.js":[function(require,module,exports){
 var baseEach = require('./_baseEach');
 
 /**
@@ -8063,7 +8190,7 @@ function baseFilter(collection, predicate) {
 
 module.exports = baseFilter;
 
-},{"./_baseEach":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseEach.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFlatten.js":[function(require,module,exports){
+},{"./_baseEach":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseEach.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFlatten.js":[function(require,module,exports){
 var arrayPush = require('./_arrayPush'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray'),
@@ -8104,7 +8231,7 @@ function baseFlatten(array, depth, isStrict, result) {
 
 module.exports = baseFlatten;
 
-},{"./_arrayPush":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayPush.js","./isArguments":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isArrayLikeObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLikeObject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFor.js":[function(require,module,exports){
+},{"./_arrayPush":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayPush.js","./isArguments":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isArrayLikeObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLikeObject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFor.js":[function(require,module,exports){
 var createBaseFor = require('./_createBaseFor');
 
 /**
@@ -8123,7 +8250,7 @@ var baseFor = createBaseFor();
 
 module.exports = baseFor;
 
-},{"./_createBaseFor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createBaseFor.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseForOwn.js":[function(require,module,exports){
+},{"./_createBaseFor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createBaseFor.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseForOwn.js":[function(require,module,exports){
 var baseFor = require('./_baseFor'),
     keys = require('./keys');
 
@@ -8141,7 +8268,7 @@ function baseForOwn(object, iteratee) {
 
 module.exports = baseForOwn;
 
-},{"./_baseFor":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFor.js","./keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseGet.js":[function(require,module,exports){
+},{"./_baseFor":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFor.js","./keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseGet.js":[function(require,module,exports){
 var baseCastPath = require('./_baseCastPath'),
     isKey = require('./_isKey');
 
@@ -8167,7 +8294,7 @@ function baseGet(object, path) {
 
 module.exports = baseGet;
 
-},{"./_baseCastPath":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastPath.js","./_isKey":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKey.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHas.js":[function(require,module,exports){
+},{"./_baseCastPath":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastPath.js","./_isKey":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKey.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHas.js":[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -8195,7 +8322,7 @@ function baseHas(object, key) {
 
 module.exports = baseHas;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHasIn.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHasIn.js":[function(require,module,exports){
 /**
  * The base implementation of `_.hasIn` without support for deep paths.
  *
@@ -8210,7 +8337,7 @@ function baseHasIn(object, key) {
 
 module.exports = baseHasIn;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIndexOf.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIndexOf.js":[function(require,module,exports){
 var indexOfNaN = require('./_indexOfNaN');
 
 /**
@@ -8239,7 +8366,7 @@ function baseIndexOf(array, value, fromIndex) {
 
 module.exports = baseIndexOf;
 
-},{"./_indexOfNaN":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexOfNaN.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqual.js":[function(require,module,exports){
+},{"./_indexOfNaN":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexOfNaN.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqual.js":[function(require,module,exports){
 var baseIsEqualDeep = require('./_baseIsEqualDeep'),
     isObject = require('./isObject'),
     isObjectLike = require('./isObjectLike');
@@ -8271,7 +8398,7 @@ function baseIsEqual(value, other, customizer, bitmask, stack) {
 
 module.exports = baseIsEqual;
 
-},{"./_baseIsEqualDeep":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqualDeep.js","./isObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js","./isObjectLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqualDeep.js":[function(require,module,exports){
+},{"./_baseIsEqualDeep":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqualDeep.js","./isObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js","./isObjectLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqualDeep.js":[function(require,module,exports){
 var Stack = require('./_Stack'),
     equalArrays = require('./_equalArrays'),
     equalByTag = require('./_equalByTag'),
@@ -8351,7 +8478,7 @@ function baseIsEqualDeep(object, other, equalFunc, customizer, bitmask, stack) {
 
 module.exports = baseIsEqualDeep;
 
-},{"./_Stack":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Stack.js","./_equalArrays":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalArrays.js","./_equalByTag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalByTag.js","./_equalObjects":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalObjects.js","./_getTag":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getTag.js","./_isHostObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isHostObject.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isTypedArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isTypedArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsMatch.js":[function(require,module,exports){
+},{"./_Stack":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Stack.js","./_equalArrays":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalArrays.js","./_equalByTag":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalByTag.js","./_equalObjects":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalObjects.js","./_getTag":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getTag.js","./_isHostObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isHostObject.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isTypedArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isTypedArray.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsMatch.js":[function(require,module,exports){
 var Stack = require('./_Stack'),
     baseIsEqual = require('./_baseIsEqual');
 
@@ -8414,7 +8541,7 @@ function baseIsMatch(object, source, matchData, customizer) {
 
 module.exports = baseIsMatch;
 
-},{"./_Stack":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Stack.js","./_baseIsEqual":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqual.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIteratee.js":[function(require,module,exports){
+},{"./_Stack":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Stack.js","./_baseIsEqual":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqual.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIteratee.js":[function(require,module,exports){
 var baseMatches = require('./_baseMatches'),
     baseMatchesProperty = require('./_baseMatchesProperty'),
     identity = require('./identity'),
@@ -8446,7 +8573,7 @@ function baseIteratee(value) {
 
 module.exports = baseIteratee;
 
-},{"./_baseMatches":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseMatches.js","./_baseMatchesProperty":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseMatchesProperty.js","./identity":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/identity.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./property":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/property.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseKeys.js":[function(require,module,exports){
+},{"./_baseMatches":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseMatches.js","./_baseMatchesProperty":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseMatchesProperty.js","./identity":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/identity.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./property":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/property.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseKeys.js":[function(require,module,exports){
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeKeys = Object.keys;
 
@@ -8464,7 +8591,7 @@ function baseKeys(object) {
 
 module.exports = baseKeys;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseKeysIn.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseKeysIn.js":[function(require,module,exports){
 var Reflect = require('./_Reflect'),
     iteratorToArray = require('./_iteratorToArray');
 
@@ -8502,7 +8629,7 @@ if (enumerate && !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf')) {
 
 module.exports = baseKeysIn;
 
-},{"./_Reflect":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Reflect.js","./_iteratorToArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_iteratorToArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseMatches.js":[function(require,module,exports){
+},{"./_Reflect":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Reflect.js","./_iteratorToArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_iteratorToArray.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseMatches.js":[function(require,module,exports){
 var baseIsMatch = require('./_baseIsMatch'),
     getMatchData = require('./_getMatchData');
 
@@ -8534,7 +8661,7 @@ function baseMatches(source) {
 
 module.exports = baseMatches;
 
-},{"./_baseIsMatch":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsMatch.js","./_getMatchData":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getMatchData.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseMatchesProperty.js":[function(require,module,exports){
+},{"./_baseIsMatch":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsMatch.js","./_getMatchData":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getMatchData.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseMatchesProperty.js":[function(require,module,exports){
 var baseIsEqual = require('./_baseIsEqual'),
     get = require('./get'),
     hasIn = require('./hasIn');
@@ -8562,7 +8689,7 @@ function baseMatchesProperty(path, srcValue) {
 
 module.exports = baseMatchesProperty;
 
-},{"./_baseIsEqual":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqual.js","./get":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/get.js","./hasIn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/hasIn.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePick.js":[function(require,module,exports){
+},{"./_baseIsEqual":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsEqual.js","./get":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/get.js","./hasIn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/hasIn.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePick.js":[function(require,module,exports){
 var arrayReduce = require('./_arrayReduce');
 
 /**
@@ -8586,7 +8713,7 @@ function basePick(object, props) {
 
 module.exports = basePick;
 
-},{"./_arrayReduce":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayReduce.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseProperty.js":[function(require,module,exports){
+},{"./_arrayReduce":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayReduce.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseProperty.js":[function(require,module,exports){
 /**
  * The base implementation of `_.property` without support for deep paths.
  *
@@ -8602,7 +8729,7 @@ function baseProperty(key) {
 
 module.exports = baseProperty;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePropertyDeep.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePropertyDeep.js":[function(require,module,exports){
 var baseGet = require('./_baseGet');
 
 /**
@@ -8620,7 +8747,7 @@ function basePropertyDeep(path) {
 
 module.exports = basePropertyDeep;
 
-},{"./_baseGet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseGet.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseSlice.js":[function(require,module,exports){
+},{"./_baseGet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseGet.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseSlice.js":[function(require,module,exports){
 /**
  * The base implementation of `_.slice` without an iteratee call guard.
  *
@@ -8653,7 +8780,7 @@ function baseSlice(array, start, end) {
 
 module.exports = baseSlice;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseSome.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseSome.js":[function(require,module,exports){
 var baseEach = require('./_baseEach');
 
 /**
@@ -8676,7 +8803,7 @@ function baseSome(collection, predicate) {
 
 module.exports = baseSome;
 
-},{"./_baseEach":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseEach.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseTimes.js":[function(require,module,exports){
+},{"./_baseEach":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseEach.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseTimes.js":[function(require,module,exports){
 /**
  * The base implementation of `_.times` without support for iteratee shorthands
  * or max array length checks.
@@ -8698,7 +8825,7 @@ function baseTimes(n, iteratee) {
 
 module.exports = baseTimes;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseToPairs.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseToPairs.js":[function(require,module,exports){
 var arrayMap = require('./_arrayMap');
 
 /**
@@ -8718,7 +8845,7 @@ function baseToPairs(object, props) {
 
 module.exports = baseToPairs;
 
-},{"./_arrayMap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseUnary.js":[function(require,module,exports){
+},{"./_arrayMap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseUnary.js":[function(require,module,exports){
 /**
  * The base implementation of `_.unary` without support for storing wrapper metadata.
  *
@@ -8734,7 +8861,7 @@ function baseUnary(func) {
 
 module.exports = baseUnary;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseValues.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseValues.js":[function(require,module,exports){
 var arrayMap = require('./_arrayMap');
 
 /**
@@ -8755,7 +8882,7 @@ function baseValues(object, props) {
 
 module.exports = baseValues;
 
-},{"./_arrayMap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_cacheHas.js":[function(require,module,exports){
+},{"./_arrayMap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_cacheHas.js":[function(require,module,exports){
 var isKeyable = require('./_isKeyable');
 
 /** Used to stand-in for `undefined` hash values. */
@@ -8782,7 +8909,7 @@ function cacheHas(cache, value) {
 
 module.exports = cacheHas;
 
-},{"./_isKeyable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_cachePush.js":[function(require,module,exports){
+},{"./_isKeyable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_cachePush.js":[function(require,module,exports){
 var isKeyable = require('./_isKeyable');
 
 /** Used to stand-in for `undefined` hash values. */
@@ -8811,7 +8938,7 @@ function cachePush(value) {
 
 module.exports = cachePush;
 
-},{"./_isKeyable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_checkGlobal.js":[function(require,module,exports){
+},{"./_isKeyable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_checkGlobal.js":[function(require,module,exports){
 /**
  * Checks if `value` is a global object.
  *
@@ -8825,7 +8952,7 @@ function checkGlobal(value) {
 
 module.exports = checkGlobal;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObject.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObject.js":[function(require,module,exports){
 var copyObjectWith = require('./_copyObjectWith');
 
 /**
@@ -8843,7 +8970,7 @@ function copyObject(source, props, object) {
 
 module.exports = copyObject;
 
-},{"./_copyObjectWith":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObjectWith.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObjectWith.js":[function(require,module,exports){
+},{"./_copyObjectWith":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObjectWith.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObjectWith.js":[function(require,module,exports){
 var assignValue = require('./_assignValue');
 
 /**
@@ -8877,7 +9004,7 @@ function copyObjectWith(source, props, object, customizer) {
 
 module.exports = copyObjectWith;
 
-},{"./_assignValue":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assignValue.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createAssigner.js":[function(require,module,exports){
+},{"./_assignValue":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assignValue.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createAssigner.js":[function(require,module,exports){
 var isIterateeCall = require('./_isIterateeCall'),
     rest = require('./rest');
 
@@ -8916,7 +9043,7 @@ function createAssigner(assigner) {
 
 module.exports = createAssigner;
 
-},{"./_isIterateeCall":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIterateeCall.js","./rest":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/rest.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createBaseEach.js":[function(require,module,exports){
+},{"./_isIterateeCall":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIterateeCall.js","./rest":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/rest.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createBaseEach.js":[function(require,module,exports){
 var isArrayLike = require('./isArrayLike');
 
 /**
@@ -8950,7 +9077,7 @@ function createBaseEach(eachFunc, fromRight) {
 
 module.exports = createBaseEach;
 
-},{"./isArrayLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createBaseFor.js":[function(require,module,exports){
+},{"./isArrayLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createBaseFor.js":[function(require,module,exports){
 /**
  * Creates a base function for methods like `_.forIn`.
  *
@@ -8977,7 +9104,7 @@ function createBaseFor(fromRight) {
 
 module.exports = createBaseFor;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalArrays.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalArrays.js":[function(require,module,exports){
 var arraySome = require('./_arraySome');
 
 /** Used to compose bitmasks for comparison styles. */
@@ -9051,7 +9178,7 @@ function equalArrays(array, other, equalFunc, customizer, bitmask, stack) {
 
 module.exports = equalArrays;
 
-},{"./_arraySome":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arraySome.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalByTag.js":[function(require,module,exports){
+},{"./_arraySome":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arraySome.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalByTag.js":[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     Uint8Array = require('./_Uint8Array'),
     equalArrays = require('./_equalArrays'),
@@ -9152,7 +9279,7 @@ function equalByTag(object, other, tag, equalFunc, customizer, bitmask, stack) {
 
 module.exports = equalByTag;
 
-},{"./_Symbol":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Symbol.js","./_Uint8Array":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Uint8Array.js","./_equalArrays":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalArrays.js","./_mapToArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapToArray.js","./_setToArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_setToArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalObjects.js":[function(require,module,exports){
+},{"./_Symbol":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Symbol.js","./_Uint8Array":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Uint8Array.js","./_equalArrays":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalArrays.js","./_mapToArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapToArray.js","./_setToArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_setToArray.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_equalObjects.js":[function(require,module,exports){
 var baseHas = require('./_baseHas'),
     keys = require('./keys');
 
@@ -9236,7 +9363,7 @@ function equalObjects(object, other, equalFunc, customizer, bitmask, stack) {
 
 module.exports = equalObjects;
 
-},{"./_baseHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHas.js","./keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getLength.js":[function(require,module,exports){
+},{"./_baseHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHas.js","./keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getLength.js":[function(require,module,exports){
 var baseProperty = require('./_baseProperty');
 
 /**
@@ -9253,7 +9380,7 @@ var getLength = baseProperty('length');
 
 module.exports = getLength;
 
-},{"./_baseProperty":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseProperty.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getMatchData.js":[function(require,module,exports){
+},{"./_baseProperty":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseProperty.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getMatchData.js":[function(require,module,exports){
 var isStrictComparable = require('./_isStrictComparable'),
     toPairs = require('./toPairs');
 
@@ -9276,7 +9403,7 @@ function getMatchData(object) {
 
 module.exports = getMatchData;
 
-},{"./_isStrictComparable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isStrictComparable.js","./toPairs":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toPairs.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js":[function(require,module,exports){
+},{"./_isStrictComparable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isStrictComparable.js","./toPairs":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/toPairs.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js":[function(require,module,exports){
 var isNative = require('./isNative');
 
 /**
@@ -9294,7 +9421,7 @@ function getNative(object, key) {
 
 module.exports = getNative;
 
-},{"./isNative":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isNative.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getTag.js":[function(require,module,exports){
+},{"./isNative":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isNative.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getTag.js":[function(require,module,exports){
 var Map = require('./_Map'),
     Set = require('./_Set'),
     WeakMap = require('./_WeakMap');
@@ -9355,7 +9482,7 @@ if ((Map && getTag(new Map) != mapTag) ||
 
 module.exports = getTag;
 
-},{"./_Map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_Set":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Set.js","./_WeakMap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_WeakMap.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hasPath.js":[function(require,module,exports){
+},{"./_Map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_Set":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Set.js","./_WeakMap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_WeakMap.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hasPath.js":[function(require,module,exports){
 var baseCastPath = require('./_baseCastPath'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray'),
@@ -9397,7 +9524,7 @@ function hasPath(object, path, hasFunc) {
 
 module.exports = hasPath;
 
-},{"./_baseCastPath":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastPath.js","./_isIndex":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js","./_isKey":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKey.js","./_parent":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_parent.js","./isArguments":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isLength":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js","./isString":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isString.js","./last":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/last.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashDelete.js":[function(require,module,exports){
+},{"./_baseCastPath":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastPath.js","./_isIndex":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js","./_isKey":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKey.js","./_parent":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_parent.js","./isArguments":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isLength":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js","./isString":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isString.js","./last":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/last.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashDelete.js":[function(require,module,exports){
 var hashHas = require('./_hashHas');
 
 /**
@@ -9414,7 +9541,7 @@ function hashDelete(hash, key) {
 
 module.exports = hashDelete;
 
-},{"./_hashHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashHas.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashGet.js":[function(require,module,exports){
+},{"./_hashHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashHas.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashGet.js":[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 /** Used to stand-in for `undefined` hash values. */
@@ -9444,7 +9571,7 @@ function hashGet(hash, key) {
 
 module.exports = hashGet;
 
-},{"./_nativeCreate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashHas.js":[function(require,module,exports){
+},{"./_nativeCreate":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashHas.js":[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 /** Used for built-in method references. */
@@ -9467,7 +9594,7 @@ function hashHas(hash, key) {
 
 module.exports = hashHas;
 
-},{"./_nativeCreate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashSet.js":[function(require,module,exports){
+},{"./_nativeCreate":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashSet.js":[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 /** Used to stand-in for `undefined` hash values. */
@@ -9487,7 +9614,7 @@ function hashSet(hash, key, value) {
 
 module.exports = hashSet;
 
-},{"./_nativeCreate":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexKeys.js":[function(require,module,exports){
+},{"./_nativeCreate":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexKeys.js":[function(require,module,exports){
 var baseTimes = require('./_baseTimes'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray'),
@@ -9513,7 +9640,7 @@ function indexKeys(object) {
 
 module.exports = indexKeys;
 
-},{"./_baseTimes":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseTimes.js","./isArguments":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isLength":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js","./isString":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isString.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexOfNaN.js":[function(require,module,exports){
+},{"./_baseTimes":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseTimes.js","./isArguments":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isLength":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js","./isString":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isString.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexOfNaN.js":[function(require,module,exports){
 /**
  * Gets the index at which the first occurrence of `NaN` is found in `array`.
  *
@@ -9538,7 +9665,7 @@ function indexOfNaN(array, fromIndex, fromRight) {
 
 module.exports = indexOfNaN;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isHostObject.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isHostObject.js":[function(require,module,exports){
 /**
  * Checks if `value` is a host object in IE < 9.
  *
@@ -9560,7 +9687,7 @@ function isHostObject(value) {
 
 module.exports = isHostObject;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js":[function(require,module,exports){
 /** Used as references for various `Number` constants. */
 var MAX_SAFE_INTEGER = 9007199254740991;
 
@@ -9583,7 +9710,7 @@ function isIndex(value, length) {
 
 module.exports = isIndex;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIterateeCall.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIterateeCall.js":[function(require,module,exports){
 var eq = require('./eq'),
     isArrayLike = require('./isArrayLike'),
     isIndex = require('./_isIndex'),
@@ -9613,7 +9740,7 @@ function isIterateeCall(value, index, object) {
 
 module.exports = isIterateeCall;
 
-},{"./_isIndex":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js","./eq":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js","./isArrayLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./isObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKey.js":[function(require,module,exports){
+},{"./_isIndex":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js","./eq":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js","./isArrayLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./isObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKey.js":[function(require,module,exports){
 var isArray = require('./isArray');
 
 /** Used to match property names within property paths. */
@@ -9639,7 +9766,7 @@ function isKey(value, object) {
 
 module.exports = isKey;
 
-},{"./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js":[function(require,module,exports){
+},{"./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js":[function(require,module,exports){
 /**
  * Checks if `value` is suitable for use as unique object key.
  *
@@ -9655,7 +9782,7 @@ function isKeyable(value) {
 
 module.exports = isKeyable;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js":[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -9675,7 +9802,7 @@ function isPrototype(value) {
 
 module.exports = isPrototype;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isStrictComparable.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isStrictComparable.js":[function(require,module,exports){
 var isObject = require('./isObject');
 
 /**
@@ -9692,7 +9819,7 @@ function isStrictComparable(value) {
 
 module.exports = isStrictComparable;
 
-},{"./isObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_iteratorToArray.js":[function(require,module,exports){
+},{"./isObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_iteratorToArray.js":[function(require,module,exports){
 /**
  * Converts `iterator` to an array.
  *
@@ -9712,7 +9839,7 @@ function iteratorToArray(iterator) {
 
 module.exports = iteratorToArray;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapClear.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapClear.js":[function(require,module,exports){
 var Hash = require('./_Hash'),
     Map = require('./_Map');
 
@@ -9733,7 +9860,7 @@ function mapClear() {
 
 module.exports = mapClear;
 
-},{"./_Hash":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Hash.js","./_Map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapDelete.js":[function(require,module,exports){
+},{"./_Hash":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Hash.js","./_Map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapDelete.js":[function(require,module,exports){
 var Map = require('./_Map'),
     assocDelete = require('./_assocDelete'),
     hashDelete = require('./_hashDelete'),
@@ -9758,7 +9885,7 @@ function mapDelete(key) {
 
 module.exports = mapDelete;
 
-},{"./_Map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_assocDelete":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocDelete.js","./_hashDelete":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashDelete.js","./_isKeyable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapGet.js":[function(require,module,exports){
+},{"./_Map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_assocDelete":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocDelete.js","./_hashDelete":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashDelete.js","./_isKeyable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapGet.js":[function(require,module,exports){
 var Map = require('./_Map'),
     assocGet = require('./_assocGet'),
     hashGet = require('./_hashGet'),
@@ -9783,7 +9910,7 @@ function mapGet(key) {
 
 module.exports = mapGet;
 
-},{"./_Map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_assocGet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocGet.js","./_hashGet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashGet.js","./_isKeyable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapHas.js":[function(require,module,exports){
+},{"./_Map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_assocGet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocGet.js","./_hashGet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashGet.js","./_isKeyable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapHas.js":[function(require,module,exports){
 var Map = require('./_Map'),
     assocHas = require('./_assocHas'),
     hashHas = require('./_hashHas'),
@@ -9808,7 +9935,7 @@ function mapHas(key) {
 
 module.exports = mapHas;
 
-},{"./_Map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_assocHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocHas.js","./_hashHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashHas.js","./_isKeyable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapSet.js":[function(require,module,exports){
+},{"./_Map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_assocHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocHas.js","./_hashHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashHas.js","./_isKeyable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapSet.js":[function(require,module,exports){
 var Map = require('./_Map'),
     assocSet = require('./_assocSet'),
     hashSet = require('./_hashSet'),
@@ -9838,7 +9965,7 @@ function mapSet(key, value) {
 
 module.exports = mapSet;
 
-},{"./_Map":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_assocSet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocSet.js","./_hashSet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashSet.js","./_isKeyable":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapToArray.js":[function(require,module,exports){
+},{"./_Map":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Map.js","./_assocSet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocSet.js","./_hashSet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hashSet.js","./_isKeyable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKeyable.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_mapToArray.js":[function(require,module,exports){
 /**
  * Converts `map` to an array.
  *
@@ -9858,7 +9985,7 @@ function mapToArray(map) {
 
 module.exports = mapToArray;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_nativeCreate.js":[function(require,module,exports){
 var getNative = require('./_getNative');
 
 /* Built-in method references that are verified to be native. */
@@ -9866,7 +9993,7 @@ var nativeCreate = getNative(Object, 'create');
 
 module.exports = nativeCreate;
 
-},{"./_getNative":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_parent.js":[function(require,module,exports){
+},{"./_getNative":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getNative.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_parent.js":[function(require,module,exports){
 var baseSlice = require('./_baseSlice'),
     get = require('./get');
 
@@ -9884,7 +10011,7 @@ function parent(object, path) {
 
 module.exports = parent;
 
-},{"./_baseSlice":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseSlice.js","./get":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/get.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js":[function(require,module,exports){
+},{"./_baseSlice":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseSlice.js","./get":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/get.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_root.js":[function(require,module,exports){
 (function (global){
 var checkGlobal = require('./_checkGlobal');
 
@@ -9929,7 +10056,7 @@ var root = freeGlobal ||
 module.exports = root;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_checkGlobal":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_checkGlobal.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_setToArray.js":[function(require,module,exports){
+},{"./_checkGlobal":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_checkGlobal.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_setToArray.js":[function(require,module,exports){
 /**
  * Converts `set` to an array.
  *
@@ -9949,7 +10076,7 @@ function setToArray(set) {
 
 module.exports = setToArray;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackClear.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackClear.js":[function(require,module,exports){
 /**
  * Removes all key-value entries from the stack.
  *
@@ -9963,7 +10090,7 @@ function stackClear() {
 
 module.exports = stackClear;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackDelete.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackDelete.js":[function(require,module,exports){
 var assocDelete = require('./_assocDelete');
 
 /**
@@ -9984,7 +10111,7 @@ function stackDelete(key) {
 
 module.exports = stackDelete;
 
-},{"./_assocDelete":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocDelete.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackGet.js":[function(require,module,exports){
+},{"./_assocDelete":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocDelete.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackGet.js":[function(require,module,exports){
 var assocGet = require('./_assocGet');
 
 /**
@@ -10005,7 +10132,7 @@ function stackGet(key) {
 
 module.exports = stackGet;
 
-},{"./_assocGet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocGet.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackHas.js":[function(require,module,exports){
+},{"./_assocGet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocGet.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackHas.js":[function(require,module,exports){
 var assocHas = require('./_assocHas');
 
 /**
@@ -10026,7 +10153,7 @@ function stackHas(key) {
 
 module.exports = stackHas;
 
-},{"./_assocHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocHas.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackSet.js":[function(require,module,exports){
+},{"./_assocHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocHas.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stackSet.js":[function(require,module,exports){
 var MapCache = require('./_MapCache'),
     assocSet = require('./_assocSet');
 
@@ -10064,7 +10191,7 @@ function stackSet(key, value) {
 
 module.exports = stackSet;
 
-},{"./_MapCache":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_MapCache.js","./_assocSet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocSet.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stringToPath.js":[function(require,module,exports){
+},{"./_MapCache":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_MapCache.js","./_assocSet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assocSet.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_stringToPath.js":[function(require,module,exports){
 var toString = require('./toString');
 
 /** Used to match property names within property paths. */
@@ -10090,7 +10217,7 @@ function stringToPath(string) {
 
 module.exports = stringToPath;
 
-},{"./toString":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toString.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/assignIn.js":[function(require,module,exports){
+},{"./toString":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/toString.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/assignIn.js":[function(require,module,exports){
 var assignValue = require('./_assignValue'),
     copyObject = require('./_copyObject'),
     createAssigner = require('./_createAssigner'),
@@ -10148,10 +10275,10 @@ var assignIn = createAssigner(function(object, source) {
 
 module.exports = assignIn;
 
-},{"./_assignValue":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assignValue.js","./_copyObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObject.js","./_createAssigner":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createAssigner.js","./_isPrototype":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js","./isArrayLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./keysIn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keysIn.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/each.js":[function(require,module,exports){
+},{"./_assignValue":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_assignValue.js","./_copyObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_copyObject.js","./_createAssigner":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_createAssigner.js","./_isPrototype":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js","./isArrayLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./keysIn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/keysIn.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/each.js":[function(require,module,exports){
 module.exports = require('./forEach');
 
-},{"./forEach":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/forEach.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js":[function(require,module,exports){
+},{"./forEach":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/forEach.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/eq.js":[function(require,module,exports){
 /**
  * Performs a [`SameValueZero`](http://ecma-international.org/ecma-262/6.0/#sec-samevaluezero)
  * comparison between two values to determine if they are equivalent.
@@ -10188,10 +10315,10 @@ function eq(value, other) {
 
 module.exports = eq;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/extend.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/extend.js":[function(require,module,exports){
 module.exports = require('./assignIn');
 
-},{"./assignIn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/assignIn.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/filter.js":[function(require,module,exports){
+},{"./assignIn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/assignIn.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/filter.js":[function(require,module,exports){
 var arrayFilter = require('./_arrayFilter'),
     baseFilter = require('./_baseFilter'),
     baseIteratee = require('./_baseIteratee'),
@@ -10237,7 +10364,7 @@ function filter(collection, predicate) {
 
 module.exports = filter;
 
-},{"./_arrayFilter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayFilter.js","./_baseFilter":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFilter.js","./_baseIteratee":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIteratee.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/forEach.js":[function(require,module,exports){
+},{"./_arrayFilter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayFilter.js","./_baseFilter":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFilter.js","./_baseIteratee":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIteratee.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/forEach.js":[function(require,module,exports){
 var arrayEach = require('./_arrayEach'),
     baseCastFunction = require('./_baseCastFunction'),
     baseEach = require('./_baseEach'),
@@ -10279,7 +10406,7 @@ function forEach(collection, iteratee) {
 
 module.exports = forEach;
 
-},{"./_arrayEach":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayEach.js","./_baseCastFunction":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastFunction.js","./_baseEach":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseEach.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/get.js":[function(require,module,exports){
+},{"./_arrayEach":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayEach.js","./_baseCastFunction":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseCastFunction.js","./_baseEach":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseEach.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/get.js":[function(require,module,exports){
 var baseGet = require('./_baseGet');
 
 /**
@@ -10313,7 +10440,7 @@ function get(object, path, defaultValue) {
 
 module.exports = get;
 
-},{"./_baseGet":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseGet.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/hasIn.js":[function(require,module,exports){
+},{"./_baseGet":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseGet.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/hasIn.js":[function(require,module,exports){
 var baseHasIn = require('./_baseHasIn'),
     hasPath = require('./_hasPath');
 
@@ -10348,7 +10475,7 @@ function hasIn(object, path) {
 
 module.exports = hasIn;
 
-},{"./_baseHasIn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHasIn.js","./_hasPath":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hasPath.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/identity.js":[function(require,module,exports){
+},{"./_baseHasIn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHasIn.js","./_hasPath":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_hasPath.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/identity.js":[function(require,module,exports){
 /**
  * This method returns the first argument given to it.
  *
@@ -10370,7 +10497,7 @@ function identity(value) {
 
 module.exports = identity;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js":[function(require,module,exports){
 var isArrayLikeObject = require('./isArrayLikeObject');
 
 /** `Object#toString` result references. */
@@ -10415,7 +10542,7 @@ function isArguments(value) {
 
 module.exports = isArguments;
 
-},{"./isArrayLikeObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLikeObject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js":[function(require,module,exports){
+},{"./isArrayLikeObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLikeObject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js":[function(require,module,exports){
 /**
  * Checks if `value` is classified as an `Array` object.
  *
@@ -10443,7 +10570,7 @@ var isArray = Array.isArray;
 
 module.exports = isArray;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js":[function(require,module,exports){
 var getLength = require('./_getLength'),
     isFunction = require('./isFunction'),
     isLength = require('./isLength');
@@ -10478,7 +10605,7 @@ function isArrayLike(value) {
 
 module.exports = isArrayLike;
 
-},{"./_getLength":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getLength.js","./isFunction":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js","./isLength":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLikeObject.js":[function(require,module,exports){
+},{"./_getLength":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getLength.js","./isFunction":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js","./isLength":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLikeObject.js":[function(require,module,exports){
 var isArrayLike = require('./isArrayLike'),
     isObjectLike = require('./isObjectLike');
 
@@ -10511,7 +10638,7 @@ function isArrayLikeObject(value) {
 
 module.exports = isArrayLikeObject;
 
-},{"./isArrayLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./isObjectLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isEmpty.js":[function(require,module,exports){
+},{"./isArrayLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./isObjectLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isEmpty.js":[function(require,module,exports){
 var isArguments = require('./isArguments'),
     isArray = require('./isArray'),
     isArrayLike = require('./isArrayLike'),
@@ -10567,7 +10694,7 @@ function isEmpty(value) {
 
 module.exports = isEmpty;
 
-},{"./isArguments":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isArrayLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./isFunction":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js","./isString":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isString.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js":[function(require,module,exports){
+},{"./isArguments":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArguments.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isArrayLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js","./isFunction":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js","./isString":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isString.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js":[function(require,module,exports){
 var isObject = require('./isObject');
 
 /** `Object#toString` result references. */
@@ -10609,7 +10736,7 @@ function isFunction(value) {
 
 module.exports = isFunction;
 
-},{"./isObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js":[function(require,module,exports){
+},{"./isObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js":[function(require,module,exports){
 /** Used as references for various `Number` constants. */
 var MAX_SAFE_INTEGER = 9007199254740991;
 
@@ -10644,7 +10771,7 @@ function isLength(value) {
 
 module.exports = isLength;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isMatch.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isMatch.js":[function(require,module,exports){
 var baseIsMatch = require('./_baseIsMatch'),
     getMatchData = require('./_getMatchData');
 
@@ -10677,7 +10804,7 @@ function isMatch(object, source) {
 
 module.exports = isMatch;
 
-},{"./_baseIsMatch":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsMatch.js","./_getMatchData":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getMatchData.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isNative.js":[function(require,module,exports){
+},{"./_baseIsMatch":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIsMatch.js","./_getMatchData":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_getMatchData.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isNative.js":[function(require,module,exports){
 var isFunction = require('./isFunction'),
     isHostObject = require('./_isHostObject'),
     isObjectLike = require('./isObjectLike');
@@ -10732,7 +10859,7 @@ function isNative(value) {
 
 module.exports = isNative;
 
-},{"./_isHostObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isHostObject.js","./isFunction":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js","./isObjectLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js":[function(require,module,exports){
+},{"./_isHostObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isHostObject.js","./isFunction":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js","./isObjectLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js":[function(require,module,exports){
 /**
  * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
  * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
@@ -10763,7 +10890,7 @@ function isObject(value) {
 
 module.exports = isObject;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js":[function(require,module,exports){
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -10793,7 +10920,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isString.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isString.js":[function(require,module,exports){
 var isArray = require('./isArray'),
     isObjectLike = require('./isObjectLike');
 
@@ -10832,7 +10959,7 @@ function isString(value) {
 
 module.exports = isString;
 
-},{"./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isObjectLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isSymbol.js":[function(require,module,exports){
+},{"./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js","./isObjectLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isSymbol.js":[function(require,module,exports){
 var isObjectLike = require('./isObjectLike');
 
 /** `Object#toString` result references. */
@@ -10870,7 +10997,7 @@ function isSymbol(value) {
 
 module.exports = isSymbol;
 
-},{"./isObjectLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isTypedArray.js":[function(require,module,exports){
+},{"./isObjectLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isTypedArray.js":[function(require,module,exports){
 var isLength = require('./isLength'),
     isObjectLike = require('./isObjectLike');
 
@@ -10947,7 +11074,7 @@ function isTypedArray(value) {
 
 module.exports = isTypedArray;
 
-},{"./isLength":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js","./isObjectLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js":[function(require,module,exports){
+},{"./isLength":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isLength.js","./isObjectLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObjectLike.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js":[function(require,module,exports){
 var baseHas = require('./_baseHas'),
     baseKeys = require('./_baseKeys'),
     indexKeys = require('./_indexKeys'),
@@ -11004,7 +11131,7 @@ function keys(object) {
 
 module.exports = keys;
 
-},{"./_baseHas":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHas.js","./_baseKeys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseKeys.js","./_indexKeys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexKeys.js","./_isIndex":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js","./_isPrototype":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js","./isArrayLike":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keysIn.js":[function(require,module,exports){
+},{"./_baseHas":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseHas.js","./_baseKeys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseKeys.js","./_indexKeys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexKeys.js","./_isIndex":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js","./_isPrototype":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js","./isArrayLike":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArrayLike.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/keysIn.js":[function(require,module,exports){
 var baseKeysIn = require('./_baseKeysIn'),
     indexKeys = require('./_indexKeys'),
     isIndex = require('./_isIndex'),
@@ -11060,7 +11187,7 @@ function keysIn(object) {
 
 module.exports = keysIn;
 
-},{"./_baseKeysIn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseKeysIn.js","./_indexKeys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexKeys.js","./_isIndex":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js","./_isPrototype":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/last.js":[function(require,module,exports){
+},{"./_baseKeysIn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseKeysIn.js","./_indexKeys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_indexKeys.js","./_isIndex":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIndex.js","./_isPrototype":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isPrototype.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/last.js":[function(require,module,exports){
 /**
  * Gets the last element of `array`.
  *
@@ -11081,7 +11208,7 @@ function last(array) {
 
 module.exports = last;
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/omit.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/omit.js":[function(require,module,exports){
 var arrayMap = require('./_arrayMap'),
     baseDifference = require('./_baseDifference'),
     baseFlatten = require('./_baseFlatten'),
@@ -11117,7 +11244,7 @@ var omit = rest(function(object, props) {
 
 module.exports = omit;
 
-},{"./_arrayMap":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js","./_baseDifference":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseDifference.js","./_baseFlatten":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFlatten.js","./_basePick":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePick.js","./keysIn":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keysIn.js","./rest":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/rest.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/pick.js":[function(require,module,exports){
+},{"./_arrayMap":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arrayMap.js","./_baseDifference":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseDifference.js","./_baseFlatten":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFlatten.js","./_basePick":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePick.js","./keysIn":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/keysIn.js","./rest":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/rest.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/pick.js":[function(require,module,exports){
 var baseFlatten = require('./_baseFlatten'),
     basePick = require('./_basePick'),
     rest = require('./rest');
@@ -11145,7 +11272,7 @@ var pick = rest(function(object, props) {
 
 module.exports = pick;
 
-},{"./_baseFlatten":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFlatten.js","./_basePick":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePick.js","./rest":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/rest.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/property.js":[function(require,module,exports){
+},{"./_baseFlatten":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseFlatten.js","./_basePick":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePick.js","./rest":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/rest.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/property.js":[function(require,module,exports){
 var baseProperty = require('./_baseProperty'),
     basePropertyDeep = require('./_basePropertyDeep'),
     isKey = require('./_isKey');
@@ -11177,7 +11304,7 @@ function property(path) {
 
 module.exports = property;
 
-},{"./_baseProperty":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseProperty.js","./_basePropertyDeep":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePropertyDeep.js","./_isKey":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKey.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/rest.js":[function(require,module,exports){
+},{"./_baseProperty":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseProperty.js","./_basePropertyDeep":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_basePropertyDeep.js","./_isKey":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isKey.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/rest.js":[function(require,module,exports){
 var apply = require('./_apply'),
     toInteger = require('./toInteger');
 
@@ -11240,7 +11367,7 @@ function rest(func, start) {
 
 module.exports = rest;
 
-},{"./_apply":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_apply.js","./toInteger":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toInteger.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/some.js":[function(require,module,exports){
+},{"./_apply":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_apply.js","./toInteger":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/toInteger.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/some.js":[function(require,module,exports){
 var arraySome = require('./_arraySome'),
     baseIteratee = require('./_baseIteratee'),
     baseSome = require('./_baseSome'),
@@ -11291,7 +11418,7 @@ function some(collection, predicate, guard) {
 
 module.exports = some;
 
-},{"./_arraySome":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arraySome.js","./_baseIteratee":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIteratee.js","./_baseSome":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseSome.js","./_isIterateeCall":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIterateeCall.js","./isArray":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toInteger.js":[function(require,module,exports){
+},{"./_arraySome":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_arraySome.js","./_baseIteratee":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseIteratee.js","./_baseSome":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseSome.js","./_isIterateeCall":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_isIterateeCall.js","./isArray":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isArray.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/toInteger.js":[function(require,module,exports){
 var toNumber = require('./toNumber');
 
 /** Used as references for various `Number` constants. */
@@ -11337,7 +11464,7 @@ function toInteger(value) {
 
 module.exports = toInteger;
 
-},{"./toNumber":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toNumber.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toNumber.js":[function(require,module,exports){
+},{"./toNumber":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/toNumber.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/toNumber.js":[function(require,module,exports){
 var isFunction = require('./isFunction'),
     isObject = require('./isObject');
 
@@ -11398,7 +11525,7 @@ function toNumber(value) {
 
 module.exports = toNumber;
 
-},{"./isFunction":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js","./isObject":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toPairs.js":[function(require,module,exports){
+},{"./isFunction":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isFunction.js","./isObject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isObject.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/toPairs.js":[function(require,module,exports){
 var baseToPairs = require('./_baseToPairs'),
     keys = require('./keys');
 
@@ -11429,7 +11556,7 @@ function toPairs(object) {
 
 module.exports = toPairs;
 
-},{"./_baseToPairs":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseToPairs.js","./keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/toString.js":[function(require,module,exports){
+},{"./_baseToPairs":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseToPairs.js","./keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/toString.js":[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     isSymbol = require('./isSymbol');
 
@@ -11477,7 +11604,7 @@ function toString(value) {
 
 module.exports = toString;
 
-},{"./_Symbol":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Symbol.js","./isSymbol":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/isSymbol.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/values.js":[function(require,module,exports){
+},{"./_Symbol":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_Symbol.js","./isSymbol":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/isSymbol.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/values.js":[function(require,module,exports){
 var baseValues = require('./_baseValues'),
     keys = require('./keys');
 
@@ -11512,7 +11639,7 @@ function values(object) {
 
 module.exports = values;
 
-},{"./_baseValues":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseValues.js","./keys":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js"}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/ms/index.js":[function(require,module,exports){
+},{"./_baseValues":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/_baseValues.js","./keys":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/lodash/keys.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/ms/index.js":[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -11639,7 +11766,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/process/browser.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/process/browser.js":[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -11732,7 +11859,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js":[function(require,module,exports){
 /* global define */
 /**
  * A base object for ECMAScript 5 style prototypal inheritance.
@@ -11876,7 +12003,7 @@ process.umask = function() { return 0; };
 
 }));
 
-},{}],"/Users/eric/Development/feathersjs/feathers-localstorage/src/index.js":[function(require,module,exports){
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/src/index.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -11978,12 +12105,21 @@ var LocalStorage = function (_Service) {
       return this.execute.apply(this, ['find'].concat(args));
     }
   }, {
+    key: 'get',
+    value: function get() {
+      for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+        args[_key3] = arguments[_key3];
+      }
+
+      return this.execute.apply(this, ['get'].concat(args));
+    }
+  }, {
     key: 'create',
     value: function create() {
       var _this5 = this;
 
-      for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-        args[_key3] = arguments[_key3];
+      for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        args[_key4] = arguments[_key4];
       }
 
       return this.execute.apply(this, ['create'].concat(args)).then(function (data) {
@@ -11995,8 +12131,8 @@ var LocalStorage = function (_Service) {
     value: function patch() {
       var _this6 = this;
 
-      for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-        args[_key4] = arguments[_key4];
+      for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+        args[_key5] = arguments[_key5];
       }
 
       return this.execute.apply(this, ['patch'].concat(args)).then(function (data) {
@@ -12008,8 +12144,8 @@ var LocalStorage = function (_Service) {
     value: function update() {
       var _this7 = this;
 
-      for (var _len5 = arguments.length, args = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-        args[_key5] = arguments[_key5];
+      for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+        args[_key6] = arguments[_key6];
       }
 
       return this.execute.apply(this, ['update'].concat(args)).then(function (data) {
@@ -12021,8 +12157,8 @@ var LocalStorage = function (_Service) {
     value: function remove() {
       var _this8 = this;
 
-      for (var _len6 = arguments.length, args = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-        args[_key6] = arguments[_key6];
+      for (var _len7 = arguments.length, args = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+        args[_key7] = arguments[_key7];
       }
 
       return this.execute.apply(this, ['remove'].concat(args)).then(function (data) {
@@ -12041,5 +12177,5 @@ function init(options) {
 init.Service = _feathersMemory.Service;
 module.exports = exports['default'];
 
-},{"feathers-memory":"/Users/eric/Development/feathersjs/feathers-localstorage/node_modules/feathers-memory/lib/index.js"}]},{},["/Users/eric/Development/feathersjs/feathers-localstorage/src/index.js"])("/Users/eric/Development/feathersjs/feathers-localstorage/src/index.js")
+},{"feathers-memory":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-memory/lib/index.js"}]},{},["/Users/daffl/Development/feathersjs/feathers-localstorage/src/index.js"])("/Users/daffl/Development/feathersjs/feathers-localstorage/src/index.js")
 });
