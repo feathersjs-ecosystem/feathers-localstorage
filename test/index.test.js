@@ -101,6 +101,35 @@ describe('Feathers Localstorage Service', () => {
     }).then(done, done);
   });
 
+  it('gets data in storage', done => {
+    const name = 'test-storage';
+
+    localstorage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
+
+    const app = feathers()
+      .use('/messages', service({
+        name,
+        storage: localstorage
+      }));
+    const messageService = app.service('messages');
+    
+    messageService.get(0).then((data) => {
+      assert.deepEqual(data, {
+        id: 0,
+        text: 'test 0'
+      });
+    }).then(() => {
+      return messageService.find().then((data) => {
+        assert.deepEqual(data, {
+          0: {
+          id: 0,
+          text: 'test 0'
+          }
+        });
+      });
+    }).then(done, done);
+  });
+
   base(people, _ids, errors);
 });
 
