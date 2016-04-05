@@ -14,7 +14,7 @@ npm install feathers-localstorage --save
 
 Please refer to the [Feathers database adapter documentation](http://docs.feathersjs.com/databases/readme.html) for more details or directly at:
 
-- [In Memory](http://docs.feathersjs.com/databases/localstorage.html) - The detailed documentation for this adapter
+- [LocalStorage/Asyncstorage](http://docs.feathersjs.com/databases/localstorage.html) - The detailed documentation for this adapter
 - [Extending](http://docs.feathersjs.com/databases/extending.html) - How to extend a database adapter
 - [Pagination and Sorting](http://docs.feathersjs.com/databases/pagination.html) - How to use pagination and sorting for the database adapter
 - [Querying](http://docs.feathersjs.com/databases/querying.html) - The common adapter querying mechanism
@@ -71,7 +71,12 @@ You can run this example with `npm start` from the cloned repository and going t
 
 ## Changelog
 
+__0.4.0__
+
+- Update to use latest `feathers-memory` which also removes Lodash (Browserified build size reduced from 600k to 50k)
+
 __0.3.0__
+
 - Revert `create` so that it behaves the same as every other service and doesn't call update.
 
 __0.2.0__
