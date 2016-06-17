@@ -69,28 +69,8 @@ app.listen(port, function() {
 
 You can run this example with `npm start` from the cloned repository and going to [localhost:3030/messages](http://localhost:3030/messages). You will see the test Message that we created at the end of that file.
 
-## Changelog
-
-__0.4.0__
-
-- Update to use latest `feathers-memory` which also removes Lodash (Browserified build size reduced from 600k to 50k)
-
-__0.3.0__
-
-- Revert `create` so that it behaves the same as every other service and doesn't call update.
-
-__0.2.0__
-- `get` and `find` methods were not waiting for store to be ready
-- `create` will not throw a `Conflict` error if id exists anymore. Instead it updates more like a cache and localstorage is expected to work.
-
-__0.1.0__
-
-- Initial release
-- Supports passing [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage.html) in React Native as `storage`
-- Supports passing [localstorage-memory](https://www.npmjs.com/package/localstorage-memory) in NodeJS as `storage`
-
 ## License
 
-Copyright (c) 2015
+Copyright (c) 2016
 
 Licensed under the [MIT license](LICENSE).
