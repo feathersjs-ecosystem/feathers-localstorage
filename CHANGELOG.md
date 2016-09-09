@@ -1,5 +1,19 @@
 # Change Log
 
+## [v0.5.0](https://github.com/feathersjs/feathers-localstorage/tree/v0.5.0) (2016-09-09)
+[Full Changelog](https://github.com/feathersjs/feathers-localstorage/compare/v0.4.1...v0.5.0)
+
+**Closed issues:**
+
+- usage with feathersjs authentication module on react-native [\#16](https://github.com/feathersjs/feathers-localstorage/issues/16)
+- React native exaple for AsyncStorage with create, get, update, remove [\#14](https://github.com/feathersjs/feathers-localstorage/issues/14)
+
+**Merged pull requests:**
+
+- Update feathers-memory to version 0.8.0 🚀 [\#18](https://github.com/feathersjs/feathers-localstorage/pull/18) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update service tests, id and events option [\#17](https://github.com/feathersjs/feathers-localstorage/pull/17) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update mocha to version 3.0.0 🚀 [\#15](https://github.com/feathersjs/feathers-localstorage/pull/15) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [v0.4.1](https://github.com/feathersjs/feathers-localstorage/tree/v0.4.1) (2016-06-17)
 [Full Changelog](https://github.com/feathersjs/feathers-localstorage/compare/v0.4.0...v0.4.1)
 
