@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "debug": "^2.2.0",
-    "feathers-memory": "^0.7.0"
+    "feathers-memory": "^0.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",
