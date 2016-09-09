@@ -6,56 +6,32 @@ import feathers from 'feathers';
 import assert from 'assert';
 import server from './test-app';
 import service from '../src';
-import localstorage from 'localstorage-memory';
-
-const _ids = {};
-const app = feathers().use('/people', service({
-  storage: localstorage
-}));
-const people = app.service('people');
-
-function clean() {
-  people._uId = 0;
-  people.store = {};
-  localstorage.removeItem('feathers');
-}
+import storage from 'localstorage-memory';
 
 describe('Feathers Localstorage Service', () => {
-  before(clean);
-  after(clean);
+  beforeEach(() => storage.clear());
 
-  beforeEach(done => {
-    people.create({
-      name: 'Doug',
-      age: 32
-    }).then(data => {
-      _ids.Doug = data.id;
-      done();
-    }, done);
-  });
-
-  afterEach(done => {
-    const doneNow = () => done();
-    people.remove(_ids.Doug).then(doneNow, doneNow);
-  });
+  const events = [ 'testing' ];
+  const app = feathers()
+    .use('/people', service({ events, storage }))
+    .use('/people-customid', service({
+      id: 'customid', events, storage
+    }));
 
   it('is CommonJS compatible', () => {
     assert.equal(typeof require('../lib'), 'function');
   });
 
-  it('loads and sets data in storage', done => {
+  it('loads and sets data in storage', () => {
     const name = 'test-storage';
 
-    localstorage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
+    storage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
 
     const app = feathers()
-      .use('/messages', service({
-        name,
-        storage: localstorage
-      }));
+      .use('/messages', service({ name, storage }));
     const messageService = app.service('messages');
 
-    messageService.create({
+    return messageService.create({
       text: 'testing 1'
     }).then(() => messageService.create({
       text: 'testing 2'
@@ -63,7 +39,7 @@ describe('Feathers Localstorage Service', () => {
       return new Promise((resolve) => {
         setTimeout(() => {
 
-          const data = JSON.parse(localstorage.getItem(name));
+          const data = JSON.parse(storage.getItem(name));
           assert.deepEqual(data, {
             0: {
               id: 0,
@@ -88,7 +64,7 @@ describe('Feathers Localstorage Service', () => {
       return new Promise((resolve) => {
         setTimeout(() => {
 
-          const data = JSON.parse(localstorage.getItem(name));
+          const data = JSON.parse(storage.getItem(name));
           assert.deepEqual(data, {
             2: {
               id: 2,
@@ -98,21 +74,18 @@ describe('Feathers Localstorage Service', () => {
           resolve();
         }, 250);
       });
-    }).then(done, done);
+    });
   });
 
   it('gets data in storage', done => {
     const name = 'test-storage';
 
-    localstorage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
+    storage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
 
     const app = feathers()
-      .use('/messages', service({
-        name,
-        storage: localstorage
-      }));
+      .use('/messages', service({ name, storage }));
     const messageService = app.service('messages');
-    
+
     messageService.get(0).then((data) => {
       assert.deepEqual(data, {
         id: 0,
@@ -130,10 +103,12 @@ describe('Feathers Localstorage Service', () => {
     }).then(done, done);
   });
 
-  base(people, _ids, errors);
+  base(app, errors);
+  base(app, errors, 'people-customid', 'customid');
 });
 
 describe('Localstorage service example test', () => {
+  before(() => storage.clear());
   after(done => server.close(() => done()));
 
   example();
