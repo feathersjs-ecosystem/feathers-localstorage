@@ -22,7 +22,8 @@ class LocalStorage extends Service {
           const last = store[keys[keys.length - 1]];
 
           // Current id is the id of the last item
-          this._uId = keys.length ? last[this._id] + 1 : 0;
+          this._uId = (keys.length && typeof last[this.id] !== 'undefined') ?
+            last[this.id] + 1 : 0;
 
           return (this.store = store);
         });

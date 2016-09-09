@@ -2,8 +2,8 @@ var feathers = require('feathers');
 var bodyParser = require('body-parser');
 var rest = require('feathers-rest');
 var socketio = require('feathers-socketio');
+var storage = require('localstorage-memory');
 var service = require('../lib');
-var localstorage = require('localstorage-memory');
 
 // Create a feathers instance.
 const app = feathers()
@@ -19,10 +19,10 @@ const app = feathers()
 // Create an in-memory Feathers service with a default page size of 2 items
 // and a maximum size of 4
 app.use('/todos', service({
-  storage: localstorage,
+  storage,
   paginate: {
     default: 2,
-    max: 4
+    max: 10
   }
 }));
 
