@@ -57,7 +57,7 @@
     "babelify": "^7.2.0",
     "body-parser": "^1.15.0",
     "browserify": "^13.0.0",
-    "feathers": "^2.0.0",
+    "feathers": "^2.0.2",
     "feathers-errors": "^2.0.1",
     "feathers-rest": "^1.2.2",
     "feathers-service-tests": "^0.7.0",
