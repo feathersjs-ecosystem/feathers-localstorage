@@ -1,7 +1,7 @@
 import { Service } from 'feathers-memory';
 
 class LocalStorage extends Service {
-  constructor(options = {}) {
+  constructor (options = {}) {
     super(options);
     this._storageKey = options.name || 'feathers';
     this._storage = options.storage || (typeof window !== 'undefined' && window.localStorage);
@@ -13,8 +13,8 @@ class LocalStorage extends Service {
     }
   }
 
-  ready() {
-    if(!this.store) {
+  ready () {
+    if (!this.store) {
       return Promise.resolve(this._storage.getItem(this._storageKey))
         .then(str => JSON.parse(str || '{}'))
         .then(store => {
@@ -22,8 +22,7 @@ class LocalStorage extends Service {
           const last = store[keys[keys.length - 1]];
 
           // Current id is the id of the last item
-          this._uId = (keys.length && typeof last[this.id] !== 'undefined') ?
-            last[this.id] + 1 : 0;
+          this._uId = (keys.length && typeof last[this.id] !== 'undefined') ? last[this.id] + 1 : 0;
 
           return (this.store = store);
         });
@@ -32,8 +31,8 @@ class LocalStorage extends Service {
     return Promise.resolve(this.store);
   }
 
-  flush(data) {
-    if(!this._timeout) {
+  flush (data) {
+    if (!this._timeout) {
       this._timeout = setTimeout(() => {
         this._storage.setItem(this._storageKey, JSON.stringify(this.store));
         delete this._timeout;
@@ -43,41 +42,41 @@ class LocalStorage extends Service {
     return data;
   }
 
-  execute(method, ... args) {
+  execute (method, ...args) {
     return this.ready()
-      .then(() => super[method](... args));
+      .then(() => super[method](...args));
   }
 
-  find(... args) {
-    return this.execute('find', ... args);
+  find (...args) {
+    return this.execute('find', ...args);
   }
 
-  get(... args) {
-    return this.execute('get', ... args);
+  get (...args) {
+    return this.execute('get', ...args);
   }
 
-  create(... args) {
-    return this.execute('create', ... args)
+  create (...args) {
+    return this.execute('create', ...args)
       .then(data => this.flush(data));
   }
 
-  patch(... args) {
-    return this.execute('patch', ... args)
+  patch (...args) {
+    return this.execute('patch', ...args)
       .then(data => this.flush(data));
   }
 
-  update(... args) {
-    return this.execute('update', ... args)
+  update (...args) {
+    return this.execute('update', ...args)
       .then(data => this.flush(data));
   }
 
-  remove(... args) {
-    return this.execute('remove', ... args)
+  remove (...args) {
+    return this.execute('remove', ...args)
       .then(data => this.flush(data));
   }
 }
 
-export default function init(options) {
+export default function init (options) {
   return new LocalStorage(options);
 }
 
