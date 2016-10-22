@@ -1,5 +1,3 @@
-/*jshint expr: true*/
-
 import { base, example } from 'feathers-service-tests';
 import errors from 'feathers-errors';
 import feathers from 'feathers';
@@ -38,7 +36,6 @@ describe('Feathers Localstorage Service', () => {
     })).then(() => {
       return new Promise((resolve) => {
         setTimeout(() => {
-
           const data = JSON.parse(storage.getItem(name));
           assert.deepEqual(data, {
             0: {
@@ -63,7 +60,6 @@ describe('Feathers Localstorage Service', () => {
     }).then(() => {
       return new Promise((resolve) => {
         setTimeout(() => {
-
           const data = JSON.parse(storage.getItem(name));
           assert.deepEqual(data, {
             2: {
@@ -95,8 +91,8 @@ describe('Feathers Localstorage Service', () => {
       return messageService.find().then((data) => {
         assert.deepEqual(data, {
           0: {
-          id: 0,
-          text: 'test 0'
+            id: 0,
+            text: 'test 0'
           }
         });
       });
