@@ -18,7 +18,8 @@ const app = feathers()
 
 // Create an in-memory localstorage Feathers service with a default page size of 2 items
 // and a maximum size of 4
-app.use('/messages', localstorage({
+app.use('/todos', localstorage({
+  name: 'todos-app',
   storage: storage,
   paginate: {
     default: 2,
@@ -29,4 +30,4 @@ app.use('/messages', localstorage({
 // Start the server
 module.exports = app.listen(3030);
 
-console.log('Feathers Message localstorage service running on 127.0.0.1:3030');
+console.log('Feathers Todos localstorage service running on 127.0.0.1:3030');
