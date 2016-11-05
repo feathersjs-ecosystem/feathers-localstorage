@@ -2,9 +2,10 @@ import { base, example } from 'feathers-service-tests';
 import errors from 'feathers-errors';
 import feathers from 'feathers';
 import assert from 'assert';
-import server from './test-app';
-import service from '../src';
 import storage from 'localstorage-memory';
+
+import server from '../example/app';
+import service from '../src';
 
 describe('Feathers Localstorage Service', () => {
   beforeEach(() => storage.clear());
