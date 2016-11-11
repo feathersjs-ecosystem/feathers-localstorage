@@ -1,5 +1,21 @@
 # Change Log
 
+## [v1.0.0](https://github.com/feathersjs/feathers-localstorage/tree/v1.0.0) (2016-11-11)
+[Full Changelog](https://github.com/feathersjs/feathers-localstorage/compare/v0.5.0...v1.0.0)
+
+**Closed issues:**
+
+- improve performance by not to save/load the whole data everytime [\#31](https://github.com/feathersjs/feathers-localstorage/issues/31)
+
+**Merged pull requests:**
+
+- Update feathers-service-tests to version 0.9.0 🚀 [\#32](https://github.com/feathersjs/feathers-localstorage/pull/32) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update and remove Node \< 4 [\#30](https://github.com/feathersjs/feathers-localstorage/pull/30) ([daffl](https://github.com/daffl))
+- babel-core@6.18.1 breaks build 🚨 [\#27](https://github.com/feathersjs/feathers-localstorage/pull/27) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- babel-preset-es2015@6.18.0 breaks build 🚨 [\#26](https://github.com/feathersjs/feathers-localstorage/pull/26) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- jshint —\> semistandard [\#23](https://github.com/feathersjs/feathers-localstorage/pull/23) ([corymsmith](https://github.com/corymsmith))
+- Update feathers-service-tests to version 0.8.0 🚀 [\#20](https://github.com/feathersjs/feathers-localstorage/pull/20) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [v0.5.0](https://github.com/feathersjs/feathers-localstorage/tree/v0.5.0) (2016-09-09)
 [Full Changelog](https://github.com/feathersjs/feathers-localstorage/compare/v0.4.1...v0.5.0)
 
