@@ -1,4 +1,5 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}(g.feathers || (g.feathers = {})).localstorage = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/browser.js":[function(require,module,exports){
+(function (process){
 
 /**
  * This is the web browser implementation of `debug()`.
@@ -40,7 +41,8 @@ exports.colors = [
 
 function useColors() {
   // is webkit? http://stackoverflow.com/a/16459606/376773
-  return ('WebkitAppearance' in document.documentElement.style) ||
+  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+  return (typeof document !== 'undefined' && 'WebkitAppearance' in document.documentElement.style) ||
     // is firebug? http://stackoverflow.com/a/398120/376773
     (window.console && (console.firebug || (console.exception && console.table))) ||
     // is firefox >= v31?
@@ -142,6 +144,12 @@ function load() {
   try {
     r = exports.storage.debug;
   } catch(e) {}
+
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if ('env' in (typeof process === 'undefined' ? {} : process)) {
+    r = process.env.DEBUG;
+  }
+  
   return r;
 }
 
@@ -168,7 +176,8 @@ function localstorage(){
   } catch (e) {}
 }
 
-},{"./debug":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/debug.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/debug.js":[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./debug":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/debug.js","_process":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/process/browser.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/debug.js":[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -177,7 +186,7 @@ function localstorage(){
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = debug;
+exports = module.exports = debug.debug = debug;
 exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
@@ -254,7 +263,10 @@ function debug(namespace) {
     if (null == self.useColors) self.useColors = exports.useColors();
     if (null == self.color && self.useColors) self.color = selectColor();
 
-    var args = Array.prototype.slice.call(arguments);
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
 
     args[0] = exports.coerce(args[0]);
 
@@ -281,9 +293,9 @@ function debug(namespace) {
       return match;
     });
 
-    if ('function' === typeof exports.formatArgs) {
-      args = exports.formatArgs.apply(self, args);
-    }
+    // apply env-specific formatting
+    args = exports.formatArgs.apply(self, args);
+
     var logFn = enabled.log || exports.log || console.log.bind(console);
     logFn.apply(self, args);
   }
@@ -312,7 +324,7 @@ function enable(namespaces) {
 
   for (var i = 0; i < len; i++) {
     if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, '.*?');
+    namespaces = split[i].replace(/[\\^$+?.()|[\]{}]/g, '\\$&').replace(/\*/g, '.*?');
     if (namespaces[0] === '-') {
       exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
     } else {
@@ -367,7 +379,260 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/ms/index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/utils.js":[function(require,module,exports){
+},{"ms":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/ms/index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/arguments.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = getArguments;
+var noop = exports.noop = function noop() {};
+var getCallback = function getCallback(args) {
+  var last = args[args.length - 1];
+  return typeof last === 'function' ? last : noop;
+};
+var getParams = function getParams(args, position) {
+  return _typeof(args[position]) === 'object' ? args[position] : {};
+};
+
+var updateOrPatch = function updateOrPatch(name) {
+  return function (args) {
+    var id = args[0];
+    var data = args[1];
+    var callback = getCallback(args);
+    var params = getParams(args, 2);
+
+    if (typeof id === 'function') {
+      throw new Error('First parameter for \'' + name + '\' can not be a function');
+    }
+
+    if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) !== 'object') {
+      throw new Error('No data provided for \'' + name + '\'');
+    }
+
+    if (args.length > 4) {
+      throw new Error('Too many arguments for \'' + name + '\' service method');
+    }
+
+    return [id, data, params, callback];
+  };
+};
+
+var getOrRemove = function getOrRemove(name) {
+  return function (args) {
+    var id = args[0];
+    var params = getParams(args, 1);
+    var callback = getCallback(args);
+
+    if (args.length > 3) {
+      throw new Error('Too many arguments for \'' + name + '\' service method');
+    }
+
+    if (typeof id === 'function') {
+      throw new Error('First parameter for \'' + name + '\' can not be a function');
+    }
+
+    return [id, params, callback];
+  };
+};
+
+var converters = exports.converters = {
+  find: function find(args) {
+    var callback = getCallback(args);
+    var params = getParams(args, 0);
+
+    if (args.length > 2) {
+      throw new Error('Too many arguments for \'find\' service method');
+    }
+
+    return [params, callback];
+  },
+  create: function create(args) {
+    var data = args[0];
+    var params = getParams(args, 1);
+    var callback = getCallback(args);
+
+    if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) !== 'object') {
+      throw new Error('First parameter for \'create\' must be an object');
+    }
+
+    if (args.length > 3) {
+      throw new Error('Too many arguments for \'create\' service method');
+    }
+
+    return [data, params, callback];
+  },
+
+
+  update: updateOrPatch('update'),
+
+  patch: updateOrPatch('patch'),
+
+  get: getOrRemove('get'),
+
+  remove: getOrRemove('remove')
+};
+
+function getArguments(method, args) {
+  return converters[method](args);
+}
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/commons.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _arguments = require('./arguments');
+
+var _arguments2 = _interopRequireDefault(_arguments);
+
+var _utils = require('./utils');
+
+var _hooks = require('./hooks');
+
+var _hooks2 = _interopRequireDefault(_hooks);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+  _: _utils._,
+  getArguments: _arguments2.default,
+  stripSlashes: _utils.stripSlashes,
+  each: _utils.each,
+  hooks: _hooks2.default,
+  matcher: _utils.matcher,
+  sorter: _utils.sorter,
+  select: _utils.select,
+  selectMany: _utils.selectMany
+};
+module.exports = exports['default'];
+},{"./arguments":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/arguments.js","./hooks":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/hooks.js","./utils":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/utils.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/hooks.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _utils = require('./utils');
+
+function getOrRemove(args) {
+  return {
+    id: args[0],
+    params: args[1],
+    callback: args[2]
+  };
+}
+
+function updateOrPatch(args) {
+  return {
+    id: args[0],
+    data: args[1],
+    params: args[2],
+    callback: args[3]
+  };
+}
+
+var converters = {
+  find: function find(args) {
+    return {
+      params: args[0],
+      callback: args[1]
+    };
+  },
+  create: function create(args) {
+    return {
+      data: args[0],
+      params: args[1],
+      callback: args[2]
+    };
+  },
+  get: getOrRemove,
+  remove: getOrRemove,
+  update: updateOrPatch,
+  patch: updateOrPatch
+};
+
+function hookObject(method, type, args, app) {
+  var hook = converters[method](args);
+
+  hook.method = method;
+  hook.type = type;
+
+  if (app) {
+    hook.app = app;
+  }
+
+  return hook;
+}
+
+function defaultMakeArguments(hook) {
+  var result = [];
+  if (typeof hook.id !== 'undefined') {
+    result.push(hook.id);
+  }
+
+  if (hook.data) {
+    result.push(hook.data);
+  }
+
+  result.push(hook.params || {});
+  result.push(hook.callback);
+
+  return result;
+}
+
+function makeArguments(hook) {
+  if (hook.method === 'find') {
+    return [hook.params, hook.callback];
+  }
+
+  if (hook.method === 'get' || hook.method === 'remove') {
+    return [hook.id, hook.params, hook.callback];
+  }
+
+  if (hook.method === 'update' || hook.method === 'patch') {
+    return [hook.id, hook.data, hook.params, hook.callback];
+  }
+
+  if (hook.method === 'create') {
+    return [hook.data, hook.params, hook.callback];
+  }
+
+  return defaultMakeArguments(hook);
+}
+
+function convertHookData(obj) {
+  var hook = {};
+
+  if (Array.isArray(obj)) {
+    hook = { all: obj };
+  } else if ((typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) !== 'object') {
+    hook = { all: [obj] };
+  } else {
+    (0, _utils.each)(obj, function (value, key) {
+      hook[key] = !Array.isArray(value) ? [value] : value;
+    });
+  }
+
+  return hook;
+}
+
+exports.default = {
+  hookObject: hookObject,
+  hook: hookObject,
+  converters: converters,
+  defaultMakeArguments: defaultMakeArguments,
+  makeArguments: makeArguments,
+  convertHookData: convertHookData
+};
+module.exports = exports['default'];
+},{"./utils":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/utils.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/utils.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -376,10 +641,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 exports.stripSlashes = stripSlashes;
 exports.each = each;
+exports.select = select;
 exports.matcher = matcher;
 exports.sorter = sorter;
 
@@ -400,6 +666,8 @@ function each(obj, callback) {
 }
 
 var _ = exports._ = {
+  each: each,
+
   some: function some(value, callback) {
     return Object.keys(value).map(function (key) {
       return [value[key], key];
@@ -414,13 +682,27 @@ var _ = exports._ = {
       return callback.apply(undefined, _toConsumableArray(current));
     });
   },
+  keys: function keys(obj) {
+    return Object.keys(obj);
+  },
+  values: function values(obj) {
+    return _.keys(obj).map(function (key) {
+      return obj[key];
+    });
+  },
   isMatch: function isMatch(obj, item) {
-    return Object.keys(item).every(function (key) {
+    return _.keys(item).every(function (key) {
       return obj[key] === item[key];
     });
   },
+  isEmpty: function isEmpty(obj) {
+    return _.keys(obj).length === 0;
+  },
+  extend: function extend() {
+    return _extends.apply(undefined, arguments);
+  },
   omit: function omit(obj) {
-    var result = _extends({}, obj);
+    var result = _.extend({}, obj);
 
     for (var _len = arguments.length, keys = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       keys[_key - 1] = arguments[_key];
@@ -428,6 +710,18 @@ var _ = exports._ = {
 
     keys.forEach(function (key) {
       return delete result[key];
+    });
+    return result;
+  },
+  pick: function pick(source) {
+    var result = {};
+
+    for (var _len2 = arguments.length, keys = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      keys[_key2 - 1] = arguments[_key2];
+    }
+
+    keys.forEach(function (key) {
+      result[key] = source[key];
     });
     return result;
   }
@@ -471,8 +765,36 @@ var specialFilters = exports.specialFilters = {
   }
 };
 
+function select(params) {
+  var fields = params && params.query && params.query.$select;
+
+  for (var _len3 = arguments.length, otherFields = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+    otherFields[_key3 - 1] = arguments[_key3];
+  }
+
+  if (Array.isArray(fields) && otherFields.length) {
+    fields.push.apply(fields, otherFields);
+  }
+
+  var convert = function convert(result) {
+    if (!Array.isArray(fields)) {
+      return result;
+    }
+
+    return _.pick.apply(_, [result].concat(_toConsumableArray(fields)));
+  };
+
+  return function (result) {
+    if (Array.isArray(result)) {
+      return result.map(convert);
+    }
+
+    return convert(result);
+  };
+}
+
 function matcher(originalQuery) {
-  var query = _.omit(originalQuery, '$limit', '$skip', '$sort');
+  var query = _.omit(originalQuery, '$limit', '$skip', '$sort', '$select');
 
   return function (item) {
     if (query.$or && _.some(query.$or, function (or) {
@@ -526,7 +848,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -578,9 +900,9 @@ var FeathersError = function (_extendableBuiltin2) {
 
     msg = msg || 'Error';
 
-    var errors = undefined;
-    var message = undefined;
-    var newData = undefined;
+    var errors = void 0;
+    var message = void 0;
+    var newData = void 0;
 
     if (msg instanceof Error) {
       message = msg.message || 'Error';
@@ -589,16 +911,14 @@ var FeathersError = function (_extendableBuiltin2) {
       if (msg.errors) {
         errors = msg.errors;
       }
-    }
-    // Support plain old objects
-    else if ((typeof msg === 'undefined' ? 'undefined' : _typeof(msg)) === 'object') {
-        message = msg.message || 'Error';
-        data = msg;
-      }
+    } else if ((typeof msg === 'undefined' ? 'undefined' : _typeof(msg)) === 'object') {
+      // Support plain old objects
+      message = msg.message || 'Error';
+      data = msg;
+    } else {
       // message is just a string
-      else {
-          message = msg;
-        }
+      message = msg;
+    }
 
     if (data) {
       // NOTE(EK): To make sure that we are not messing
@@ -615,8 +935,7 @@ var FeathersError = function (_extendableBuiltin2) {
     // NOTE (EK): Babel doesn't support this so
     // we have to pass in the class name manually.
     // this.name = this.constructor.name;
-
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(FeathersError).call(this, message));
+    var _this = _possibleConstructorReturn(this, (FeathersError.__proto__ || Object.getPrototypeOf(FeathersError)).call(this, message));
 
     _this.type = 'FeathersError';
     _this.name = name;
@@ -657,7 +976,7 @@ var BadRequest = function (_FeathersError) {
   function BadRequest(message, data) {
     _classCallCheck(this, BadRequest);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(BadRequest).call(this, message, 'BadRequest', 400, 'bad-request', data));
+    return _possibleConstructorReturn(this, (BadRequest.__proto__ || Object.getPrototypeOf(BadRequest)).call(this, message, 'BadRequest', 400, 'bad-request', data));
   }
 
   return BadRequest;
@@ -669,7 +988,7 @@ var NotAuthenticated = function (_FeathersError2) {
   function NotAuthenticated(message, data) {
     _classCallCheck(this, NotAuthenticated);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotAuthenticated).call(this, message, 'NotAuthenticated', 401, 'not-authenticated', data));
+    return _possibleConstructorReturn(this, (NotAuthenticated.__proto__ || Object.getPrototypeOf(NotAuthenticated)).call(this, message, 'NotAuthenticated', 401, 'not-authenticated', data));
   }
 
   return NotAuthenticated;
@@ -681,7 +1000,7 @@ var PaymentError = function (_FeathersError3) {
   function PaymentError(message, data) {
     _classCallCheck(this, PaymentError);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(PaymentError).call(this, message, 'PaymentError', 402, 'payment-error', data));
+    return _possibleConstructorReturn(this, (PaymentError.__proto__ || Object.getPrototypeOf(PaymentError)).call(this, message, 'PaymentError', 402, 'payment-error', data));
   }
 
   return PaymentError;
@@ -693,7 +1012,7 @@ var Forbidden = function (_FeathersError4) {
   function Forbidden(message, data) {
     _classCallCheck(this, Forbidden);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Forbidden).call(this, message, 'Forbidden', 403, 'forbidden', data));
+    return _possibleConstructorReturn(this, (Forbidden.__proto__ || Object.getPrototypeOf(Forbidden)).call(this, message, 'Forbidden', 403, 'forbidden', data));
   }
 
   return Forbidden;
@@ -705,7 +1024,7 @@ var NotFound = function (_FeathersError5) {
   function NotFound(message, data) {
     _classCallCheck(this, NotFound);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotFound).call(this, message, 'NotFound', 404, 'not-found', data));
+    return _possibleConstructorReturn(this, (NotFound.__proto__ || Object.getPrototypeOf(NotFound)).call(this, message, 'NotFound', 404, 'not-found', data));
   }
 
   return NotFound;
@@ -717,7 +1036,7 @@ var MethodNotAllowed = function (_FeathersError6) {
   function MethodNotAllowed(message, data) {
     _classCallCheck(this, MethodNotAllowed);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(MethodNotAllowed).call(this, message, 'MethodNotAllowed', 405, 'method-not-allowed', data));
+    return _possibleConstructorReturn(this, (MethodNotAllowed.__proto__ || Object.getPrototypeOf(MethodNotAllowed)).call(this, message, 'MethodNotAllowed', 405, 'method-not-allowed', data));
   }
 
   return MethodNotAllowed;
@@ -729,7 +1048,7 @@ var NotAcceptable = function (_FeathersError7) {
   function NotAcceptable(message, data) {
     _classCallCheck(this, NotAcceptable);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotAcceptable).call(this, message, 'NotAcceptable', 406, 'not-acceptable', data));
+    return _possibleConstructorReturn(this, (NotAcceptable.__proto__ || Object.getPrototypeOf(NotAcceptable)).call(this, message, 'NotAcceptable', 406, 'not-acceptable', data));
   }
 
   return NotAcceptable;
@@ -741,7 +1060,7 @@ var Timeout = function (_FeathersError8) {
   function Timeout(message, data) {
     _classCallCheck(this, Timeout);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Timeout).call(this, message, 'Timeout', 408, 'timeout', data));
+    return _possibleConstructorReturn(this, (Timeout.__proto__ || Object.getPrototypeOf(Timeout)).call(this, message, 'Timeout', 408, 'timeout', data));
   }
 
   return Timeout;
@@ -753,55 +1072,91 @@ var Conflict = function (_FeathersError9) {
   function Conflict(message, data) {
     _classCallCheck(this, Conflict);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Conflict).call(this, message, 'Conflict', 409, 'conflict', data));
+    return _possibleConstructorReturn(this, (Conflict.__proto__ || Object.getPrototypeOf(Conflict)).call(this, message, 'Conflict', 409, 'conflict', data));
   }
 
   return Conflict;
 }(FeathersError);
 
-var Unprocessable = function (_FeathersError10) {
-  _inherits(Unprocessable, _FeathersError10);
+var LengthRequired = function (_FeathersError10) {
+  _inherits(LengthRequired, _FeathersError10);
+
+  function LengthRequired(message, data) {
+    _classCallCheck(this, LengthRequired);
+
+    return _possibleConstructorReturn(this, (LengthRequired.__proto__ || Object.getPrototypeOf(LengthRequired)).call(this, message, 'LengthRequired', 411, 'length-required', data));
+  }
+
+  return LengthRequired;
+}(FeathersError);
+
+var Unprocessable = function (_FeathersError11) {
+  _inherits(Unprocessable, _FeathersError11);
 
   function Unprocessable(message, data) {
     _classCallCheck(this, Unprocessable);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Unprocessable).call(this, message, 'Unprocessable', 422, 'unprocessable', data));
+    return _possibleConstructorReturn(this, (Unprocessable.__proto__ || Object.getPrototypeOf(Unprocessable)).call(this, message, 'Unprocessable', 422, 'unprocessable', data));
   }
 
   return Unprocessable;
 }(FeathersError);
 
-var GeneralError = function (_FeathersError11) {
-  _inherits(GeneralError, _FeathersError11);
+var TooManyRequests = function (_FeathersError12) {
+  _inherits(TooManyRequests, _FeathersError12);
+
+  function TooManyRequests(message, data) {
+    _classCallCheck(this, TooManyRequests);
+
+    return _possibleConstructorReturn(this, (TooManyRequests.__proto__ || Object.getPrototypeOf(TooManyRequests)).call(this, message, 'TooManyRequests', 429, 'too-many-requests', data));
+  }
+
+  return TooManyRequests;
+}(FeathersError);
+
+var GeneralError = function (_FeathersError13) {
+  _inherits(GeneralError, _FeathersError13);
 
   function GeneralError(message, data) {
     _classCallCheck(this, GeneralError);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(GeneralError).call(this, message, 'GeneralError', 500, 'general-error', data));
+    return _possibleConstructorReturn(this, (GeneralError.__proto__ || Object.getPrototypeOf(GeneralError)).call(this, message, 'GeneralError', 500, 'general-error', data));
   }
 
   return GeneralError;
 }(FeathersError);
 
-var NotImplemented = function (_FeathersError12) {
-  _inherits(NotImplemented, _FeathersError12);
+var NotImplemented = function (_FeathersError14) {
+  _inherits(NotImplemented, _FeathersError14);
 
   function NotImplemented(message, data) {
     _classCallCheck(this, NotImplemented);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotImplemented).call(this, message, 'NotImplemented', 501, 'not-implemented', data));
+    return _possibleConstructorReturn(this, (NotImplemented.__proto__ || Object.getPrototypeOf(NotImplemented)).call(this, message, 'NotImplemented', 501, 'not-implemented', data));
   }
 
   return NotImplemented;
 }(FeathersError);
 
-var Unavailable = function (_FeathersError13) {
-  _inherits(Unavailable, _FeathersError13);
+var BadGateway = function (_FeathersError15) {
+  _inherits(BadGateway, _FeathersError15);
+
+  function BadGateway(message, data) {
+    _classCallCheck(this, BadGateway);
+
+    return _possibleConstructorReturn(this, (BadGateway.__proto__ || Object.getPrototypeOf(BadGateway)).call(this, message, 'BadGateway', 502, 'bad-gateway', data));
+  }
+
+  return BadGateway;
+}(FeathersError);
+
+var Unavailable = function (_FeathersError16) {
+  _inherits(Unavailable, _FeathersError16);
 
   function Unavailable(message, data) {
     _classCallCheck(this, Unavailable);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Unavailable).call(this, message, 'Unavailable', 503, 'unavailable', data));
+    return _possibleConstructorReturn(this, (Unavailable.__proto__ || Object.getPrototypeOf(Unavailable)).call(this, message, 'Unavailable', 503, 'unavailable', data));
   }
 
   return Unavailable;
@@ -818,9 +1173,12 @@ var errors = {
   NotAcceptable: NotAcceptable,
   Timeout: Timeout,
   Conflict: Conflict,
+  LengthRequired: LengthRequired,
   Unprocessable: Unprocessable,
+  TooManyRequests: TooManyRequests,
   GeneralError: GeneralError,
   NotImplemented: NotImplemented,
+  BadGateway: BadGateway,
   Unavailable: Unavailable,
   400: BadRequest,
   401: NotAuthenticated,
@@ -831,9 +1189,12 @@ var errors = {
   406: NotAcceptable,
   408: Timeout,
   409: Conflict,
+  411: LengthRequired,
   422: Unprocessable,
+  429: TooManyRequests,
   500: GeneralError,
   501: NotImplemented,
+  502: BadGateway,
   503: Unavailable
 };
 
@@ -881,99 +1242,19 @@ var _feathersErrors = require('feathers-errors');
 
 var _feathersErrors2 = _interopRequireDefault(_feathersErrors);
 
-var _utils = require('feathers-commons/lib/utils');
+var _feathersCommons = require('feathers-commons');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _ = {
-  values: function values(obj) {
-    return Object.keys(obj).map(function (key) {
-      return obj[key];
-    });
-  },
-  isEmpty: function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-  },
-  extend: function extend() {
-    return Object.assign.apply(Object, arguments);
-  },
-  omit: function omit(obj) {
-    var result = Object.assign({}, obj);
-
-    for (var _len = arguments.length, keys = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      keys[_key - 1] = arguments[_key];
-    }
-
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = keys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var key = _step.value;
-
-        delete result[key];
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator.return) {
-          _iterator.return();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
-    }
-
-    return result;
-  },
-  pick: function pick(source) {
-    var result = {};
-
-    for (var _len2 = arguments.length, keys = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-      keys[_key2 - 1] = arguments[_key2];
-    }
-
-    var _iteratorNormalCompletion2 = true;
-    var _didIteratorError2 = false;
-    var _iteratorError2 = undefined;
-
-    try {
-      for (var _iterator2 = keys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-        var key = _step2.value;
-
-        result[key] = source[key];
-      }
-    } catch (err) {
-      _didIteratorError2 = true;
-      _iteratorError2 = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-          _iterator2.return();
-        }
-      } finally {
-        if (_didIteratorError2) {
-          throw _iteratorError2;
-        }
-      }
-    }
-
-    return result;
-  }
-};
 
 var Service = function () {
   function Service() {
-    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     _classCallCheck(this, Service);
 
@@ -996,33 +1277,31 @@ var Service = function () {
   }, {
     key: '_find',
     value: function _find(params) {
-      var getFilter = arguments.length <= 1 || arguments[1] === undefined ? _feathersQueryFilters2.default : arguments[1];
+      var getFilter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _feathersQueryFilters2.default;
 
-      var _getFilter = getFilter(params.query || {});
+      var _getFilter = getFilter(params.query || {}),
+          query = _getFilter.query,
+          filters = _getFilter.filters;
 
-      var query = _getFilter.query;
-      var filters = _getFilter.filters;
-
-
-      var values = _.values(this.store).filter((0, _utils.matcher)(query));
+      var values = _feathersCommons._.values(this.store).filter((0, _feathersCommons.matcher)(query));
 
       var total = values.length;
 
       if (filters.$sort) {
-        values.sort((0, _utils.sorter)(filters.$sort));
+        values.sort((0, _feathersCommons.sorter)(filters.$sort));
       }
 
       if (filters.$skip) {
         values = values.slice(filters.$skip);
       }
 
-      if (filters.$limit) {
+      if (typeof filters.$limit !== 'undefined') {
         values = values.slice(0, filters.$limit);
       }
 
       if (filters.$select) {
         values = values.map(function (value) {
-          return _.pick(value, filters.$select);
+          return _feathersCommons._.pick.apply(_feathersCommons._, [value].concat(_toConsumableArray(filters.$select)));
         });
       }
 
@@ -1052,9 +1331,9 @@ var Service = function () {
     }
   }, {
     key: 'get',
-    value: function get(id) {
+    value: function get(id, params) {
       if (id in this.store) {
-        return Promise.resolve(this.store[id]);
+        return Promise.resolve(this.store[id]).then((0, _feathersCommons.select)(params, this.id));
       }
 
       return Promise.reject(new _feathersErrors2.default.NotFound('No record found for id \'' + id + '\''));
@@ -1064,19 +1343,19 @@ var Service = function () {
 
   }, {
     key: '_create',
-    value: function _create(data) {
+    value: function _create(data, params) {
       var id = data[this._id] || this._uId++;
-      var current = _.extend({}, data, _defineProperty({}, this._id, id));
+      var current = _feathersCommons._.extend({}, data, _defineProperty({}, this._id, id));
 
       if (this.store[id]) {
         return Promise.reject(new _feathersErrors2.default.Conflict('A record with id: ' + id + ' already exists'));
       }
 
-      return Promise.resolve(this.store[id] = current);
+      return Promise.resolve(this.store[id] = current).then((0, _feathersCommons.select)(params, this.id));
     }
   }, {
     key: 'create',
-    value: function create(data) {
+    value: function create(data, params) {
       var _this = this;
 
       if (Array.isArray(data)) {
@@ -1085,46 +1364,47 @@ var Service = function () {
         }));
       }
 
-      return this._create(data);
+      return this._create(data, params);
     }
 
     // Update without hooks and mixins that can be used internally
 
   }, {
     key: '_update',
-    value: function _update(id, data) {
+    value: function _update(id, data, params) {
       if (id in this.store) {
         // We don't want our id to change type if it can be coerced
         var oldId = this.store[id][this._id];
-        id = oldId == id ? oldId : id; // jshint ignore:line
 
-        data = _.extend({}, data, _defineProperty({}, this._id, id));
+        id = oldId == id ? oldId : id; // eslint-disable-line
+
+        data = _feathersCommons._.extend({}, data, _defineProperty({}, this._id, id));
         this.store[id] = data;
 
-        return Promise.resolve(this.store[id]);
+        return Promise.resolve(this.store[id]).then((0, _feathersCommons.select)(params, this.id));
       }
 
       return Promise.reject(new _feathersErrors2.default.NotFound('No record found for id \'' + id + '\''));
     }
   }, {
     key: 'update',
-    value: function update(id, data) {
+    value: function update(id, data, params) {
       if (id === null || Array.isArray(data)) {
         return Promise.reject(new _feathersErrors2.default.BadRequest('You can not replace multiple instances. Did you mean \'patch\'?'));
       }
 
-      return this._update(id, data);
+      return this._update(id, data, params);
     }
 
     // Patch without hooks and mixins that can be used internally
 
   }, {
     key: '_patch',
-    value: function _patch(id, data) {
+    value: function _patch(id, data, params) {
       if (id in this.store) {
-        _.extend(this.store[id], _.omit(data, this._id));
+        _feathersCommons._.extend(this.store[id], _feathersCommons._.omit(data, this._id));
 
-        return Promise.resolve(this.store[id]);
+        return Promise.resolve(this.store[id]).then((0, _feathersCommons.select)(params, this.id));
       }
 
       return Promise.reject(new _feathersErrors2.default.NotFound('No record found for id \'' + id + '\''));
@@ -1149,12 +1429,12 @@ var Service = function () {
 
   }, {
     key: '_remove',
-    value: function _remove(id) {
+    value: function _remove(id, params) {
       if (id in this.store) {
         var deleted = this.store[id];
         delete this.store[id];
 
-        return Promise.resolve(deleted);
+        return Promise.resolve(deleted).then((0, _feathersCommons.select)(params, this.id));
       }
 
       return Promise.reject(new _feathersErrors2.default.NotFound('No record found for id \'' + id + '\''));
@@ -1167,12 +1447,12 @@ var Service = function () {
       if (id === null) {
         return this._find(params).then(function (page) {
           return Promise.all(page.data.map(function (current) {
-            return _this3._remove(current[_this3._id]);
+            return _this3._remove(current[_this3._id], params);
           }));
         });
       }
 
-      return this._remove(id);
+      return this._remove(id, params);
     }
   }]);
 
@@ -1185,17 +1465,18 @@ function init(options) {
 
 init.Service = Service;
 module.exports = exports['default'];
-
-},{"feathers-commons/lib/utils":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/utils.js","feathers-errors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-errors/lib/index.js","feathers-query-filters":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js","uberproto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js":[function(require,module,exports){
+},{"feathers-commons":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/commons.js","feathers-errors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-errors/lib/index.js","feathers-query-filters":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js","uberproto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 exports.default = function (query, paginate) {
   var filters = {
-    $sort: query.$sort,
+    $sort: convertSort(query.$sort),
     $limit: getLimit(parse(query.$limit), paginate),
     $skip: parse(query.$skip),
     $select: query.$select,
@@ -1210,7 +1491,7 @@ var PROPERTIES = ['$sort', '$limit', '$skip', '$select', '$populate'];
 
 function parse(number) {
   if (typeof number !== 'undefined') {
-    return parseInt(number, 10);
+    return Math.abs(parseInt(number, 10));
   }
 }
 
@@ -1220,6 +1501,20 @@ function getLimit(limit, paginate) {
   }
 
   return limit;
+}
+
+function convertSort(sort) {
+  if ((typeof sort === 'undefined' ? 'undefined' : _typeof(sort)) !== 'object') {
+    return sort;
+  }
+
+  var result = {};
+
+  Object.keys(sort).forEach(function (key) {
+    return result[key] = _typeof(sort[key]) === 'object' ? sort[key] : parseInt(sort[key], 10);
+  });
+
+  return result;
 }
 
 module.exports = exports['default'];
@@ -2720,11 +3015,11 @@ module.exports = omit;
  * Helpers.
  */
 
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var y = d * 365.25;
+var s = 1000
+var m = s * 60
+var h = m * 60
+var d = h * 24
+var y = d * 365.25
 
 /**
  * Parse or format the given `val`.
@@ -2735,17 +3030,23 @@ var y = d * 365.25;
  *
  * @param {String|Number} val
  * @param {Object} options
+ * @throws {Error} throw an error if val is not a non-empty string or a number
  * @return {String|Number}
  * @api public
  */
 
-module.exports = function(val, options){
-  options = options || {};
-  if ('string' == typeof val) return parse(val);
-  return options.long
-    ? long(val)
-    : short(val);
-};
+module.exports = function (val, options) {
+  options = options || {}
+  var type = typeof val
+  if (type === 'string' && val.length > 0) {
+    return parse(val)
+  } else if (type === 'number' && isNaN(val) === false) {
+    return options.long ?
+			fmtLong(val) :
+			fmtShort(val)
+  }
+  throw new Error('val is not a non-empty string or a valid number. val=' + JSON.stringify(val))
+}
 
 /**
  * Parse the given `str` and return milliseconds.
@@ -2756,47 +3057,53 @@ module.exports = function(val, options){
  */
 
 function parse(str) {
-  str = '' + str;
-  if (str.length > 10000) return;
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
-  if (!match) return;
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
+  str = String(str)
+  if (str.length > 10000) {
+    return
+  }
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str)
+  if (!match) {
+    return
+  }
+  var n = parseFloat(match[1])
+  var type = (match[2] || 'ms').toLowerCase()
   switch (type) {
     case 'years':
     case 'year':
     case 'yrs':
     case 'yr':
     case 'y':
-      return n * y;
+      return n * y
     case 'days':
     case 'day':
     case 'd':
-      return n * d;
+      return n * d
     case 'hours':
     case 'hour':
     case 'hrs':
     case 'hr':
     case 'h':
-      return n * h;
+      return n * h
     case 'minutes':
     case 'minute':
     case 'mins':
     case 'min':
     case 'm':
-      return n * m;
+      return n * m
     case 'seconds':
     case 'second':
     case 'secs':
     case 'sec':
     case 's':
-      return n * s;
+      return n * s
     case 'milliseconds':
     case 'millisecond':
     case 'msecs':
     case 'msec':
     case 'ms':
-      return n;
+      return n
+    default:
+      return undefined
   }
 }
 
@@ -2808,12 +3115,20 @@ function parse(str) {
  * @api private
  */
 
-function short(ms) {
-  if (ms >= d) return Math.round(ms / d) + 'd';
-  if (ms >= h) return Math.round(ms / h) + 'h';
-  if (ms >= m) return Math.round(ms / m) + 'm';
-  if (ms >= s) return Math.round(ms / s) + 's';
-  return ms + 'ms';
+function fmtShort(ms) {
+  if (ms >= d) {
+    return Math.round(ms / d) + 'd'
+  }
+  if (ms >= h) {
+    return Math.round(ms / h) + 'h'
+  }
+  if (ms >= m) {
+    return Math.round(ms / m) + 'm'
+  }
+  if (ms >= s) {
+    return Math.round(ms / s) + 's'
+  }
+  return ms + 'ms'
 }
 
 /**
@@ -2824,12 +3139,12 @@ function short(ms) {
  * @api private
  */
 
-function long(ms) {
-  return plural(ms, d, 'day')
-    || plural(ms, h, 'hour')
-    || plural(ms, m, 'minute')
-    || plural(ms, s, 'second')
-    || ms + ' ms';
+function fmtLong(ms) {
+  return plural(ms, d, 'day') ||
+    plural(ms, h, 'hour') ||
+    plural(ms, m, 'minute') ||
+    plural(ms, s, 'second') ||
+    ms + ' ms'
 }
 
 /**
@@ -2837,10 +3152,196 @@ function long(ms) {
  */
 
 function plural(ms, n, name) {
-  if (ms < n) return;
-  if (ms < n * 1.5) return Math.floor(ms / n) + ' ' + name;
-  return Math.ceil(ms / n) + ' ' + name + 's';
+  if (ms < n) {
+    return
+  }
+  if (ms < n * 1.5) {
+    return Math.floor(ms / n) + ' ' + name
+  }
+  return Math.ceil(ms / n) + ' ' + name + 's'
 }
+
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/process/browser.js":[function(require,module,exports){
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
 
 },{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js":[function(require,module,exports){
 /* global define */
@@ -3011,7 +3512,7 @@ var LocalStorage = function (_Service) {
   _inherits(LocalStorage, _Service);
 
   function LocalStorage() {
-    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     _classCallCheck(this, LocalStorage);
 
