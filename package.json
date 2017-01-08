@@ -26,7 +26,7 @@
     "node": ">= 4"
   },
   "scripts": {
-    "clean": "rimraf dist/ && mkdir -p dist",
+    "clean": "shx rm -rf dist/ && shx mkdir -p dist",
     "prepublish": "npm run compile",
     "browserify": "browserify src/index.js --full-paths -t babelify --standalone feathers.localstorage --outfile dist/localstorage.js",
     "add-dist": "npm run clean && npm run browserify && git add dist/ --force && git commit -am \"Updating dist\"",
@@ -35,7 +35,7 @@
     "release:patch": "npm run add-dist; npm version patch && npm publish",
     "release:minor": "npm run add-dist; npm version minor && npm publish",
     "release:major": "npm run add-dist; npm version major && npm publish",
-    "compile": "rimraf lib/ && babel -d lib/ src/",
+    "compile": "shx rm -rf lib/ && babel -d lib/ src/",
     "watch": "babel --watch -d lib/ src/",
     "lint": "eslint-if-supported semistandard --fix",
     "mocha": "mocha --opts mocha.opts",
@@ -76,7 +76,7 @@
     "localstorage-memory": "^1.0.2",
     "mocha": "^3.0.0",
     "nsp": "^2.2.0",
-    "rimraf": "^2.5.2",
+    "shx": "^0.2.1",
     "semistandard": "^9.1.0"
   }
 }
