@@ -1,5 +1,7 @@
 # feathers-localstorage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs/feathers-localstorage.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/feathersjs/feathers-localstorage.png?branch=master)](https://travis-ci.org/feathersjs/feathers-localstorage)
 [![Code Climate](https://codeclimate.com/github/feathersjs/feathers-localstorage.png)](https://codeclimate.com/github/feathersjs/feathers-localstorage)
 [![Test Coverage](https://codeclimate.com/github/feathersjs/feathers-localstorage/badges/coverage.svg)](https://codeclimate.com/github/feathersjs/feathers-localstorage/coverage)
