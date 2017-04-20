@@ -77,6 +77,6 @@
     "mocha": "^3.0.0",
     "nsp": "^2.2.0",
     "shx": "^0.2.1",
-    "semistandard": "^10.0.0"
+    "semistandard": "^11.0.0"
   }
 }
