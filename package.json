@@ -70,7 +70,7 @@
     "feathers": "^2.0.0",
     "feathers-errors": "^2.0.1",
     "feathers-rest": "^1.2.2",
-    "feathers-service-tests": "^0.9.1",
+    "feathers-service-tests": "^0.10.0",
     "feathers-socketio": "^1.3.3",
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.2",
