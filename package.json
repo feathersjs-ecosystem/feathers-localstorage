@@ -55,7 +55,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "debug": "^2.2.0",
+    "debug": "^3.0.0",
     "feathers-memory": "^1.0.0"
   },
   "devDependencies": {
