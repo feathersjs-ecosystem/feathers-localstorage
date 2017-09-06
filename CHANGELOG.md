@@ -1,5 +1,24 @@
 # Change Log
 
+## [v1.0.1](https://github.com/feathersjs/feathers-localstorage/tree/v1.0.1) (2017-09-06)
+[Full Changelog](https://github.com/feathersjs/feathers-localstorage/compare/v1.0.0...v1.0.1)
+
+**Closed issues:**
+
+- An in-range update of babel-core is breaking the build 🚨 [\#49](https://github.com/feathersjs/feathers-localstorage/issues/49)
+
+**Merged pull requests:**
+
+- Always use uId [\#50](https://github.com/feathersjs/feathers-localstorage/pull/50) ([daffl](https://github.com/daffl))
+- Update debug to the latest version 🚀 [\#48](https://github.com/feathersjs/feathers-localstorage/pull/48) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update feathers-socketio to the latest version 🚀 [\#47](https://github.com/feathersjs/feathers-localstorage/pull/47) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update feathers-service-tests to the latest version 🚀 [\#46](https://github.com/feathersjs/feathers-localstorage/pull/46) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update semistandard to the latest version 🚀 [\#45](https://github.com/feathersjs/feathers-localstorage/pull/45) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dependencies to enable Greenkeeper 🌴 [\#44](https://github.com/feathersjs/feathers-localstorage/pull/44) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update browserify to version 14.1.0 🚀 [\#40](https://github.com/feathersjs/feathers-localstorage/pull/40) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- body-parser@1.16.1 breaks build 🚨 [\#39](https://github.com/feathersjs/feathers-localstorage/pull/39) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- feathers-service-tests@0.9.1 breaks build 🚨 [\#34](https://github.com/feathersjs/feathers-localstorage/pull/34) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [v1.0.0](https://github.com/feathersjs/feathers-localstorage/tree/v1.0.0) (2016-11-11)
 [Full Changelog](https://github.com/feathersjs/feathers-localstorage/compare/v0.5.0...v1.0.0)
 
