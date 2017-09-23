@@ -1,5 +1,12 @@
 # Change Log
 
+## [v1.1.0](https://github.com/feathersjs/feathers-localstorage/tree/v1.1.0) (2017-09-23)
+[Full Changelog](https://github.com/feathersjs/feathers-localstorage/compare/v1.0.1...v1.1.0)
+
+**Merged pull requests:**
+
+- Use latest feathers-memory [\#51](https://github.com/feathersjs/feathers-localstorage/pull/51) ([daffl](https://github.com/daffl))
+
 ## [v1.0.1](https://github.com/feathersjs/feathers-localstorage/tree/v1.0.1) (2017-09-06)
 [Full Changelog](https://github.com/feathersjs/feathers-localstorage/compare/v1.0.0...v1.0.1)
 
