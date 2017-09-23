@@ -1,4 +1,224 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}(g.feathers || (g.feathers = {})).localstorage = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/src/browser.js":[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}(g.feathers || (g.feathers = {})).localstorage = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/clone-deep/index.js":[function(require,module,exports){
+'use strict';
+
+/**
+ * Module dependenices
+ */
+
+var isObject = require('is-plain-object');
+var clone = require('shallow-clone');
+var typeOf = require('kind-of');
+var forOwn = require('for-own');
+
+/**
+ * Recursively clone native types.
+ */
+
+function cloneDeep(val, instanceClone) {
+  switch (typeOf(val)) {
+    case 'object':
+      return cloneObjectDeep(val, instanceClone);
+    case 'array':
+      return cloneArrayDeep(val, instanceClone);
+    default: {
+      return clone(val);
+    }
+  }
+}
+
+function cloneObjectDeep(obj, instanceClone) {
+  if (isObject(obj)) {
+    var res = {};
+    forOwn(obj, function(obj, key) {
+      this[key] = cloneDeep(obj, instanceClone);
+    }, res);
+    return res;
+  } else if (instanceClone) {
+    return instanceClone(obj);
+  } else {
+    return obj;
+  }
+}
+
+function cloneArrayDeep(arr, instanceClone) {
+  var len = arr.length, res = [];
+  var i = -1;
+  while (++i < len) {
+    res[i] = cloneDeep(arr[i], instanceClone);
+  }
+  return res;
+}
+
+/**
+ * Expose `cloneDeep`
+ */
+
+module.exports = cloneDeep;
+
+},{"for-own":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/clone-deep/node_modules/for-own/index.js","is-plain-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/is-plain-object/index.js","kind-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/clone-deep/node_modules/kind-of/index.js","shallow-clone":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/shallow-clone/index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/clone-deep/node_modules/for-own/index.js":[function(require,module,exports){
+/*!
+ * for-own <https://github.com/jonschlinkert/for-own>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+var forIn = require('for-in');
+var hasOwn = Object.prototype.hasOwnProperty;
+
+module.exports = function forOwn(obj, fn, thisArg) {
+  forIn(obj, function(val, key) {
+    if (hasOwn.call(obj, key)) {
+      return fn.call(thisArg, obj[key], key, obj);
+    }
+  });
+};
+
+},{"for-in":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/for-in/index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/clone-deep/node_modules/kind-of/index.js":[function(require,module,exports){
+var toString = Object.prototype.toString;
+
+/**
+ * Get the native `typeof` a value.
+ *
+ * @param  {*} `val`
+ * @return {*} Native javascript type
+ */
+
+module.exports = function kindOf(val) {
+  var type = typeof val;
+
+  // primitivies
+  if (type === 'undefined') {
+    return 'undefined';
+  }
+  if (val === null) {
+    return 'null';
+  }
+  if (val === true || val === false || val instanceof Boolean) {
+    return 'boolean';
+  }
+  if (type === 'string' || val instanceof String) {
+    return 'string';
+  }
+  if (type === 'number' || val instanceof Number) {
+    return 'number';
+  }
+
+  // functions
+  if (type === 'function' || val instanceof Function) {
+    if (typeof val.constructor.name !== 'undefined' && val.constructor.name.slice(0, 9) === 'Generator') {
+      return 'generatorfunction';
+    }
+    return 'function';
+  }
+
+  // array
+  if (typeof Array.isArray !== 'undefined' && Array.isArray(val)) {
+    return 'array';
+  }
+
+  // check for instances of RegExp and Date before calling `toString`
+  if (val instanceof RegExp) {
+    return 'regexp';
+  }
+  if (val instanceof Date) {
+    return 'date';
+  }
+
+  // other objects
+  type = toString.call(val);
+
+  if (type === '[object RegExp]') {
+    return 'regexp';
+  }
+  if (type === '[object Date]') {
+    return 'date';
+  }
+  if (type === '[object Arguments]') {
+    return 'arguments';
+  }
+  if (type === '[object Error]') {
+    return 'error';
+  }
+  if (type === '[object Promise]') {
+    return 'promise';
+  }
+
+  // buffer
+  if (isBuffer(val)) {
+    return 'buffer';
+  }
+
+  // es6: Map, WeakMap, Set, WeakSet
+  if (type === '[object Set]') {
+    return 'set';
+  }
+  if (type === '[object WeakSet]') {
+    return 'weakset';
+  }
+  if (type === '[object Map]') {
+    return 'map';
+  }
+  if (type === '[object WeakMap]') {
+    return 'weakmap';
+  }
+  if (type === '[object Symbol]') {
+    return 'symbol';
+  }
+  if (type === '[object Map Iterator]') {
+    return 'mapiterator';
+  }
+  if (type === '[object Set Iterator]') {
+    return 'setiterator';
+  }
+
+  // typed arrays
+  if (type === '[object Int8Array]') {
+    return 'int8array';
+  }
+  if (type === '[object Uint8Array]') {
+    return 'uint8array';
+  }
+  if (type === '[object Uint8ClampedArray]') {
+    return 'uint8clampedarray';
+  }
+  if (type === '[object Int16Array]') {
+    return 'int16array';
+  }
+  if (type === '[object Uint16Array]') {
+    return 'uint16array';
+  }
+  if (type === '[object Int32Array]') {
+    return 'int32array';
+  }
+  if (type === '[object Uint32Array]') {
+    return 'uint32array';
+  }
+  if (type === '[object Float32Array]') {
+    return 'float32array';
+  }
+  if (type === '[object Float64Array]') {
+    return 'float64array';
+  }
+
+  // must be a plain object
+  return 'object';
+};
+
+/**
+ * If you need to support Safari 5-7 (8-10 yr-old browser),
+ * take a look at https://github.com/feross/is-buffer
+ */
+
+function isBuffer(val) {
+  return val.constructor
+    && typeof val.constructor.isBuffer === 'function'
+    && val.constructor.isBuffer(val);
+}
+
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/debug/src/browser.js":[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -1251,15 +1471,25 @@ var _feathersErrors = require('feathers-errors');
 
 var _feathersErrors2 = _interopRequireDefault(_feathersErrors);
 
+var _cloneDeep = require('clone-deep');
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
 var _feathersCommons = require('feathers-commons');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var select = function select() {
+  var base = _feathersCommons.select.apply(undefined, arguments);
+
+  return function (result) {
+    return base((0, _cloneDeep2.default)(result));
+  };
+};
 
 var Service = function () {
   function Service() {
@@ -1294,6 +1524,7 @@ var Service = function () {
           query = _getFilter.query,
           filters = _getFilter.filters;
 
+      var map = select(params, this.id);
       var values = _feathersCommons._.values(this.store).filter(this._matcher(query));
 
       var total = values.length;
@@ -1310,17 +1541,11 @@ var Service = function () {
         values = values.slice(0, filters.$limit);
       }
 
-      if (filters.$select) {
-        values = values.map(function (value) {
-          return _feathersCommons._.pick.apply(_feathersCommons._, [value].concat(_toConsumableArray(filters.$select)));
-        });
-      }
-
       return Promise.resolve({
         total: total,
         limit: filters.$limit,
         skip: filters.$skip || 0,
-        data: values
+        data: map(values)
       });
     }
   }, {
@@ -1344,7 +1569,7 @@ var Service = function () {
     key: 'get',
     value: function get(id, params) {
       if (id in this.store) {
-        return Promise.resolve(this.store[id]).then((0, _feathersCommons.select)(params, this.id));
+        return Promise.resolve(this.store[id]).then(select(params, this.id));
       }
 
       return Promise.reject(new _feathersErrors2.default.NotFound('No record found for id \'' + id + '\''));
@@ -1358,7 +1583,7 @@ var Service = function () {
       var id = data[this._id] || this._uId++;
       var current = _feathersCommons._.extend({}, data, _defineProperty({}, this._id, id));
 
-      return Promise.resolve(this.store[id] = current).then((0, _feathersCommons.select)(params, this.id));
+      return Promise.resolve(this.store[id] = current).then(select(params, this.id));
     }
   }, {
     key: 'create',
@@ -1388,7 +1613,7 @@ var Service = function () {
         data = _feathersCommons._.extend({}, data, _defineProperty({}, this._id, id));
         this.store[id] = data;
 
-        return Promise.resolve(this.store[id]).then((0, _feathersCommons.select)(params, this.id));
+        return Promise.resolve(this.store[id]).then(select(params, this.id));
       }
 
       return Promise.reject(new _feathersErrors2.default.NotFound('No record found for id \'' + id + '\''));
@@ -1411,7 +1636,7 @@ var Service = function () {
       if (id in this.store) {
         _feathersCommons._.extend(this.store[id], _feathersCommons._.omit(data, this._id));
 
-        return Promise.resolve(this.store[id]).then((0, _feathersCommons.select)(params, this.id));
+        return Promise.resolve(this.store[id]).then(select(params, this.id));
       }
 
       return Promise.reject(new _feathersErrors2.default.NotFound('No record found for id \'' + id + '\''));
@@ -1441,7 +1666,7 @@ var Service = function () {
         var deleted = this.store[id];
         delete this.store[id];
 
-        return Promise.resolve(deleted).then((0, _feathersCommons.select)(params, this.id));
+        return Promise.resolve(deleted).then(select(params, this.id));
       }
 
       return Promise.reject(new _feathersErrors2.default.NotFound('No record found for id \'' + id + '\''));
@@ -1472,7 +1697,7 @@ function init(options) {
 
 init.Service = Service;
 module.exports = exports['default'];
-},{"feathers-commons":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/commons.js","feathers-errors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-errors/lib/index.js","feathers-query-filters":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js","uberproto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js":[function(require,module,exports){
+},{"clone-deep":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/clone-deep/index.js","feathers-commons":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/commons.js","feathers-errors":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-errors/lib/index.js","feathers-query-filters":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js","uberproto":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-query-filters/lib/index.js":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1529,7 +1754,132 @@ function convertSort(sort) {
 }
 
 module.exports = exports['default'];
-},{"feathers-commons":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/commons.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/ms/index.js":[function(require,module,exports){
+},{"feathers-commons":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/feathers-commons/lib/commons.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/for-in/index.js":[function(require,module,exports){
+/*!
+ * for-in <https://github.com/jonschlinkert/for-in>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+module.exports = function forIn(obj, fn, thisArg) {
+  for (var key in obj) {
+    if (fn.call(thisArg, obj[key], key, obj) === false) {
+      break;
+    }
+  }
+};
+
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/is-extendable/index.js":[function(require,module,exports){
+/*!
+ * is-extendable <https://github.com/jonschlinkert/is-extendable>
+ *
+ * Copyright (c) 2015, Jon Schlinkert.
+ * Licensed under the MIT License.
+ */
+
+'use strict';
+
+module.exports = function isExtendable(val) {
+  return typeof val !== 'undefined' && val !== null
+    && (typeof val === 'object' || typeof val === 'function');
+};
+
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/is-plain-object/index.js":[function(require,module,exports){
+/*!
+ * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+var isObject = require('isobject');
+
+function isObjectObject(o) {
+  return isObject(o) === true
+    && Object.prototype.toString.call(o) === '[object Object]';
+}
+
+module.exports = function isPlainObject(o) {
+  var ctor,prot;
+
+  if (isObjectObject(o) === false) return false;
+
+  // If has modified constructor
+  ctor = o.constructor;
+  if (typeof ctor !== 'function') return false;
+
+  // If has modified prototype
+  prot = ctor.prototype;
+  if (isObjectObject(prot) === false) return false;
+
+  // If constructor does not have an Object-specific method
+  if (prot.hasOwnProperty('isPrototypeOf') === false) {
+    return false;
+  }
+
+  // Most likely a plain Object
+  return true;
+};
+
+},{"isobject":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/is-plain-object/node_modules/isobject/index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/is-plain-object/node_modules/isobject/index.js":[function(require,module,exports){
+/*!
+ * isobject <https://github.com/jonschlinkert/isobject>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+module.exports = function isObject(val) {
+  return val != null && typeof val === 'object' && Array.isArray(val) === false;
+};
+
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/mixin-object/index.js":[function(require,module,exports){
+'use strict';
+
+var isObject = require('is-extendable');
+var forIn = require('for-in');
+
+function mixin(target, objects) {
+  if (!isObject(target)) {
+    throw new TypeError('mixin-object expects the first argument to be an object.');
+  }
+  var len = arguments.length, i = 0;
+  while (++i < len) {
+    var obj = arguments[i];
+    if (isObject(obj)) {
+      forIn(obj, copy, target);
+    }
+  }
+  return target;
+}
+
+/**
+ * copy properties from the source object to the
+ * target object.
+ *
+ * @param  {*} `value`
+ * @param  {String} `key`
+ */
+
+function copy(value, key) {
+  this[key] = value;
+}
+
+/**
+ * Expose `mixin`
+ */
+
+module.exports = mixin;
+},{"for-in":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/mixin-object/node_modules/for-in/index.js","is-extendable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/is-extendable/index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/mixin-object/node_modules/for-in/index.js":[function(require,module,exports){
+arguments[4]["/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/for-in/index.js"][0].apply(exports,arguments)
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/ms/index.js":[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -1869,6 +2219,67 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
+},{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/shallow-clone/index.js":[function(require,module,exports){
+/*!
+ * shallow-clone <https://github.com/jonschlinkert/shallow-clone>
+ *
+ * Copyright (c) 2015-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+'use strict';
+
+var isObject = require('is-extendable');
+var mixin = require('mixin-object');
+var typeOf = require('kind-of');
+
+/**
+ * Shallow copy an object, array or primitive.
+ *
+ * @param  {any} `val`
+ * @return {any}
+ */
+
+function clone(val) {
+  var type = typeOf(val);
+  if (clone.hasOwnProperty(type)) {
+    return clone[type](val);
+  }
+  return val;
+}
+
+clone.array = function cloneArray(arr) {
+  return arr.slice();
+};
+
+clone.date = function cloneDate(date) {
+  return new Date(+date);
+};
+
+clone.object = function cloneObject(obj) {
+  if (isObject(obj)) {
+    return mixin({}, obj);
+  } else {
+    return obj;
+  }
+};
+
+clone.regexp = function cloneRegExp(re) {
+  var flags = '';
+  flags += re.multiline ? 'm' : '';
+  flags += re.global ? 'g' : '';
+  flags += re.ignorecase ? 'i' : '';
+  return new RegExp(re.source, flags);
+};
+
+/**
+ * Expose `clone`
+ */
+
+module.exports = clone;
+
+},{"is-extendable":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/is-extendable/index.js","kind-of":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/shallow-clone/node_modules/kind-of/index.js","mixin-object":"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/mixin-object/index.js"}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/shallow-clone/node_modules/kind-of/index.js":[function(require,module,exports){
+arguments[4]["/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/clone-deep/node_modules/kind-of/index.js"][0].apply(exports,arguments)
 },{}],"/Users/daffl/Development/feathersjs/feathers-localstorage/node_modules/uberproto/lib/proto.js":[function(require,module,exports){
 /* global define */
 /**
