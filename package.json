@@ -74,7 +74,7 @@
     "feathers-socketio": "^2.0.0",
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.2",
-    "mocha": "^3.0.0",
+    "mocha": "^4.0.0",
     "nsp": "^2.2.0",
     "shx": "^0.2.1",
     "semistandard": "^11.0.0"
