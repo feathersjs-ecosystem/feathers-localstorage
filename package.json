@@ -75,7 +75,6 @@
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.2",
     "mocha": "^4.0.0",
-    "nsp": "^2.2.0",
     "shx": "^0.2.1",
     "semistandard": "^11.0.0"
   }
