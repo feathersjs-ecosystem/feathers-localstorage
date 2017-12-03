@@ -1,7 +1,7 @@
 {
   "name": "feathers-localstorage",
   "description": "A client side service based on feathers-memory that persists to LocalStorage",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "homepage": "https://github.com/feathersjs-ecosystem/feathers-localstorage",
   "main": "lib/",
   "keywords": [
@@ -30,7 +30,6 @@
     "clean": "shx rm -rf dist/ && shx mkdir -p dist",
     "build": "npm run clean && npm run webpack",
     "webpack": "parallel-webpack",
-
     "publish": "git push origin --tags && npm run changelog && git push origin",
     "changelog": "github_changelog_generator && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
     "release:patch": "npm run add-dist && npm version patch && npm publish",
