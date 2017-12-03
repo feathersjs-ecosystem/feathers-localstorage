@@ -1,11 +1,10 @@
-import { base, example } from 'feathers-service-tests';
-import errors from 'feathers-errors';
-import feathers from 'feathers';
-import assert from 'assert';
-import storage from 'localstorage-memory';
+const { base } = require('feathers-service-tests');
+const errors = require('feathers-errors');
+const feathers = require('feathers');
+const assert = require('assert');
+const storage = require('localstorage-memory');
 
-import server from '../example/app';
-import service from '../src';
+const service = require('../lib');
 
 describe('Feathers Localstorage Service', () => {
   beforeEach(() => storage.clear());
@@ -102,11 +101,4 @@ describe('Feathers Localstorage Service', () => {
 
   base(app, errors);
   base(app, errors, 'people-customid', 'customid');
-});
-
-describe('Localstorage service example test', () => {
-  before(() => storage.clear());
-  after(done => server.close(() => done()));
-
-  example();
 });

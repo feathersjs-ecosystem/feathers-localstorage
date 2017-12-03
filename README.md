@@ -3,81 +3,101 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs/feathers-localstorage.svg)](https://greenkeeper.io/)
 
 [![Build Status](https://travis-ci.org/feathersjs/feathers-localstorage.png?branch=master)](https://travis-ci.org/feathersjs/feathers-localstorage)
-[![Code Climate](https://codeclimate.com/github/feathersjs/feathers-localstorage.png)](https://codeclimate.com/github/feathersjs/feathers-localstorage)
-[![Test Coverage](https://codeclimate.com/github/feathersjs/feathers-localstorage/badges/coverage.svg)](https://codeclimate.com/github/feathersjs/feathers-localstorage/coverage)
 [![Dependency Status](https://img.shields.io/david/feathersjs/feathers-localstorage.svg?style=flat-square)](https://david-dm.org/feathersjs/feathers-localstorage)
 [![Download Status](https://img.shields.io/npm/dm/feathers-localstorage.svg?style=flat-square)](https://www.npmjs.com/package/feathers-localstorage)
-[![Slack Status](http://slack.feathersjs.com/badge.svg)](http://slack.feathersjs.com)
 
-> A client side service based on feathers-memory that persists to LocalStorage or AsyncStorage
-
-## Installation
+[feathers-localstorage](https://github.com/feathersjs-ecosystem/feathers-localstorage/) is a database service adapter that extends [feathers-memory](./memory.md) and stores data in [localStorage](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage) in the browser or [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage.html) in React Native.
 
 ```bash
-npm install feathers-localstorage --save
+$ npm install --save feathers-localstorage
 ```
 
-## Documentation
+> __Important:__ `feathers-localstorage` implements the [Feathers Common database adapter API](https://docs.feathersjs.com/api/databases/common.html) and [querying syntax](https://docs.feathersjs.com/api/databases/querying.html).
 
-Please refer to the [Feathers database adapter documentation](https://docs.feathersjs.com/api/databases/common.html) for more details or directly at:
 
-- [LocalStorage/Asyncstorage](https://docs.feathersjs.com/api/databases/localstorage.html) - The detailed documentation for this adapter
-- [Extending](https://docs.feathersjs.com/api/databases/common.html#extending-adapters) - How to extend a database adapter
-- [Pagination](https://docs.feathersjs.com/api/databases/common.html#pagination) - How to use pagination
-- [Querying and Sorting](https://docs.feathersjs.com/api/databases/querying.html) - The common adapter querying mechanism and sorting for the database adapter
+## API
 
-## Complete Example
+### `service(options)`
 
-Here is an example of a Feathers server with a `messages` localstorage service that supports pagination. It uses the node module `localstorage-memory`.
+Returns a new service instance initialized with the given options.
 
 ```js
-var feathers = require('feathers');
-var bodyParser = require('body-parser');
-var rest = require('feathers-rest');
-var socketio = require('feathers-socketio');
-var localstorage = require('feathers-localstorage');
-var storage = require('localstorage-memory');
+const service = require('feathers-localstorage');
 
-// Create a feathers instance.
-const app = feathers()
-  // Enable REST services
-  .configure(rest())
-  // Enable Socket.io services
-  .configure(socketio())
-  // Turn on JSON parser for REST services
-  .use(bodyParser.json())
-  // Turn on URL-encoded parser for REST services
-  .use(bodyParser.urlencoded({ extended: true }));
-
-// Create an in-memory localstorage Feathers service with a default page size of 2 items and a maximum size of 4
-app.use('/messages', localstorage({
-  storage: storage,
-  paginate: {
-    default: 2,
-    max: 4
-  }
+app.use('/messages', service({
+  storage: window.localStorage || AsyncStorage
 }));
-
-// Create a dummy Message
-app.service('messages').create({
-  text: 'Server message',
-  read: false
-}).then(function(message) {
-  console.log('Created message', message);
-});
-
-// Start the server.
-var port = 3030;
-
-app.listen(port, function() {
-  console.log(`Feathers server listening on port ${port}`);
-});
+app.use('/messages', service({ storage, id, startId, name, store, paginate }));
 ```
 
-You can run this example with `npm start` from the cloned repository and going to [localhost:3030/messages](http://localhost:3030/messages). You will see the test Message that we created at the end of that file.
+__Options:__
+
+- `storage` (**required**) - The local storage engine. You can pass in the browsers `window.localStorage`, React Native's `AsyncStorage` or a NodeJS localstorage module.
+- `id` (*optional*, default: `'id'`) - The name of the id field property.
+- `startId` (*optional*, default: `0`) - An id number to start with that will be incremented for new record.
+- `name` (*optional*, default: `'feathers'`) - The key to store data under in local or async storage.
+- `store` (*optional*) - An object with id to item assignments to pre-initialize the data store
+- `events` (*optional*) - A list of [custom service events](https://docs.feathersjs.com/api/events.html#custom-events) sent by this service
+- `paginate` (*optional*) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size
+
+
+## Example
+
+See the [clients](https://docs.feathersjs.com/api/client.html) chapter for more information about using Feathers in the browser and React Native.
+
+### Browser
+
+```html
+<script type="text/javascript" src="socket.io/socket.io.js"></script>
+<script type="text/javascript" src="//unpkg.com/feathers-client@^2.0.0/dist/feathers.js"></script>
+<script type="text/javascript" src="//unpkg.com/feathers-localstorage@^1.0.0/dist/localstorage.js"></script>
+<script type="text/javascript">
+  var service = feathers.localstorage({
+    storage: window.localStorage
+  });
+  var app = feathers().use('/messages', service);
+
+  var messages = app.service('messages');
+
+  messages.on('created', function(message) {
+    console.log('Someone created a message', message);
+  });
+
+  messages.create({
+    text: 'Message created in browser'
+  });
+</script>
+```
+
+### React Native
+
+```bash
+$ npm install @feathersjs/feathers feathers-localstorage --save
+```
+
+```js
+import React from 'react-native';
+import feathers from '@feathersjs/feathers';
+import localstorage from 'feathers-localstorage';
+
+const { AsyncStorage } = React;
+
+const app = feathers()
+  .use('/messages', localstorage({ storage: AsyncStorage }));
+
+const messages = app.service('messages');
+
+messages.on('created', function(message) {
+  console.log('Someone created a message', message);
+});
+
+messages.create({
+  text: 'Message from React Native'
+});
+```
 
 ## License
 
-Copyright (c) 2016
+Copyright (c) 2017
 
 Licensed under the [MIT license](LICENSE).
