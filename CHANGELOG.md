@@ -1,5 +1,17 @@
 # Change Log
 
+## [v2.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.0) (2017-12-03)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v1.1.0...v2.0.0)
+
+**Merged pull requests:**
+
+- Add client build [\#59](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/59) ([daffl](https://github.com/daffl))
+- Upgrade to Feathers Buzzard \(v3\) [\#58](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/58) ([daffl](https://github.com/daffl))
+- Update to new plugin infrastructure [\#57](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/57) ([daffl](https://github.com/daffl))
+- Update nsp to the latest version 🚀 [\#55](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/55) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dependencies to enable Greenkeeper 🌴 [\#54](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/54) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update mocha to the latest version 🚀 [\#52](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/52) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v1.1.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v1.1.0) (2017-09-23)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v1.0.1...v1.1.0)
 
