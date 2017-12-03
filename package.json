@@ -46,19 +46,19 @@
   },
   "dependencies": {
     "debug": "^3.1.0",
-    "feathers-memory": "^1.2.1"
+    "feathers-memory": "^2.1.0"
   },
   "devDependencies": {
+    "@feathersjs/errors": "^3.2.0",
+    "@feathersjs/express": "^1.1.2",
+    "@feathersjs/feathers": "^3.0.1",
+    "@feathersjs/socketio": "^3.0.1",
     "browserify": "^14.1.0",
-    "feathers": "^2.0.0",
-    "feathers-errors": "^2.0.1",
-    "feathers-rest": "^1.2.2",
     "feathers-service-tests": "^0.10.0",
-    "feathers-socketio": "^2.0.0",
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.2",
     "mocha": "^4.0.0",
-    "shx": "^0.2.1",
-    "semistandard": "^11.0.0"
+    "semistandard": "^11.0.0",
+    "shx": "^0.2.1"
   }
 }
