@@ -49,8 +49,8 @@ See the [clients](https://docs.feathersjs.com/api/client.html) chapter for more 
 
 ```html
 <script type="text/javascript" src="socket.io/socket.io.js"></script>
-<script type="text/javascript" src="//unpkg.com/feathers-client@^2.0.0/dist/feathers.js"></script>
-<script type="text/javascript" src="//unpkg.com/feathers-localstorage@^1.0.0/dist/localstorage.js"></script>
+<script type="text/javascript" src="//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js"></script>
+<script type="text/javascript" src="//unpkg.com/feathers-localstorage@^2.0.0/dist/localstorage.js"></script>
 <script type="text/javascript">
   var service = feathers.localstorage({
     storage: window.localStorage
