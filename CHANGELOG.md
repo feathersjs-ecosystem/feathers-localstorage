@@ -1,5 +1,20 @@
 # Change Log
 
+## [v2.0.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.1) (2018-03-07)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v2.0.0...v2.0.1)
+
+**Closed issues:**
+
+- webpack warning on lazy-cache [\#60](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/60)
+
+**Merged pull requests:**
+
+- Update webpack to the latest version 🚀 [\#65](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/65) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update browserify to the latest version 🚀 [\#64](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/64) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update mocha to the latest version 🚀 [\#63](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/63) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update browserify to the latest version 🚀 [\#62](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/62) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update semistandard to the latest version 🚀 [\#61](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/61) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v2.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.0) (2017-12-03)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v1.1.0...v2.0.0)
 
@@ -99,7 +114,7 @@
 
 **Merged pull requests:**
 
-- This is a fix for there not being a .get handler [\#9](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/9) ([harangue](https://github.com/harangue))
+- This is a fix for there not being a .get handler [\#9](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/9) ([jack-guy](https://github.com/jack-guy))
 
 ## [v0.3.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.3.0) (2016-03-14)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.2.1...v0.3.0)
