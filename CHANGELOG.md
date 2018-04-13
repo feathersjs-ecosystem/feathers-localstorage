@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.0.2](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.2) (2018-04-13)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v2.0.1...v2.0.2)
+
+**Closed issues:**
+
+- Use with create-react-app [\#66](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/66)
+
+**Merged pull requests:**
+
+- Transpile all Feathers modules for distributable [\#67](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/67) ([daffl](https://github.com/daffl))
+
 ## [v2.0.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.1) (2018-03-07)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v2.0.0...v2.0.1)
 
