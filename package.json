@@ -1,7 +1,7 @@
 {
   "name": "feathers-localstorage",
   "description": "A client side service based on feathers-memory that persists to LocalStorage",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "homepage": "https://github.com/feathersjs-ecosystem/feathers-localstorage",
   "main": "lib/",
   "keywords": [
