@@ -11,9 +11,9 @@ describe('Feathers Localstorage Service', () => {
 
   const events = [ 'testing' ];
   const app = feathers()
-    .use('/people', service({ events, storage }))
+    .use('/people', service({ events, storage, name: 'test-storage-1' }))
     .use('/people-customid', service({
-      id: 'customid', events, storage
+      id: 'customid', events, storage, name: 'test-storage-2'
     }));
 
   it('is CommonJS compatible', () => {
@@ -21,7 +21,7 @@ describe('Feathers Localstorage Service', () => {
   });
 
   it('loads and sets data in storage', () => {
-    const name = 'test-storage';
+    const name = 'test-storage-3';
 
     storage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
 
@@ -74,7 +74,7 @@ describe('Feathers Localstorage Service', () => {
   });
 
   it('gets data in storage', done => {
-    const name = 'test-storage';
+    const name = 'test-storage-4';
 
     storage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
 
@@ -97,6 +97,17 @@ describe('Feathers Localstorage Service', () => {
         });
       });
     }).then(done, done);
+  });
+
+  it('throws on name reuse', done => {
+    const name = 'test-storage-5';
+
+    assert.throws(() => {
+      service({ storage, name });
+      service({ storage, name });
+    });
+
+    done();
   });
 
   base(app, errors);
