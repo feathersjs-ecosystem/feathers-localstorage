@@ -1,5 +1,16 @@
 # Change Log
 
+## [v4.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v4.0.0) (2018-12-17)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v3.0.0...v4.0.0)
+
+**Closed issues:**
+
+- An in-range update of @feathersjs/socketio is breaking the build 🚨 [\#79](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/79)
+
+**Merged pull requests:**
+
+- Update feathers-memory to the latest version 🚀 [\#81](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/81) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v3.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v3.0.0) (2018-09-21)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v2.0.2...v3.0.0)
 
@@ -16,9 +27,9 @@
 - Prevent reusing names [\#77](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/77) ([j2L4e](https://github.com/j2L4e))
 - Fix throttling. [\#76](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/76) ([j2L4e](https://github.com/j2L4e))
 - Update all dependencies [\#75](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/75) ([daffl](https://github.com/daffl))
-- Update babel-loader to the latest version 🚀 [\#71](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/71) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update shx to the latest version 🚀 [\#70](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/70) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update webpack-cli to the latest version 🚀 [\#69](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/69) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
+- Update babel-loader to the latest version 🚀 [\#71](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/71) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update shx to the latest version 🚀 [\#70](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/70) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update webpack-cli to the latest version 🚀 [\#69](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/69) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v2.0.2](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.2) (2018-04-13)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v2.0.1...v2.0.2)
@@ -40,11 +51,11 @@
 
 **Merged pull requests:**
 
-- Update webpack to the latest version 🚀 [\#65](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/65) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update browserify to the latest version 🚀 [\#64](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/64) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update mocha to the latest version 🚀 [\#63](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/63) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update browserify to the latest version 🚀 [\#62](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/62) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update semistandard to the latest version 🚀 [\#61](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/61) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
+- Update webpack to the latest version 🚀 [\#65](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/65) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update browserify to the latest version 🚀 [\#64](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/64) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update mocha to the latest version 🚀 [\#63](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/63) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update browserify to the latest version 🚀 [\#62](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/62) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update semistandard to the latest version 🚀 [\#61](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/61) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v2.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.0) (2017-12-03)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v1.1.0...v2.0.0)
@@ -54,9 +65,9 @@
 - Add client build [\#59](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/59) ([daffl](https://github.com/daffl))
 - Upgrade to Feathers Buzzard \(v3\) [\#58](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/58) ([daffl](https://github.com/daffl))
 - Update to new plugin infrastructure [\#57](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/57) ([daffl](https://github.com/daffl))
-- Update nsp to the latest version 🚀 [\#55](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/55) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update dependencies to enable Greenkeeper 🌴 [\#54](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/54) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update mocha to the latest version 🚀 [\#52](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/52) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
+- Update nsp to the latest version 🚀 [\#55](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/55) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dependencies to enable Greenkeeper 🌴 [\#54](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/54) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update mocha to the latest version 🚀 [\#52](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/52) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v1.1.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v1.1.0) (2017-09-23)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v1.0.1...v1.1.0)
@@ -75,11 +86,11 @@
 **Merged pull requests:**
 
 - Always use uId [\#50](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/50) ([daffl](https://github.com/daffl))
-- Update debug to the latest version 🚀 [\#48](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/48) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update feathers-socketio to the latest version 🚀 [\#47](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/47) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update feathers-service-tests to the latest version 🚀 [\#46](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/46) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update semistandard to the latest version 🚀 [\#45](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/45) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
-- Update dependencies to enable Greenkeeper 🌴 [\#44](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/44) ([greenkeeper[bot]](https://github.com/marketplace/greenkeeper))
+- Update debug to the latest version 🚀 [\#48](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/48) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update feathers-socketio to the latest version 🚀 [\#47](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/47) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update feathers-service-tests to the latest version 🚀 [\#46](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/46) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update semistandard to the latest version 🚀 [\#45](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/45) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dependencies to enable Greenkeeper 🌴 [\#44](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/44) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 - Update browserify to version 14.1.0 🚀 [\#40](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/40) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 - body-parser@1.16.1 breaks build 🚨 [\#39](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/39) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 - feathers-service-tests@0.9.1 breaks build 🚨 [\#34](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/34) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
