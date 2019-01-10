@@ -1,4 +1,4 @@
-const adapterTests = require('@feathersjs/adapter-commons/tests');
+const adapterTests = require('@feathersjs/adapter-tests');
 const errors = require('@feathersjs/errors');
 const feathers = require('@feathersjs/feathers');
 const assert = require('assert');
