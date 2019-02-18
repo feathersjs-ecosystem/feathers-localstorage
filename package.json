@@ -70,7 +70,7 @@
     "browserify": "^16.2.3",
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.3",
-    "mocha": "^5.2.0",
+    "mocha": "^6.0.0",
     "parallel-webpack": "^2.3.0",
     "semistandard": "^13.0.1",
     "shx": "^0.3.2",
