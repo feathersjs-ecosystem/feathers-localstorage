@@ -15,7 +15,7 @@ const config = {
   module: {
     rules: [{
       test: /\.js/,
-      exclude: /node_modules\/(?!(@feathersjs|debug|feathers))/,
+      exclude: /node_modules\/(?!(@feathersjs|debug|feathers|sift))/,
       loader: 'babel-loader',
       options: {
         presets: ['@babel/preset-env']
