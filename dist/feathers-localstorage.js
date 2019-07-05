@@ -300,18 +300,25 @@ module.exports.Service = Service;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var _require = __webpack_require__(/*! @feathersjs/commons */ "./node_modules/@feathersjs/commons/lib/index.js"),
-    _ = _require._;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var _require2 = __webpack_require__(/*! @feathersjs/errors */ "./node_modules/@feathersjs/errors/lib/index.js"),
-    BadRequest = _require2.BadRequest;
+var commons_1 = __webpack_require__(/*! @feathersjs/commons */ "./node_modules/@feathersjs/commons/lib/index.js");
+
+var errors_1 = __webpack_require__(/*! @feathersjs/errors */ "./node_modules/@feathersjs/errors/lib/index.js");
 
 function parse(number) {
   if (typeof number !== 'undefined') {
     return Math.abs(parseInt(number, 10));
   }
+
+  return undefined;
 } // Returns the pagination limit and will take into account the
 // default and max pagination settings
 
@@ -339,23 +346,27 @@ function convertSort(sort) {
 }
 
 function cleanQuery(query, operators, filters) {
-  if (_.isObject(query) && query.constructor === {}.constructor) {
+  if (commons_1._.isObject(query) && query.constructor === {}.constructor) {
     var result = {};
 
-    _.each(query, function (value, key) {
+    commons_1._.each(query, function (value, key) {
       if (key[0] === '$') {
         if (filters[key] !== undefined) {
           return;
         }
 
         if (!operators.includes(key)) {
-          throw new BadRequest("Invalid query parameter ".concat(key), query);
+          throw new errors_1.BadRequest("Invalid query parameter ".concat(key), query);
         }
       }
 
       result[key] = cleanQuery(value, operators, filters);
     });
 
+    Object.getOwnPropertySymbols(query).forEach(function (symbol) {
+      // @ts-ignore
+      result[symbol] = query[symbol];
+    });
     return result;
   }
 
@@ -364,13 +375,13 @@ function cleanQuery(query, operators, filters) {
 
 function assignFilters(object, query, filters, options) {
   if (Array.isArray(filters)) {
-    _.each(filters, function (key) {
+    commons_1._.each(filters, function (key) {
       if (query[key] !== undefined) {
         object[key] = query[key];
       }
     });
   } else {
-    _.each(filters, function (converter, key) {
+    commons_1._.each(filters, function (converter, key) {
       var converted = converter(query[key], options);
 
       if (converted !== undefined) {
@@ -382,7 +393,7 @@ function assignFilters(object, query, filters, options) {
   return object;
 }
 
-var FILTERS = {
+exports.FILTERS = {
   $sort: function $sort(value) {
     return convertSort(value);
   },
@@ -396,27 +407,28 @@ var FILTERS = {
     return value;
   }
 };
-var OPERATORS = ['$in', '$nin', '$lt', '$lte', '$gt', '$gte', '$ne', '$or']; // Converts Feathers special query parameters and pagination settings
+exports.OPERATORS = ['$in', '$nin', '$lt', '$lte', '$gt', '$gte', '$ne', '$or']; // Converts Feathers special query parameters and pagination settings
 // and returns them separately a `filters` and the rest of the query
 // as `query`
 
-module.exports = function filterQuery(query) {
+function filterQuery(query) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var _options$filters = options.filters,
       additionalFilters = _options$filters === void 0 ? {} : _options$filters,
       _options$operators = options.operators,
       additionalOperators = _options$operators === void 0 ? [] : _options$operators;
   var result = {};
-  result.filters = assignFilters({}, query, FILTERS, options);
+  result.filters = assignFilters({}, query, exports.FILTERS, options);
   result.filters = assignFilters(result.filters, query, additionalFilters, options);
-  result.query = cleanQuery(query, OPERATORS.concat(additionalOperators), result.filters);
+  result.query = cleanQuery(query, exports.OPERATORS.concat(additionalOperators), result.filters);
   return result;
-};
+}
 
-Object.assign(module.exports, {
-  OPERATORS: OPERATORS,
-  FILTERS: FILTERS
-});
+exports.default = filterQuery;
+
+if (true) {
+  module.exports = Object.assign(filterQuery, module.exports);
+}
 
 /***/ }),
 
@@ -427,6 +439,9 @@ Object.assign(module.exports, {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -435,19 +450,34 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-var _require = __webpack_require__(/*! @feathersjs/commons */ "./node_modules/@feathersjs/commons/lib/index.js"),
-    _ = _require._;
+function __export(m) {
+  for (var p in m) {
+    if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+  }
+}
 
-var AdapterService = __webpack_require__(/*! ./service */ "./node_modules/@feathersjs/adapter-commons/lib/service.js");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var filterQuery = __webpack_require__(/*! ./filter-query */ "./node_modules/@feathersjs/adapter-commons/lib/filter-query.js");
+var commons_1 = __webpack_require__(/*! @feathersjs/commons */ "./node_modules/@feathersjs/commons/lib/index.js");
 
-var sort = __webpack_require__(/*! ./sort */ "./node_modules/@feathersjs/adapter-commons/lib/sort.js"); // Return a function that filters a result object or array
+var service_1 = __webpack_require__(/*! ./service */ "./node_modules/@feathersjs/adapter-commons/lib/service.js");
+
+exports.AdapterService = service_1.AdapterService;
+
+var filter_query_1 = __webpack_require__(/*! ./filter-query */ "./node_modules/@feathersjs/adapter-commons/lib/filter-query.js");
+
+exports.filterQuery = filter_query_1.default;
+exports.FILTERS = filter_query_1.FILTERS;
+exports.OPERATORS = filter_query_1.OPERATORS;
+
+__export(__webpack_require__(/*! ./sort */ "./node_modules/@feathersjs/adapter-commons/lib/sort.js")); // Return a function that filters a result object or array
 // and picks only the fields passed as `params.query.$select`
 // and additional `otherFields`
 
 
-var select = function select(params) {
+function select(params) {
   var fields = params && params.query && params.query.$select;
 
   for (var _len = arguments.length, otherFields = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -459,11 +489,13 @@ var select = function select(params) {
   }
 
   var convert = function convert(result) {
+    var _commons_1$_;
+
     if (!Array.isArray(fields)) {
       return result;
     }
 
-    return _.pick.apply(_, [result].concat(_toConsumableArray(fields)));
+    return (_commons_1$_ = commons_1._).pick.apply(_commons_1$_, [result].concat(_toConsumableArray(fields)));
   };
 
   return function (result) {
@@ -473,13 +505,9 @@ var select = function select(params) {
 
     return convert(result);
   };
-};
+}
 
-module.exports = Object.assign({
-  select: select,
-  filterQuery: filterQuery,
-  AdapterService: AdapterService
-}, sort);
+exports.select = select;
 
 /***/ }),
 
@@ -490,22 +518,32 @@ module.exports = Object.assign({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var _require = __webpack_require__(/*! @feathersjs/errors */ "./node_modules/@feathersjs/errors/lib/index.js"),
-    NotImplemented = _require.NotImplemented,
-    BadRequest = _require.BadRequest,
-    MethodNotAllowed = _require.MethodNotAllowed;
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
 
-var _filterQuery = __webpack_require__(/*! ./filter-query */ "./node_modules/@feathersjs/adapter-commons/lib/filter-query.js");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var errors_1 = __webpack_require__(/*! @feathersjs/errors */ "./node_modules/@feathersjs/errors/lib/index.js");
+
+var filter_query_1 = __importDefault(__webpack_require__(/*! ./filter-query */ "./node_modules/@feathersjs/adapter-commons/lib/filter-query.js"));
 
 var callMethod = function callMethod(self, name) {
   if (typeof self[name] !== 'function') {
-    return Promise.reject(new NotImplemented("Method ".concat(name, " not available")));
+    return Promise.reject(new errors_1.NotImplemented("Method ".concat(name, " not available")));
   }
 
   for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
@@ -515,24 +553,25 @@ var callMethod = function callMethod(self, name) {
   return self[name].apply(self, args);
 };
 
-var checkMulti = function checkMulti(method, option) {
-  if (option === true) {
-    return;
-  }
-
-  return Array.isArray(option) ? option.includes(method) : false;
+var alwaysMulti = {
+  find: true,
+  get: false,
+  update: false
 };
 
-module.exports =
+var AdapterService =
 /*#__PURE__*/
 function () {
   function AdapterService(options) {
     _classCallCheck(this, AdapterService);
 
     this.options = Object.assign({
+      id: 'id',
       events: [],
       paginate: {},
-      multi: false
+      multi: false,
+      filters: [],
+      whitelist: []
     }, options);
   }
 
@@ -549,12 +588,27 @@ function () {
         filters: this.options.filters,
         paginate: paginate
       }, opts);
-
-      var result = _filterQuery(query, options);
-
+      var result = filter_query_1.default(query, options);
       return Object.assign(result, {
         paginate: paginate
       });
+    }
+  }, {
+    key: "allowsMulti",
+    value: function allowsMulti(method) {
+      var always = alwaysMulti[method];
+
+      if (typeof always !== 'undefined') {
+        return always;
+      }
+
+      var option = this.options.multi;
+
+      if (option === true || option === false) {
+        return option;
+      } else {
+        return option.includes(method);
+      }
     }
   }, {
     key: "find",
@@ -569,8 +623,8 @@ function () {
   }, {
     key: "create",
     value: function create(data, params) {
-      if (Array.isArray(data) && !checkMulti('create', this.options.multi)) {
-        return Promise.reject(new MethodNotAllowed("Can not create multiple entries"));
+      if (Array.isArray(data) && !this.allowsMulti('create')) {
+        return Promise.reject(new errors_1.MethodNotAllowed("Can not create multiple entries"));
       }
 
       return callMethod(this, '_create', data, params);
@@ -579,7 +633,7 @@ function () {
     key: "update",
     value: function update(id, data, params) {
       if (id === null || Array.isArray(data)) {
-        return Promise.reject(new BadRequest("You can not replace multiple instances. Did you mean 'patch'?"));
+        return Promise.reject(new errors_1.BadRequest("You can not replace multiple instances. Did you mean 'patch'?"));
       }
 
       return callMethod(this, '_update', id, data, params);
@@ -587,20 +641,20 @@ function () {
   }, {
     key: "patch",
     value: function patch(id, data, params) {
-      if (id === null && !checkMulti('patch', this.options.multi)) {
-        return Promise.reject(new MethodNotAllowed("Can not patch multiple entries"));
+      if (id === null && !this.allowsMulti('patch')) {
+        return Promise.reject(new errors_1.MethodNotAllowed("Can not patch multiple entries"));
       }
 
       return callMethod(this, '_patch', id, data, params);
     }
   }, {
     key: "remove",
-    value: function remove(id, data, params) {
-      if (id === null && !checkMulti('remove', this.options.multi)) {
-        return Promise.reject(new MethodNotAllowed("Can not remove multiple entries"));
+    value: function remove(id, params) {
+      if (id === null && !this.allowsMulti('remove')) {
+        return Promise.reject(new errors_1.MethodNotAllowed("Can not remove multiple entries"));
       }
 
-      return callMethod(this, '_remove', id, data, params);
+      return callMethod(this, '_remove', id, params);
     }
   }, {
     key: "id",
@@ -617,6 +671,8 @@ function () {
   return AdapterService;
 }();
 
+exports.AdapterService = AdapterService;
+
 /***/ }),
 
 /***/ "./node_modules/@feathersjs/adapter-commons/lib/sort.js":
@@ -624,11 +680,17 @@ function () {
   !*** ./node_modules/@feathersjs/adapter-commons/lib/sort.js ***!
   \**************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// Sorting algorithm taken from NeDB (https://github.com/louischatriot/nedb)
+"use strict";
+ // Sorting algorithm taken from NeDB (https://github.com/louischatriot/nedb)
 // See https://github.com/louischatriot/nedb/blob/e3f0078499aa1005a59d0c2372e425ab789145c1/lib/model.js#L189
-exports.compareNSB = function (a, b) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function compareNSB(a, b) {
   if (a < b) {
     return -1;
   }
@@ -638,10 +700,13 @@ exports.compareNSB = function (a, b) {
   }
 
   return 0;
-};
+}
 
-exports.compareArrays = function (a, b) {
-  var i, comp;
+exports.compareNSB = compareNSB;
+
+function compareArrays(a, b) {
+  var i;
+  var comp;
 
   for (i = 0; i < Math.min(a.length, b.length); i += 1) {
     comp = exports.compare(a[i], b[i]);
@@ -653,9 +718,11 @@ exports.compareArrays = function (a, b) {
 
 
   return exports.compareNSB(a.length, b.length);
-};
+}
 
-exports.compare = function (a, b) {
+exports.compareArrays = compareArrays;
+
+function compare(a, b) {
   var compareStrings = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : exports.compareNSB;
   var _exports = exports,
       compareNSB = _exports.compareNSB,
@@ -738,11 +805,12 @@ exports.compare = function (a, b) {
   }
 
   return compareNSB(aKeys.length, bKeys.length);
-}; // An in-memory sorting function according to the
+}
+
+exports.compare = compare; // An in-memory sorting function according to the
 // $sort special query parameter
 
-
-exports.sorter = function ($sort) {
+function sorter($sort) {
   var criteria = Object.keys($sort).map(function (key) {
     var direction = $sort[key];
     return {
@@ -752,19 +820,39 @@ exports.sorter = function ($sort) {
   });
   return function (a, b) {
     var compare;
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
 
-    for (var i = 0; i < criteria.length; i++) {
-      var criterion = criteria[i];
-      compare = criterion.direction * exports.compare(a[criterion.key], b[criterion.key]);
+    try {
+      for (var _iterator = criteria[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var criterion = _step.value;
+        compare = criterion.direction * exports.compare(a[criterion.key], b[criterion.key]);
 
-      if (compare !== 0) {
-        return compare;
+        if (compare !== 0) {
+          return compare;
+        }
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
       }
     }
 
     return 0;
   };
-};
+}
+
+exports.sorter = sorter;
 
 /***/ }),
 
@@ -1759,7 +1847,9 @@ function setup(env) {
   }
 
   function extend(namespace, delimiter) {
-    return createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+    var newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+    newDebug.log = this.log;
+    return newDebug;
   }
   /**
   * Enables a debug mode by namespaces. This can include modes
@@ -1960,20 +2050,24 @@ function (_AdapterService) {
     value: function () {
       var _getEntries = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(params) {
-        var _this$filterQuery, query;
+      regeneratorRuntime.mark(function _callee() {
+        var params,
+            _this$filterQuery,
+            query,
+            _args = arguments;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                params = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};
                 _this$filterQuery = this.filterQuery(params), query = _this$filterQuery.query;
                 return _context.abrupt("return", this._find(Object.assign({}, params, {
                   paginate: false,
                   query: query
                 })));
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -1981,7 +2075,7 @@ function (_AdapterService) {
         }, _callee, this);
       }));
 
-      function getEntries(_x) {
+      function getEntries() {
         return _getEntries.apply(this, arguments);
       }
 
@@ -1992,13 +2086,22 @@ function (_AdapterService) {
     value: function () {
       var _find2 = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(params) {
-        var _this$filterQuery2, query, filters, paginate, values, total, result;
+      regeneratorRuntime.mark(function _callee2() {
+        var params,
+            _this$filterQuery2,
+            query,
+            filters,
+            paginate,
+            values,
+            total,
+            result,
+            _args2 = arguments;
 
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                params = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : {};
                 _this$filterQuery2 = this.filterQuery(params), query = _this$filterQuery2.query, filters = _this$filterQuery2.filters, paginate = _this$filterQuery2.paginate;
                 values = _.values(this.store).filter(this.options.matcher(query));
                 total = values.length;
@@ -2025,16 +2128,16 @@ function (_AdapterService) {
                 };
 
                 if (paginate && paginate.default) {
-                  _context2.next = 9;
+                  _context2.next = 10;
                   break;
                 }
 
                 return _context2.abrupt("return", result.data);
 
-              case 9:
+              case 10:
                 return _context2.abrupt("return", result);
 
-              case 10:
+              case 11:
               case "end":
                 return _context2.stop();
             }
@@ -2042,7 +2145,7 @@ function (_AdapterService) {
         }, _callee2, this);
       }));
 
-      function _find(_x2) {
+      function _find() {
         return _find2.apply(this, arguments);
       }
 
@@ -2092,7 +2195,7 @@ function (_AdapterService) {
         }, _callee3, this);
       }));
 
-      function _get(_x3) {
+      function _get(_x) {
         return _get2.apply(this, arguments);
       }
 
@@ -2104,16 +2207,22 @@ function (_AdapterService) {
     value: function () {
       var _create2 = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee4(data, params) {
+      regeneratorRuntime.mark(function _callee4(data) {
         var _this2 = this;
 
-        var id, current, result;
+        var params,
+            id,
+            current,
+            result,
+            _args4 = arguments;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
+                params = _args4.length > 1 && _args4[1] !== undefined ? _args4[1] : {};
+
                 if (!Array.isArray(data)) {
-                  _context4.next = 2;
+                  _context4.next = 3;
                   break;
                 }
 
@@ -2121,13 +2230,13 @@ function (_AdapterService) {
                   return _this2._create(current, params);
                 })));
 
-              case 2:
+              case 3:
                 id = data[this.id] || this._uId++;
                 current = _.extend({}, data, _defineProperty({}, this.id, id));
                 result = this.store[id] = current;
                 return _context4.abrupt("return", _select(result, params, this.id));
 
-              case 6:
+              case 7:
               case "end":
                 return _context4.stop();
             }
@@ -2135,7 +2244,7 @@ function (_AdapterService) {
         }, _callee4, this);
       }));
 
-      function _create(_x4, _x5) {
+      function _create(_x2) {
         return _create2.apply(this, arguments);
       }
 
@@ -2146,16 +2255,20 @@ function (_AdapterService) {
     value: function () {
       var _update2 = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee5(id, data, params) {
-        var oldEntry, oldId;
+      regeneratorRuntime.mark(function _callee5(id, data) {
+        var params,
+            oldEntry,
+            oldId,
+            _args5 = arguments;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
-                _context5.next = 2;
+                params = _args5.length > 2 && _args5[2] !== undefined ? _args5[2] : {};
+                _context5.next = 3;
                 return this._get(id);
 
-              case 2:
+              case 3:
                 oldEntry = _context5.sent;
                 // We don't want our id to change type if it can be coerced
                 oldId = oldEntry[this.id];
@@ -2164,7 +2277,7 @@ function (_AdapterService) {
                 this.store[id] = _.extend({}, data, _defineProperty({}, this.id, id));
                 return _context5.abrupt("return", this._get(id, params));
 
-              case 7:
+              case 8:
               case "end":
                 return _context5.stop();
             }
@@ -2172,7 +2285,7 @@ function (_AdapterService) {
         }, _callee5, this);
       }));
 
-      function _update(_x6, _x7, _x8) {
+      function _update(_x3, _x4) {
         return _update2.apply(this, arguments);
       }
 
@@ -2183,38 +2296,47 @@ function (_AdapterService) {
     value: function () {
       var _patch2 = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee6(id, data, params) {
+      regeneratorRuntime.mark(function _callee6(id, data) {
         var _this3 = this;
 
-        var entries;
+        var params,
+            patchEntry,
+            entries,
+            _args6 = arguments;
         return regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
+                params = _args6.length > 2 && _args6[2] !== undefined ? _args6[2] : {};
+
+                patchEntry = function patchEntry(entry) {
+                  var currentId = entry[_this3.id];
+                  _this3.store[currentId] = _.extend(_this3.store[currentId], _.omit(data, _this3.id));
+                  return _select(_this3.store[currentId], params, _this3.id);
+                };
+
                 if (!(id === null)) {
-                  _context6.next = 5;
+                  _context6.next = 7;
                   break;
                 }
 
-                _context6.next = 3;
+                _context6.next = 5;
                 return this.getEntries(params);
 
-              case 3:
-                entries = _context6.sent;
-                return _context6.abrupt("return", Promise.all(entries.map(function (current) {
-                  return _this3._patch(current[_this3.id], data, params);
-                })));
-
               case 5:
-                _context6.next = 7;
-                return this._get(id, params);
+                entries = _context6.sent;
+                return _context6.abrupt("return", entries.map(patchEntry));
 
               case 7:
-                // Will throw an error if not found
-                this.store[id] = _.extend(this.store[id], _.omit(data, this.id));
-                return _context6.abrupt("return", this._get(id, params));
+                _context6.t0 = patchEntry;
+                _context6.next = 10;
+                return this._get(id, params);
 
-              case 9:
+              case 10:
+                _context6.t1 = _context6.sent;
+                return _context6.abrupt("return", (0, _context6.t0)(_context6.t1));
+
+              case 12:
               case "end":
                 return _context6.stop();
             }
@@ -2222,7 +2344,7 @@ function (_AdapterService) {
         }, _callee6, this);
       }));
 
-      function _patch(_x9, _x10, _x11) {
+      function _patch(_x5, _x6) {
         return _patch2.apply(this, arguments);
       }
 
@@ -2234,38 +2356,43 @@ function (_AdapterService) {
     value: function () {
       var _remove2 = _asyncToGenerator(
       /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee7(id, params) {
+      regeneratorRuntime.mark(function _callee7(id) {
         var _this4 = this;
 
-        var entries, entry;
+        var params,
+            entries,
+            entry,
+            _args7 = arguments;
         return regeneratorRuntime.wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
+                params = _args7.length > 1 && _args7[1] !== undefined ? _args7[1] : {};
+
                 if (!(id === null)) {
-                  _context7.next = 5;
+                  _context7.next = 6;
                   break;
                 }
 
-                _context7.next = 3;
+                _context7.next = 4;
                 return this.getEntries(params);
 
-              case 3:
+              case 4:
                 entries = _context7.sent;
                 return _context7.abrupt("return", Promise.all(entries.map(function (current) {
                   return _this4._remove(current[_this4.id], params);
                 })));
 
-              case 5:
-                _context7.next = 7;
+              case 6:
+                _context7.next = 8;
                 return this._get(id, params);
 
-              case 7:
+              case 8:
                 entry = _context7.sent;
                 delete this.store[id];
                 return _context7.abrupt("return", entry);
 
-              case 10:
+              case 11:
               case "end":
                 return _context7.stop();
             }
@@ -2273,7 +2400,7 @@ function (_AdapterService) {
         }, _callee7, this);
       }));
 
-      function _remove(_x12, _x13) {
+      function _remove(_x7) {
         return _remove2.apply(this, arguments);
       }
 
@@ -2329,7 +2456,7 @@ module.exports = function(val, options) {
   var type = typeof val;
   if (type === 'string' && val.length > 0) {
     return parse(val);
-  } else if (type === 'number' && isNaN(val) === false) {
+  } else if (type === 'number' && isFinite(val)) {
     return options.long ? fmtLong(val) : fmtShort(val);
   }
   throw new Error(
@@ -2351,7 +2478,7 @@ function parse(str) {
   if (str.length > 100) {
     return;
   }
-  var match = /^((?:\d+)?\-?\d?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
     str
   );
   if (!match) {
@@ -2664,14 +2791,16 @@ process.umask = function() { return 0; };
 /*!****************************************!*\
   !*** ./node_modules/sift/src/index.js ***!
   \****************************************/
-/*! exports provided: default, indexOf, compare */
+/*! exports provided: default, compare, comparable */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sift; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "indexOf", function() { return indexOf; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compare", function() { return compare; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comparable", function() { return comparable; });
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 /*
  *
  * Copryright 2018, Craig Condon
@@ -2679,66 +2808,54 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Filter JavaScript objects with mongodb queries
  */
-
+function typeChecker(type) {
+  var typeString = "[object " + type + "]";
+  return function (value) {
+    return Object.prototype.toString.call(value) === typeString;
+  };
+}
 /**
  */
 
-function isFunction(value) {
-  return typeof value === 'function';
-}
 
-/**
- */
-
-function isArray(value) {
-  return Object.prototype.toString.call(value) === '[object Array]';
-}
-
-/**
- */
-
-function comparable(value) {
-  if (value instanceof Date) {
-    return value.getTime();
-  } else if (isArray(value)) {
-    return value.map(comparable);
-  } else if (value && typeof value.toJSON === 'function') {
-    return value.toJSON();
-  } else {
-    return value;
-  }
-}
+var isArray = typeChecker("Array");
+var isObject = typeChecker("Object");
+var isFunction = typeChecker("Function");
 
 function get(obj, key) {
   return isFunction(obj.get) ? obj.get(key) : obj[key];
 }
-
 /**
  */
+
 
 function or(validator) {
-  return function(a, b) {
+  return function (a, b) {
     if (!isArray(b) || !b.length) {
       return validator(a, b);
     }
-    for (var i = 0, n = b.length; i < n; i++) {
-      if (validator(a, get(b,i))) return true;
-    }
-    return false;
-  }
-}
 
+    for (var i = 0, n = b.length; i < n; i++) {
+      if (validator(a, get(b, i))) return true;
+    }
+
+    return false;
+  };
+}
 /**
  */
 
+
 function and(validator) {
-  return function(a, b) {
+  return function (a, b) {
     if (!isArray(b) || !b.length) {
       return validator(a, b);
     }
+
     for (var i = 0, n = b.length; i < n; i++) {
       if (!validator(a, get(b, i))) return false;
     }
+
     return true;
   };
 }
@@ -2747,312 +2864,345 @@ function validate(validator, b, k, o) {
   return validator.v(validator.a, b, k, o);
 }
 
-var OPERATORS = {
-
+var defaultExpressions = {
   /**
    */
-
-  $eq: or(function(a, b) {
+  $eq: or(function (a, b) {
     return a(b);
   }),
 
   /**
    */
-
-  $ne: and(function(a, b) {
-    return !a(b);
+  $ne: and(function (a, b) {
+    return a(b);
   }),
 
   /**
    */
-
-  $gt: or(function(a, b) {
-    return compare(comparable(b), a) > 0;
+  $gt: or(function (a, b) {
+    return a(b);
   }),
 
   /**
    */
-
-  $gte: or(function(a, b) {
-    return compare(comparable(b), a) >= 0;
+  $gte: or(function (a, b) {
+    return a(b);
   }),
 
   /**
    */
-
-  $lt: or(function(a, b) {
-    return compare(comparable(b), a) < 0;
+  $lt: or(function (a, b) {
+    return a(b);
   }),
 
   /**
    */
-
-  $lte: or(function(a, b) {
-    return compare(comparable(b), a) <= 0;
+  $lte: or(function (a, b) {
+    return a(b);
   }),
 
   /**
    */
-
-  $mod: or(function(a, b) {
-    return b % a[0] == a[1];
+  $mod: or(function (a, b) {
+    return a(b);
   }),
 
   /**
    */
-
-  $in: function(a, b) {
-
-    if (b instanceof Array) {
-      for (var i = b.length; i--;) {
-        if (~a.indexOf(comparable(get(b, i)))) {
-          return true;
-        }
-      }
-    } else {
-      var comparableB = comparable(b);
-      if (comparableB === b && typeof b === 'object') {
-        for (var i = a.length; i--;) {
-          if (String(a[i]) === String(b) && String(b) !== '[object Object]') {
-            return true;
-          }
-        }
-      }
-
-      /*
-        Handles documents that are undefined, whilst also
-        having a 'null' element in the parameters to $in.
-      */
-      if (typeof comparableB == 'undefined') {
-        for (var i = a.length; i--;) {
-          if (a[i] == null) {
-            return true;
-          }
-        }
-      }
-
-      /*
-        Handles the case of {'field': {$in: [/regexp1/, /regexp2/, ...]}}
-      */
-      for (var i = a.length; i--;) {
-        var validator = createRootValidator(get(a, i), undefined);
-        var result = validate(validator, b, i, a);
-        if ((result) && (String(result) !== '[object Object]') && (String(b) !== '[object Object]')) {
-          return true;
-        }
-      }
-
-      return !!~a.indexOf(comparableB);
-    }
-
-    return false;
+  $in: function $in(a, b) {
+    return a(b);
   },
 
   /**
    */
-
-  $nin: function(a, b, k, o) {
-    return !OPERATORS.$in(a, b, k, o);
+  $nin: function $nin(a, b) {
+    return a(b);
   },
 
   /**
    */
-
-  $not: function(a, b, k, o) {
-    return !validate(a, b, k, o);
+  $not: function $not(a, b, k, o) {
+    return a(b, k, o);
   },
 
   /**
    */
-
-  $type: function(a, b) {
-    return b != void 0 ? b instanceof a || b.constructor == a : false;
-    },
-
-  /**
-   */
-
-  $all: function(a, b, k, o) {
-    return OPERATORS.$and(a, b, k, o);
+  $type: function $type(a, b) {
+    return a(b);
   },
 
   /**
    */
+  $all: function $all(a, b, k, o) {
+    return defaultExpressions.$and(a, b, k, o);
+  },
 
-  $size: function(a, b) {
+  /**
+   */
+  $size: function $size(a, b) {
     return b ? a === b.length : false;
   },
 
   /**
    */
+  $or: function $or(a, b, k, o) {
+    for (var i = 0, n = a.length; i < n; i++) {
+      if (validate(get(a, i), b, k, o)) {
+        return true;
+      }
+    }
 
-  $or: function(a, b, k, o) {
-    for (var i = 0, n = a.length; i < n; i++) if (validate(get(a, i), b, k, o)) return true;
     return false;
   },
 
   /**
    */
-
-  $nor: function(a, b, k, o) {
-    return !OPERATORS.$or(a, b, k, o);
+  $nor: function $nor(a, b, k, o) {
+    return !defaultExpressions.$or(a, b, k, o);
   },
 
   /**
    */
-
-  $and: function(a, b, k, o) {
+  $and: function $and(a, b, k, o) {
     for (var i = 0, n = a.length; i < n; i++) {
       if (!validate(get(a, i), b, k, o)) {
         return false;
       }
     }
+
     return true;
   },
 
   /**
    */
-
-  $regex: or(function(a, b) {
-    return typeof b === 'string' && a.test(b);
+  $regex: or(function (a, b) {
+    return typeof b === "string" && a.test(b);
   }),
 
   /**
    */
-
-  $where: function(a, b, k, o) {
+  $where: function $where(a, b, k, o) {
     return a.call(b, b, k, o);
   },
 
   /**
    */
-
-  $elemMatch: function(a, b, k, o) {
+  $elemMatch: function $elemMatch(a, b, k, o) {
     if (isArray(b)) {
       return !!~search(b, a);
     }
+
     return validate(a, b, k, o);
   },
 
   /**
    */
-
-  $exists: function(a, b, k, o) {
+  $exists: function $exists(a, b, k, o) {
     return o.hasOwnProperty(k) === a;
   }
 };
-
 /**
  */
 
 var prepare = {
-
   /**
    */
-
-  $eq: function(a) {
+  $eq: function $eq(a, query, _ref) {
+    var comparable = _ref.comparable,
+        compare = _ref.compare;
 
     if (a instanceof RegExp) {
-      return function(b) {
-        return typeof b === 'string' && a.test(b);
-      };
+      return or(function (b) {
+        return typeof b === "string" && a.test(b);
+      });
     } else if (a instanceof Function) {
-      return a;
+      return or(a);
     } else if (isArray(a) && !a.length) {
       // Special case of a == []
-      return function(b) {
-        return (isArray(b) && !b.length);
-      };
-    } else if (a === null){
-      return function(b){
+      return or(function (b) {
+        return isArray(b) && !b.length;
+      });
+    } else if (a === null) {
+      return or(function (b) {
         //will match both null and undefined
         return b == null;
-      }
+      });
     }
 
-    return function(b) {
+    return or(function (b) {
       return compare(comparable(b), comparable(a)) === 0;
+    });
+  },
+  $gt: function $gt(a, query, _ref2) {
+    var comparable = _ref2.comparable,
+        compare = _ref2.compare;
+    return function (b) {
+      return compare(comparable(b), comparable(a)) > 0;
+    };
+  },
+  $gte: function $gte(a, query, _ref3) {
+    var comparable = _ref3.comparable,
+        compare = _ref3.compare;
+    return function (b) {
+      return compare(comparable(b), comparable(a)) >= 0;
+    };
+  },
+  $lt: function $lt(a, query, _ref4) {
+    var comparable = _ref4.comparable,
+        compare = _ref4.compare;
+    return function (b) {
+      return compare(comparable(b), comparable(a)) < 0;
+    };
+  },
+  $lte: function $lte(a, query, _ref5) {
+    var comparable = _ref5.comparable,
+        compare = _ref5.compare;
+    return function (b) {
+      return compare(comparable(b), comparable(a)) <= 0;
+    };
+  },
+  $in: function $in(a, query, options) {
+    var comparable = options.comparable;
+    return function (b) {
+      if (b instanceof Array) {
+        for (var i = b.length; i--;) {
+          if (~a.indexOf(comparable(get(b, i)))) {
+            return true;
+          }
+        }
+      } else {
+        var comparableB = comparable(b);
+
+        if (comparableB === b && _typeof(b) === "object") {
+          for (var i = a.length; i--;) {
+            if (String(a[i]) === String(b) && String(b) !== "[object Object]") {
+              return true;
+            }
+          }
+        }
+        /*
+          Handles documents that are undefined, whilst also
+          having a 'null' element in the parameters to $in.
+        */
+
+
+        if (typeof comparableB == "undefined") {
+          for (var i = a.length; i--;) {
+            if (a[i] == null) {
+              return true;
+            }
+          }
+        }
+        /*
+          Handles the case of {'field': {$in: [/regexp1/, /regexp2/, ...]}}
+        */
+
+
+        for (var i = a.length; i--;) {
+          var validator = createRootValidator(get(a, i), options);
+          var result = validate(validator, b, i, a);
+
+          if (result && String(result) !== "[object Object]" && String(b) !== "[object Object]") {
+            return true;
+          }
+        }
+
+        return !!~a.indexOf(comparableB);
+      }
+
+      return false;
+    };
+  },
+  $nin: function $nin(a, query, options) {
+    var eq = prepare.$in(a, query, options);
+    return function (a, b, k, o) {
+      return !eq(a, b, k, o);
+    };
+  },
+  $mod: function $mod(a) {
+    return function (b) {
+      return b % a[0] == a[1];
     };
   },
 
   /**
    */
-
-  $ne: function(a) {
-    return prepare.$eq(a);
+  $ne: function $ne(a, query, options) {
+    var eq = prepare.$eq(a, query, options);
+    return and(function (a, b, k, o) {
+      return !eq(a, b, k, o);
+    });
   },
 
   /**
    */
-
-  $and: function(a) {
-    return a.map(parse);
+  $and: function $and(a, query, options) {
+    return a.map(parse(options));
   },
 
   /**
    */
-
-  $all: function(a) {
-    return prepare.$and(a);
+  $all: function $all(a, query, options) {
+    return prepare.$and(a, query, options);
   },
 
   /**
    */
-
-  $or: function(a) {
-    return a.map(parse);
+  $or: function $or(a, query, options) {
+    return a.map(parse(options));
   },
 
   /**
    */
-
-  $nor: function(a) {
-    return a.map(parse);
+  $nor: function $nor(a, query, options) {
+    return a.map(parse(options));
   },
 
   /**
    */
-
-  $not: function(a) {
-    return parse(a);
+  $not: function $not(a, query, options) {
+    var v = parse(options)(a);
+    return function (b, k, o) {
+      return !validate(v, b, k, o);
+    };
+  },
+  $type: function $type(a) {
+    return function (b, k, o) {
+      return b != void 0 ? b instanceof a || b.constructor == a : false;
+    };
   },
 
   /**
    */
-
-  $regex: function(a, query) {
+  $regex: function $regex(a, query) {
     return new RegExp(a, query.$options);
   },
 
   /**
    */
-
-  $where: function(a) {
-    return typeof a === 'string' ? new Function('obj', 'return ' + a) : a;
+  $where: function $where(a) {
+    return typeof a === "string" ? new Function("obj", "return " + a) : a;
   },
 
   /**
    */
-
-  $elemMatch: function(a) {
-    return parse(a);
+  $elemMatch: function $elemMatch(a, query, options) {
+    return parse(options)(a);
   },
 
   /**
    */
-
-  $exists: function(a) {
+  $exists: function $exists(a) {
     return !!a;
   }
 };
-
 /**
  */
 
 function search(array, validator) {
-
   for (var i = 0; i < array.length; i++) {
     var result = get(array, i);
+
     if (validate(validator, get(array, i))) {
       return i;
     }
@@ -3060,57 +3210,60 @@ function search(array, validator) {
 
   return -1;
 }
-
 /**
  */
+
 
 function createValidator(a, validate) {
-  return { a: a, v: validate };
+  return {
+    a: a,
+    v: validate
+  };
 }
-
 /**
  */
 
+
 function nestedValidator(a, b) {
-  var values  = [];
+  var values = [];
   findValues(b, a.k, 0, b, values);
 
   if (values.length === 1) {
     var first = values[0];
     return validate(a.nv, first[0], first[1], first[2]);
-  }
+  } // If the query contains $ne, need to test all elements ANDed together
 
-  // If the query contains $ne, need to test all elements ANDed together
-  var inclusive = a && a.q && typeof a.q.$ne !== 'undefined';
+
+  var inclusive = a && a.q && typeof a.q.$ne !== "undefined";
   var allValid = inclusive;
+
   for (var i = 0; i < values.length; i++) {
     var result = values[i];
     var isValid = validate(a.nv, result[0], result[1], result[2]);
+
     if (inclusive) {
       allValid &= isValid;
     } else {
       allValid |= isValid;
     }
   }
+
   return allValid;
 }
-
 /**
  */
 
+
 function findValues(current, keypath, index, object, values) {
-
   if (index === keypath.length || current == void 0) {
-
     values.push([current, keypath[index - 1], object]);
     return;
   }
 
-  var k = get(keypath, index);
-
-  // ensure that if current is an array, that the current key
+  var k = get(keypath, index); // ensure that if current is an array, that the current key
   // is NOT an array index. This sort of thing needs to work:
   // sift({'foo.0':42}, [{foo: [42]}]);
+
   if (isArray(current) && isNaN(Number(k))) {
     for (var i = 0, n = current.length; i < n; i++) {
       findValues(get(current, i), keypath, index, current, values);
@@ -3119,113 +3272,205 @@ function findValues(current, keypath, index, object, values) {
     findValues(get(current, k), keypath, index + 1, current, values);
   }
 }
-
 /**
  */
 
-function createNestedValidator(keypath, a, q) {
-  return { a: { k: keypath, nv: a, q: q }, v: nestedValidator };
-}
 
+function createNestedValidator(keypath, a, q) {
+  return {
+    a: {
+      k: keypath,
+      nv: a,
+      q: q
+    },
+    v: nestedValidator
+  };
+}
 /**
  * flatten the query
  */
 
+
 function isVanillaObject(value) {
-  return value && value.constructor === Object;
+  return value && (value.constructor === Object || value.constructor === Array || value.constructor.toString() === "function Object() { [native code] }" || value.constructor.toString() === "function Array() { [native code] }");
 }
 
-function parse(query) {
-  query = comparable(query);
+function parse(options) {
+  var comparable = options.comparable,
+      expressions = options.expressions;
 
-  if (!query || !isVanillaObject(query)) { // cross browser support
-    query = { $eq: query };
-  }
-
-  var validators = [];
-
-  for (var key in query) {
-    var a = query[key];
-
-    if (key === '$options') {
-      continue;
+  var wrapQuery = function wrapQuery(query) {
+    if (!query || !isVanillaObject(query)) {
+      query = {
+        $eq: query
+      };
     }
 
-    if (OPERATORS[key]) {
-      if (prepare[key]) a = prepare[key](a, query);
-      validators.push(createValidator(comparable(a), OPERATORS[key]));
-    } else {
+    return query;
+  };
 
-      if (key.charCodeAt(0) === 36) {
-        throw new Error('Unknown operation ' + key);
+  var parseQuery = function parseQuery(query) {
+    query = comparable(query);
+    var validators = [];
+
+    for (var key in query) {
+      var a = query[key];
+
+      if (key === "$options") {
+        continue;
       }
-      validators.push(createNestedValidator(key.split('.'), parse(a), a));
-    }
-  }
 
-  return validators.length === 1 ? validators[0] : createValidator(validators, OPERATORS.$and);
+      var expression = defaultExpressions[key] || options && expressions && expressions[key];
+
+      if (expression) {
+        if (prepare[key]) {
+          a = prepare[key](a, query, options);
+        }
+
+        validators.push(createValidator(comparable(a), expression));
+      } else {
+        if (key.charCodeAt(0) === 36) {
+          throw new Error("Unknown operation " + key);
+        }
+
+        var keyParts = key.split(".");
+        validators.push(createNestedValidator(keyParts, parseNested(a), a));
+      }
+    }
+
+    return validators.length === 1 ? validators[0] : createValidator(validators, defaultExpressions.$and);
+  };
+
+  var parseNested = function parseNested(query) {
+    query = wrapQuery(query);
+
+    if (isExactObject(query)) {
+      return createValidator(query, isEqual);
+    }
+
+    return parseQuery(query);
+  };
+
+  var parseRoot = function parseRoot(query) {
+    return parseQuery(wrapQuery(query));
+  };
+
+  return parseRoot;
 }
 
+function isEqual(a, b) {
+  if (Object.prototype.toString.call(a) !== Object.prototype.toString.call(b)) {
+    return false;
+  }
+
+  if (isObject(a)) {
+    if (Object.keys(a).length !== Object.keys(b).length) {
+      return false;
+    }
+
+    for (var key in a) {
+      if (!isEqual(a[key], b[key])) {
+        return false;
+      }
+    }
+
+    return true;
+  } else if (isArray(a)) {
+    if (a.length !== b.length) {
+      return false;
+    }
+
+    for (var i = 0, n = a.length; i < n; i++) {
+      if (!isEqual(a[i], b[i])) {
+        return false;
+      }
+    }
+
+    return true;
+  } else {
+    return a === b;
+  }
+}
+
+function getAllKeys(value, keys) {
+  if (!isObject(value)) {
+    return keys;
+  }
+
+  for (var key in value) {
+    keys.push(key);
+    getAllKeys(value[key], keys);
+  }
+
+  return keys;
+}
+
+function isExactObject(value) {
+  var allKeysHash = getAllKeys(value, []).join(",");
+  return allKeysHash.search(/[$.]/) === -1;
+}
 /**
  */
 
-function createRootValidator(query, getter) {
-  var validator = parse(query);
-  if (getter) {
+
+function createRootValidator(query, options) {
+  var validator = parse(options)(query);
+
+  if (options && options.select) {
     validator = {
       a: validator,
-      v: function(a, b, k, o) {
-        return validate(a, getter(b), k, o);
+      v: function v(a, b, k, o) {
+        return validate(a, b && options.select(b), k, o);
       }
     };
   }
+
   return validator;
 }
-
 /**
  */
 
-function sift(query, array, getter) {
 
-  if (isFunction(array)) {
-    getter = array;
-    array  = void 0;
-  }
-
-  var validator = createRootValidator(query, getter);
-
-  function filter(b, k, o) {
+function sift(query, options) {
+  options = Object.assign({
+    compare: compare,
+    comparable: comparable
+  }, options);
+  var validator = createRootValidator(query, options);
+  return function (b, k, o) {
     return validate(validator, b, k, o);
-  }
-
-  if (array) {
-    return array.filter(filter);
-  }
-
-  return filter;
+  };
 }
-
-/**
- */
-
-function indexOf(query, array, getter) {
-  return search(array, createRootValidator(query, getter));
-};
-
 /**
  */
 
 function compare(a, b) {
-  if(a===b) return 0;
-  if(typeof a === typeof b) {
+  if (isEqual(a, b)) return 0;
+
+  if (_typeof(a) === _typeof(b)) {
     if (a > b) {
       return 1;
     }
+
     if (a < b) {
       return -1;
     }
   }
-};
+}
+/**
+ */
+
+function comparable(value) {
+  if (value instanceof Date) {
+    return value.getTime();
+  } else if (isArray(value)) {
+    return value.map(comparable);
+  } else if (value && typeof value.toJSON === "function") {
+    return value.toJSON();
+  } else {
+    return value;
+  }
+}
 
 /***/ })
 
