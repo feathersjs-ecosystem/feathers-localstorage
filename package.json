@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "feathers-memory": "^3.0.1"
+    "feathers-memory": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
