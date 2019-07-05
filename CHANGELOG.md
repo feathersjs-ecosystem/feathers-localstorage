@@ -1,5 +1,15 @@
 # Change Log
 
+## [v5.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.0.0) (2019-07-05)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v4.0.0...v5.0.0)
+
+**Merged pull requests:**
+
+- Add TypeScript definitions and upgrade tests to Feathers 4 [\#87](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/87) ([daffl](https://github.com/daffl))
+- Update mocha to the latest version 🚀 [\#84](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/84) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update adapter-tests [\#83](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/83) ([daffl](https://github.com/daffl))
+- Update @feathersjs/adapter-commons to the latest version 🚀 [\#82](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/82) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v4.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v4.0.0) (2018-12-17)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v3.0.0...v4.0.0)
 
