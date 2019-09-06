@@ -73,7 +73,7 @@ const testSuite = adapterTests([
 describe('Feathers Localstorage Service', () => {
   beforeEach(() => storage.clear());
 
-  const events = [ 'testing' ];
+  const events = ['testing'];
   const app = feathers()
     .use('/people', service({ events, storage, name: 'test-storage-1' }))
     .use('/people-customid', service({
