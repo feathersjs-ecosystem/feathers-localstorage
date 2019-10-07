@@ -1,5 +1,22 @@
 # Change Log
 
+## [v5.1.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.1.0) (2019-10-07)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.0.0...v5.1.0)
+
+**Closed issues:**
+
+- An in-range update of browserify is breaking the build 🚨 [\#93](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/93)
+- An in-range update of dtslint is breaking the build 🚨 [\#92](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/92)
+- An in-range update of webpack is breaking the build 🚨 [\#89](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/89)
+
+**Merged pull requests:**
+
+- Update all dependencies [\#96](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/96) ([daffl](https://github.com/daffl))
+- Update semistandard to the latest version 🚀 [\#95](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/95) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Fixed README example: [\#94](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/94) ([robertreppel](https://github.com/robertreppel))
+- Update dtslint to the latest version 🚀 [\#91](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/91) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Greenkeeper/webpack 4.36.1 [\#90](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/90) ([daffl](https://github.com/daffl))
+
 ## [v5.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.0.0) (2019-07-05)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v4.0.0...v5.0.0)
 
