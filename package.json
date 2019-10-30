@@ -69,7 +69,7 @@
     "@feathersjs/socketio": "^4.3.5",
     "babel-loader": "^8.0.6",
     "browserify": "^16.5.0",
-    "dtslint": "^0.9.8",
+    "dtslint": "^1.0.0",
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.3",
     "mocha": "^6.2.1",
