@@ -1,4 +1,4 @@
-// TypeScript Version: 3.0
+// TypeScript Version: 3.7
 // import { Params, Paginated, Id, NullableId } from '@feathersjs/feathers';
 
 import { Service as MemoryService, MemoryServiceOptions, MemoryServiceStore } from 'feathers-memory';
