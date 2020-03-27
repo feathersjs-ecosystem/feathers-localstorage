@@ -1,5 +1,23 @@
 # Change Log
 
+## [v5.1.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.1.1) (2020-03-27)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.1.0...v5.1.1)
+
+**Closed issues:**
+
+- TypeScript definitions not referenced in package.json [\#105](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/105)
+- An in-range update of @feathersjs/adapter-commons is breaking the build 🚨 [\#102](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/102)
+- An in-range update of @feathersjs/adapter-commons is breaking the build 🚨 [\#97](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/97)
+
+**Merged pull requests:**
+
+- Reference type definitions in package.json \(\#105\) [\#106](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/106) ([C0Nd3Mnd](https://github.com/C0Nd3Mnd))
+- Update dtslint to the latest version 🚀 [\#104](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/104) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update all dependencies and Types version [\#103](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/103) ([daffl](https://github.com/daffl))
+- Update dtslint to the latest version 🚀 [\#101](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/101) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- update dtslint to version 1.0.2 [\#100](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/100) ([daffl](https://github.com/daffl))
+- Greenkeeper/@feathersjs/adapter commons 4.3.8 [\#98](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/98) ([daffl](https://github.com/daffl))
+
 ## [v5.1.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.1.0) (2019-10-07)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.0.0...v5.1.0)
 
