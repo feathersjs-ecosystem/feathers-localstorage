@@ -146,6 +146,7 @@ function (_Service) {
     _this._storageKey = options.name || 'feathers';
     _this._storage = options.storage || typeof window !== 'undefined' && window.localStorage;
     _this._throttle = options.throttle || 200;
+    _this._updated = true;
     _this.store = null;
 
     if (!_this._storage) {
@@ -187,7 +188,11 @@ function (_Service) {
 
       if (!this._timeout) {
         this._timeout = setTimeout(function () {
-          _this3._storage.setItem(_this3._storageKey, JSON.stringify(_this3.store));
+          if (_this3._updated) {
+            _this3._storage.setItem(_this3._storageKey, JSON.stringify(_this3.store));
+
+            _this3._updated = false;
+          }
 
           delete _this3._timeout;
         }, this._throttle);
@@ -207,6 +212,7 @@ function (_Service) {
       return this.ready().then(function () {
         var _get2;
 
+        _this4._updated = true;
         return (_get2 = _get(_getPrototypeOf(LocalStorage.prototype), method, _this4)).call.apply(_get2, [_this4].concat(args));
       });
     }
@@ -346,7 +352,11 @@ function convertSort(sort) {
 }
 
 function cleanQuery(query, operators, filters) {
-  if (commons_1._.isObject(query) && query.constructor === {}.constructor) {
+  if (Array.isArray(query)) {
+    return query.map(function (value) {
+      return cleanQuery(value, operators, filters);
+    });
+  } else if (commons_1._.isObject(query) && query.constructor === {}.constructor) {
     var result = {};
 
     commons_1._.each(query, function (value, key) {
@@ -1047,7 +1057,9 @@ function enableHooks(obj, methods, types) {
   }); // Add non-enumerable `__hooks` property to the object
 
   Object.defineProperty(obj, '__hooks', {
-    value: hookData
+    configurable: true,
+    value: hookData,
+    writable: true
   });
   return Object.assign(obj, {
     hooks: function hooks(allHooks) {
@@ -2835,6 +2847,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "comparable", function() { return comparable; });
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 /*
  *
  * Copryright 2018, Craig Condon
@@ -2859,129 +2879,145 @@ var isFunction = typeChecker("Function");
 function get(obj, key) {
   return isFunction(obj.get) ? obj.get(key) : obj[key];
 }
+
+var nestable = function nestable(validator) {
+  return function (validateOptions, value, key, valueOwner, nestedResults) {
+    if (nestedResults) {
+      return Boolean(nestedResults.find(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 3),
+            value = _ref2[0],
+            key = _ref2[1],
+            valueOwner = _ref2[2];
+
+        return validator(validateOptions, key, valueOwner);
+      }));
+    }
+
+    return validator(validateOptions, value, key, valueOwner);
+  };
+};
 /**
  */
 
 
-function or(validator) {
-  return function (a, b) {
-    if (!isArray(b) || !b.length) {
-      return validator(a, b);
+var or = nestable(function (validator) {
+  return function (validateOptions, value, key, valueOwner, nestedResults) {
+    if (!isArray(value) || !value.length) {
+      return validator(validateOptions, value);
     }
 
-    for (var i = 0, n = b.length; i < n; i++) {
-      if (validator(a, get(b, i))) return true;
+    for (var i = 0, n = value.length; i < n; i++) {
+      if (validator(validateOptions, get(value, i))) return true;
     }
 
     return false;
   };
-}
+});
 /**
  */
 
-
 function and(validator) {
-  return function (a, b) {
-    if (!isArray(b) || !b.length) {
-      return validator(a, b);
+  return function (validateOptions, value, key, valueOwner) {
+    if (!isArray(value) || !value.length) {
+      return validator(validateOptions, value, key, valueOwner);
     }
 
-    for (var i = 0, n = b.length; i < n; i++) {
-      if (!validator(a, get(b, i))) return false;
+    for (var i = 0, n = value.length; i < n; i++) {
+      if (!validator(validateOptions, get(value, i), value, valueOwner)) return false;
     }
 
     return true;
   };
 }
 
-function validate(validator, b, k, o) {
-  return validator.v(validator.a, b, k, o);
+function _validate(validator, value, key, valueOwner, nestedResults) {
+  return validator.validate(validator.options, value, key, valueOwner, nestedResults);
 }
 
 var defaultExpressions = {
   /**
    */
-  $eq: or(function (a, b) {
-    return a(b);
+  $eq: or(function (test, value) {
+    return test(value);
   }),
 
   /**
    */
-  $ne: and(function (a, b) {
-    return a(b);
+  $ne: and(function (test, value) {
+    return test(value);
   }),
 
   /**
    */
-  $gt: or(function (a, b) {
-    return a(b);
+  $gt: or(function (test, value) {
+    return test(value);
   }),
 
   /**
    */
-  $gte: or(function (a, b) {
-    return a(b);
+  $gte: or(function (test, value) {
+    return test(value);
   }),
 
   /**
    */
-  $lt: or(function (a, b) {
-    return a(b);
+  $lt: or(function (test, value) {
+    return test(value);
   }),
 
   /**
    */
-  $lte: or(function (a, b) {
-    return a(b);
+  $lte: or(function (test, value) {
+    return test(value);
   }),
 
   /**
    */
-  $mod: or(function (a, b) {
-    return a(b);
+  $mod: or(function (test, value) {
+    return test(value);
   }),
 
   /**
    */
-  $in: function $in(a, b) {
-    return a(b);
+  $in: function $in(test, value) {
+    return test(value);
   },
 
   /**
    */
-  $nin: function $nin(a, b) {
-    return a(b);
+  $nin: function $nin(test, value) {
+    return test(value);
   },
 
   /**
    */
-  $not: function $not(a, b, k, o) {
-    return a(b, k, o);
+  $not: function $not(test, value, key, valueOwner) {
+    return test(value, key, valueOwner);
   },
 
   /**
    */
-  $type: function $type(a, b) {
-    return a(b);
+  $type: function $type(testType, value) {
+    return testType(value);
   },
 
   /**
    */
-  $all: function $all(a, b, k, o) {
-    return defaultExpressions.$and(a, b, k, o);
+  $all: function $all(allOptions, value, key, valueOwner, nestedResults) {
+    return defaultExpressions.$and(allOptions, value, key, valueOwner, nestedResults);
   },
 
   /**
    */
-  $size: function $size(a, b) {
-    return b ? a === b.length : false;
+  $size: function $size(sizeMatch, value) {
+    return value ? sizeMatch === value.length : false;
   },
 
   /**
    */
-  $or: function $or(a, b, k, o) {
-    for (var i = 0, n = a.length; i < n; i++) {
-      if (validate(get(a, i), b, k, o)) {
+  $or: function $or(orOptions, value, key, valueOwner) {
+    for (var i = 0, n = orOptions.length; i < n; i++) {
+      if (_validate(get(orOptions, i), value, key, valueOwner)) {
         return true;
       }
     }
@@ -2991,16 +3027,24 @@ var defaultExpressions = {
 
   /**
    */
-  $nor: function $nor(a, b, k, o) {
-    return !defaultExpressions.$or(a, b, k, o);
+  $nor: function $nor(validateOptions, value, key, valueOwner) {
+    return !defaultExpressions.$or(validateOptions, value, key, valueOwner);
   },
 
   /**
    */
-  $and: function $and(a, b, k, o) {
-    for (var i = 0, n = a.length; i < n; i++) {
-      if (!validate(get(a, i), b, k, o)) {
-        return false;
+  $and: function $and(validateOptions, value, key, valueOwner, nestedResults) {
+    if (nestedResults) {
+      for (var i = 0, n = validateOptions.length; i < n; i++) {
+        if (!_validate(get(validateOptions, i), value, key, valueOwner, nestedResults)) {
+          return false;
+        }
+      }
+    } else {
+      for (var i = 0, n = validateOptions.length; i < n; i++) {
+        if (!_validate(get(validateOptions, i), value, key, valueOwner, nestedResults)) {
+          return false;
+        }
       }
     }
 
@@ -3009,30 +3053,30 @@ var defaultExpressions = {
 
   /**
    */
-  $regex: or(function (a, b) {
-    return typeof b === "string" && a.test(b);
+  $regex: or(function (validateOptions, value) {
+    return typeof value === "string" && validateOptions.test(value);
   }),
 
   /**
    */
-  $where: function $where(a, b, k, o) {
-    return a.call(b, b, k, o);
+  $where: function $where(validateOptions, value, key, valueOwner) {
+    return validateOptions.call(value, value, key, valueOwner);
   },
 
   /**
    */
-  $elemMatch: function $elemMatch(a, b, k, o) {
-    if (isArray(b)) {
-      return !!~search(b, a);
+  $elemMatch: function $elemMatch(validateOptions, value, key, valueOwner) {
+    if (isArray(value)) {
+      return !!~search(value, validateOptions);
     }
 
-    return validate(a, b, k, o);
+    return _validate(validateOptions, value, key, valueOwner);
   },
 
   /**
    */
-  $exists: function $exists(a, b, k, o) {
-    return o.hasOwnProperty(k) === a;
+  $exists: function $exists(validateOptions, value, key, valueOwner) {
+    return valueOwner.hasOwnProperty(key) === validateOptions;
   }
 };
 /**
@@ -3041,75 +3085,75 @@ var defaultExpressions = {
 var prepare = {
   /**
    */
-  $eq: function $eq(a, query, _ref) {
-    var comparable = _ref.comparable,
-        compare = _ref.compare;
+  $eq: function $eq(query, queryOwner, _ref3) {
+    var comparable = _ref3.comparable,
+        compare = _ref3.compare;
 
-    if (a instanceof RegExp) {
-      return or(function (b) {
-        return typeof b === "string" && a.test(b);
+    if (query instanceof RegExp) {
+      return or(function (value) {
+        return typeof value === "string" && query.test(value);
       });
-    } else if (a instanceof Function) {
-      return or(a);
-    } else if (isArray(a) && !a.length) {
+    } else if (query instanceof Function) {
+      return or(query);
+    } else if (isArray(query) && !query.length) {
       // Special case of a == []
-      return or(function (b) {
-        return isArray(b) && !b.length;
+      return or(function (value) {
+        return isArray(value) && !value.length;
       });
-    } else if (a === null) {
-      return or(function (b) {
+    } else if (query === null) {
+      return or(function (value) {
         //will match both null and undefined
-        return b == null;
+        return value == null;
       });
     }
 
-    return or(function (b) {
-      return compare(comparable(b), comparable(a)) === 0;
+    return or(function (value) {
+      return compare(comparable(value), comparable(query)) === 0;
     });
   },
-  $gt: function $gt(a, query, _ref2) {
-    var comparable = _ref2.comparable,
-        compare = _ref2.compare;
-    return function (b) {
-      return compare(comparable(b), comparable(a)) > 0;
-    };
-  },
-  $gte: function $gte(a, query, _ref3) {
-    var comparable = _ref3.comparable,
-        compare = _ref3.compare;
-    return function (b) {
-      return compare(comparable(b), comparable(a)) >= 0;
-    };
-  },
-  $lt: function $lt(a, query, _ref4) {
+  $gt: function $gt(query, queryOwner, _ref4) {
     var comparable = _ref4.comparable,
         compare = _ref4.compare;
-    return function (b) {
-      return compare(comparable(b), comparable(a)) < 0;
+    return function (value) {
+      return compare(comparable(value), comparable(query)) > 0;
     };
   },
-  $lte: function $lte(a, query, _ref5) {
+  $gte: function $gte(query, queryOwner, _ref5) {
     var comparable = _ref5.comparable,
         compare = _ref5.compare;
-    return function (b) {
-      return compare(comparable(b), comparable(a)) <= 0;
+    return function (value) {
+      return compare(comparable(value), comparable(query)) >= 0;
     };
   },
-  $in: function $in(a, query, options) {
+  $lt: function $lt(query, queryOwner, _ref6) {
+    var comparable = _ref6.comparable,
+        compare = _ref6.compare;
+    return function (value) {
+      return compare(comparable(value), comparable(query)) < 0;
+    };
+  },
+  $lte: function $lte(query, queryOwner, _ref7) {
+    var comparable = _ref7.comparable,
+        compare = _ref7.compare;
+    return function (value) {
+      return compare(comparable(value), comparable(query)) <= 0;
+    };
+  },
+  $in: function $in(query, queryOwner, options) {
     var comparable = options.comparable;
-    return function (b) {
-      if (b instanceof Array) {
-        for (var i = b.length; i--;) {
-          if (~a.indexOf(comparable(get(b, i)))) {
+    return function (value) {
+      if (value instanceof Array) {
+        for (var i = value.length; i--;) {
+          if (~query.indexOf(comparable(get(value, i)))) {
             return true;
           }
         }
       } else {
-        var comparableB = comparable(b);
+        var comparableValue = comparable(value);
 
-        if (comparableB === b && _typeof(b) === "object") {
-          for (var i = a.length; i--;) {
-            if (String(a[i]) === String(b) && String(b) !== "[object Object]") {
+        if (comparableValue === value && _typeof(value) === "object") {
+          for (var i = query.length; i--;) {
+            if (String(query[i]) === String(value) && String(value) !== "[object Object]") {
               return true;
             }
           }
@@ -3120,9 +3164,9 @@ var prepare = {
         */
 
 
-        if (typeof comparableB == "undefined") {
-          for (var i = a.length; i--;) {
-            if (a[i] == null) {
+        if (typeof comparableValue == "undefined") {
+          for (var i = query.length; i--;) {
+            if (query[i] == null) {
               return true;
             }
           }
@@ -3132,102 +3176,103 @@ var prepare = {
         */
 
 
-        for (var i = a.length; i--;) {
-          var validator = createRootValidator(get(a, i), options);
-          var result = validate(validator, b, i, a);
+        for (var i = query.length; i--;) {
+          var validator = createRootValidator(get(query, i), options);
 
-          if (result && String(result) !== "[object Object]" && String(b) !== "[object Object]") {
+          var result = _validate(validator, comparableValue, i, query);
+
+          if (result && String(result) !== "[object Object]" && String(comparableValue) !== "[object Object]") {
             return true;
           }
         }
 
-        return !!~a.indexOf(comparableB);
+        return !!~query.indexOf(comparableValue);
       }
 
       return false;
     };
   },
-  $nin: function $nin(a, query, options) {
-    var eq = prepare.$in(a, query, options);
-    return function (a, b, k, o) {
-      return !eq(a, b, k, o);
+  $nin: function $nin(query, queryOwner, options) {
+    var eq = prepare.$in(query, queryOwner, options);
+    return function (validateOptions, value, key, valueOwner) {
+      return !eq(validateOptions, value, key, valueOwner);
     };
   },
-  $mod: function $mod(a) {
-    return function (b) {
-      return b % a[0] == a[1];
+  $mod: function $mod(query) {
+    return function (value) {
+      return value % query[0] == query[1];
     };
   },
 
   /**
    */
-  $ne: function $ne(a, query, options) {
-    var eq = prepare.$eq(a, query, options);
-    return and(function (a, b, k, o) {
-      return !eq(a, b, k, o);
+  $ne: function $ne(query, queryOwner, options) {
+    var eq = prepare.$eq(query, queryOwner, options);
+    return and(function (validateOptions, value, key, valueOwner) {
+      return !eq(validateOptions, value, key, valueOwner);
     });
   },
 
   /**
    */
-  $and: function $and(a, query, options) {
-    return a.map(parse(options));
+  $and: function $and(query, queryOwner, options) {
+    return query.map(parse(options));
   },
 
   /**
    */
-  $all: function $all(a, query, options) {
-    return prepare.$and(a, query, options);
+  $all: function $all(query, queryOwner, options) {
+    return prepare.$and(query, queryOwner, options);
   },
 
   /**
    */
-  $or: function $or(a, query, options) {
-    return a.map(parse(options));
+  $or: function $or(query, queryOwner, options) {
+    return query.map(parse(options));
   },
 
   /**
    */
-  $nor: function $nor(a, query, options) {
-    return a.map(parse(options));
+  $nor: function $nor(query, queryOwner, options) {
+    return query.map(parse(options));
   },
 
   /**
    */
-  $not: function $not(a, query, options) {
-    var v = parse(options)(a);
-    return function (b, k, o) {
-      return !validate(v, b, k, o);
+  $not: function $not(query, queryOwner, options) {
+    var validateOptions = parse(options)(query);
+    return function (value, key, valueOwner) {
+      return !_validate(validateOptions, value, key, valueOwner);
     };
   },
-  $type: function $type(a) {
-    return function (b, k, o) {
-      return b != void 0 ? b instanceof a || b.constructor == a : false;
+  $type: function $type(query) {
+    return function (value, key, valueOwner) {
+      return value != void 0 ? value instanceof query || value.constructor == query : false;
     };
   },
 
   /**
    */
-  $regex: function $regex(a, query) {
-    return new RegExp(a, query.$options);
+  $regex: function $regex(query, queryOwner) {
+    return new RegExp(query, queryOwner.$options);
   },
 
   /**
    */
-  $where: function $where(a) {
-    return typeof a === "string" ? new Function("obj", "return " + a) : a;
+  $where: function $where(query) {
+    return typeof query === "string" ? new Function("obj", "return " + query) : query;
   },
 
   /**
    */
-  $elemMatch: function $elemMatch(a, query, options) {
-    return parse(options)(a);
+  $elemMatch: function $elemMatch(query, queryOwner, options) {
+    return parse(options)(query);
   },
 
   /**
    */
-  $exists: function $exists(a) {
-    return !!a;
+  $exists: function $exists(query) {
+    return !!query;
   }
 };
 /**
@@ -3237,7 +3282,7 @@ function search(array, validator) {
   for (var i = 0; i < array.length; i++) {
     var result = get(array, i);
 
-    if (validate(validator, get(array, i))) {
+    if (_validate(validator, get(array, i))) {
       return i;
     }
   }
@@ -3248,41 +3293,52 @@ function search(array, validator) {
  */
 
 
-function createValidator(a, validate) {
+function createValidator(options, validate) {
   return {
-    a: a,
-    v: validate
+    options: options,
+    validate: validate
   };
 }
 /**
  */
 
 
-function nestedValidator(a, b) {
-  var values = [];
-  findValues(b, a.k, 0, b, values);
+function validatedNested(_ref8, value) {
+  var keyPath = _ref8.keyPath,
+      child = _ref8.child,
+      query = _ref8.query;
+  var results = [];
+  findValues(value, keyPath, 0, value, results);
 
-  if (values.length === 1) {
-    var first = values[0];
-    return validate(a.nv, first[0], first[1], first[2]);
+  if (results.length === 1) {
+    var _results$ = _slicedToArray(results[0], 3),
+        _value = _results$[0],
+        key = _results$[1],
+        valueOwner = _results$[2];
+
+    return _validate(child, _value, key, valueOwner);
   } // If the query contains $ne, need to test all elements ANDed together
 
 
-  var inclusive = a && a.q && typeof a.q.$ne !== "undefined";
+  var inclusive = query && typeof query.$ne !== "undefined";
   var allValid = inclusive;
+  var allValues = results.map(function (_ref9) {
+    var _ref10 = _slicedToArray(_ref9, 1),
+        value = _ref10[0];
 
-  for (var i = 0; i < values.length; i++) {
-    var result = values[i];
-    var isValid = validate(a.nv, result[0], result[1], result[2]);
-
-    if (inclusive) {
-      allValid &= isValid;
-    } else {
-      allValid |= isValid;
-    }
-  }
-
-  return allValid;
+    return value;
+  });
+  return _validate(child, undefined, undefined, undefined, results); // for (var i = 0; i < results.length; i++) {
+  //   const [value, key, valueOwner] = results[i];
+  //   var isValid = validate(child, value, key, valueOwner);
+  //   console.log(isValid, value);
+  //   if (inclusive) {
+  //     allValid &= isValid;
+  //   } else {
+  //     allValid |= isValid;
+  //   }
+  // }
+  // return allValid;
 }
 /**
  */
@@ -3310,15 +3366,12 @@ function findValues(current, keypath, index, object, values) {
  */
 
 
-function createNestedValidator(keypath, a, q) {
-  return {
-    a: {
-      k: keypath,
-      nv: a,
-      q: q
-    },
-    v: nestedValidator
-  };
+function createNestedValidator(keyPath, child, query) {
+  return createValidator({
+    keyPath: keyPath,
+    child: child,
+    query: query
+  }, validatedNested);
 }
 /**
  * flatten the query
@@ -3348,7 +3401,7 @@ function parse(options) {
     var validators = [];
 
     for (var key in query) {
-      var a = query[key];
+      var queryValue = query[key];
 
       if (key === "$options") {
         continue;
@@ -3358,17 +3411,17 @@ function parse(options) {
 
       if (expression) {
         if (prepare[key]) {
-          a = prepare[key](a, query, options);
+          queryValue = prepare[key](queryValue, query, options);
         }
 
-        validators.push(createValidator(comparable(a), expression));
+        validators.push(createValidator(comparable(queryValue), expression));
       } else {
         if (key.charCodeAt(0) === 36) {
           throw new Error("Unknown operation " + key);
         }
 
         var keyParts = key.split(".");
-        validators.push(createNestedValidator(keyParts, parseNested(a), a));
+        validators.push(createNestedValidator(keyParts, parseNested(queryValue), queryValue));
       }
     }
 
@@ -3452,9 +3505,9 @@ function createRootValidator(query, options) {
 
   if (options && options.select) {
     validator = {
-      a: validator,
-      v: function v(a, b, k, o) {
-        return validate(a, b && options.select(b), k, o);
+      options: validator,
+      validate: function validate(validateOptions, value, key, valueOwner) {
+        return _validate(validateOptions, value && options.select(value), key, valueOwner);
       }
     };
   }
@@ -3471,8 +3524,8 @@ function sift(query, options) {
     comparable: comparable
   }, options);
   var validator = createRootValidator(query, options);
-  return function (b, k, o) {
-    return validate(validator, b, k, o);
+  return function (value, key, valueOwner) {
+    return _validate(validator, value, key, valueOwner);
   };
 }
 /**
