@@ -33,7 +33,7 @@ app.use('/messages', service({ storage, id, startId, name, store, paginate }));
 __Options:__
 
 - `storage` (**required**) - The local storage engine. You can pass in the browsers `window.localStorage`, React Native's `AsyncStorage` or a NodeJS localstorage module.
-- `throttle` (*optional*, default `200`) - Determines how often in-memory data is written to `storage`. We only write when updated since last write.
+- `throttle` (*optional*, default `200`) - The minimum time (ms) before in-memory data is written to `storage`. Data is only written if changed since last write.
 - `id` (*optional*, default: `'id'`) - The name of the id field property.
 - `startId` (*optional*, default: `0`) - An id number to start with that will be incremented for new record.
 - `name` (*optional*, default: `'feathers'`) - The key to store data under in local or async storage.
