@@ -42,6 +42,7 @@ __Options:__
 - `paginate` (*optional*) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size.
 - `whitelist` (*optional*) - A list of additional query parameters to allow.
 - `multi` (*optional*) - Allow `create` with arrays and `update` and `remove` with `id` `null` to change multiple items. Can be `true` for all methods or an array of allowed methods (e.g. `[ 'remove', 'create' ]`).
+- `reuseKeys` (*optional*, default: `false`) Allow duplicate keys i.e. last definition wins. Mostly useful for demonstration and testing purposes.
 
 ## Example
 

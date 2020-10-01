@@ -172,6 +172,39 @@ describe('Feathers Localstorage Service', () => {
     done();
   });
 
+  it('accepts on name reuse with reuseKeys option', done => {
+    const name = 'test-storage-6';
+
+    let flag = true;
+    try {
+      service({ storage, name });
+      service({ storage, name, reuseKeys: true });
+    } catch (err) {
+      flag = false;
+    }
+    assert.strictEqual(flag, true);
+
+    done();
+  });
+
+  it('localstorage clear with empty storage option', done => {
+    const name = 'test-storage-7';
+
+    storage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
+
+    const app = feathers()
+      .use('/messages', service({ name, storage, store: {} }));
+
+    const messageService = app.service('messages');
+    const res = messageService.find();
+
+    assert.strictEqual(res['0'], undefined);
+    const resString = JSON.stringify(res);
+    assert.strictEqual(resString, '{}');
+
+    done();
+  });
+
   testSuite(app, errors, 'people');
   testSuite(app, errors, 'people-customid', 'customid');
 });
