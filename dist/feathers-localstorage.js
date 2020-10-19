@@ -146,7 +146,7 @@ function (_Service) {
     _this._storageKey = options.name || 'feathers';
     _this._storage = options.storage || typeof window !== 'undefined' && window.localStorage;
     _this._throttle = options.throttle || 200;
-    _this._updated = true;
+    _this._reuseKeys = options.reuseKeys || false;
     _this.store = null;
 
     if (!_this._storage) {
@@ -156,8 +156,12 @@ function (_Service) {
     if (usedKeys.indexOf(_this._storageKey) === -1) {
       usedKeys.push(_this._storageKey);
     } else {
-      throw new Error("The storage name '".concat(_this._storageKey, "' is already in use by another instance."));
+      if (!_this._reuseKeys) {
+        throw new Error("The storage name '".concat(_this._storageKey, "' is already in use by another instance."));
+      }
     }
+
+    _this.ready();
 
     return _this;
   }
@@ -188,11 +192,7 @@ function (_Service) {
 
       if (!this._timeout) {
         this._timeout = setTimeout(function () {
-          if (_this3._updated) {
-            _this3._storage.setItem(_this3._storageKey, JSON.stringify(_this3.store));
-
-            _this3._updated = false;
-          }
+          _this3._storage.setItem(_this3._storageKey, JSON.stringify(_this3.store));
 
           delete _this3._timeout;
         }, this._throttle);
@@ -212,7 +212,6 @@ function (_Service) {
       return this.ready().then(function () {
         var _get2;
 
-        _this4._updated = true;
         return (_get2 = _get(_getPrototypeOf(LocalStorage.prototype), method, _this4)).call.apply(_get2, [_this4].concat(args));
       });
     }
