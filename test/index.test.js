@@ -172,7 +172,7 @@ describe('Feathers Localstorage Service', () => {
     done();
   });
 
-  it('accepts on name reuse with reuseKeys option', done => {
+  it('accepts on name reuse with reuseKeys option set', done => {
     const name = 'test-storage-6';
 
     let flag = true;
