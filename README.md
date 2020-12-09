@@ -33,14 +33,16 @@ app.use('/messages', service({ storage, id, startId, name, store, paginate }));
 __Options:__
 
 - `storage` (**required**) - The local storage engine. You can pass in the browsers `window.localStorage`, React Native's `AsyncStorage` or a NodeJS localstorage module.
+- `throttle` (*optional*, default `200`) - The minimum time (ms) before in-memory data is written to `storage`. Data is only written if changed since last write.
 - `id` (*optional*, default: `'id'`) - The name of the id field property.
 - `startId` (*optional*, default: `0`) - An id number to start with that will be incremented for new record.
 - `name` (*optional*, default: `'feathers'`) - The key to store data under in local or async storage.
-- `store` (*optional*) - An object with id to item assignments to pre-initialize the data store
-- `events` (*optional*) - A list of [custom service events](https://docs.feathersjs.com/api/events.html#custom-events) sent by this service
-- `paginate` (*optional*) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size
-- `whitelist` (*optional*) - A list of additional query parameters to allow
-- `multi` (*optional*) - Allow `create` with arrays and `update` and `remove` with `id` `null` to change multiple items. Can be `true` for all methods or an array of allowed methods (e.g. `[ 'remove', 'create' ]`)
+- `store` (*optional*) - An object with id to item assignments to pre-initialize the data store.
+- `events` (*optional*) - A list of [custom service events](https://docs.feathersjs.com/api/events.html#custom-events) sent by this service.
+- `paginate` (*optional*) - A [pagination object](https://docs.feathersjs.com/api/databases/common.html#pagination) containing a `default` and `max` page size.
+- `whitelist` (*optional*) - A list of additional query parameters to allow.
+- `multi` (*optional*) - Allow `create` with arrays and `update` and `remove` with `id` `null` to change multiple items. Can be `true` for all methods or an array of allowed methods (e.g. `[ 'remove', 'create' ]`).
+- `reuseKeys` (*optional*, default: `false`) Allow duplicate keys i.e. last definition wins. Mostly useful for demonstration and testing purposes.
 
 ## Example
 
