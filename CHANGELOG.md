@@ -1,5 +1,21 @@
 # Changelog
 
+## [Unreleased](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/HEAD)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.2.1...HEAD)
+
+**Merged pull requests:**
+
+- Export correct class [\#115](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/115) ([DaddyWarbucks](https://github.com/DaddyWarbucks))
+
+## [v5.2.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.2.1) (2022-05-20)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.2.0...v5.2.1)
+
+**Closed issues:**
+
+- Wrong Service exported from index.js [\#114](https://github.com/feathersjs-ecosystem/feathers-localstorage/issues/114)
+
 ## [v5.2.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.2.0) (2020-12-09)
 
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.1.1...v5.2.0)
