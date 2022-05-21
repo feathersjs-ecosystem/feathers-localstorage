@@ -234,7 +234,7 @@ describe('Feathers Localstorage Service', () => {
 
   it('sets data in storage manually', (done) => {
     const name = 'test-storage-9';
-    const data = { "0": { "id": 0, "text": "test 0" }};
+    const data = { 0: { id: 0, text: 'test 0' } };
     const app = feathers()
       .use('/messages', service({ name, storage }));
 
@@ -248,7 +248,7 @@ describe('Feathers Localstorage Service', () => {
 
   it('gets data from storage manually', (done) => {
     const name = 'test-storage-10';
-    const data = { "0": { "id": 0, "text": "test 0" }};
+    const data = { 0: { id: 0, text: 'test 0' } };
     const app = feathers()
       .use('/messages', service({ name, storage }));
 
@@ -257,8 +257,8 @@ describe('Feathers Localstorage Service', () => {
     const storageData = app.service('messages').getStorage();
     assert.deepStrictEqual(data, storageData);
 
-    const itemData = app.service('messages').getStorage("0");
-    assert.deepStrictEqual(itemData, storageData["0"]);
+    const itemData = app.service('messages').getStorage('0');
+    assert.deepStrictEqual(itemData, storageData['0']);
 
     done();
   });
