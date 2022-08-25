@@ -1,7 +1,7 @@
 {
   "name": "feathers-localstorage",
-  "description": "A client side service based on feathers-memory that persists to LocalStorage",
-  "version": "5.1.1",
+  "description": "A client side service based on @feathersjs/memory that persists to LocalStorage",
+  "version": "6.0.0-pre.1",
   "homepage": "https://github.com/feathersjs-ecosystem/feathers-localstorage",
   "main": "lib/",
   "types": "types/",
@@ -45,7 +45,7 @@
     "mocha": "mocha --opts mocha.opts",
     "dtslint": "dtslint types",
     "test": "npm run lint && npm run dtslint && npm run coverage",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --opts mocha.opts"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive test/"
   },
   "semistandard": {
     "env": [
@@ -56,30 +56,28 @@
     "lib": "lib"
   },
   "dependencies": {
-    "debug": "^4.1.1",
-    "feathers-memory": "^4.1.0"
+    "@feathersjs/memory": "^5.0.0-pre.26"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@feathersjs/adapter-commons": "^4.4.3",
-    "@feathersjs/adapter-tests": "^4.4.3",
-    "@feathersjs/errors": "^4.4.3",
-    "@feathersjs/express": "^4.4.3",
-    "@feathersjs/feathers": "^4.4.3",
-    "@feathersjs/socketio": "^4.4.3",
-    "babel-loader": "^8.0.6",
-    "browserify": "^16.5.0",
-    "dtslint": "^3.0.0",
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@feathersjs/adapter-tests": "^5.0.0-pre.26",
+    "@feathersjs/errors": "^5.0.0-pre.26",
+    "@feathersjs/feathers": "^5.0.0-pre.26",
+    "babel-loader": "^8.2.5",
+    "browserify": "^17.0.0",
+    "dtslint": "^4.2.1",
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.3",
-    "mocha": "^7.0.0",
-    "parallel-webpack": "^2.4.0",
-    "semistandard": "^14.2.0",
-    "shx": "^0.3.2",
+    "mocha": "^10.0.0",
+    "parallel-webpack": "^2.6.0",
+    "semistandard": "^16.0.1",
+    "shx": "^0.3.4",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-merge": "^4.2.2"
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-merge": "^5.8.0"
   }
 }

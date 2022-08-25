@@ -1,5 +1,12 @@
 # Change Log
 
+## [v6.0.0-pre.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v6.0.0-pre.1) (2022-06-21)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.1.0...v6.0.0-pre.1)
+
+*** Breaking Change ***
+
+Updated the adapter to adhere to the new Dove principles. _This will not work with earlier versions of Feathers_
+
 ## [v5.1.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.1.1) (2020-03-27)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.1.0...v5.1.1)
 
