@@ -8,6 +8,7 @@
 Updated the adapter to adhere to the new Dove principles. _This will not work with earlier versions of Feathers_
 
 ## [v5.1.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.1.1) (2020-03-27)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.1.0...v5.1.1)
 
 **Closed issues:**
@@ -26,6 +27,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Greenkeeper/@feathersjs/adapter commons 4.3.8 [\#98](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/98) ([daffl](https://github.com/daffl))
 
 ## [v5.1.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.1.0) (2019-10-07)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v5.0.0...v5.1.0)
 
 **Closed issues:**
@@ -43,6 +45,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Greenkeeper/webpack 4.36.1 [\#90](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/90) ([daffl](https://github.com/daffl))
 
 ## [v5.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v5.0.0) (2019-07-05)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v4.0.0...v5.0.0)
 
 **Merged pull requests:**
@@ -53,6 +56,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update @feathersjs/adapter-commons to the latest version 🚀 [\#82](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/82) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v4.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v4.0.0) (2018-12-17)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v3.0.0...v4.0.0)
 
 **Closed issues:**
@@ -64,6 +68,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update feathers-memory to the latest version 🚀 [\#81](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/81) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v3.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v3.0.0) (2018-09-21)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v2.0.2...v3.0.0)
 
 **Fixed bugs:**
@@ -84,6 +89,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update webpack-cli to the latest version 🚀 [\#69](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/69) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v2.0.2](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.2) (2018-04-13)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v2.0.1...v2.0.2)
 
 **Closed issues:**
@@ -95,6 +101,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Transpile all Feathers modules for distributable [\#67](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/67) ([daffl](https://github.com/daffl))
 
 ## [v2.0.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.1) (2018-03-07)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v2.0.0...v2.0.1)
 
 **Closed issues:**
@@ -110,6 +117,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update semistandard to the latest version 🚀 [\#61](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/61) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v2.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v2.0.0) (2017-12-03)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v1.1.0...v2.0.0)
 
 **Merged pull requests:**
@@ -122,6 +130,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update mocha to the latest version 🚀 [\#52](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/52) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v1.1.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v1.1.0) (2017-09-23)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v1.0.1...v1.1.0)
 
 **Merged pull requests:**
@@ -129,6 +138,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Use latest feathers-memory [\#51](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/51) ([daffl](https://github.com/daffl))
 
 ## [v1.0.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v1.0.1) (2017-09-06)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v1.0.0...v1.0.1)
 
 **Closed issues:**
@@ -148,6 +158,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - feathers-service-tests@0.9.1 breaks build 🚨 [\#34](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/34) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v1.0.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v1.0.0) (2016-11-11)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.5.0...v1.0.0)
 
 **Closed issues:**
@@ -164,6 +175,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update feathers-service-tests to version 0.8.0 🚀 [\#20](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/20) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v0.5.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.5.0) (2016-09-09)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.4.1...v0.5.0)
 
 **Closed issues:**
@@ -178,6 +190,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update mocha to version 3.0.0 🚀 [\#15](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/15) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v0.4.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.4.1) (2016-06-17)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.4.0...v0.4.1)
 
 **Merged pull requests:**
@@ -186,6 +199,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update babel-plugin-add-module-exports to version 0.2.0 🚀 [\#12](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/12) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v0.4.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.4.0) (2016-04-05)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.3.2...v0.4.0)
 
 **Merged pull requests:**
@@ -193,6 +207,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update to latest feathers-memory and remove dist [\#11](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/11) ([daffl](https://github.com/daffl))
 
 ## [v0.3.2](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.3.2) (2016-04-05)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.3.1...v0.3.2)
 
 **Merged pull requests:**
@@ -200,6 +215,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Update feathers-memory to version 0.7.0 🚀 [\#10](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/10) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
 
 ## [v0.3.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.3.1) (2016-03-27)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.3.0...v0.3.1)
 
 **Closed issues:**
@@ -211,6 +227,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - This is a fix for there not being a .get handler [\#9](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/9) ([jack-guy](https://github.com/jack-guy))
 
 ## [v0.3.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.3.0) (2016-03-14)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.2.1...v0.3.0)
 
 **Closed issues:**
@@ -222,6 +239,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Make behaviour the same as normal database services again [\#7](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/7) ([daffl](https://github.com/daffl))
 
 ## [v0.2.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.2.1) (2016-02-28)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.2.0...v0.2.1)
 
 **Fixed bugs:**
@@ -237,6 +255,7 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - throw an error if storage is not passed in explicitly. Closes \#3. [\#4](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/4) ([ekryski](https://github.com/ekryski))
 
 ## [v0.2.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.2.0) (2016-02-27)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.1.1...v0.2.0)
 
 **Merged pull requests:**
@@ -244,13 +263,17 @@ Updated the adapter to adhere to the new Dove principles. _This will not work wi
 - Bug fix [\#2](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/2) ([ekryski](https://github.com/ekryski))
 
 ## [v0.1.1](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.1.1) (2016-02-25)
+
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/v0.1.0...v0.1.1)
 
 ## [v0.1.0](https://github.com/feathersjs-ecosystem/feathers-localstorage/tree/v0.1.0) (2016-02-25)
+
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-localstorage/compare/ef187de4aa9f8f89e71c41b3a542053b36f03b86...v0.1.0)
+
 **Merged pull requests:**
 
 - Localstorage working [\#1](https://github.com/feathersjs-ecosystem/feathers-localstorage/pull/1) ([ekryski](https://github.com/ekryski))
 
 
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
