@@ -14,8 +14,6 @@ export class Service<T = any> extends MemoryService<T> {
 
   ready(): Promise<MemoryServiceStore>;
   flush(data?: any): any;
-  setStorage(store: MemoryServiceStore): MemoryServiceStore;
-  getStorage(id?: any): MemoryServiceStore | any;
 }
 
 declare const localstorage: ((config?: Partial<any>) => Service);
