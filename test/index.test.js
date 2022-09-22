@@ -205,6 +205,33 @@ describe('Feathers Localstorage Service', () => {
     done();
   });
 
+  it('clears memory when using strictStorage', () => {
+    const name = 'test-storage-8';
+
+    storage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
+
+    const app = feathers()
+      .use('/messages', service({ name, storage, strictStorage: true }));
+
+    return app.service('messages').find()
+      .then(() => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            assert.notStrictEqual(app.service('messages').store, null);
+            resolve();
+          }, 100);
+        });
+      })
+      .then(() => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            assert.strictEqual(app.service('messages').store, null);
+            resolve();
+          }, 150);
+        });
+      });
+  });
+
   testSuite(app, errors, 'people');
   testSuite(app, errors, 'people-customid', 'customid');
 });

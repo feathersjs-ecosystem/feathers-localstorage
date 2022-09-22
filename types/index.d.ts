@@ -6,6 +6,7 @@ import { Service as MemoryService, MemoryServiceOptions, MemoryServiceStore } fr
 export interface LocalStorageServiceOptions extends MemoryServiceOptions {
   name: string;
   throttle: number;
+  strictStorage: boolean;
 }
 
 export class Service<T = any> extends MemoryService<T> {

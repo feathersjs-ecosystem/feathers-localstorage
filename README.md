@@ -33,7 +33,7 @@ app.use('/messages', service({ storage, id, startId, name, store, paginate }));
 __Options:__
 
 - `storage` (**required**) - The local storage engine. You can pass in the browsers `window.localStorage`, React Native's `AsyncStorage` or a NodeJS localstorage module.
-- `throttle` (*optional*, default `200`) - The minimum time (ms) before in-memory data is written to `storage`. Data is only written if changed since last write.
+- `throttle` (*optional*, default `200`) - The minimum time (ms) before in-memory data is written to `storage`.
 - `id` (*optional*, default: `'id'`) - The name of the id field property.
 - `startId` (*optional*, default: `0`) - An id number to start with that will be incremented for new record.
 - `name` (*optional*, default: `'feathers'`) - The key to store data under in local or async storage.
@@ -43,6 +43,7 @@ __Options:__
 - `whitelist` (*optional*) - A list of additional query parameters to allow.
 - `multi` (*optional*) - Allow `create` with arrays and `update` and `remove` with `id` `null` to change multiple items. Can be `true` for all methods or an array of allowed methods (e.g. `[ 'remove', 'create' ]`).
 - `reuseKeys` (*optional*, default: `false`) Allow duplicate keys i.e. last definition wins. Mostly useful for demonstration and testing purposes.
+- `strictStorage` (*optional*, default false) - When false, all storage data is held in memory after initialization. When true, the storage data is get/set on each method.
 
 ## Example
 
