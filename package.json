@@ -56,14 +56,14 @@
     "lib": "lib"
   },
   "dependencies": {
-    "@feathersjs/memory": "^5.0.0-pre.26"
+    "@feathersjs/memory": "^5.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
-    "@feathersjs/adapter-tests": "^5.0.0-pre.26",
-    "@feathersjs/errors": "^5.0.0-pre.26",
-    "@feathersjs/feathers": "^5.0.0-pre.26",
+    "@feathersjs/adapter-tests": "^5.0.3",
+    "@feathersjs/errors": "^5.0.3",
+    "@feathersjs/feathers": "^5.0.3",
     "babel-loader": "^8.2.5",
     "browserify": "^17.0.0",
     "dtslint": "^4.2.1",
