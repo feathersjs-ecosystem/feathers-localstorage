@@ -31,7 +31,6 @@ const testSuite = adapterTests([
   '.patch + $select',
   '.patch + id + query',
   '.patch multiple',
-  '.patch multi query',
   '.patch + NotFound',
   '.create',
   '.create + $select',
@@ -67,7 +66,22 @@ const testSuite = adapterTests([
   '.get + id + query id',
   '.remove + id + query id',
   '.update + id + query id',
-  '.patch + id + query id'
+  '.patch + id + query id',
+  '.$get',
+  '.$find',
+  '.$create',
+  '.$update',
+  '.$patch',
+  '.$remove',
+  '.remove + multi no pagination',
+  '.update + query + NotFound',
+  '.patch multiple no pagination',
+  '.patch multi query same',
+  '.patch multi query changed',
+  '.patch + query + NotFound',
+  'params.adapter + paginate',
+  'params.adapter + multi',
+  '.find + paginate + query'
 ]);
 
 describe('Feathers Localstorage Service', () => {
@@ -82,6 +96,16 @@ describe('Feathers Localstorage Service', () => {
 
   it('is CommonJS compatible', () => {
     assert.strictEqual(typeof require('../lib'), 'function');
+  });
+
+  it('Sane defaults for option', () => {
+    try {
+      feathers()
+        .use('/people', service(null));
+    } catch (err) {
+      assert.strictEqual(err.name, 'TypeError', 'Option `storage` must not be null');
+      assert.strictEqual(err.message, 'Cannot read property \'name\' of null', 'Option `storage` must not be null');
+    }
   });
 
   it('loads and sets data in storage', () => {
@@ -172,7 +196,7 @@ describe('Feathers Localstorage Service', () => {
     done();
   });
 
-  it('accepts on name reuse with reuseKeys option set', done => {
+  it('accepts on name reuse with reuseKeys option', done => {
     const name = 'test-storage-6';
 
     let flag = true;

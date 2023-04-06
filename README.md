@@ -12,6 +12,8 @@
 $ npm install --save feathers-localstorage
 ```
 
+> __Important:__ This branch only works for FeathersJS Dove (v5). Please choose a non-pre release for other versions of FeathersJS.
+
 > __Important:__ `feathers-localstorage` implements the [Feathers Common database adapter API](https://docs.feathersjs.com/api/databases/common.html) and [querying syntax](https://docs.feathersjs.com/api/databases/querying.html).
 
 

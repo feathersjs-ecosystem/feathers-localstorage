@@ -1,7 +1,7 @@
 // TypeScript Version: 3.7
 // import { Params, Paginated, Id, NullableId } from '@feathersjs/feathers';
 
-import { Service as MemoryService, MemoryServiceOptions, MemoryServiceStore } from 'feathers-memory';
+import { MemoryService, MemoryServiceOptions, MemoryServiceStore } from '@feathersjs/memory';
 
 export interface LocalStorageServiceOptions extends MemoryServiceOptions {
   name: string;
@@ -11,7 +11,7 @@ export interface LocalStorageServiceOptions extends MemoryServiceOptions {
 export class Service<T = any> extends MemoryService<T> {
   constructor(options?: Partial<LocalStorageServiceOptions>);
 
-  ready(): Promise<MemoryServiceStore>;
+  ready(): Promise<MemoryServiceStore<T>>;
   flush(data?: any): any;
 }
 
