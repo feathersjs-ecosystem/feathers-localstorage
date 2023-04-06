@@ -42,7 +42,7 @@
     "release:minor": "npm run add-dist && npm version minor && npm publish",
     "release:major": "npm run add-dist && npm version major && npm publish",
     "lint": "semistandard --fix",
-    "mocha": "mocha --opts mocha.opts",
+    "mocha": "node_modules/mocha/bin/_mocha -- --recursive test/",
     "dtslint": "dtslint types",
     "test": "npm run lint && npm run dtslint && npm run coverage",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive test/"
