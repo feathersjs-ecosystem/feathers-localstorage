@@ -56,20 +56,20 @@
     "lib": "lib"
   },
   "dependencies": {
-    "@feathersjs/memory": "^5.0.3"
+    "@feathersjs/memory": "^5.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
-    "@feathersjs/adapter-tests": "^5.0.3",
-    "@feathersjs/errors": "^5.0.3",
-    "@feathersjs/feathers": "^5.0.3",
+    "@feathersjs/adapter-tests": "^5.0.4",
+    "@feathersjs/errors": "^5.0.4",
+    "@feathersjs/feathers": "^5.0.4",
     "babel-loader": "^8.2.5",
     "browserify": "^17.0.0",
     "dtslint": "^4.2.1",
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.3",
-    "mocha": "^10.0.0",
+    "mocha": "^10.2.0",
     "parallel-webpack": "^2.6.0",
     "semistandard": "^16.0.1",
     "shx": "^0.3.4",
