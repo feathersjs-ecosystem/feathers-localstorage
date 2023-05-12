@@ -6,7 +6,7 @@
 [![Dependency Status](https://img.shields.io/david/feathersjs-ecosystem/feathers-localstorage.svg?style=flat-square)](https://david-dm.org/feathersjs-ecosystem/feathers-localstorage)
 [![Download Status](https://img.shields.io/npm/dm/feathers-localstorage.svg?style=flat-square)](https://www.npmjs.com/package/feathers-localstorage)
 
-[feathers-localstorage](https://github.com/feathersjs-ecosystem/feathers-localstorage/) is a database service adapter that extends [feathers-memory](./memory.md) and stores data in [localStorage](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage) in the browser or [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage.html) in React Native.
+[feathers-localstorage](https://github.com/feathersjs-ecosystem/feathers-localstorage/) is a database service adapter that extends [feathers-memory](https://github.com/feathersjs/feathers/tree/dove/packages/memory) and stores data in [localStorage](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage) in the browser or [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage.html) in React Native.
 
 ```bash
 $ npm install --save feathers-localstorage
