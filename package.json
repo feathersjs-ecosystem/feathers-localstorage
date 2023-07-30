@@ -1,7 +1,7 @@
 {
   "name": "feathers-localstorage",
   "description": "A client side service based on @feathersjs/memory that persists to LocalStorage",
-  "version": "6.0.0-pre.1",
+  "version": "6.0.0-pre.2",
   "homepage": "https://github.com/feathersjs-ecosystem/feathers-localstorage",
   "main": "lib/",
   "types": "types/",
@@ -56,26 +56,24 @@
     "lib": "lib"
   },
   "dependencies": {
-    "@feathersjs/memory": "^5.0.0-pre.26"
+    "@feathersjs/memory": "^5.0.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.5",
-    "@babel/preset-env": "^7.18.2",
-    "@feathersjs/adapter-tests": "^5.0.0-pre.26",
-    "@feathersjs/errors": "^5.0.0-pre.26",
-    "@feathersjs/feathers": "^5.0.0-pre.26",
-    "babel-loader": "^8.2.5",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@feathersjs/adapter-tests": "^5.0.8",
+    "@feathersjs/errors": "^5.0.8",
+    "@feathersjs/feathers": "^5.0.8",
+    "babel-loader": "^9.1.3",
     "browserify": "^17.0.0",
     "dtslint": "^4.2.1",
     "istanbul": "^1.1.0-alpha.1",
     "localstorage-memory": "^1.0.3",
-    "mocha": "^10.0.0",
-    "parallel-webpack": "^2.6.0",
-    "semistandard": "^16.0.1",
+    "mocha": "^10.2.0",
+    "semistandard": "^17.0.0",
     "shx": "^0.3.4",
-    "ts-node": "^10.8.1",
-    "typescript": "^4.7.3",
-    "uglifyjs-webpack-plugin": "^2.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
     "webpack-merge": "^5.8.0"
