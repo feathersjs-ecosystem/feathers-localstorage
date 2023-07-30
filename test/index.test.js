@@ -98,10 +98,11 @@ describe('Feathers Localstorage Service', () => {
   it('Sane defaults for option', () => {
     try {
       feathers()
-        .use('/people', service(null));
+        .use('/people', service({ storage: null }));
     } catch (err) {
-      assert.strictEqual(err.name, 'TypeError', 'Option `storage` must not be null');
-      assert.strictEqual(err.message, 'Cannot read property \'name\' of null', 'Option `storage` must not be null');
+      console.log(err.message);
+      assert.strictEqual(err.name, 'Error');
+      assert.strictEqual(err.message, 'The `storage` option needs to be provided');
     }
   });
 
