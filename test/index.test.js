@@ -67,12 +67,9 @@ const testSuite = adapterTests([
   '.remove + id + query id',
   '.update + id + query id',
   '.patch + id + query id',
-  '.$get',
-  '.$find',
-  '.$create',
-  '.$update',
-  '.$patch',
-  '.$remove',
+  '.create ignores query',
+  '.find + $and',
+  '.find + $and + $or',
   '.remove + multi no pagination',
   '.update + query + NotFound',
   '.patch multiple no pagination',
@@ -111,54 +108,104 @@ describe('Feathers Localstorage Service', () => {
   it('loads and sets data in storage', () => {
     const name = 'test-storage-3';
 
-    storage.setItem(name, '{ "0": { "id": 0, "text": "test 0" } }');
+    storage.setItem(name, '{ "0": { "id": 0 , "text": "test 0" } }');
 
     const app = feathers()
-      .use('/messages', service({ name, storage }));
+      .use('/messages', service({ name, storage, throttle: 30 }));
     const messageService = app.service('messages');
 
-    return messageService.create({
-      text: 'testing 1'
-    }).then(() => messageService.create({
-      text: 'testing 2'
-    })).then(() => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const data = JSON.parse(storage.getItem(name));
-          assert.deepStrictEqual(data, {
-            0: {
-              id: 0,
-              text: 'test 0'
-            },
-            1: {
-              id: 1,
-              text: 'testing 1'
-            },
-            2: {
-              id: 2,
-              text: 'testing 2'
-            }
-          });
-          resolve();
-        }, 250);
+    return messageService.create({ text: 'testing 1' })
+      .then(() => messageService.create({ text: 'testing 2' }))
+      .then(() => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            const data = JSON.parse(storage.getItem(name));
+            assert.deepStrictEqual(data, {
+              0: {
+                id: 0,
+                text: 'test 0'
+              },
+              1: {
+                id: 1,
+                text: 'testing 1'
+              },
+              2: {
+                id: 2,
+                text: 'testing 2'
+              }
+            });
+            resolve();
+          }, messageService._throttle + 1);
+        });
+      }).then(() => {
+        return messageService.remove(0)
+          .then(() => messageService.remove(1));
+      }).then(() => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            const data = JSON.parse(storage.getItem(name));
+            assert.deepStrictEqual(data, {
+              2: {
+                id: 2,
+                text: 'testing 2'
+              }
+            });
+            resolve();
+          }, messageService._throttle + 1);
+        });
       });
-    }).then(() => {
-      return messageService.remove(0)
-        .then(() => messageService.remove(1));
-    }).then(() => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const data = JSON.parse(storage.getItem(name));
-          assert.deepStrictEqual(data, {
-            2: {
-              id: 2,
-              text: 'testing 2'
-            }
-          });
-          resolve();
-        }, 250);
+  });
+
+  it('initializes and sets data in storage', () => {
+    const name = 'test-storage-3a';
+
+    const store = { 0: { id: 0, text: 'test 0' } };
+    storage.setItem(name, '{ "9": { "id": 9 , "text": "test 9" } }'); // This should be cleared
+
+    const app = feathers()
+      .use('/messages', service({ name, storage, store, throttle: 30 }));
+    const messageService = app.service('messages');
+
+    return messageService.create({ text: 'testing 1' })
+      .then(() => messageService.create({ text: 'testing 2' }))
+      .then(() => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            const data = JSON.parse(storage.getItem(name));
+            assert.deepStrictEqual(data, {
+              0: {
+                id: 0,
+                text: 'test 0'
+              },
+              1: {
+                id: 1,
+                text: 'testing 1'
+              },
+              2: {
+                id: 2,
+                text: 'testing 2'
+              }
+            });
+            resolve();
+          }, messageService._throttle + 1);
+        });
+      }).then(() => {
+        return messageService.remove(0)
+          .then(() => messageService.remove(1));
+      }).then(() => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            const data = JSON.parse(storage.getItem(name));
+            assert.deepStrictEqual(data, {
+              2: {
+                id: 2,
+                text: 'testing 2'
+              }
+            });
+            resolve();
+          }, messageService._throttle + 1);
+        });
       });
-    });
   });
 
   it('gets data in storage', done => {

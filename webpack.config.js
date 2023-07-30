@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -38,15 +38,15 @@ const prod = {
   output: {
     filename: 'feathers-localstorage.min.js'
   },
-  plugins: [new UglifyJSPlugin({
+  plugins: [/* new UglifyJSPlugin({
     uglifyOptions: {
       ie8: false,
       comments: false,
       sourceMap: false
     }
-  }), new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production')
-  })]
+  }), */ new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })]
 };
 
 module.exports = merge(config, isProduction ? prod : dev);
